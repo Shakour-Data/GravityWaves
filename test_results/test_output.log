@@ -1,0 +1,36 @@
+Test run started\n\nRunning tests in tests/test_cache_manager.py\n----------------------------------------\n....                                                                     [100%]
+4 passed in 1.15s
+\nTests passed in tests/test_cache_manager.py\n\nRunning tests in tests/test_indicator_calculator.py\n----------------------------------------\n.....                                                                    [100%]
+5 passed in 1.57s
+\nTests passed in tests/test_indicator_calculator.py\n\nRunning tests in tests/test_indicator_calculator_edge_integration.py\n----------------------------------------\n...                                                                      [100%]
+3 passed in 1.61s
+\nTests passed in tests/test_indicator_calculator_edge_integration.py\n\nRunning tests in tests/test_log_manager.py\n----------------------------------------\n..                                                                       [100%]
+2 passed in 1.76s
+\nTests passed in tests/test_log_manager.py\n\nRunning tests in tests/test_log_manager_edge_integration.py\n----------------------------------------\n..                                                                       [100%]
+2 passed in 1.28s
+\nTests passed in tests/test_log_manager_edge_integration.py\n\nRunning tests in tests/test_market_analysis_system.py\n----------------------------------------\n.....                                                                    [100%]
+=============================== warnings summary ===============================
+tests/test_market_analysis_system.py::test_run_analysis_pipeline
+tests/test_market_analysis_system.py::test_run_analysis_pipeline
+tests/test_market_analysis_system.py::test_run_analysis_pipeline
+  /home/gravitywaves/GravityWaves/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+    _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+
+tests/test_market_analysis_system.py::test_run_analysis_pipeline
+tests/test_market_analysis_system.py::test_run_analysis_pipeline
+  /home/gravitywaves/GravityWaves/.venv/lib/python3.11/site-packages/sklearn/utils/validation.py:2732: UserWarning: X has feature names, but RandomForestClassifier was fitted without feature names
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 5 warnings in 17.19s
+\nTests passed in tests/test_market_analysis_system.py\n\nRunning tests in tests/test_market_analysis_system_edge_integration.py\n----------------------------------------\n...                                                                      [100%]
+3 passed in 2.76s
+\nTests passed in tests/test_market_analysis_system_edge_integration.py\n\nRunning tests in tests/test_market_data_fetcher.py\n----------------------------------------\n.....                                                                    [100%]
+5 passed in 1.97s
+\nTests passed in tests/test_market_data_fetcher.py\n\nRunning tests in tests/test_market_data_fetcher_edge_integration.py\n----------------------------------------\n...                                                                      [100%]
+3 passed in 2.45s
+\nTests passed in tests/test_market_data_fetcher_edge_integration.py\n\nRunning tests in tests/test_optimization_engine.py\n----------------------------------------\n....                                                                     [100%]
+4 passed in 2.67s
+\nTests passed in tests/test_optimization_engine.py\n\nRunning tests in tests/test_optimization_engine_edge_integration.py\n----------------------------------------\n...                                                                      [100%]
+3 passed in 2.54s
+\nTests passed in tests/test_optimization_engine_edge_integration.py\n\n
