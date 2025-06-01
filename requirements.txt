@@ -1,0 +1,16 @@
+Flask
+pandas
+numpy
+scikit-learn
+xgboost
+lightgbm
+catboost
+ta
+yfinance
+finpy_tse
+jdatetime
+rich
+slack-sdk
+deap
+scipy
+scikit-optimize
