@@ -592,6 +592,14 @@ class MarketAnalysisSystem:
             "indicator_info": {} # This will be populated by ReportDataCollector if optimization is done
         }
 
+        # Check for empty dataframe or missing 'close' column early
+        if df.empty:
+            self.log_manager.error("Input DataFrame is empty. Exiting pipeline.")
+            return {}
+        if 'close' not in df.columns:
+            self.log_manager.error("Input DataFrame missing required 'close' column. Exiting pipeline.")
+            return {}
+
         # Ensure column names are lowercase for consistency
         df.columns = df.columns.str.lower()
         self.log_manager.info("DataFrame columns converted to lowercase.")
