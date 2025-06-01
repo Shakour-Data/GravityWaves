@@ -465,7 +465,9 @@ class MarketAnalysisSystem:
             metrics['cross_val_rmse_std'] = np.std(np.sqrt(-cv_scores))
 
         metrics['best_params'] = best_params
-        metrics['best_model'] = best_model # Store the best model pipeline
+        # Remove the best_model from metrics before returning to avoid JSON serialization issues
+        if 'best_model' in metrics:
+            del metrics['best_model']
 
         self.log_manager.info(f"Evaluation for {model_name} complete. Metrics: {metrics}")
         return metrics
