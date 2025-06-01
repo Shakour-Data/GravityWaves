@@ -6,11 +6,11 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'app'))
 
 from app.services.log_manager import LogManager
-from app.market_analysis_system import MarketAnalysisSystem
-from app.indicator_calculator import IndicatorCalculator
-from app.market_data_fetcher import MarketDataFetcher
-from app.cache_manager import CacheManager
-from app.optimization_engine import IndicatorOptimizer
+from app.services.market_analysis_system import MarketAnalysisSystem
+from app.services.indicator_calculator import IndicatorCalculator
+from app.services.market_data_fetcher import MarketDataFetcher
+from app.services.cache_manager import CacheManager
+from app.services.optimization_engine import IndicatorOptimizer
 
 app = Flask(__name__)
 
