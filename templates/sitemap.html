@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Sitemap{% endblock %}
+
+{% block content %}
+<h1>Sitemap</h1>
+<ul>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li>Analysis Products
+        <ul>
+            <li><a href="{{ url_for('market_status_analysis') }}">Market Status Analysis</a></li>
+            <li><a href="{{ url_for('forecast_analysis') }}">Forecast Analysis</a></li>
+            <li><a href="{{ url_for('indicator_analysis') }}">Indicator Analysis</a></li>
+            <li><a href="{{ url_for('optimization_results') }}">Optimization Results</a></li>
+            <li><a href="{{ url_for('comparative_results') }}">Comparative Model Results</a></li>
+            <li><a href="{{ url_for('custom_analysis') }}">Custom Analysis</a></li>
+        </ul>
+    </li>
+    <li><a href="{{ url_for('about') }}">About Us</a></li>
+    <li><a href="{{ url_for('pricing') }}">Pricing</a></li>
+    <li><a href="{{ url_for('admin_settings') }}">Admin Settings</a></li>
+</ul>
+{% endblock %}

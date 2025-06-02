@@ -14,3 +14,4 @@ slack-sdk
 deap
 scipy
 scikit-optimize
+selenium

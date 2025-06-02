@@ -1,0 +1,89 @@
+06/02/25 12:47:11 INFO     LogManager initialized successfully.                 
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+06/02/25 12:47:13 INFO     LogManager initialized successfully.                 
+ * Debugger is active!
+ * Debugger PIN: 378-262-607
+127.0.0.1 - - [02/Jun/2025 12:47:42] "GET /forecast_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:47:42] "GET /static/css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:47:42] "GET /static/js/forecast_analysis.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:47:42] "GET /static/js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:47:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Jun/2025 12:47:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:47:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:47:42] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:47:43] "GET /market_status_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:47:43] "GET /static/js/market_status_analysis.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:47:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:47:43] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:47:43] "GET /forecast_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:47:43] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:47:43] "[36mGET /static/js/forecast_analysis.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:47:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ * Detected change in '/home/gravitywaves/GravityWaves/tests/test_selenium_ui.py', reloading
+ * Restarting with stat
+06/02/25 12:49:09 INFO     LogManager initialized successfully.                 
+ * Debugger is active!
+ * Debugger PIN: 378-262-607
+127.0.0.1 - - [02/Jun/2025 12:49:46] "GET /forecast_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:49:46] "GET /static/js/forecast_analysis.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:49:46] "GET /static/css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:49:46] "GET /static/js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:49:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Jun/2025 12:49:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:49:46] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:49:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:49:47] "GET /market_status_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:49:47] "GET /static/js/market_status_analysis.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:49:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:49:47] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:49:47] "GET /forecast_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:49:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:49:47] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:49:47] "[36mGET /static/js/forecast_analysis.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "GET /forecast_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "GET /static/css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "GET /static/js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "GET /static/js/forecast_analysis.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "GET /market_status_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "GET /static/js/market_status_analysis.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "GET /forecast_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 12:51:20] "[36mGET /static/js/forecast_analysis.js HTTP/1.1[0m" 304 -
+ * Detected change in '/home/gravitywaves/GravityWaves/tests/test_selenium_ui.py', reloading
+ * Restarting with stat
+06/02/25 12:57:44 INFO     LogManager initialized successfully.                 
+ * Debugger is active!
+ * Debugger PIN: 378-262-607
+ * Detected change in '/home/gravitywaves/GravityWaves/tests/test_selenium_ui.py', reloading
+ * Restarting with stat
+06/02/25 12:58:19 INFO     LogManager initialized successfully.                 
+ * Debugger is active!
+ * Debugger PIN: 378-262-607
+127.0.0.1 - - [02/Jun/2025 13:03:10] "GET /forecast_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "GET /static/css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "GET /static/js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "GET /static/js/forecast_analysis.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "GET /market_status_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "GET /static/js/market_status_analysis.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "GET /forecast_analysis HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2025 13:03:10] "[36mGET /static/js/forecast_analysis.js HTTP/1.1[0m" 304 -

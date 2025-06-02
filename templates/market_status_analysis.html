@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+
+{% block title %}Market Status Analysis{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/breadcrumb.css') }}">
+<div id="breadcrumb-container">
+    <p id="breadcrumb" class="breadcrumb-text"></p>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const breadcrumbElem = document.getElementById('breadcrumb');
+        let breadcrumbText = 'Home > Market Status Analysis';
+
+        breadcrumbElem.textContent = breadcrumbText;
+    });
+</script>
+
+<h1>Market Status Analysis</h1>
+
+<section id="current-status">
+    <h2>Current Market Status</h2>
+    <p>Market State: <span id="current-market-state">Loading...</span></p>
+    <p>Volatility Regime: <span id="current-volatility-regime">Loading...</span></p>
+</section>
+
+<section id="historical-distribution">
+    <h2>Historical Distribution</h2>
+    <canvas id="market-state-distribution-chart" width="600" height="300"></canvas>
+    <canvas id="volatility-regime-distribution-chart" width="600" height="300"></canvas>
+</section>
+
+<section id="time-series-charts">
+    <h2>Market State and Volatility Over Time</h2>
+    <canvas id="market-state-time-series-chart" width="800" height="400"></canvas>
+    <canvas id="volatility-regime-time-series-chart" width="800" height="400"></canvas>
+</section>
+
+<section id="forecast-chart">
+    <h2>Market State Forecast</h2>
+    <canvas id="market-state-forecast-chart" width="800" height="400"></canvas>
+</section>
+
+<section id="comparison-section">
+    <h2>Actual vs Forecast Comparison (Last 30 Days)</h2>
+    <canvas id="comparison-chart" width="800" height="400"></canvas>
+    <table id="comparison-table" border="1" style="width:100%; margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Actual Market State</th>
+                <th>Forecasted Market State</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be populated by JavaScript -->
+        </tbody>
+    </table>
+    <div id="comparison-stats" style="margin-top: 10px;">
+        <!-- Summary statistics will be shown here -->
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch data from backend API endpoints and render charts and tables
+
+    // Placeholder ticker and date range for demo; in real app, get from user input or global settings
+    const ticker = 'AAPL';
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setDate(endDate.getDate() - 60); // 60 days ago for historical data
+
+    // Utility function to format date as YYYY-MM-DD
+    function formatDate(date) {
+        return date.toISOString().split('T')[0];
+    }
+
+    // Fetch current market status
+    fetch('/api/market_status_analysis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            ticker: ticker,
+            analysis_date: formatDate(endDate),
+            timeframe: '1d'
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('current-market-state').textContent = data.current_market_state || 'N/A';
+        document.getElementById('current-volatility-regime').textContent = data.volatility_regime || 'N/A';
+    })
+    .catch(console.error);
+
+    // Fetch historical distribution and time series data (mocked here, replace with real API calls)
+    // For demo, generate random data
+    const marketStates = ['EXTREME_BULLISH', 'BULLISH', 'NEUTRAL', 'BEARISH', 'EXTREME_BEARISH'];
+    const volatilityRegimes = ['HIGH_VOLATILITY', 'MEDIUM_VOLATILITY', 'LOW_VOLATILITY', 'VERY_LOW_VOLATILITY'];
+
+    // Generate random counts for historical distribution
+    const marketStateCounts = {};
+    marketStates.forEach(state => marketStateCounts[state] = Math.floor(Math.random() * 100));
+    const volatilityRegimeCounts = {};
+    volatilityRegimes.forEach(state => volatilityRegimeCounts[state] = Math.floor(Math.random() * 100));
+
+    // Render pie charts for historical distribution
+    const marketStateDistCtx = document.getElementById('market-state-distribution-chart').getContext('2d');
+    new Chart(marketStateDistCtx, {
+        type: 'pie',
+        data: {
+            labels: Object.keys(marketStateCounts),
+            datasets: [{
+                data: Object.values(marketStateCounts),
+                backgroundColor: ['#4caf50', '#8bc34a', '#cddc39', '#ffc107', '#f44336']
+            }]
+        }
+    });
+
+    const volatilityRegimeDistCtx = document.getElementById('volatility-regime-distribution-chart').getContext('2d');
+    new Chart(volatilityRegimeDistCtx, {
+        type: 'pie',
+        data: {
+            labels: Object.keys(volatilityRegimeCounts),
+            datasets: [{
+                data: Object.values(volatilityRegimeCounts),
+                backgroundColor: ['#d32f2f', '#f57c00', '#fbc02d', '#388e3c']
+            }]
+        }
+    });
+
+    // Generate time series data for market state and volatility regime (mocked)
+    const dates = [];
+    for(let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+        dates.push(formatDate(new Date(d)));
+    }
+    const marketStateTimeSeries = dates.map(() => marketStates[Math.floor(Math.random() * marketStates.length)]);
+    const volatilityRegimeTimeSeries = dates.map(() => volatilityRegimes[Math.floor(Math.random() * volatilityRegimes.length)]);
+
+    // Helper to map states to numeric values for charting
+    const marketStateMap = {
+        'EXTREME_BULLISH': 5,
+        'BULLISH': 4,
+        'NEUTRAL': 3,
+        'BEARISH': 2,
+        'EXTREME_BEARISH': 1
+    };
+    const volatilityRegimeMap = {
+        'HIGH_VOLATILITY': 4,
+        'MEDIUM_VOLATILITY': 3,
+        'LOW_VOLATILITY': 2,
+        'VERY_LOW_VOLATILITY': 1
+    };
+
+    // Render line charts for time series
+    const marketStateTimeCtx = document.getElementById('market-state-time-series-chart').getContext('2d');
+    new Chart(marketStateTimeCtx, {
+        type: 'line',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Market State',
+                data: marketStateTimeSeries.map(s => marketStateMap[s]),
+                borderColor: '#4caf50',
+                fill: false,
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    ticks: {
+                        callback: function(value) {
+                            const labels = ['','EXTREME_BEARISH','BEARISH','NEUTRAL','BULLISH','EXTREME_BULLISH'];
+                            return labels[value] || value;
+                        },
+                        stepSize: 1,
+                        min: 1,
+                        max: 5
+                    }
+                }
+            }
+        }
+    });
+
+    const volatilityRegimeTimeCtx = document.getElementById('volatility-regime-time-series-chart').getContext('2d');
+    new Chart(volatilityRegimeTimeCtx, {
+        type: 'line',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Volatility Regime',
+                data: volatilityRegimeTimeSeries.map(s => volatilityRegimeMap[s]),
+                borderColor: '#f57c00',
+                fill: false,
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    ticks: {
+                        callback: function(value) {
+                            const labels = ['','VERY_LOW_VOLATILITY','LOW_VOLATILITY','MEDIUM_VOLATILITY','HIGH_VOLATILITY'];
+                            return labels[value] || value;
+                        },
+                        stepSize: 1,
+                        min: 1,
+                        max: 4
+                    }
+                }
+            }
+        }
+    });
+
+    // Forecast chart (mocked data)
+    const forecastDates = [];
+    for(let d = new Date(endDate); d <= new Date(endDate.getTime() + 10*24*60*60*1000); d.setDate(d.getDate() + 1)) {
+        forecastDates.push(formatDate(new Date(d)));
+    }
+    const forecastMarketStates = forecastDates.map(() => marketStates[Math.floor(Math.random() * marketStates.length)]);
+
+    const forecastCtx = document.getElementById('market-state-forecast-chart').getContext('2d');
+    new Chart(forecastCtx, {
+        type: 'line',
+        data: {
+            labels: forecastDates,
+            datasets: [{
+                label: 'Forecasted Market State',
+                data: forecastMarketStates.map(s => marketStateMap[s]),
+                borderColor: '#2196f3',
+                fill: false,
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    ticks: {
+                        callback: function(value) {
+                            const labels = ['','EXTREME_BEARISH','BEARISH','NEUTRAL','BULLISH','EXTREME_BULLISH'];
+                            return labels[value] || value;
+                        },
+                        stepSize: 1,
+                        min: 1,
+                        max: 5
+                    }
+                }
+            }
+        }
+    });
+
+    // Comparison chart and table (mocked data)
+    const comparisonDates = [];
+    for(let d = new Date(endDate.getTime() - 29*24*60*60*1000); d <= endDate; d.setDate(d.getDate() + 1)) {
+        comparisonDates.push(formatDate(new Date(d)));
+    }
+    const actualStates = comparisonDates.map(() => marketStates[Math.floor(Math.random() * marketStates.length)]);
+    const forecastedStates = comparisonDates.map(() => marketStates[Math.floor(Math.random() * marketStates.length)]);
+
+    const comparisonCtx = document.getElementById('comparison-chart').getContext('2d');
+    new Chart(comparisonCtx, {
+        type: 'bar',
+        data: {
+            labels: comparisonDates,
+            datasets: [
+                {
+                    label: 'Actual Market State',
+                    data: actualStates.map(s => marketStateMap[s]),
+                    backgroundColor: 'rgba(76, 175, 80, 0.5)'
+                },
+                {
+                    label: 'Forecasted Market State',
+                    data: forecastedStates.map(s => marketStateMap[s]),
+                    backgroundColor: 'rgba(33, 150, 243, 0.5)'
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    ticks: {
+                        callback: function(value) {
+                            const labels = ['','EXTREME_BEARISH','BEARISH','NEUTRAL','BULLISH','EXTREME_BULLISH'];
+                            return labels[value] || value;
+                        },
+                        stepSize: 1,
+                        min: 1,
+                        max: 5
+                    }
+                }
+            }
+        }
+    });
+
+    // Populate comparison table
+    const comparisonTableBody = document.querySelector('#comparison-table tbody');
+    comparisonTableBody.innerHTML = '';
+    for(let i = 0; i < comparisonDates.length; i++) {
+        const row = document.createElement('tr');
+        const dateCell = document.createElement('td');
+        dateCell.textContent = comparisonDates[i];
+        const actualCell = document.createElement('td');
+        actualCell.textContent = actualStates[i];
+        const forecastCell = document.createElement('td');
+        forecastCell.textContent = forecastedStates[i];
+        row.appendChild(dateCell);
+        row.appendChild(actualCell);
+        row.appendChild(forecastCell);
+        comparisonTableBody.appendChild(row);
+    }
+
+    // Calculate and display summary statistics
+    let correctCount = 0;
+    for(let i = 0; i < actualStates.length; i++) {
+        if(actualStates[i] === forecastedStates[i]) {
+            correctCount++;
+        }
+    }
+    const accuracy = (correctCount / actualStates.length) * 100;
+    document.getElementById('comparison-stats').textContent = `Forecast Accuracy over last 30 days: ${accuracy.toFixed(2)}%`;
+
+});
+</script>
+{% endblock %}

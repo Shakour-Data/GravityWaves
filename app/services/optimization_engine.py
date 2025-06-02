@@ -288,7 +288,9 @@ class IndicatorOptimizer:
         Custom mutation operator for DEAP.
         Mutates individual genes (parameter choices) based on their type (discrete/continuous).
         """
+        mutated = individual.copy()
         gene_idx = 0
+        mutated_flag = False
         for indicator_instance_def in self.indicator_params:
             indicator_name = indicator_instance_def["name"]
             
@@ -300,17 +302,56 @@ class IndicatorOptimizer:
                 actual_param_values = indicator_instance_def.get(f"{param_name}_choices", param_values_def)
 
                 if random.random() < indpb:
+                    mutated_flag = True
                     if isinstance(actual_param_values, list):
                         if actual_param_values:
-                            individual[gene_idx] = random.randint(0, len(actual_param_values) - 1)
+                            mutated[gene_idx] = random.randint(0, len(actual_param_values) - 1)
                         else:
                             self.log_manager.warning(f"Cannot mutate {indicator_name}-{param_name}: empty choices list.")
                     elif isinstance(actual_param_values, tuple) and len(actual_param_values) == 2:
-                        current_val = individual[gene_idx]
+                        current_val = mutated[gene_idx]
                         perturbation = random.uniform(-0.1, 0.1)
-                        individual[gene_idx] = max(0.0, min(1.0, current_val + perturbation))
+                        mutated[gene_idx] = max(0.0, min(1.0, current_val + perturbation))
                 gene_idx += 1
-        return individual,
+        if not mutated_flag:
+            # Force mutate at least one gene if none mutated due to probability
+            if len(mutated) > 0:
+                idx_to_mutate = random.randint(0, len(mutated) - 1)
+                # Fix: Ensure actual_param_values is correctly retrieved for the gene to mutate
+                # We need to find the indicator instance and param corresponding to idx_to_mutate
+                gene_counter = 0
+                for indicator_instance_def in self.indicator_params:
+                    indicator_name = indicator_instance_def["name"]
+                    if indicator_name in self.completely_excluded_indicators:
+                        continue
+                    param_defs = OPTIMIZABLE_INDICATOR_PARAMS_DEFINITIONS.get(indicator_name, {})
+                    for param_name, param_values_def in param_defs.items():
+                        actual_param_values = indicator_instance_def.get(f"{param_name}_choices", param_values_def)
+                        if gene_counter == idx_to_mutate:
+                            if isinstance(actual_param_values, list) and actual_param_values:
+                                new_val = (mutated[idx_to_mutate] + 1) % len(actual_param_values)
+                                if new_val == mutated[idx_to_mutate]:
+                                    new_val = (mutated[idx_to_mutate] + 2) % len(actual_param_values)
+                                mutated[idx_to_mutate] = new_val
+                                # Ensure mutation actually changes the gene
+                                if mutated[idx_to_mutate] == mutated[idx_to_mutate]:
+                                    mutated[idx_to_mutate] = (mutated[idx_to_mutate] + 3) % len(actual_param_values)
+                            elif isinstance(actual_param_values, tuple) and len(actual_param_values) == 2:
+                                current_val = mutated[idx_to_mutate]
+                                perturbation = random.uniform(0.1, 0.3)
+                                new_val = max(0.0, min(1.0, current_val + perturbation))
+                                if new_val == mutated[idx_to_mutate]:
+                                    new_val = max(0.0, min(1.0, current_val - perturbation))
+                                mutated[idx_to_mutate] = new_val
+                            else:
+                                # Fallback: just flip between 0 and 1
+                                mutated[idx_to_mutate] = 1 - mutated[idx_to_mutate]
+                            break
+                        gene_counter += 1
+                else:
+                    # If not found, fallback to increment mod 2
+                    mutated[idx_to_mutate] = (mutated[idx_to_mutate] + 1) % 2
+        return mutated,
 
     def _objective_function(self, individual_genes: List[Any]) -> float:
         """
@@ -360,7 +401,7 @@ class IndicatorOptimizer:
             temp_basic_config = self.base_basic_config.copy()
             temp_basic_config["ticker"] = self.ticker # Access self.ticker here
             temp_basic_config["selected_models"] = self.allowed_models
-            temp_basic_config["primary_prediction_model"] = self.allowed_models[0] if self.allowed_models else "RandomForestClassifier"
+            # Removed primary_prediction_model as per user request
             temp_basic_config["horizon"] = self.target_horizon
             # Ensure other necessary basic_config items are present, providing defaults if not
             temp_basic_config.setdefault("data_source", "Yahoo")

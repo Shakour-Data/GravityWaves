@@ -1,764 +1,590 @@
-[2025-06-01 14:08:38] INFO     LogManager initialized successfully.
-[2025-06-01 14:08:38] INFO     IndicatorCalculator initialized
-[2025-06-01 14:08:38] INFO     LogManager initialized successfully.
-[2025-06-01 14:08:38] INFO     IndicatorCalculator initialized
-[2025-06-01 14:08:38] INFO     LogManager initialized successfully.
-[2025-06-01 14:08:38] INFO     IndicatorCalculator initialized
-[2025-06-01 14:08:38] WARNING  Input data is empty for RSI calculation. Skipping.
-[2025-06-01 14:08:38] INFO     LogManager initialized successfully.
-[2025-06-01 14:08:38] INFO     IndicatorCalculator initialized
-[2025-06-01 14:08:38] INFO     Calculating indicator instance: SMA_window_3 with parameters: {'window': 3}
-[2025-06-01 14:08:38] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 14:08:38] INFO     LogManager initialized successfully.
-[2025-06-01 14:08:38] INFO     IndicatorCalculator initialized
-[2025-06-01 14:08:38] WARNING  Unknown indicator type: UNKNOWN
-[2025-06-01 14:08:39] INFO     LogManager initialized successfully.
-[2025-06-01 14:08:39] INFO     IndicatorCalculator initialized
-[2025-06-01 14:08:39] WARNING  Input DataFrame is empty, cannot calculate indicators.
-[2025-06-01 14:08:39] INFO     LogManager initialized successfully.
-[2025-06-01 14:08:39] INFO     IndicatorCalculator initialized
-[2025-06-01 14:08:39] INFO     Calculating indicator instance: INVALID_INDICATOR_window_3 with parameters: {'window': 3}
-[2025-06-01 14:08:39] WARNING  Unknown indicator type: INVALID_INDICATOR
-[2025-06-01 14:08:39] ERROR    Failed to calculate INVALID_INDICATOR instance INVALID_INDICATOR_window_3. Skipping.
-[2025-06-01 14:08:39] WARNING  No indicators were successfully calculated for the given specs.
-[2025-06-01 14:08:39] INFO     LogManager initialized successfully.
-[2025-06-01 14:08:39] INFO     IndicatorCalculator initialized
-[2025-06-01 14:08:39] INFO     Calculating indicator instance: SMA_window_[3,5] with parameters: {'window': [3, 5]}
-[2025-06-01 14:08:39] INFO     Calculating indicator instance: EMA_window_3 with parameters: {'window': 3}
-[2025-06-01 14:08:39] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 14:12:29] INFO     LogManager initialized successfully.
-[2025-06-01 14:12:29] INFO     IndicatorCalculator initialized
-[2025-06-01 14:12:29] INFO     LogManager initialized successfully.
-[2025-06-01 14:12:29] INFO     IndicatorCalculator initialized
-[2025-06-01 14:12:29] INFO     LogManager initialized successfully.
-[2025-06-01 14:12:29] INFO     IndicatorCalculator initialized
-[2025-06-01 14:12:29] WARNING  Input data is empty for RSI calculation. Skipping.
-[2025-06-01 14:12:29] INFO     LogManager initialized successfully.
-[2025-06-01 14:12:29] INFO     IndicatorCalculator initialized
-[2025-06-01 14:12:29] INFO     Calculating indicator instance: SMA_window_3 with parameters: {'window': 3}
-[2025-06-01 14:12:29] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 14:12:29] INFO     LogManager initialized successfully.
-[2025-06-01 14:12:29] INFO     IndicatorCalculator initialized
-[2025-06-01 14:12:29] WARNING  Unknown indicator type: UNKNOWN
-[2025-06-01 14:12:30] INFO     LogManager initialized successfully.
-[2025-06-01 14:12:30] INFO     IndicatorCalculator initialized
-[2025-06-01 14:12:30] WARNING  Input DataFrame is empty, cannot calculate indicators.
-[2025-06-01 14:12:30] INFO     LogManager initialized successfully.
-[2025-06-01 14:12:30] INFO     IndicatorCalculator initialized
-[2025-06-01 14:12:30] INFO     Calculating indicator instance: INVALID_INDICATOR_window_3 with parameters: {'window': 3}
-[2025-06-01 14:12:30] WARNING  Unknown indicator type: INVALID_INDICATOR
-[2025-06-01 14:12:30] ERROR    Failed to calculate INVALID_INDICATOR instance INVALID_INDICATOR_window_3. Skipping.
-[2025-06-01 14:12:30] WARNING  No indicators were successfully calculated for the given specs.
-[2025-06-01 14:12:30] INFO     LogManager initialized successfully.
-[2025-06-01 14:12:30] INFO     IndicatorCalculator initialized
-[2025-06-01 14:12:30] INFO     Calculating indicator instance: SMA_window_[3,5] with parameters: {'window': [3, 5]}
-[2025-06-01 14:12:30] INFO     Calculating indicator instance: EMA_window_3 with parameters: {'window': 3}
-[2025-06-01 14:12:30] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 16:51:33] INFO     LogManager initialized successfully.
-[2025-06-01 16:51:33] INFO     IndicatorCalculator initialized
-[2025-06-01 16:51:33] INFO     LogManager initialized successfully.
-[2025-06-01 16:51:33] INFO     IndicatorCalculator initialized
-[2025-06-01 16:51:33] INFO     LogManager initialized successfully.
-[2025-06-01 16:51:33] INFO     IndicatorCalculator initialized
-[2025-06-01 16:51:33] WARNING  Input data is empty for RSI calculation. Skipping.
-[2025-06-01 16:51:33] INFO     LogManager initialized successfully.
-[2025-06-01 16:51:33] INFO     IndicatorCalculator initialized
-[2025-06-01 16:51:33] INFO     Calculating indicator instance: SMA_window_3 with parameters: {'window': 3}
-[2025-06-01 16:51:33] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 16:51:33] INFO     LogManager initialized successfully.
-[2025-06-01 16:51:33] INFO     IndicatorCalculator initialized
-[2025-06-01 16:51:33] WARNING  Unknown indicator type: UNKNOWN
-[2025-06-01 16:51:34] INFO     LogManager initialized successfully.
-[2025-06-01 16:51:34] INFO     IndicatorCalculator initialized
-[2025-06-01 16:51:34] WARNING  Input DataFrame is empty, cannot calculate indicators.
-[2025-06-01 16:51:34] INFO     LogManager initialized successfully.
-[2025-06-01 16:51:34] INFO     IndicatorCalculator initialized
-[2025-06-01 16:51:34] INFO     Calculating indicator instance: INVALID_INDICATOR_window_3 with parameters: {'window': 3}
-[2025-06-01 16:51:34] WARNING  Unknown indicator type: INVALID_INDICATOR
-[2025-06-01 16:51:34] ERROR    Failed to calculate INVALID_INDICATOR instance INVALID_INDICATOR_window_3. Skipping.
-[2025-06-01 16:51:34] WARNING  No indicators were successfully calculated for the given specs.
-[2025-06-01 16:51:34] INFO     LogManager initialized successfully.
-[2025-06-01 16:51:34] INFO     IndicatorCalculator initialized
-[2025-06-01 16:51:34] INFO     Calculating indicator instance: SMA_window_[3,5] with parameters: {'window': [3, 5]}
-[2025-06-01 16:51:34] INFO     Calculating indicator instance: EMA_window_3 with parameters: {'window': 3}
-[2025-06-01 16:51:34] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 16:56:46] INFO     LogManager initialized successfully.
-[2025-06-01 16:56:46] INFO     IndicatorCalculator initialized
-[2025-06-01 16:56:46] INFO     LogManager initialized successfully.
-[2025-06-01 16:56:46] INFO     IndicatorCalculator initialized
-[2025-06-01 16:56:46] INFO     LogManager initialized successfully.
-[2025-06-01 16:56:46] INFO     IndicatorCalculator initialized
-[2025-06-01 16:56:46] WARNING  Input data is empty for RSI calculation. Skipping.
-[2025-06-01 16:56:46] INFO     LogManager initialized successfully.
-[2025-06-01 16:56:46] INFO     IndicatorCalculator initialized
-[2025-06-01 16:56:46] INFO     Calculating indicator instance: SMA_window_3 with parameters: {'window': 3}
-[2025-06-01 16:56:46] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 16:56:46] INFO     LogManager initialized successfully.
-[2025-06-01 16:56:46] INFO     IndicatorCalculator initialized
-[2025-06-01 16:56:46] WARNING  Unknown indicator type: UNKNOWN
-[2025-06-01 16:56:48] INFO     LogManager initialized successfully.
-[2025-06-01 16:56:48] INFO     IndicatorCalculator initialized
-[2025-06-01 16:56:48] WARNING  Input DataFrame is empty, cannot calculate indicators.
-[2025-06-01 16:56:48] INFO     LogManager initialized successfully.
-[2025-06-01 16:56:48] INFO     IndicatorCalculator initialized
-[2025-06-01 16:56:48] INFO     Calculating indicator instance: INVALID_INDICATOR_window_3 with parameters: {'window': 3}
-[2025-06-01 16:56:48] WARNING  Unknown indicator type: INVALID_INDICATOR
-[2025-06-01 16:56:48] ERROR    Failed to calculate INVALID_INDICATOR instance INVALID_INDICATOR_window_3. Skipping.
-[2025-06-01 16:56:48] WARNING  No indicators were successfully calculated for the given specs.
-[2025-06-01 16:56:48] INFO     LogManager initialized successfully.
-[2025-06-01 16:56:48] INFO     IndicatorCalculator initialized
-[2025-06-01 16:56:48] INFO     Calculating indicator instance: SMA_window_[3,5] with parameters: {'window': [3, 5]}
-[2025-06-01 16:56:48] INFO     Calculating indicator instance: EMA_window_3 with parameters: {'window': 3}
-[2025-06-01 16:56:48] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 17:00:20] INFO     LogManager initialized successfully.
-[2025-06-01 17:00:20] INFO     IndicatorCalculator initialized
-[2025-06-01 17:00:20] INFO     LogManager initialized successfully.
-[2025-06-01 17:00:20] INFO     IndicatorCalculator initialized
-[2025-06-01 17:00:20] INFO     LogManager initialized successfully.
-[2025-06-01 17:00:20] INFO     IndicatorCalculator initialized
-[2025-06-01 17:00:20] WARNING  Input data is empty for RSI calculation. Skipping.
-[2025-06-01 17:00:20] INFO     LogManager initialized successfully.
-[2025-06-01 17:00:20] INFO     IndicatorCalculator initialized
-[2025-06-01 17:00:20] INFO     Calculating indicator instance: SMA_window_3 with parameters: {'window': 3}
-[2025-06-01 17:00:20] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 17:00:20] INFO     LogManager initialized successfully.
-[2025-06-01 17:00:20] INFO     IndicatorCalculator initialized
-[2025-06-01 17:00:20] WARNING  Unknown indicator type: UNKNOWN
-[2025-06-01 17:00:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:00:21] INFO     IndicatorCalculator initialized
-[2025-06-01 17:00:21] WARNING  Input DataFrame is empty, cannot calculate indicators.
-[2025-06-01 17:00:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:00:21] INFO     IndicatorCalculator initialized
-[2025-06-01 17:00:21] INFO     Calculating indicator instance: INVALID_INDICATOR_window_3 with parameters: {'window': 3}
-[2025-06-01 17:00:21] WARNING  Unknown indicator type: INVALID_INDICATOR
-[2025-06-01 17:00:21] ERROR    Failed to calculate INVALID_INDICATOR instance INVALID_INDICATOR_window_3. Skipping.
-[2025-06-01 17:00:21] WARNING  No indicators were successfully calculated for the given specs.
-[2025-06-01 17:00:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:00:21] INFO     IndicatorCalculator initialized
-[2025-06-01 17:00:21] INFO     Calculating indicator instance: SMA_window_[3,5] with parameters: {'window': [3, 5]}
-[2025-06-01 17:00:21] INFO     Calculating indicator instance: EMA_window_3 with parameters: {'window': 3}
-[2025-06-01 17:00:21] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 17:01:27] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:27] INFO     IndicatorCalculator initialized
-[2025-06-01 17:01:27] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:27] INFO     IndicatorCalculator initialized
-[2025-06-01 17:01:27] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:27] INFO     IndicatorCalculator initialized
-[2025-06-01 17:01:27] WARNING  Input data is empty for RSI calculation. Skipping.
-[2025-06-01 17:01:27] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:27] INFO     IndicatorCalculator initialized
-[2025-06-01 17:01:27] INFO     Calculating indicator instance: SMA_window_3 with parameters: {'window': 3}
-[2025-06-01 17:01:27] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 17:01:27] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:27] INFO     IndicatorCalculator initialized
-[2025-06-01 17:01:27] WARNING  Unknown indicator type: UNKNOWN
-[2025-06-01 17:01:28] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:28] INFO     IndicatorCalculator initialized
-[2025-06-01 17:01:28] WARNING  Input DataFrame is empty, cannot calculate indicators.
-[2025-06-01 17:01:28] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:28] INFO     IndicatorCalculator initialized
-[2025-06-01 17:01:28] INFO     Calculating indicator instance: INVALID_INDICATOR_window_3 with parameters: {'window': 3}
-[2025-06-01 17:01:28] WARNING  Unknown indicator type: INVALID_INDICATOR
-[2025-06-01 17:01:28] ERROR    Failed to calculate INVALID_INDICATOR instance INVALID_INDICATOR_window_3. Skipping.
-[2025-06-01 17:01:28] WARNING  No indicators were successfully calculated for the given specs.
-[2025-06-01 17:01:28] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:28] INFO     IndicatorCalculator initialized
-[2025-06-01 17:01:28] INFO     Calculating indicator instance: SMA_window_[3,5] with parameters: {'window': [3, 5]}
-[2025-06-01 17:01:28] INFO     Calculating indicator instance: EMA_window_3 with parameters: {'window': 3}
-[2025-06-01 17:01:28] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 17:01:33] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:33] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:01:33] INFO     Daily return calculated.
-[2025-06-01 17:01:33] INFO     Market state and volatility regime classified.
-[2025-06-01 17:01:33] INFO     Starting feature engineering.
-[2025-06-01 17:01:33] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:01:33] INFO     Feature engineering complete.
-[2025-06-01 17:01:33] INFO     Preparing data for machine learning.
-[2025-06-01 17:01:33] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:01:33] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:01:33] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:33] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:01:33] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:33] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:01:33] INFO     DataFrame columns converted to lowercase.
-[2025-06-01 17:01:33] INFO     Daily return calculated.
-[2025-06-01 17:01:33] INFO     Market state and volatility regime classified.
-[2025-06-01 17:01:33] INFO     Starting feature engineering.
-[2025-06-01 17:01:33] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:01:33] INFO     Feature engineering complete.
-[2025-06-01 17:01:33] INFO     Preparing data for machine learning.
-[2025-06-01 17:01:33] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:01:33] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:01:33] INFO     Processing model RandomForestClassifier for horizon 1.
-[2025-06-01 17:01:33] INFO     Training and evaluating RandomForestClassifier for classification task.
-[2025-06-01 17:01:43] INFO     Best parameters for RandomForestClassifier: {'model__max_depth': 3, 'model__min_samples_leaf': 4, 'model__min_samples_split': 3, 'model__n_estimators': 71}
-[2025-06-01 17:01:44] INFO     Evaluation for RandomForestClassifier complete. Metrics: {'balanced_accuracy': np.float64(0.2), 'f1_weighted': 0.5673600988026942, 'classification_report': {'0': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 161.0}, '1': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 150.0}, '2': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 24.0}, '3': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 30.0}, '4': {'precision': 0.6930193439865433, 'recall': 1.0, 'f1-score': 0.8186785891703925, 'support': 824.0}, 'accuracy': 0.6930193439865433, 'macro avg': {'precision': 0.13860386879730865, 'recall': 0.2, 'f1-score': 0.1637357178340785, 'support': 1189.0}, 'weighted avg': {'precision': 0.4802758111395388, 'recall': 0.6930193439865433, 'f1-score': 0.5673600988026942, 'support': 1189.0}}, 'confusion_matrix': [[0, 0, 0, 0, 161], [0, 0, 0, 0, 150], [0, 0, 0, 0, 24], [0, 0, 0, 0, 30], [0, 0, 0, 0, 824]], 'cross_val_accuracy_mean': np.float64(0.20972413793103448), 'cross_val_accuracy_std': np.float64(0.020145015286757318), 'best_params': {'model__max_depth': 3, 'model__min_samples_leaf': 4, 'model__min_samples_split': 3, 'model__n_estimators': 71}, 'best_model': Pipeline(steps=[('scaler', StandardScaler()),
-                ('model',
-                 RandomForestClassifier(max_depth=3, min_samples_leaf=4,
-                                        min_samples_split=3, n_estimators=71,
-                                        random_state=42))])}
-[2025-06-01 17:01:44] INFO     Calculating feature importances.
-[2025-06-01 17:01:45] WARNING  Total feature importance is zero. Cannot normalize to percentage.
-[2025-06-01 17:01:45] INFO     Feature importances calculated successfully.
-[2025-06-01 17:01:45] INFO     Forecasting future market states.
-[2025-06-01 17:01:45] INFO     Market state forecasting complete.
-[2025-06-01 17:01:45] INFO     Current market state determined.
-[2025-06-01 17:01:45] INFO     Full market analysis pipeline complete.
-[2025-06-01 17:01:48] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:48] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:01:49] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:49] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:01:49] INFO     DataFrame columns converted to lowercase.
-[2025-06-01 17:01:49] INFO     LogManager initialized successfully.
-[2025-06-01 17:01:49] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:01:49] INFO     Daily return calculated.
-[2025-06-01 17:01:49] INFO     Market state and volatility regime classified.
-[2025-06-01 17:01:49] INFO     Starting feature engineering.
-[2025-06-01 17:01:49] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:01:49] INFO     Feature engineering complete.
-[2025-06-01 17:01:49] INFO     Preparing data for machine learning.
-[2025-06-01 17:01:49] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:01:49] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:12:56] INFO     LogManager initialized successfully.
-[2025-06-01 17:12:56] INFO     IndicatorCalculator initialized
-[2025-06-01 17:12:56] INFO     LogManager initialized successfully.
-[2025-06-01 17:12:56] INFO     IndicatorCalculator initialized
-[2025-06-01 17:12:56] INFO     LogManager initialized successfully.
-[2025-06-01 17:12:56] INFO     IndicatorCalculator initialized
-[2025-06-01 17:12:56] WARNING  Input data is empty for RSI calculation. Skipping.
-[2025-06-01 17:12:56] INFO     LogManager initialized successfully.
-[2025-06-01 17:12:56] INFO     IndicatorCalculator initialized
-[2025-06-01 17:12:56] INFO     Calculating indicator instance: SMA_window_3 with parameters: {'window': 3}
-[2025-06-01 17:12:56] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 17:12:56] INFO     LogManager initialized successfully.
-[2025-06-01 17:12:56] INFO     IndicatorCalculator initialized
-[2025-06-01 17:12:56] WARNING  Unknown indicator type: UNKNOWN
-[2025-06-01 17:12:57] INFO     LogManager initialized successfully.
-[2025-06-01 17:12:57] INFO     IndicatorCalculator initialized
-[2025-06-01 17:12:57] WARNING  Input DataFrame is empty, cannot calculate indicators.
-[2025-06-01 17:12:57] INFO     LogManager initialized successfully.
-[2025-06-01 17:12:57] INFO     IndicatorCalculator initialized
-[2025-06-01 17:12:57] INFO     Calculating indicator instance: INVALID_INDICATOR_window_3 with parameters: {'window': 3}
-[2025-06-01 17:12:57] WARNING  Unknown indicator type: INVALID_INDICATOR
-[2025-06-01 17:12:57] ERROR    Failed to calculate INVALID_INDICATOR instance INVALID_INDICATOR_window_3. Skipping.
-[2025-06-01 17:12:57] WARNING  No indicators were successfully calculated for the given specs.
-[2025-06-01 17:12:57] INFO     LogManager initialized successfully.
-[2025-06-01 17:12:57] INFO     IndicatorCalculator initialized
-[2025-06-01 17:12:57] INFO     Calculating indicator instance: SMA_window_[3,5] with parameters: {'window': [3, 5]}
-[2025-06-01 17:12:57] INFO     Calculating indicator instance: EMA_window_3 with parameters: {'window': 3}
-[2025-06-01 17:12:57] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 17:13:02] INFO     LogManager initialized successfully.
-[2025-06-01 17:13:02] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:13:02] INFO     Daily return calculated.
-[2025-06-01 17:13:02] INFO     Market state and volatility regime classified.
-[2025-06-01 17:13:02] INFO     Starting feature engineering.
-[2025-06-01 17:13:02] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:13:02] INFO     Feature engineering complete.
-[2025-06-01 17:13:02] INFO     Preparing data for machine learning.
-[2025-06-01 17:13:02] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:13:02] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:13:02] INFO     LogManager initialized successfully.
-[2025-06-01 17:13:02] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:13:02] INFO     LogManager initialized successfully.
-[2025-06-01 17:13:02] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:13:02] INFO     DataFrame columns converted to lowercase.
-[2025-06-01 17:13:02] INFO     Daily return calculated.
-[2025-06-01 17:13:02] INFO     Market state and volatility regime classified.
-[2025-06-01 17:13:02] INFO     Starting feature engineering.
-[2025-06-01 17:13:02] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:13:02] INFO     Feature engineering complete.
-[2025-06-01 17:13:02] INFO     Preparing data for machine learning.
-[2025-06-01 17:13:02] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:13:02] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:13:02] INFO     Processing model RandomForestClassifier for horizon 1.
-[2025-06-01 17:13:02] INFO     Training and evaluating RandomForestClassifier for classification task.
-[2025-06-01 17:13:12] INFO     Best parameters for RandomForestClassifier: {'model__max_depth': 3, 'model__min_samples_leaf': 4, 'model__min_samples_split': 3, 'model__n_estimators': 71}
-[2025-06-01 17:13:13] INFO     Evaluation for RandomForestClassifier complete. Metrics: {'balanced_accuracy': np.float64(0.2), 'f1_weighted': 0.5673600988026942, 'classification_report': {'0': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 161.0}, '1': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 150.0}, '2': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 24.0}, '3': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 30.0}, '4': {'precision': 0.6930193439865433, 'recall': 1.0, 'f1-score': 0.8186785891703925, 'support': 824.0}, 'accuracy': 0.6930193439865433, 'macro avg': {'precision': 0.13860386879730865, 'recall': 0.2, 'f1-score': 0.1637357178340785, 'support': 1189.0}, 'weighted avg': {'precision': 0.4802758111395388, 'recall': 0.6930193439865433, 'f1-score': 0.5673600988026942, 'support': 1189.0}}, 'confusion_matrix': [[0, 0, 0, 0, 161], [0, 0, 0, 0, 150], [0, 0, 0, 0, 24], [0, 0, 0, 0, 30], [0, 0, 0, 0, 824]], 'cross_val_accuracy_mean': np.float64(0.20972413793103448), 'cross_val_accuracy_std': np.float64(0.020145015286757318), 'best_params': {'model__max_depth': 3, 'model__min_samples_leaf': 4, 'model__min_samples_split': 3, 'model__n_estimators': 71}, 'best_model': Pipeline(steps=[('scaler', StandardScaler()),
-                ('model',
-                 RandomForestClassifier(max_depth=3, min_samples_leaf=4,
-                                        min_samples_split=3, n_estimators=71,
-                                        random_state=42))])}
-[2025-06-01 17:13:13] INFO     Calculating feature importances.
-[2025-06-01 17:13:14] WARNING  Total feature importance is zero. Cannot normalize to percentage.
-[2025-06-01 17:13:14] INFO     Feature importances calculated successfully.
-[2025-06-01 17:13:14] INFO     Forecasting future market states.
-[2025-06-01 17:13:14] INFO     Market state forecasting complete.
-[2025-06-01 17:13:14] INFO     Current market state determined.
-[2025-06-01 17:13:14] INFO     Full market analysis pipeline complete.
-[2025-06-01 17:13:18] INFO     LogManager initialized successfully.
-[2025-06-01 17:13:18] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:13:19] INFO     LogManager initialized successfully.
-[2025-06-01 17:13:19] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:13:19] INFO     DataFrame columns converted to lowercase.
-[2025-06-01 17:13:19] ERROR    Input DataFrame missing required 'close' column. Exiting pipeline.
-[2025-06-01 17:13:19] INFO     LogManager initialized successfully.
-[2025-06-01 17:13:19] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:13:19] INFO     Daily return calculated.
-[2025-06-01 17:13:19] INFO     Market state and volatility regime classified.
-[2025-06-01 17:13:19] INFO     Starting feature engineering.
-[2025-06-01 17:13:19] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:13:19] INFO     Feature engineering complete.
-[2025-06-01 17:13:19] INFO     Preparing data for machine learning.
-[2025-06-01 17:13:19] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:13:19] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:16:54] INFO     LogManager initialized successfully.
-[2025-06-01 17:16:54] INFO     IndicatorCalculator initialized
-[2025-06-01 17:16:54] INFO     LogManager initialized successfully.
-[2025-06-01 17:16:54] INFO     IndicatorCalculator initialized
-[2025-06-01 17:16:54] INFO     LogManager initialized successfully.
-[2025-06-01 17:16:54] INFO     IndicatorCalculator initialized
-[2025-06-01 17:16:54] WARNING  Input data is empty for RSI calculation. Skipping.
-[2025-06-01 17:16:54] INFO     LogManager initialized successfully.
-[2025-06-01 17:16:54] INFO     IndicatorCalculator initialized
-[2025-06-01 17:16:54] INFO     Calculating indicator instance: SMA_window_3 with parameters: {'window': 3}
-[2025-06-01 17:16:54] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 17:16:54] INFO     LogManager initialized successfully.
-[2025-06-01 17:16:54] INFO     IndicatorCalculator initialized
-[2025-06-01 17:16:54] WARNING  Unknown indicator type: UNKNOWN
-[2025-06-01 17:16:56] INFO     LogManager initialized successfully.
-[2025-06-01 17:16:56] INFO     IndicatorCalculator initialized
-[2025-06-01 17:16:56] WARNING  Input DataFrame is empty, cannot calculate indicators.
-[2025-06-01 17:16:56] INFO     LogManager initialized successfully.
-[2025-06-01 17:16:56] INFO     IndicatorCalculator initialized
-[2025-06-01 17:16:56] INFO     Calculating indicator instance: INVALID_INDICATOR_window_3 with parameters: {'window': 3}
-[2025-06-01 17:16:56] WARNING  Unknown indicator type: INVALID_INDICATOR
-[2025-06-01 17:16:56] ERROR    Failed to calculate INVALID_INDICATOR instance INVALID_INDICATOR_window_3. Skipping.
-[2025-06-01 17:16:56] WARNING  No indicators were successfully calculated for the given specs.
-[2025-06-01 17:16:56] INFO     LogManager initialized successfully.
-[2025-06-01 17:16:56] INFO     IndicatorCalculator initialized
-[2025-06-01 17:16:56] INFO     Calculating indicator instance: SMA_window_[3,5] with parameters: {'window': [3, 5]}
-[2025-06-01 17:16:56] INFO     Calculating indicator instance: EMA_window_3 with parameters: {'window': 3}
-[2025-06-01 17:16:56] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 17:17:02] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:02] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:17:02] INFO     Daily return calculated.
-[2025-06-01 17:17:02] INFO     Market state and volatility regime classified.
-[2025-06-01 17:17:02] INFO     Starting feature engineering.
-[2025-06-01 17:17:02] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:17:02] INFO     Feature engineering complete.
-[2025-06-01 17:17:02] INFO     Preparing data for machine learning.
-[2025-06-01 17:17:02] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:17:02] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:17:02] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:02] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:17:02] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:02] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:17:02] INFO     DataFrame columns converted to lowercase.
-[2025-06-01 17:17:02] INFO     Daily return calculated.
-[2025-06-01 17:17:02] INFO     Market state and volatility regime classified.
-[2025-06-01 17:17:02] INFO     Starting feature engineering.
-[2025-06-01 17:17:02] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:17:02] INFO     Feature engineering complete.
-[2025-06-01 17:17:02] INFO     Preparing data for machine learning.
-[2025-06-01 17:17:02] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:17:02] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:17:02] INFO     Processing model RandomForestClassifier for horizon 1.
-[2025-06-01 17:17:02] INFO     Training and evaluating RandomForestClassifier for classification task.
-[2025-06-01 17:17:13] INFO     Best parameters for RandomForestClassifier: {'model__max_depth': 3, 'model__min_samples_leaf': 4, 'model__min_samples_split': 3, 'model__n_estimators': 71}
-[2025-06-01 17:17:13] INFO     Evaluation for RandomForestClassifier complete. Metrics: {'balanced_accuracy': np.float64(0.2), 'f1_weighted': 0.5673600988026942, 'classification_report': {'0': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 161.0}, '1': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 150.0}, '2': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 24.0}, '3': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 30.0}, '4': {'precision': 0.6930193439865433, 'recall': 1.0, 'f1-score': 0.8186785891703925, 'support': 824.0}, 'accuracy': 0.6930193439865433, 'macro avg': {'precision': 0.13860386879730865, 'recall': 0.2, 'f1-score': 0.1637357178340785, 'support': 1189.0}, 'weighted avg': {'precision': 0.4802758111395388, 'recall': 0.6930193439865433, 'f1-score': 0.5673600988026942, 'support': 1189.0}}, 'confusion_matrix': [[0, 0, 0, 0, 161], [0, 0, 0, 0, 150], [0, 0, 0, 0, 24], [0, 0, 0, 0, 30], [0, 0, 0, 0, 824]], 'cross_val_accuracy_mean': np.float64(0.20972413793103448), 'cross_val_accuracy_std': np.float64(0.020145015286757318), 'best_params': {'model__max_depth': 3, 'model__min_samples_leaf': 4, 'model__min_samples_split': 3, 'model__n_estimators': 71}, 'best_model': Pipeline(steps=[('scaler', StandardScaler()),
-                ('model',
-                 RandomForestClassifier(max_depth=3, min_samples_leaf=4,
-                                        min_samples_split=3, n_estimators=71,
-                                        random_state=42))])}
-[2025-06-01 17:17:13] INFO     Calculating feature importances.
-[2025-06-01 17:17:15] WARNING  Total feature importance is zero. Cannot normalize to percentage.
-[2025-06-01 17:17:15] INFO     Feature importances calculated successfully.
-[2025-06-01 17:17:15] INFO     Forecasting future market states.
-[2025-06-01 17:17:15] INFO     Market state forecasting complete.
-[2025-06-01 17:17:15] INFO     Current market state determined.
-[2025-06-01 17:17:15] INFO     Full market analysis pipeline complete.
-[2025-06-01 17:17:18] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:18] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:17:18] ERROR    Input DataFrame is empty. Exiting pipeline.
-[2025-06-01 17:17:18] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:18] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:17:18] ERROR    Input DataFrame missing required 'close' column. Exiting pipeline.
-[2025-06-01 17:17:18] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:18] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:17:18] INFO     Daily return calculated.
-[2025-06-01 17:17:18] INFO     Market state and volatility regime classified.
-[2025-06-01 17:17:18] INFO     Starting feature engineering.
-[2025-06-01 17:17:18] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:17:18] INFO     Feature engineering complete.
-[2025-06-01 17:17:18] INFO     Preparing data for machine learning.
-[2025-06-01 17:17:18] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:17:18] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:17:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:21] INFO     MarketDataFetcher initialized for AAPL
-[2025-06-01 17:17:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:21] INFO     MarketDataFetcher initialized for فولاد
-[2025-06-01 17:17:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:21] INFO     MarketDataFetcher initialized for AAPL
-[2025-06-01 17:17:21] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-01, candle_count=10, timeframe=1d, calculated start_date=2025-05-12, end_date=2025-06-02
-[2025-06-01 17:17:21] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:17:21] INFO     Successfully fetched 2 candles for AAPL
-[2025-06-01 17:17:21] WARNING  Fetched fewer candles (2) than requested (10) for AAPL.
-[2025-06-01 17:17:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:21] INFO     MarketDataFetcher initialized for فولاد
-[2025-06-01 17:17:21] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-01, candle_count=10, timeframe=1d, calculated start_date=2025-05-12, end_date=2025-06-02
-[2025-06-01 17:17:21] INFO     Attempt 1/3: Fetching فولاد data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:17:21] INFO     Successfully fetched 2 candles for فولاد
-[2025-06-01 17:17:21] WARNING  Fetched fewer candles (2) than requested (10) for فولاد.
-[2025-06-01 17:17:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:21] INFO     MarketDataFetcher initialized for AAPL
-[2025-06-01 17:17:21] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-01, candle_count=10, timeframe=1d, calculated start_date=2025-05-12, end_date=2025-06-02
-[2025-06-01 17:17:21] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:17:21] WARNING  Empty data received on attempt 1/3
-[2025-06-01 17:17:21] INFO     Attempt 2/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:17:21] WARNING  Empty data received on attempt 2/3
-[2025-06-01 17:17:21] INFO     Attempt 3/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:17:21] WARNING  Empty data received on attempt 3/3
-[2025-06-01 17:17:21] ERROR    Failed to fetch data for AAPL after 3 attempts
-[2025-06-01 17:17:24] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:24] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:24] INFO     MarketDataFetcher initialized for AAPL
-[2025-06-01 17:17:24] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-01, candle_count=10, timeframe=1d, calculated start_date=2025-05-12, end_date=2025-06-02
-[2025-06-01 17:17:24] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:17:24] WARNING  Empty data received on attempt 1/3
-[2025-06-01 17:17:24] INFO     Attempt 2/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:17:24] WARNING  Empty data received on attempt 2/3
-[2025-06-01 17:17:24] INFO     Attempt 3/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:17:24] WARNING  Empty data received on attempt 3/3
-[2025-06-01 17:17:24] ERROR    Failed to fetch data for AAPL after 3 attempts
-[2025-06-01 17:17:24] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:24] INFO     MarketDataFetcher initialized for AAPL
-[2025-06-01 17:17:24] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-01, candle_count=10, timeframe=1d, calculated start_date=2025-05-12, end_date=2025-06-02
-[2025-06-01 17:17:24] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:17:24] INFO     Successfully fetched 2 candles for AAPL
-[2025-06-01 17:17:24] WARNING  Fetched fewer candles (2) than requested (10) for AAPL.
-[2025-06-01 17:17:28] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:28] INFO     IndicatorCalculator initialized
-[2025-06-01 17:17:28] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:17:28] INFO     Optimization task type: classification
-[2025-06-01 17:17:28] INFO     Target horizon: 1
-[2025-06-01 17:17:28] INFO     Optimization method selected: GA
-[2025-06-01 17:17:28] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:17:28] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:17:28] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:17:28] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:28] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:17:28] INFO     Optimization task type: classification
-[2025-06-01 17:17:28] INFO     Target horizon: 1
-[2025-06-01 17:17:28] INFO     Optimization method selected: GA
-[2025-06-01 17:17:28] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:17:28] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:17:28] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:17:28] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:28] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:17:28] INFO     Optimization task type: classification
-[2025-06-01 17:17:28] INFO     Target horizon: 1
-[2025-06-01 17:17:28] INFO     Optimization method selected: GA
-[2025-06-01 17:17:28] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:17:28] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:17:28] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:17:28] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:28] INFO     IndicatorCalculator initialized
-[2025-06-01 17:17:28] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:17:28] INFO     Optimization task type: classification
-[2025-06-01 17:17:28] INFO     Target horizon: 1
-[2025-06-01 17:17:28] INFO     Optimization method selected: Both
-[2025-06-01 17:17:28] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:17:28] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:17:28] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:17:32] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:32] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:17:32] INFO     Optimization task type: classification
-[2025-06-01 17:17:32] INFO     Target horizon: 1
-[2025-06-01 17:17:32] INFO     Optimization method selected: GA
-[2025-06-01 17:17:32] INFO     Indicator instances configured for optimization: 0
-[2025-06-01 17:17:32] ERROR    No attributes registered for individual creation. Genetic Algorithm cannot run.
-[2025-06-01 17:17:32] WARNING  No valid optimizable indicator parameters found. Skipping all optimization methods.
-[2025-06-01 17:17:32] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:32] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:17:32] INFO     Optimization task type: classification
-[2025-06-01 17:17:32] INFO     Target horizon: 1
-[2025-06-01 17:17:32] INFO     Optimization method selected: GA
-[2025-06-01 17:17:32] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:17:32] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:17:32] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:17:32] INFO     LogManager initialized successfully.
-[2025-06-01 17:17:32] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:17:32] INFO     Optimization task type: classification
-[2025-06-01 17:17:32] INFO     Target horizon: 1
-[2025-06-01 17:17:32] INFO     Optimization method selected: Both
-[2025-06-01 17:17:32] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:17:32] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:17:32] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:20:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:21] INFO     IndicatorCalculator initialized
-[2025-06-01 17:20:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:21] INFO     IndicatorCalculator initialized
-[2025-06-01 17:20:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:21] INFO     IndicatorCalculator initialized
-[2025-06-01 17:20:21] WARNING  Input data is empty for RSI calculation. Skipping.
-[2025-06-01 17:20:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:21] INFO     IndicatorCalculator initialized
-[2025-06-01 17:20:21] INFO     Calculating indicator instance: SMA_window_3 with parameters: {'window': 3}
-[2025-06-01 17:20:21] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 17:20:21] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:21] INFO     IndicatorCalculator initialized
-[2025-06-01 17:20:21] WARNING  Unknown indicator type: UNKNOWN
-[2025-06-01 17:20:23] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:23] INFO     IndicatorCalculator initialized
-[2025-06-01 17:20:23] WARNING  Input DataFrame is empty, cannot calculate indicators.
-[2025-06-01 17:20:23] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:23] INFO     IndicatorCalculator initialized
-[2025-06-01 17:20:23] INFO     Calculating indicator instance: INVALID_INDICATOR_window_3 with parameters: {'window': 3}
-[2025-06-01 17:20:23] WARNING  Unknown indicator type: INVALID_INDICATOR
-[2025-06-01 17:20:23] ERROR    Failed to calculate INVALID_INDICATOR instance INVALID_INDICATOR_window_3. Skipping.
-[2025-06-01 17:20:23] WARNING  No indicators were successfully calculated for the given specs.
-[2025-06-01 17:20:23] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:23] INFO     IndicatorCalculator initialized
-[2025-06-01 17:20:23] INFO     Calculating indicator instance: SMA_window_[3,5] with parameters: {'window': [3, 5]}
-[2025-06-01 17:20:23] INFO     Calculating indicator instance: EMA_window_3 with parameters: {'window': 3}
-[2025-06-01 17:20:23] INFO     Calculating indicator instance: RSI_window_14 with parameters: {'window': 14}
-[2025-06-01 17:20:31] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:31] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:20:31] INFO     Daily return calculated.
-[2025-06-01 17:20:31] INFO     Market state and volatility regime classified.
-[2025-06-01 17:20:31] INFO     Starting feature engineering.
-[2025-06-01 17:20:31] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:20:31] INFO     Feature engineering complete.
-[2025-06-01 17:20:31] INFO     Preparing data for machine learning.
-[2025-06-01 17:20:31] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:20:31] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:20:31] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:31] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:20:31] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:31] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:20:31] INFO     DataFrame columns converted to lowercase.
-[2025-06-01 17:20:31] INFO     Daily return calculated.
-[2025-06-01 17:20:31] INFO     Market state and volatility regime classified.
-[2025-06-01 17:20:31] INFO     Starting feature engineering.
-[2025-06-01 17:20:31] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:20:31] INFO     Feature engineering complete.
-[2025-06-01 17:20:31] INFO     Preparing data for machine learning.
-[2025-06-01 17:20:31] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:20:31] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:20:31] INFO     Processing model RandomForestClassifier for horizon 1.
-[2025-06-01 17:20:31] INFO     Training and evaluating RandomForestClassifier for classification task.
-[2025-06-01 17:20:43] INFO     Best parameters for RandomForestClassifier: {'model__max_depth': 3, 'model__min_samples_leaf': 4, 'model__min_samples_split': 3, 'model__n_estimators': 71}
-[2025-06-01 17:20:44] INFO     Evaluation for RandomForestClassifier complete. Metrics: {'balanced_accuracy': np.float64(0.2), 'f1_weighted': 0.5673600988026942, 'classification_report': {'0': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 161.0}, '1': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 150.0}, '2': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 24.0}, '3': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 30.0}, '4': {'precision': 0.6930193439865433, 'recall': 1.0, 'f1-score': 0.8186785891703925, 'support': 824.0}, 'accuracy': 0.6930193439865433, 'macro avg': {'precision': 0.13860386879730865, 'recall': 0.2, 'f1-score': 0.1637357178340785, 'support': 1189.0}, 'weighted avg': {'precision': 0.4802758111395388, 'recall': 0.6930193439865433, 'f1-score': 0.5673600988026942, 'support': 1189.0}}, 'confusion_matrix': [[0, 0, 0, 0, 161], [0, 0, 0, 0, 150], [0, 0, 0, 0, 24], [0, 0, 0, 0, 30], [0, 0, 0, 0, 824]], 'cross_val_accuracy_mean': np.float64(0.20972413793103448), 'cross_val_accuracy_std': np.float64(0.020145015286757318), 'best_params': {'model__max_depth': 3, 'model__min_samples_leaf': 4, 'model__min_samples_split': 3, 'model__n_estimators': 71}, 'best_model': Pipeline(steps=[('scaler', StandardScaler()),
-                ('model',
-                 RandomForestClassifier(max_depth=3, min_samples_leaf=4,
-                                        min_samples_split=3, n_estimators=71,
-                                        random_state=42))])}
-[2025-06-01 17:20:44] INFO     Calculating feature importances.
-[2025-06-01 17:20:45] WARNING  Total feature importance is zero. Cannot normalize to percentage.
-[2025-06-01 17:20:45] INFO     Feature importances calculated successfully.
-[2025-06-01 17:20:45] INFO     Forecasting future market states.
-[2025-06-01 17:20:45] INFO     Market state forecasting complete.
-[2025-06-01 17:20:45] INFO     Current market state determined.
-[2025-06-01 17:20:45] INFO     Full market analysis pipeline complete.
-[2025-06-01 17:20:49] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:49] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:20:49] ERROR    Input DataFrame is empty. Exiting pipeline.
-[2025-06-01 17:20:49] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:49] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:20:49] ERROR    Input DataFrame missing required 'close' column. Exiting pipeline.
-[2025-06-01 17:20:49] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:49] INFO     MarketAnalysisSystem initialized for TEST
-[2025-06-01 17:20:49] INFO     Daily return calculated.
-[2025-06-01 17:20:49] INFO     Market state and volatility regime classified.
-[2025-06-01 17:20:49] INFO     Starting feature engineering.
-[2025-06-01 17:20:49] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:20:49] INFO     Feature engineering complete.
-[2025-06-01 17:20:49] INFO     Preparing data for machine learning.
-[2025-06-01 17:20:49] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:20:50] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:20:52] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:52] INFO     MarketDataFetcher initialized for AAPL
-[2025-06-01 17:20:52] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:52] INFO     MarketDataFetcher initialized for فولاد
-[2025-06-01 17:20:52] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:52] INFO     MarketDataFetcher initialized for AAPL
-[2025-06-01 17:20:52] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-01, candle_count=10, timeframe=1d, calculated start_date=2025-05-12, end_date=2025-06-02
-[2025-06-01 17:20:52] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:20:52] INFO     Successfully fetched 2 candles for AAPL
-[2025-06-01 17:20:52] WARNING  Fetched fewer candles (2) than requested (10) for AAPL.
-[2025-06-01 17:20:52] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:52] INFO     MarketDataFetcher initialized for فولاد
-[2025-06-01 17:20:52] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-01, candle_count=10, timeframe=1d, calculated start_date=2025-05-12, end_date=2025-06-02
-[2025-06-01 17:20:52] INFO     Attempt 1/3: Fetching فولاد data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:20:52] INFO     Successfully fetched 2 candles for فولاد
-[2025-06-01 17:20:52] WARNING  Fetched fewer candles (2) than requested (10) for فولاد.
-[2025-06-01 17:20:52] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:52] INFO     MarketDataFetcher initialized for AAPL
-[2025-06-01 17:20:52] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-01, candle_count=10, timeframe=1d, calculated start_date=2025-05-12, end_date=2025-06-02
-[2025-06-01 17:20:52] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:20:52] WARNING  Empty data received on attempt 1/3
-[2025-06-01 17:20:52] INFO     Attempt 2/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:20:52] WARNING  Empty data received on attempt 2/3
-[2025-06-01 17:20:52] INFO     Attempt 3/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:20:52] WARNING  Empty data received on attempt 3/3
-[2025-06-01 17:20:52] ERROR    Failed to fetch data for AAPL after 3 attempts
-[2025-06-01 17:20:56] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:56] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:56] INFO     MarketDataFetcher initialized for AAPL
-[2025-06-01 17:20:56] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-01, candle_count=10, timeframe=1d, calculated start_date=2025-05-12, end_date=2025-06-02
-[2025-06-01 17:20:56] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:20:56] WARNING  Empty data received on attempt 1/3
-[2025-06-01 17:20:56] INFO     Attempt 2/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:20:56] WARNING  Empty data received on attempt 2/3
-[2025-06-01 17:20:56] INFO     Attempt 3/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:20:56] WARNING  Empty data received on attempt 3/3
-[2025-06-01 17:20:56] ERROR    Failed to fetch data for AAPL after 3 attempts
-[2025-06-01 17:20:56] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:56] INFO     MarketDataFetcher initialized for AAPL
-[2025-06-01 17:20:56] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-01, candle_count=10, timeframe=1d, calculated start_date=2025-05-12, end_date=2025-06-02
-[2025-06-01 17:20:56] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-12 to 2025-06-02
-[2025-06-01 17:20:56] INFO     Successfully fetched 2 candles for AAPL
-[2025-06-01 17:20:56] WARNING  Fetched fewer candles (2) than requested (10) for AAPL.
-[2025-06-01 17:20:59] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:59] INFO     IndicatorCalculator initialized
-[2025-06-01 17:20:59] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:20:59] INFO     Optimization task type: classification
-[2025-06-01 17:20:59] INFO     Target horizon: 1
-[2025-06-01 17:20:59] INFO     Optimization method selected: GA
-[2025-06-01 17:20:59] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:20:59] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:20:59] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:20:59] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:59] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:20:59] INFO     Optimization task type: classification
-[2025-06-01 17:20:59] INFO     Target horizon: 1
-[2025-06-01 17:20:59] INFO     Optimization method selected: GA
-[2025-06-01 17:20:59] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:20:59] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:20:59] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:20:59] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:59] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:20:59] INFO     Optimization task type: classification
-[2025-06-01 17:20:59] INFO     Target horizon: 1
-[2025-06-01 17:20:59] INFO     Optimization method selected: GA
-[2025-06-01 17:20:59] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:20:59] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:20:59] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:20:59] INFO     LogManager initialized successfully.
-[2025-06-01 17:20:59] INFO     IndicatorCalculator initialized
-[2025-06-01 17:20:59] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:20:59] INFO     Optimization task type: classification
-[2025-06-01 17:20:59] INFO     Target horizon: 1
-[2025-06-01 17:20:59] INFO     Optimization method selected: Both
-[2025-06-01 17:20:59] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:20:59] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:20:59] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:21:02] INFO     LogManager initialized successfully.
-[2025-06-01 17:21:02] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:21:02] INFO     Optimization task type: classification
-[2025-06-01 17:21:02] INFO     Target horizon: 1
-[2025-06-01 17:21:02] INFO     Optimization method selected: GA
-[2025-06-01 17:21:02] INFO     Indicator instances configured for optimization: 0
-[2025-06-01 17:21:02] ERROR    No attributes registered for individual creation. Genetic Algorithm cannot run.
-[2025-06-01 17:21:02] WARNING  No valid optimizable indicator parameters found. Skipping all optimization methods.
-[2025-06-01 17:21:02] INFO     LogManager initialized successfully.
-[2025-06-01 17:21:02] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:21:02] INFO     Optimization task type: classification
-[2025-06-01 17:21:02] INFO     Target horizon: 1
-[2025-06-01 17:21:02] INFO     Optimization method selected: GA
-[2025-06-01 17:21:02] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:21:02] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:21:02] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:21:02] INFO     LogManager initialized successfully.
-[2025-06-01 17:21:02] INFO     IndicatorOptimizer initialized.
-[2025-06-01 17:21:02] INFO     Optimization task type: classification
-[2025-06-01 17:21:02] INFO     Target horizon: 1
-[2025-06-01 17:21:02] INFO     Optimization method selected: Both
-[2025-06-01 17:21:02] INFO     Indicator instances configured for optimization: 2
-[2025-06-01 17:21:02] INFO       Instance 1: SMA with parameters: {'name': 'SMA', 'window_choices': [10, 20, 30]}
-[2025-06-01 17:21:02] INFO       Instance 2: RSI with parameters: {'name': 'RSI', 'window_choices': [14, 21]}
-[2025-06-01 17:23:59] INFO     LogManager initialized successfully.
-[2025-06-01 17:24:01] INFO     LogManager initialized successfully.
-[2025-06-01 17:24:17] INFO     MarketDataFetcher initialized for AAPL
-[2025-06-01 17:24:17] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-01, candle_count=500, timeframe=1d, calculated start_date=2022-09-05, end_date=2025-06-02
-[2025-06-01 17:24:17] INFO     Attempt 1/3: Fetching AAPL data from 2022-09-05 to 2025-06-02
-[2025-06-01 17:24:17] INFO     Fetching YahooFinance data for AAPL from 2022-09-05 to 2025-06-02
-[2025-06-01 17:24:18] INFO     Flattened MultiIndex columns for AAPL.
-[2025-06-01 17:24:18] INFO     Successfully fetched 500 candles for AAPL
-[2025-06-01 17:24:18] INFO     MarketAnalysisSystem initialized for AAPL
-[2025-06-01 17:24:18] INFO     DataFrame columns converted to lowercase.
-[2025-06-01 17:24:18] INFO     Daily return calculated.
-[2025-06-01 17:24:18] WARNING  No ATR* column found for volatility regime classification. Skipping.
-[2025-06-01 17:24:18] INFO     Market state and volatility regime classified.
-[2025-06-01 17:24:18] INFO     Starting feature engineering.
-[2025-06-01 17:24:18] INFO     Dropped 10 rows due to NaN values after feature engineering.
-[2025-06-01 17:24:18] INFO     Feature engineering complete.
-[2025-06-01 17:24:18] INFO     Preparing data for machine learning.
-[2025-06-01 17:24:18] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:24:19] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:24:19] INFO     Processing model RandomForestClassifier for horizon 1.
-[2025-06-01 17:24:19] INFO     Training and evaluating RandomForestClassifier for classification task.
-[2025-06-01 17:24:26] INFO     Best parameters for RandomForestClassifier: {'model__max_depth': 14, 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__n_estimators': 76}
-[2025-06-01 17:24:27] INFO     Evaluation for RandomForestClassifier complete. Metrics: {'balanced_accuracy': np.float64(0.9028388278388277), 'f1_weighted': 0.9747179605660163, 'classification_report': {'0': {'precision': 1.0, 'recall': 0.8333333333333334, 'f1-score': 0.9090909090909091, 'support': 42.0}, '1': {'precision': 1.0, 'recall': 0.9487179487179487, 'f1-score': 0.9736842105263158, 'support': 39.0}, '2': {'precision': 1.0, 'recall': 0.8571428571428571, 'f1-score': 0.9230769230769231, 'support': 14.0}, '3': {'precision': 1.0, 'recall': 0.875, 'f1-score': 0.9333333333333333, 'support': 8.0}, '4': {'precision': 0.9698492462311558, 'recall': 1.0, 'f1-score': 0.9846938775510204, 'support': 386.0}, 'accuracy': 0.9754601226993865, 'macro avg': {'precision': 0.9939698492462311, 'recall': 0.9028388278388277, 'f1-score': 0.9447758507157002, 'support': 489.0}, 'weighted avg': {'precision': 0.9762000184973949, 'recall': 0.9754601226993865, 'f1-score': 0.9747179605660163, 'support': 489.0}}, 'confusion_matrix': [[35, 0, 0, 0, 7], [0, 37, 0, 0, 2], [0, 0, 12, 0, 2], [0, 0, 0, 7, 1], [0, 0, 0, 0, 386]], 'cross_val_accuracy_mean': np.float64(0.21119836520216023), 'cross_val_accuracy_std': np.float64(0.020784336903601156), 'best_params': {'model__max_depth': 14, 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__n_estimators': 76}, 'best_model': Pipeline(steps=[('scaler', StandardScaler()),
-                ('model',
-                 RandomForestClassifier(max_depth=14, n_estimators=76,
-                                        random_state=42))])}
-[2025-06-01 17:24:27] INFO     Calculating feature importances.
-[2025-06-01 17:24:29] INFO     Feature importances calculated successfully.
-[2025-06-01 17:24:29] INFO     Forecasting future market states.
-[2025-06-01 17:24:29] INFO     Market state forecasting complete.
-[2025-06-01 17:24:29] INFO     Preparing data for machine learning.
-[2025-06-01 17:24:29] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:24:29] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:24:29] INFO     Processing model RandomForestClassifier for horizon 5.
-[2025-06-01 17:24:29] INFO     Training and evaluating RandomForestClassifier for classification task.
-[2025-06-01 17:24:33] INFO     Best parameters for RandomForestClassifier: {'model__max_depth': 14, 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__n_estimators': 76}
-[2025-06-01 17:24:34] INFO     Evaluation for RandomForestClassifier complete. Metrics: {'balanced_accuracy': np.float64(1.0), 'f1_weighted': 1.0, 'classification_report': {'0': {'precision': 1.0, 'recall': 1.0, 'f1-score': 1.0, 'support': 42.0}, '1': {'precision': 1.0, 'recall': 1.0, 'f1-score': 1.0, 'support': 39.0}, '2': {'precision': 1.0, 'recall': 1.0, 'f1-score': 1.0, 'support': 14.0}, '3': {'precision': 1.0, 'recall': 1.0, 'f1-score': 1.0, 'support': 8.0}, '4': {'precision': 1.0, 'recall': 1.0, 'f1-score': 1.0, 'support': 382.0}, 'accuracy': 1.0, 'macro avg': {'precision': 1.0, 'recall': 1.0, 'f1-score': 1.0, 'support': 485.0}, 'weighted avg': {'precision': 1.0, 'recall': 1.0, 'f1-score': 1.0, 'support': 485.0}}, 'confusion_matrix': [[42, 0, 0, 0, 0], [0, 39, 0, 0, 0], [0, 0, 14, 0, 0], [0, 0, 0, 8, 0], [0, 0, 0, 0, 382]], 'cross_val_accuracy_mean': np.float64(0.21186688488816147), 'cross_val_accuracy_std': np.float64(0.019795929976047094), 'best_params': {'model__max_depth': 14, 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__n_estimators': 76}, 'best_model': Pipeline(steps=[('scaler', StandardScaler()),
-                ('model',
-                 RandomForestClassifier(max_depth=14, n_estimators=76,
-                                        random_state=42))])}
-[2025-06-01 17:24:34] INFO     Calculating feature importances.
-[2025-06-01 17:24:36] INFO     Feature importances calculated successfully.
-[2025-06-01 17:24:36] INFO     Forecasting future market states.
-[2025-06-01 17:24:36] INFO     Market state forecasting complete.
-[2025-06-01 17:24:36] INFO     Preparing data for machine learning.
-[2025-06-01 17:24:36] INFO     Market State encoded: {np.int64(0): 'BEARISH', np.int64(1): 'BULLISH', np.int64(2): 'EXTREME_BEARISH', np.int64(3): 'EXTREME_BULLISH', np.int64(4): 'NEUTRAL'}
-[2025-06-01 17:24:36] INFO     Data preparation for machine learning complete.
-[2025-06-01 17:24:36] INFO     Processing model RandomForestClassifier for horizon 10.
-[2025-06-01 17:24:36] INFO     Training and evaluating RandomForestClassifier for classification task.
-[2025-06-01 17:24:42] INFO     Best parameters for RandomForestClassifier: {'model__max_depth': 14, 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__n_estimators': 76}
-[2025-06-01 17:24:42] INFO     Evaluation for RandomForestClassifier complete. Metrics: {'balanced_accuracy': np.float64(0.9523809523809523), 'f1_weighted': 0.9913010462904249, 'classification_report': {'0': {'precision': 1.0, 'recall': 0.9761904761904762, 'f1-score': 0.9879518072289156, 'support': 42.0}, '1': {'precision': 1.0, 'recall': 1.0, 'f1-score': 1.0, 'support': 38.0}, '2': {'precision': 1.0, 'recall': 0.7857142857142857, 'f1-score': 0.88, 'support': 14.0}, '3': {'precision': 1.0, 'recall': 1.0, 'f1-score': 1.0, 'support': 8.0}, '4': {'precision': 0.9895287958115183, 'recall': 1.0, 'f1-score': 0.9947368421052631, 'support': 378.0}, 'accuracy': 0.9916666666666667, 'macro avg': {'precision': 0.9979057591623036, 'recall': 0.9523809523809523, 'f1-score': 0.9725377298668357, 'support': 480.0}, 'weighted avg': {'precision': 0.9917539267015706, 'recall': 0.9916666666666667, 'f1-score': 0.9913010462904249, 'support': 480.0}}, 'confusion_matrix': [[41, 0, 0, 0, 1], [0, 38, 0, 0, 0], [0, 0, 11, 0, 3], [0, 0, 0, 8, 0], [0, 0, 0, 0, 378]], 'cross_val_accuracy_mean': np.float64(0.2181256332320162), 'cross_val_accuracy_std': np.float64(0.019073534290141497), 'best_params': {'model__max_depth': 14, 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__n_estimators': 76}, 'best_model': Pipeline(steps=[('scaler', StandardScaler()),
-                ('model',
-                 RandomForestClassifier(max_depth=14, n_estimators=76,
-                                        random_state=42))])}
-[2025-06-01 17:24:42] INFO     Calculating feature importances.
-[2025-06-01 17:24:44] INFO     Feature importances calculated successfully.
-[2025-06-01 17:24:44] INFO     Forecasting future market states.
-[2025-06-01 17:24:44] INFO     Market state forecasting complete.
-[2025-06-01 17:24:44] INFO     Current market state determined.
-[2025-06-01 17:24:44] INFO     Full market analysis pipeline complete.
-[2025-06-01 17:24:44] ERROR    Error in /api/analyze: Object of type Pipeline is not JSON serializable
-Traceback (most recent call last):
-  File "/home/gravitywaves/GravityWaves/app.py", line 98, in analyze
-    return jsonify(analysis_results)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gravitywaves/GravityWaves/.venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
-    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gravitywaves/GravityWaves/.venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
-    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gravitywaves/GravityWaves/.venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
-    return json.dumps(obj, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
-    **kw).encode(obj)
-          ^^^^^^^^^^^
-  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
-    chunks = list(chunks)
-             ^^^^^^^^^^^^
-  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
-    yield from _iterencode_dict(o, _current_indent_level)
-  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
-    yield from chunks
-  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
-    yield from chunks
-  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
-    yield from chunks
-  [Previous line repeated 1 more time]
-  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
-    o = _default(o)
-        ^^^^^^^^^^^
-  File "/home/gravitywaves/GravityWaves/.venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
-    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
-TypeError: Object of type Pipeline is not JSON serializable
+[2025-06-02 21:49:23] INFO     LogManager initialized successfully.
+[2025-06-02 21:49:26] INFO     LogManager initialized successfully.
+[2025-06-02 21:56:41] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 21:56:41] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 21:56:41] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 21:56:41] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 21:56:42] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 21:56:42] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 21:56:42] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 21:56:42] INFO     Daily return calculated.
+[2025-06-02 21:56:42] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 21:56:42] INFO     Market state and volatility regime classified.
+[2025-06-02 21:58:28] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 21:58:28] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 21:58:28] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 21:58:28] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 21:58:29] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 21:58:29] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 21:58:29] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 21:58:29] INFO     Daily return calculated.
+[2025-06-02 21:58:29] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 21:58:29] INFO     Market state and volatility regime classified.
+[2025-06-02 21:58:56] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 21:58:56] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 21:58:56] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 21:58:56] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 21:58:56] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 21:58:56] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 21:58:56] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 21:58:56] INFO     Daily return calculated.
+[2025-06-02 21:58:56] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 21:58:56] INFO     Market state and volatility regime classified.
+[2025-06-02 21:59:10] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 21:59:10] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 21:59:10] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 21:59:10] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 21:59:10] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 21:59:10] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 21:59:10] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 21:59:10] INFO     Daily return calculated.
+[2025-06-02 21:59:10] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 21:59:10] INFO     Market state and volatility regime classified.
+[2025-06-02 21:59:22] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 21:59:22] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 21:59:22] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 21:59:22] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 21:59:22] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 21:59:22] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 21:59:22] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 21:59:22] INFO     Daily return calculated.
+[2025-06-02 21:59:22] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 21:59:22] INFO     Market state and volatility regime classified.
+[2025-06-02 21:59:55] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 21:59:55] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 21:59:55] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 21:59:55] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 21:59:56] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 21:59:56] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 21:59:56] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 21:59:56] INFO     Daily return calculated.
+[2025-06-02 21:59:56] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 21:59:56] INFO     Market state and volatility regime classified.
+[2025-06-02 22:00:42] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 22:00:42] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 22:00:42] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 22:00:42] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 22:00:42] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 22:00:42] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 22:00:42] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 22:00:42] INFO     Daily return calculated.
+[2025-06-02 22:00:42] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 22:00:42] INFO     Market state and volatility regime classified.
+[2025-06-02 22:00:56] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 22:00:56] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 22:00:56] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 22:00:56] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 22:00:57] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 22:00:57] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 22:00:57] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 22:00:57] INFO     Daily return calculated.
+[2025-06-02 22:00:57] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 22:00:57] INFO     Market state and volatility regime classified.
+[2025-06-02 22:43:04] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 22:43:04] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 22:43:04] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 22:43:04] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 22:43:05] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 22:43:05] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 22:43:05] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 22:43:05] INFO     Daily return calculated.
+[2025-06-02 22:43:05] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 22:43:05] INFO     Market state and volatility regime classified.
+[2025-06-02 22:44:22] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 22:44:23] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 22:44:23] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 22:44:23] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 22:44:23] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 22:44:23] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 22:44:23] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 22:44:23] INFO     Daily return calculated.
+[2025-06-02 22:44:23] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 22:44:23] INFO     Market state and volatility regime classified.
+[2025-06-02 23:54:15] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 23:54:15] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 23:54:15] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 23:54:15] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 23:54:16] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 23:54:16] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 23:54:16] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 23:54:16] INFO     Daily return calculated.
+[2025-06-02 23:54:16] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 23:54:16] INFO     Market state and volatility regime classified.
+[2025-06-02 23:58:46] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 23:58:46] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 23:58:46] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 23:58:46] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 23:58:47] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 23:58:47] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 23:58:47] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 23:58:47] INFO     Daily return calculated.
+[2025-06-02 23:58:47] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 23:58:47] INFO     Market state and volatility regime classified.
+[2025-06-02 23:59:09] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 23:59:09] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 23:59:09] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 23:59:09] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 23:59:09] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 23:59:09] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 23:59:09] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 23:59:09] INFO     Daily return calculated.
+[2025-06-02 23:59:10] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 23:59:10] INFO     Market state and volatility regime classified.
+[2025-06-02 23:59:26] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-02 23:59:26] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-02 23:59:26] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-02 23:59:26] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-02 23:59:26] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-02 23:59:27] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-02 23:59:27] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-02 23:59:27] INFO     Daily return calculated.
+[2025-06-02 23:59:27] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-02 23:59:27] INFO     Market state and volatility regime classified.
+[2025-06-03 00:04:10] INFO     LogManager initialized successfully.
+[2025-06-03 00:14:19] INFO     LogManager initialized successfully.
+[2025-06-03 01:02:57] INFO     LogManager initialized successfully.
+[2025-06-03 01:03:00] INFO     LogManager initialized successfully.
+[2025-06-03 01:05:17] INFO     LogManager initialized successfully.
+[2025-06-03 01:36:03] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:36:03] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:36:03] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:36:03] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:36:05] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:36:05] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:36:05] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:36:05] INFO     Daily return calculated.
+[2025-06-03 01:36:05] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:36:05] INFO     Market state and volatility regime classified.
+[2025-06-03 01:36:39] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:36:39] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:36:39] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:36:39] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:36:39] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:36:39] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:36:39] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:36:39] INFO     Daily return calculated.
+[2025-06-03 01:36:39] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:36:39] INFO     Market state and volatility regime classified.
+[2025-06-03 01:41:52] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:41:52] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:41:52] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:41:52] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:41:52] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:41:52] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:41:52] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:41:52] INFO     Daily return calculated.
+[2025-06-03 01:41:52] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:41:52] INFO     Market state and volatility regime classified.
+[2025-06-03 01:41:58] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:41:58] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:41:58] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:41:58] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:41:58] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:41:58] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:41:58] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:41:58] INFO     Daily return calculated.
+[2025-06-03 01:41:58] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:41:58] INFO     Market state and volatility regime classified.
+[2025-06-03 01:43:50] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:43:50] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:43:50] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:43:50] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:43:51] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:43:51] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:43:51] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:43:51] INFO     Daily return calculated.
+[2025-06-03 01:43:51] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:43:51] INFO     Market state and volatility regime classified.
+[2025-06-03 01:45:38] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:45:38] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:45:38] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:45:38] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:45:38] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:45:38] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:45:38] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:45:38] INFO     Daily return calculated.
+[2025-06-03 01:45:38] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:45:38] INFO     Market state and volatility regime classified.
+[2025-06-03 01:50:22] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:50:22] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:50:22] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:50:22] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:50:23] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:50:23] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:50:23] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:50:23] INFO     Daily return calculated.
+[2025-06-03 01:50:23] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:50:23] INFO     Market state and volatility regime classified.
+[2025-06-03 01:50:32] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:50:32] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:50:32] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:50:32] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:50:33] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:50:33] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:50:33] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:50:33] INFO     Daily return calculated.
+[2025-06-03 01:50:33] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:50:33] INFO     Market state and volatility regime classified.
+[2025-06-03 01:51:13] INFO     LogManager initialized successfully.
+[2025-06-03 01:51:15] INFO     LogManager initialized successfully.
+[2025-06-03 01:51:40] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:51:40] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:51:40] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:51:40] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:51:41] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:51:41] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:51:41] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:51:41] INFO     Daily return calculated.
+[2025-06-03 01:51:41] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:51:41] INFO     Market state and volatility regime classified.
+[2025-06-03 01:54:10] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:54:10] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:54:10] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:54:10] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:54:10] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:54:10] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:54:10] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:54:10] INFO     Daily return calculated.
+[2025-06-03 01:54:10] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:54:10] INFO     Market state and volatility regime classified.
+[2025-06-03 01:54:37] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:54:37] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:54:37] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:54:37] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:54:37] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:54:37] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:54:37] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:54:37] INFO     Daily return calculated.
+[2025-06-03 01:54:37] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:54:37] INFO     Market state and volatility regime classified.
+[2025-06-03 01:56:53] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:56:53] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:56:53] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:56:53] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:56:54] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:56:54] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:56:54] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:56:54] INFO     Daily return calculated.
+[2025-06-03 01:56:54] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:56:54] INFO     Market state and volatility regime classified.
+[2025-06-03 01:57:15] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:57:15] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:57:15] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:57:15] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:57:15] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:57:15] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:57:15] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:57:15] INFO     Daily return calculated.
+[2025-06-03 01:57:15] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:57:15] INFO     Market state and volatility regime classified.
+[2025-06-03 01:57:51] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:57:51] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:57:51] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:57:51] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:57:51] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:57:51] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:57:51] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:57:51] INFO     Daily return calculated.
+[2025-06-03 01:57:51] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:57:51] INFO     Market state and volatility regime classified.
+[2025-06-03 01:58:24] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 01:58:24] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 01:58:24] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 01:58:24] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 01:58:24] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 01:58:24] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 01:58:24] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 01:58:24] INFO     Daily return calculated.
+[2025-06-03 01:58:24] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 01:58:24] INFO     Market state and volatility regime classified.
+[2025-06-03 02:02:12] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:02:12] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:02:12] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:02:12] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:02:13] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:02:13] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:02:13] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:02:13] INFO     Daily return calculated.
+[2025-06-03 02:02:13] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:02:13] INFO     Market state and volatility regime classified.
+[2025-06-03 02:02:19] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:02:19] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:02:19] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:02:19] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:02:20] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:02:20] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:02:20] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:02:20] INFO     Daily return calculated.
+[2025-06-03 02:02:20] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:02:20] INFO     Market state and volatility regime classified.
+[2025-06-03 02:05:00] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:05:00] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:05:00] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:05:00] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:05:01] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:05:01] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:05:01] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:05:01] INFO     Daily return calculated.
+[2025-06-03 02:05:01] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:05:01] INFO     Market state and volatility regime classified.
+[2025-06-03 02:06:45] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:06:45] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:06:45] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:06:45] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:06:46] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:06:46] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:06:46] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:06:46] INFO     Daily return calculated.
+[2025-06-03 02:06:46] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:06:46] INFO     Market state and volatility regime classified.
+[2025-06-03 02:09:46] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:09:46] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:09:46] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:09:46] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:09:46] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:09:46] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:09:46] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:09:46] INFO     Daily return calculated.
+[2025-06-03 02:09:46] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:09:46] INFO     Market state and volatility regime classified.
+[2025-06-03 02:10:28] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:10:28] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:10:28] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:10:28] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:10:29] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:10:29] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:10:29] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:10:29] INFO     Daily return calculated.
+[2025-06-03 02:10:29] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:10:29] INFO     Market state and volatility regime classified.
+[2025-06-03 02:12:15] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:12:15] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:12:15] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:12:15] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:12:15] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:12:15] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:12:15] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:12:15] INFO     Daily return calculated.
+[2025-06-03 02:12:15] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:12:15] INFO     Market state and volatility regime classified.
+[2025-06-03 02:12:36] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:12:36] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:12:36] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:12:36] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:12:37] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:12:37] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:12:37] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:12:37] INFO     Daily return calculated.
+[2025-06-03 02:12:37] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:12:37] INFO     Market state and volatility regime classified.
+[2025-06-03 02:12:44] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:12:44] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:12:44] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:12:44] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:12:44] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:12:44] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:12:44] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:12:44] INFO     Daily return calculated.
+[2025-06-03 02:12:44] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:12:44] INFO     Market state and volatility regime classified.
+[2025-06-03 02:12:51] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:12:51] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:12:51] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:12:51] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:12:51] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:12:51] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:12:51] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:12:51] INFO     Daily return calculated.
+[2025-06-03 02:12:51] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:12:51] INFO     Market state and volatility regime classified.
+[2025-06-03 02:13:13] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:13:13] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:13:13] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:13:13] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:13:14] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:13:14] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:13:14] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:13:14] INFO     Daily return calculated.
+[2025-06-03 02:13:14] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:13:14] INFO     Market state and volatility regime classified.
+[2025-06-03 02:13:39] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:13:39] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:13:39] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:13:39] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:13:40] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:13:40] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:13:40] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:13:40] INFO     Daily return calculated.
+[2025-06-03 02:13:40] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:13:40] INFO     Market state and volatility regime classified.
+[2025-06-03 02:13:54] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:13:54] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:13:54] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:13:54] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:13:54] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:13:54] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:13:54] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:13:54] INFO     Daily return calculated.
+[2025-06-03 02:13:54] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:13:54] INFO     Market state and volatility regime classified.
+[2025-06-03 02:13:58] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:13:58] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:13:58] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:13:58] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:13:59] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:13:59] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:13:59] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:13:59] INFO     Daily return calculated.
+[2025-06-03 02:13:59] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:13:59] INFO     Market state and volatility regime classified.
+[2025-06-03 02:14:06] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:14:06] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:14:06] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:14:06] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:14:07] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:14:07] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:14:07] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:14:07] INFO     Daily return calculated.
+[2025-06-03 02:14:07] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:14:07] INFO     Market state and volatility regime classified.
+[2025-06-03 02:14:59] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:14:59] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:14:59] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:14:59] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:14:59] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:14:59] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:14:59] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:14:59] INFO     Daily return calculated.
+[2025-06-03 02:14:59] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:14:59] INFO     Market state and volatility regime classified.
+[2025-06-03 02:15:15] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:15:15] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:15:15] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:15:15] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:15:16] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:15:16] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:15:16] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:15:16] INFO     Daily return calculated.
+[2025-06-03 02:15:16] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:15:16] INFO     Market state and volatility regime classified.
+[2025-06-03 02:15:34] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:15:34] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:15:34] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:15:34] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:15:34] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:15:34] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:15:34] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:15:34] INFO     Daily return calculated.
+[2025-06-03 02:15:34] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:15:34] INFO     Market state and volatility regime classified.
+[2025-06-03 02:15:47] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:15:47] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:15:47] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:15:47] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:15:47] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:15:47] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:15:47] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:15:47] INFO     Daily return calculated.
+[2025-06-03 02:15:47] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:15:47] INFO     Market state and volatility regime classified.
+[2025-06-03 02:15:53] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:15:53] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:15:53] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:15:53] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:15:53] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:15:53] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:15:53] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:15:53] INFO     Daily return calculated.
+[2025-06-03 02:15:54] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:15:54] INFO     Market state and volatility regime classified.
+[2025-06-03 02:18:53] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:18:53] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:18:53] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:18:53] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:18:54] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:18:54] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:18:54] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:18:54] INFO     Daily return calculated.
+[2025-06-03 02:18:54] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:18:54] INFO     Market state and volatility regime classified.
+[2025-06-03 02:19:00] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:19:00] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:19:00] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:19:00] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:19:00] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:19:00] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:19:00] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:19:00] INFO     Daily return calculated.
+[2025-06-03 02:19:00] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:19:00] INFO     Market state and volatility regime classified.
+[2025-06-03 02:19:06] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:19:06] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:19:06] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:19:06] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:19:06] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:19:06] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:19:06] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:19:06] INFO     Daily return calculated.
+[2025-06-03 02:19:06] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:19:06] INFO     Market state and volatility regime classified.
+[2025-06-03 02:19:10] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:19:10] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:19:10] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:19:10] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:19:11] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:19:11] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:19:11] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:19:11] INFO     Daily return calculated.
+[2025-06-03 02:19:11] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:19:11] INFO     Market state and volatility regime classified.
+[2025-06-03 02:19:28] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:19:28] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:19:28] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:19:28] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:19:29] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:19:29] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:19:29] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:19:29] INFO     Daily return calculated.
+[2025-06-03 02:19:29] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:19:29] INFO     Market state and volatility regime classified.
+[2025-06-03 02:21:30] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:21:30] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:21:30] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:21:30] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:21:31] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:21:31] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:21:31] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:21:31] INFO     Daily return calculated.
+[2025-06-03 02:21:31] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:21:31] INFO     Market state and volatility regime classified.
+[2025-06-03 02:26:50] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:26:50] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=10, timeframe=1d, calculated start_date=2025-05-13, end_date=2025-06-03
+[2025-06-03 02:26:50] INFO     Attempt 1/3: Fetching AAPL data from 2025-05-13 to 2025-06-03
+[2025-06-03 02:26:50] INFO     Fetching YahooFinance data for AAPL from 2025-05-13 to 2025-06-03
+[2025-06-03 02:26:50] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:26:50] INFO     Successfully fetched 10 candles for AAPL
+[2025-06-03 02:26:50] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:26:50] INFO     Daily return calculated.
+[2025-06-03 02:26:50] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:26:50] INFO     Market state and volatility regime classified.
+[2025-06-03 02:28:41] INFO     LogManager initialized successfully.
+[2025-06-03 02:28:47] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:28:47] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=500, timeframe=1d, calculated start_date=2022-09-06, end_date=2025-06-03
+[2025-06-03 02:28:47] INFO     Attempt 1/3: Fetching AAPL data from 2022-09-06 to 2025-06-03
+[2025-06-03 02:28:47] INFO     Fetching YahooFinance data for AAPL from 2022-09-06 to 2025-06-03
+[2025-06-03 02:28:49] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:28:49] INFO     Successfully fetched 500 candles for AAPL
+[2025-06-03 02:28:49] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:28:49] INFO     Daily return calculated.
+[2025-06-03 02:28:49] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:28:49] INFO     Market state and volatility regime classified.
+[2025-06-03 02:29:10] INFO     MarketDataFetcher initialized for AAPL
+[2025-06-03 02:29:10] INFO     MarketDataFetcher.fetch_data called with target_date=2025-06-02, candle_count=500, timeframe=1d, calculated start_date=2022-09-06, end_date=2025-06-03
+[2025-06-03 02:29:10] INFO     Attempt 1/3: Fetching AAPL data from 2022-09-06 to 2025-06-03
+[2025-06-03 02:29:10] INFO     Fetching YahooFinance data for AAPL from 2022-09-06 to 2025-06-03
+[2025-06-03 02:29:10] INFO     Flattened MultiIndex columns for AAPL.
+[2025-06-03 02:29:10] INFO     Successfully fetched 500 candles for AAPL
+[2025-06-03 02:29:10] INFO     MarketAnalysisSystem initialized for AAPL
+[2025-06-03 02:29:10] INFO     Daily return calculated.
+[2025-06-03 02:29:10] WARNING  No ATR* column found for volatility regime classification. Skipping.
+[2025-06-03 02:29:10] INFO     Market state and volatility regime classified.

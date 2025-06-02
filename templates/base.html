@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Stock Market Prediction{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    {% block extra_css %}{% endblock %}
+    <script src="{{ url_for('static', filename='js/more_toggle.js') }}"></script>
+</head>
+<body>
+    {% include 'header.html' %}
+    {% include 'navbar.html' %}
+
+    <div id="container">
+        {% include 'sidebar.html' %}
+        <main id="main-content">
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/breadcrumb.css') }}">
+            <div id="breadcrumb-container">
+                <p id="breadcrumb" class="breadcrumb-text"></p>
+            </div>
+            <div id="breadcrumb-container">
+                <p id="breadcrumb" class="breadcrumb-text"></p>
+                <hr class="breadcrumb-underline" />
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const breadcrumbElem = document.getElementById('breadcrumb');
+                    const path = "{{ request.path }}";
+
+                    // Format path to user-friendly breadcrumb text
+                    let breadcrumbText = path
+                        .replace(/^\/+/, '') // remove leading slash
+                        .replace(/\/+/g, ' > ') // replace slashes with >
+                        .replace(/-/g, ' ') // replace dashes with spaces
+                        .replace(/\b\w/g, c => c.toUpperCase()); // capitalize first letter of each word
+
+                    if (!breadcrumbText) {
+                        breadcrumbText = 'Home';
+                    } else {
+                        breadcrumbText = 'Home > ' + breadcrumbText;
+                    }
+
+                    breadcrumbElem.textContent = breadcrumbText;
+                });
+            </script>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    {% include 'footer.html' %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sidebar_toggle.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Settings{% endblock %}
+
+{% block content %}
+<h1>Admin Settings</h1>
+
+<div class="tabs">
+    <button class="tab-button active" onclick="openTab(event, 'indicator-settings')">Indicator Settings</button>
+    <button class="tab-button" onclick="openTab(event, 'general-settings')">General Settings</button>
+    <button class="tab-button" onclick="openTab(event, 'optimization-settings')">Optimization Settings</button>
+</div>
+
+<div id="indicator-settings" class="tab-content" style="display: block;">
+    <h2>Indicator Settings</h2>
+    <form id="indicator-settings-form">
+        <!-- Add indicator settings form fields here -->
+        <label for="indicator-param1">Indicator Param 1:</label>
+        <input type="text" id="indicator-param1" name="indicator-param1" />
+        <br/>
+        <label for="indicator-param2">Indicator Param 2:</label>
+        <input type="text" id="indicator-param2" name="indicator-param2" />
+        <br/>
+        <button type="submit">Save Indicator Settings</button>
+    </form>
+</div>
+
+<div id="general-settings" class="tab-content" style="display: none;">
+    <h2>General Settings</h2>
+    <form id="general-settings-form">
+        <!-- Add general settings form fields here -->
+        <label for="site-name">Site Name:</label>
+        <input type="text" id="site-name" name="site-name" />
+        <br/>
+        <label for="admin-email">Admin Email:</label>
+        <input type="email" id="admin-email" name="admin-email" />
+        <br/>
+        <button type="submit">Save General Settings</button>
+    </form>
+</div>
+
+<div id="optimization-settings" class="tab-content" style="display: none;">
+    <h2>Optimization Settings</h2>
+    <form id="optimization-settings-form">
+        <!-- Add optimization settings form fields here -->
+        <label for="optimization-param1">Optimization Param 1:</label>
+        <input type="text" id="optimization-param1" name="optimization-param1" />
+        <br/>
+        <label for="optimization-param2">Optimization Param 2:</label>
+        <input type="text" id="optimization-param2" name="optimization-param2" />
+        <br/>
+        <button type="submit">Save Optimization Settings</button>
+    </form>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tabbuttons;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tabbuttons = document.getElementsByClassName("tab-button");
+    for (i = 0; i < tabbuttons.length; i++) {
+        tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
+<style>
+.tabs {
+    margin-bottom: 1rem;
+}
+
+.tab-button {
+    background-color: #720026;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+}
+
+.tab-button.active {
+    background-color: #5f259f;
+}
+
+.tab-content {
+    border: 2px solid #720026;
+    padding: 1rem;
+    border-radius: 0 5px 5px 5px;
+    background-color: #f0e6ff;
+}
+</style>
+{% endblock %}

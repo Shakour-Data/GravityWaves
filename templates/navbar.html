@@ -1,0 +1,20 @@
+<nav id="navbar">
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Analysis Products</a>
+            <div class="dropdown-content">
+                <a href="{{ url_for('market_status_analysis') }}">Market Status Analysis</a>
+                <a href="{{ url_for('forecast_analysis') }}">Forecast Analysis</a>
+                <a href="{{ url_for('indicator_analysis') }}">Indicator Analysis</a>
+                <a href="{{ url_for('optimization_results') }}">Optimization Results</a>
+                <a href="{{ url_for('comparative_results') }}">Comparative Model Results</a>
+                <a href="{{ url_for('custom_analysis') }}">Custom Analysis</a>
+            </div>
+        </li>
+        <li><a href="{{ url_for('about') }}">About Us</a></li>
+        <li><a href="{{ url_for('pricing') }}">Pricing</a></li>
+        <li><a href="{{ url_for('sitemap') }}">Sitemap</a></li>
+        <li><a href="{{ url_for('admin_settings') }}">Admin Settings</a></li>
+    </ul>
+</nav>
