@@ -1,8 +1,51 @@
-{% extends "base.html" %}
+{% raw %}{% extends "base.html" %}
 
 {% block title %}Comparative Model Results{% endblock %}
 
 {% block content %}
 <h1>Comparative Model Results</h1>
-<p>Content and charts for Comparative Model Results will be here.</p>
+<p>Compare different market models and their results side by side.</p>
+
+<section id="comparative-results" class="section-container">
+    <table id="comparative-results-table" border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Accuracy</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1 Score</th>
+            </tr>
+        </thead>
+        <tbody id="comparative-results-body">
+            <!-- Dynamic rows will be inserted here -->
+        </tbody>
+    </table>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/api/comparative_results')
+    .then(response => response.json())
+    .then(data => {
+        const tbody = document.getElementById('comparative-results-body');
+        tbody.innerHTML = '';
+        data.results.forEach(result => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${result.model}</td>
+                <td>${result.accuracy}</td>
+                <td>${result.precision}</td>
+                <td>${result.recall}</td>
+                <td>${result.f1_score}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching comparative results:', error);
+    });
+});
+</script>
 {% endblock %}
+{% endraw %}

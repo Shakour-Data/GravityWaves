@@ -19,19 +19,19 @@ Level 2: Detailed Activities per Major Activity
   1.5 Style footer with useful links and branding done
   1.6 Write and review test code for base templates and layout done
   1.7 Test redesigned base templates with real data done
-  1.8 Commit and push changes for base templates
+  1.8 Commit and push changes for base templates done
 
 2. Individual Page Templates
-  2.1 Review each page template (index, about, pricing, analysis pages, etc.)
-  2.2 Redesign pages for consistent look and feel
-  2.3 Connect pages to backend APIs for dynamic data
-  2.4 Add necessary JavaScript for interactivity and data fetching
-  2.5 Write and review test code for individual page templates
-  2.6 Test redesigned page templates with real data
+  2.1 Review each page template (index, about, pricing, analysis pages, etc.) done
+  2.2 Redesign pages for consistent look and feel done
+  2.3 Connect pages to backend APIs for dynamic data done
+  2.4 Add necessary JavaScript for interactivity and data fetching done
+  2.5 Write and review test code for individual page templates done
+  2.6 Test redesigned page templates with real data done
   2.7 Commit and push changes for page templates
 
-3. Backend API Review and Enhancement
-  3.1 Analyze current backend routes and APIs
+ 3. Backend API Review and Enhancement
+   3.1 Analyze current backend routes and APIs
   3.2 Identify missing or insufficient APIs for frontend needs
   3.3 Plan API improvements or new API creation
   3.4 Write and review test code for backend APIs

@@ -1,13 +1,76 @@
-{% extends "base.html" %}
+{% raw %}{% extends "base.html" %}
 
-{% block title %}{% if ticker %}{{ ticker }} Forecast Analysis{% else %}Forecast Analysis{% endif %}{% endblock %}
+{% block title %}Forecast Analysis{% endblock %}
 
 {% block content %}
-    <h1>{% if ticker %}{{ ticker }} Forecast Analysis{% else %}Forecast Analysis{% endif %}</h1>
-    <p>Configure and view forecasted future market states and price ranges.</p>
-    <div id="results"></div>
-{% endblock %}
+<h1>Forecast Analysis</h1>
+<p>Configure and view forecasted future market states and price ranges.</p>
 
-{% block extra_js %}
-<script src="{{ url_for('static', filename='js/forecast_analysis.js') }}"></script>
+<section id="forecast-settings" class="section-container">
+    <h2>Settings</h2>
+    <form id="forecast-settings-form">
+        <label for="ticker">Ticker Symbol:</label>
+        <input type="text" id="ticker" name="ticker" placeholder="e.g. AAPL" required />
+
+        <label for="forecast-horizon">Forecast Horizon (days):</label>
+        <input type="number" id="forecast-horizon" name="forecast_horizon" min="1" max="365" value="30" required />
+
+        <button type="submit">Generate Forecast</button>
+    </form>
+</section>
+
+<section id="forecast-results" class="section-container">
+    <h2>Forecast Results</h2>
+    <div id="forecast-chart-container">
+        <canvas id="forecast-chart"></canvas>
+    </div>
+    <div id="forecast-summary"></div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.getElementById('forecast-settings-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const ticker = document.getElementById('ticker').value;
+    const horizon = parseInt(document.getElementById('forecast-horizon').value, 10);
+
+    fetch('/api/forecast_analysis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ticker: ticker, forecast_horizon: horizon })
+    })
+    .then(response => response.json())
+    .then(data => {
+        const ctx = document.getElementById('forecast-chart').getContext('2d');
+        if (window.forecastChart) {
+            window.forecastChart.destroy();
+        }
+        window.forecastChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.dates,
+                datasets: [{
+                    label: 'Forecasted Price',
+                    data: data.prices,
+                    borderColor: '#2196f3',
+                    fill: false,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    x: { display: true, title: { display: true, text: 'Date' } },
+                    y: { display: true, title: { display: true, text: 'Price' } }
+                }
+            }
+        });
+        document.getElementById('forecast-summary').textContent = `Forecast generated for ${ticker} over ${horizon} days.`;
+    })
+    .catch(error => {
+        console.error('Error fetching forecast data:', error);
+        document.getElementById('forecast-summary').textContent = 'Error generating forecast.';
+    });
+});
+</script>
 {% endblock %}
+{% endraw %}
