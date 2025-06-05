@@ -4,73 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% block title %}Stock Market Prediction{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
-    {% block extra_css %}{% endblock %}
-    <script src="{{ url_for('static', filename='js/more_toggle.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}" />
+    {% block head %}{% endblock %}
 </head>
 <body>
-    {% include 'header.html' %}
-    {% include 'navbar.html' %}
+    <header role="banner">
+        {% block header %}
+            {% include 'header.html' %}
+        {% endblock %}
+    </header>
+    <nav role="navigation" aria-label="Main navigation">
+        {% block navbar %}
+            {% include 'navbar.html' %}
+        {% endblock %}
+    </nav>
 
-    <div id="breadcrumb-container" style="padding: 0.5rem 1rem; background-color: #7a4dbf; color: white; font-weight: bold; font-size: 1rem;">
-        <p id="breadcrumb" class="breadcrumb-text" style="margin: 0;"></p>
-        <p id="full-path" style="margin: 0; font-weight: normal; font-size: 0.85rem; color: #dcdcdc; font-family: monospace;"></p>
+    <div id="breadcrumb-container" class="breadcrumb-container" role="region" aria-label="Breadcrumb">
+        <p id="breadcrumb" class="breadcrumb-text"></p>
+        <p id="full-path" class="breadcrumb-full-path"></p>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const breadcrumbElem = document.getElementById('breadcrumb');
-            const fullPathElem = document.getElementById('full-path');
-            const path = "{{ request.path }}";
-            const endpoint = "{{ request.endpoint }}";
-
-            // Mapping of endpoints to descriptive full breadcrumb paths
-            const fullPathMapping = {
-                'market_status_analysis': 'Analysis Products > Market Status Analysis',
-                'forecast_analysis': 'Analysis Products > Forecast Analysis',
-                'indicator_analysis': 'Analysis Products > Indicator Analysis',
-                'optimization_results': 'Analysis Products > Optimization Results',
-                'comparative_results': 'Analysis Products > Comparative Model Results',
-                'custom_analysis': 'Analysis Products > Custom Analysis',
-                'trading_signals_backtesting': 'Analysis Products > Trading Signals & Backtesting',
-                'about': 'About Us',
-                'pricing': 'Pricing',
-                'sitemap': 'Sitemap',
-                'index': 'Home'
-                // Add new pages here as needed
-            };
-
-            let breadcrumbText = path
-                .replace(/^\/+/, '') // remove leading slash
-                .replace(/\/+/g, ' > ') // replace slashes with >
-                .replace(/-/g, ' ') // replace dashes with spaces
-                .replace(/\b\w/g, c => c.toUpperCase()); // capitalize first letter of each word
-
-            if (!breadcrumbText) {
-                breadcrumbText = 'Home';
-            } else {
-                breadcrumbText = 'Home > ' + breadcrumbText;
-            }
-
-            breadcrumbElem.textContent = breadcrumbText;
-
-            if (endpoint in fullPathMapping) {
-                fullPathElem.textContent = fullPathMapping[endpoint];
-            } else if (path === '/') {
-                fullPathElem.textContent = 'Home';
-            } else {
-                fullPathElem.textContent = path;
-            }
-        });
-    </script>
-
-    <div id="container" style="display: flex; gap: 20px; align-items: flex-start;">
-        {% include 'sidebar.html' %}
-        <main id="main-content" style="flex-grow: 1;">
+    <div id="container" class="container" role="main">
+        {% block sidebar %}
+            <aside id="sidebar" role="complementary">
+                {% include 'sidebar.html' %}
+            </aside>
+        {% endblock %}
+        <main id="main-content" class="main-content" tabindex="-1">
             {% block content %}{% endblock %}
         </main>
     </div>
-    {% include 'footer.html' %}
+    <footer role="contentinfo">
+        {% block footer %}
+            {% include 'footer.html' %}
+        {% endblock %}
+    </footer>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/sidebar_toggle.js') }}"></script>
     {% block extra_js %}{% endblock %}
