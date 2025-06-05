@@ -6,6 +6,11 @@ nav#sidebar {
     box-shadow: 2px 0 5px rgba(58, 12, 163, 0.3);
     overflow-y: auto;
     min-height: 100vh;
+    transition: transform 0.3s ease;
+}
+
+nav#sidebar.collapsed {
+    transform: translateX(-100%);
 }
 
 nav#sidebar ul {
@@ -98,4 +103,43 @@ button {
 
 button:hover {
     background-color: #5f259f;
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #720026;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .sidebar-toggle {
+        display: block;
+    }
+
+    nav#sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 1001;
+        transform: translateX(-100%);
+        box-shadow: 2px 0 5px rgba(58, 12, 163, 0.5);
+        background-color: #e0c3fc;
+        padding: 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    nav#sidebar.collapsed {
+        transform: translateX(0);
+    }
+
+    .sidebar-content {
+        overflow-y: auto;
+        max-height: 100vh;
+    }
 }

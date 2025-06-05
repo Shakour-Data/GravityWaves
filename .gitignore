@@ -1,2 +1,6 @@
-/.venv
+.venv
+logs/
 logs/system.log
+__pycache__/
+*.pyc
+.vscode/

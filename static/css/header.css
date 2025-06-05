@@ -28,3 +28,35 @@ header {
 .datetime-display span {
     margin: 2px 0;
 }
+
+/* Responsive header */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 1rem;
+        font-size: 1.2rem;
+    }
+
+    .datetime-display {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+    }
+
+    .datetime-display span {
+        margin: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .datetime-display {
+        font-size: 0.7rem;
+    }
+}
