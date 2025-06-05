@@ -161,7 +161,14 @@ def api_indicator_analysis():
             params = ind.get('params', {})
             result = indicator_calculator._calculate_single_indicator(df, name, params)
             if result is not None:
-                indicator_results[name] = result.tail(1).to_dict() if hasattr(result, 'to_dict') else result
+                # Convert Timestamp keys to string for JSON serialization
+                if hasattr(result, 'tail') and hasattr(result.tail(1), 'to_dict'):
+                    last_row = result.tail(1).to_dict()
+                    # Convert keys to strings
+                    last_row_str_keys = {str(k): v for k, v in last_row.items()}
+                    indicator_results[name] = last_row_str_keys
+                else:
+                    indicator_results[name] = result
 
         return jsonify({'indicator_results': indicator_results}), 200
 

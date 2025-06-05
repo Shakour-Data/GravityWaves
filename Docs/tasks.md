@@ -76,13 +76,13 @@
 | <span style="background-color:#98df8a;display:block">3</span> | 3.4.3 | Test affected frontend pages/components | done | 2024-07-04 | 3.4 |
 | <span style="background-color:#98df8a;display:block">3</span> | 3.4.4 | Test entire frontend application flow | done | 2024-07-04 | 3.4 |
 | <span style="background-color:#ffbb78;display:block">2</span> | 3.5 | Test backend APIs with real data and edge cases | done | 2024-07-04 | 3.4 |
-| <span style="background-color:#ffbb78;display:block">2</span> | 3.6 | Commit and push changes for backend APIs |  | 3.5 |
-| <span style="background-color:#aec7e8;display:block">1</span> | 4 | API Development for Frontend Needs |  | 3.6 |
+| <span style="background-color:#ffbb78;display:block">2</span> | 3.6 | Commit and push changes for backend APIs | done | 2024-07-04 | 3.5 |
+| <span style="background-color:#aec7e8;display:block">1</span> | 4 | API Development for Frontend Needs | doing | 2024-07-05 | 3.6 |
 | <span style="background-color:#ffbb78;display:block">2</span> | 4.1 | Implement new APIs or enhance existing ones | done | 2024-06-30 | 3.6 |
 | <span style="background-color:#ffbb78;display:block">2</span> | 4.2 | Ensure APIs provide required data and functionality | done | 2024-06-30 | 4.1 |
 | <span style="background-color:#ffbb78;display:block">2</span> | 4.3 | Add error handling and validation | done | 2024-06-30 | 4.2 |
-| <span style="background-color:#ffbb78;display:block">2</span> | 4.4 | Write and review test code for API development |  | 4.3 |
-| <span style="background-color:#ffbb78;display:block">2</span> | 4.5 | Test new or enhanced APIs with real data and edge cases |  | 4.4 |
+| <span style="background-color:#ffbb78;display:block">2</span> | 4.4 | Write and review test code for API development | done | 2024-07-05 | 4.3 |
+| <span style="background-color:#ffbb78;display:block">2</span> | 4.5 | Test new or enhanced APIs with real data and edge cases | done | 2024-07-05 | 4.4 |
 | <span style="background-color:#ffbb78;display:block">2</span> | 4.6 | Commit and push changes for API development |  | 4.5 |
 | <span style="background-color:#ffbb78;display:block">2</span> | 4.7 | Develop trading signals backtesting API endpoint | done | 2024-06-30 | 4.6 |
 | <span style="background-color:#aec7e8;display:block">1</span> | 5 | Testing with Real Data |  | 4.6 |
