@@ -1,50 +1,50 @@
-
 Frontend and Backend Development Tasks for Stock Market Prediction Project
 
 Level 1: Major Activities
-1. Base Templates and Layout
-2. Individual Page Templates
-3. Backend API Review and Enhancement
+1. Base Templates and Layout (done)
+2. Individual Page Templates (done)
+3. Backend API Review and Enhancement (doing)
 4. API Development for Frontend Needs
 5. Testing with Real Data
 6. Commit and Push Changes
 
 Level 2: Detailed Activities per Major Activity
 
-1. Base Templates and Layout
-  1.1 Review existing base.html, header.html, navbar.html, sidebar.html, footer.html done
-  1.2 Redesign base templates for modern, responsive UI/UX done
-  1.3 Integrate logo and dynamic elements in header done
-  1.4 Improve navigation and sidebar forms done
-  1.5 Style footer with useful links and branding done
-  1.6 Write and review test code for base templates and layout done
-  1.7 Test redesigned base templates with real data done
-  1.8 Commit and push changes for base templates done
+1. Base Templates and Layout (done)
+  1.1 Review existing base.html, header.html, navbar.html, sidebar.html, footer.html (done)
+  1.2 Redesign base templates for modern, responsive UI/UX (done)
+  1.3 Integrate logo and dynamic elements in header (done)
+  1.4 Improve navigation and sidebar forms (done)
+  1.5 Style footer with useful links and branding (done)
+  1.6 Write and review test code for base templates and layout (done)
+  1.7 Test redesigned base templates with real data (done)
+  1.8 Commit and push changes for base templates (done)
 
-2. Individual Page Templates
-  2.1 Review each page template (index, about, pricing, analysis pages, etc.) done
-  2.2 Redesign pages for consistent look and feel done
-  2.3 Connect pages to backend APIs for dynamic data done
-  2.4 Add necessary JavaScript for interactivity and data fetching done
-  2.5 Write and review test code for individual page templates done
-  2.6 Test redesigned page templates with real data done
-  2.7 Commit and push changes for page templates
+2. Individual Page Templates (done)
+  2.1 Review each page template (index, about, pricing, analysis pages, etc.) (done)
+  2.2 Redesign pages for consistent look and feel (done)
+  2.3 Connect pages to backend APIs for dynamic data (done)
+  2.4 Add necessary JavaScript for interactivity and data fetching (done)
+  2.5 Write and review test code for individual page templates (done)
+  2.6 Test redesigned page templates with real data (done)
+  2.7 Commit and push changes for page templates (done)
 
- 3. Backend API Review and Enhancement
-   3.1 Analyze current backend routes and APIs
-  3.2 Identify missing or insufficient APIs for frontend needs
-  3.3 Plan API improvements or new API creation
+3. Backend API Review and Enhancement (doing)
+  3.1 Analyze current backend routes and APIs (done)
+  3.2 Identify missing or insufficient APIs for frontend needs (done)
+  3.3 Plan API improvements or new API creation (done)
   3.4 Write and review test code for backend APIs
   3.5 Test backend APIs with real data and edge cases
   3.6 Commit and push changes for backend APIs
 
 4. API Development for Frontend Needs
-  4.1 Implement new APIs or enhance existing ones
-  4.2 Ensure APIs provide required data and functionality
-  4.3 Add error handling and validation
+  4.1 Implement new APIs or enhance existing ones (done)
+  4.2 Ensure APIs provide required data and functionality (done)
+  4.3 Add error handling and validation (done)
   4.4 Write and review test code for API development
   4.5 Test new or enhanced APIs with real data and edge cases
   4.6 Commit and push changes for API development
+  4.7 Develop trading signals backtesting API endpoint (done)
 
 5. Testing with Real Data
   5.1 Prepare test cases covering all frontend features
@@ -53,6 +53,7 @@ Level 2: Detailed Activities per Major Activity
   5.4 Document test results and issues
   5.5 Commit and push test documentation and fixes
   5.6 Iterative testing process: write one or more tests, run tests, and if any fail, repeat testing, running, and improving until all tests pass
+  5.7 Continue iterative process of testing, running, and improving until all tests pass successfully
 
 6. Commit and Push Changes
   6.1 Commit changes after each major task completion
@@ -67,7 +68,5 @@ Level 3: Subtasks Example for Base Templates and Layout (1.2)
 1.2.5 Refactor CSS for consistency and performance
 
 Note: Each Level 1 activity will be executed step-by-step following the above subtasks. After completing each Level 1 activity, testing and commit/push will be performed before moving to the next.
-
-5.7 Continue iterative process of testing, running, and improving until all tests pass successfully.
 
 This task list will be updated as development progresses.

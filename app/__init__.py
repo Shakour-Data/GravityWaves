@@ -258,20 +258,35 @@ def api_custom_analysis():
         log_manager.error(f"Exception in api_custom_analysis: {e}\\n{traceback.format_exc()}")
         return jsonify({"error": "Internal server error"}), 500
 
+# New API endpoint for trading signals backtesting
+# Improved API endpoint for trading signals backtesting with enhanced validation and logging
 @app.route('/api/trading_signals_backtesting', methods=['POST'])
 def api_trading_signals_backtesting():
     try:
         data = request.get_json()
         if not data or not isinstance(data, dict):
+            log_manager.warning("api_trading_signals_backtesting: Invalid JSON or data format")
             return jsonify({"error": "Invalid JSON or data format"}), 400
 
         ticker = data.get('ticker')
         backtest_params = data.get('backtest_params', {})
 
         if not ticker:
+            log_manager.warning("api_trading_signals_backtesting: Missing ticker")
             return jsonify({"error": "Missing ticker"}), 400
 
-        # Implement backtesting logic here
+        # Validate ticker format (alphanumeric, dots, hyphens)
+        import re
+        if not re.match(r'^[A-Za-z0-9\\.\\-]+$', ticker):
+            log_manager.warning(f"api_trading_signals_backtesting: Invalid ticker format: {ticker}")
+            return jsonify({"error": "Invalid ticker format"}), 400
+
+        # Validate backtest_params is a dict
+        if not isinstance(backtest_params, dict):
+            log_manager.warning("api_trading_signals_backtesting: backtest_params must be a dictionary")
+            return jsonify({"error": "Invalid backtest_params format"}), 400
+
+        # TODO: Implement actual backtesting logic here
         # For now, return a placeholder response
 
         result = {
