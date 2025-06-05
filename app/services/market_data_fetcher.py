@@ -358,7 +358,28 @@ class MarketDataFetcher:
                     exc_info=True
                 )
 
-        self.log_manager.error(
-            f"Failed to fetch data for {self.ticker} after {max_attempts} attempts"
-        )
-        return None
+                self.log_manager.error(
+                    f"Failed to fetch data for {self.ticker} after {max_attempts} attempts"
+                )
+                return None
+
+
+def load_market_data(ticker: str, data_source: str, timeframe: str, candle_count: int) -> pd.DataFrame:
+    """
+    Wrapper function to load market data using MarketDataFetcher.
+
+    Args:
+        ticker (str): The stock ticker symbol.
+        data_source (str): The data source name ('yahoo' or 'tse').
+        timeframe (str): The data aggregation period (e.g., '1d').
+        candle_count (int): The number of historical candles to fetch.
+
+    Returns:
+        pd.DataFrame: DataFrame containing the market data or empty DataFrame if failed.
+    """
+    log_manager = LogManager()
+    fetcher = MarketDataFetcher(ticker, candle_count, log_manager, timeframe, data_source)
+    data = fetcher.fetch_data()
+    if data is None:
+        return pd.DataFrame()
+    return data

@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import pandas as pd
 import numpy as np
 import pytest
@@ -83,3 +87,67 @@ def test_run_analysis_pipeline(large_sample_data):
     result = mas.run_analysis_pipeline(large_sample_data, [1])
     assert isinstance(result, dict)
     assert "model_performance" in result
+
+def test_volatility_regime_forecasting_edge_cases(large_sample_data):
+    log_manager = LogManager(enable_console_logging=False)
+    basic_config = {
+        "use_volume_features": True,
+        "use_price_std_features": True,
+        "enable_feature_engineering": True,
+        "prediction_type": "classification",
+        "selected_models": ["RandomForestClassifier"]
+    }
+    advanced_config = {
+        "prediction_horizons_config": {1: {"models": ["RandomForestClassifier"]}}
+    }
+    mas = MarketAnalysisSystem("TEST", basic_config, advanced_config, log_manager)
+
+    # Create a copy and introduce NaNs and edge cases in volatility_regime
+    df = large_sample_data.copy()
+    df['daily_return'] = df['close'].pct_change() * 100
+    df['atr_normalized'] = df['atr_14'] / df['close']
+    df['volatility_regime'] = 'NEUTRAL'
+    df.loc[df.index[0], 'volatility_regime'] = None  # Missing value
+    df.loc[df.index[1], 'volatility_regime'] = 'EXTREME_HIGH'
+    df.loc[df.index[2], 'volatility_regime'] = 'EXTREME_LOW'
+
+    # Run pipeline with multiple horizons
+    horizons = [1, 5, 10]
+    result = mas.run_analysis_pipeline(df, horizons)
+    assert isinstance(result, dict)
+    for horizon in horizons:
+        assert horizon in result['model_performance']
+        assert 'volatility_regime_models' in result['model_performance'][horizon]
+        for model_name, metrics in result['model_performance'][horizon]['volatility_regime_models'].items():
+            assert 'balanced_accuracy' in metrics or 'mean_squared_error' in metrics
+
+def test_run_analysis_pipeline_multi_symbol(large_sample_data):
+    log_manager = LogManager(enable_console_logging=False)
+    basic_config = {
+        "use_volume_features": True,
+        "use_price_std_features": True,
+        "enable_feature_engineering": True,
+        "prediction_type": "classification",
+        "selected_models": ["RandomForestClassifier"]
+    }
+    advanced_config = {
+        "prediction_horizons_config": {1: {"models": ["RandomForestClassifier"]}}
+    }
+    mas1 = MarketAnalysisSystem("SYM1", basic_config, advanced_config, log_manager)
+    mas2 = MarketAnalysisSystem("SYM2", basic_config, advanced_config, log_manager)
+
+    # Use the same sample data for both symbols
+    df1 = mas1._calculate_daily_return(large_sample_data)
+    df1 = mas1._classify_market_state(df1)
+    df1 = mas1._feature_engineering(df1)
+
+    df2 = mas2._calculate_daily_return(large_sample_data)
+    df2 = mas2._classify_market_state(df2)
+    df2 = mas2._feature_engineering(df2)
+
+    result1 = mas1.run_analysis_pipeline(df1, [1])
+    result2 = mas2.run_analysis_pipeline(df2, [1])
+
+    assert isinstance(result1, dict)
+    assert isinstance(result2, dict)
+    assert result1 != result2  # Different instances should produce different results

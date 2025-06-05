@@ -12,59 +12,71 @@ def client():
     with app.app.test_client() as client:
         yield client
 
-def test_analyze_success(client):
+def test_api_market_status_analysis_success(client):
     payload = {
         "ticker": "AAPL",
-        "candle_count": 100,
+        "analysis_date": "2023-01-01",
         "timeframe": "1d",
-        "data_source": "yahoo",
-        "prediction_horizons": [1, 5],
-        "basic_config": {
-            "selected_models": ["RandomForestClassifier"],
-            "prediction_type": "classification",
-            "enable_feature_engineering": True,
-            "use_volume_features": True,
-            "use_price_std_features": True
-        },
-        "advanced_config": {
-            "optimize_indicators": False,
-            "optimization_method": "GA",
-            "optimization_generations": 10,
-            "optimization_population": 50
-        }
+        "candle_count": 500
     }
-    response = client.post('/api/analyze', data=json.dumps(payload), content_type='application/json')
+    response = client.post('/api/market_status_analysis', data=json.dumps(payload), content_type='application/json')
     assert response.status_code == 200
     data = response.get_json()
-    assert "ticker" in data
-    assert data["ticker"] == "AAPL"
-    assert "model_performance" in data
+    assert "current_market_state" in data
+    assert "volatility_regime" in data
 
-def test_analyze_missing_ticker(client):
+def test_api_market_status_analysis_missing_ticker(client):
     payload = {
-        "candle_count": 100
+        "analysis_date": "2023-01-01"
     }
-    response = client.post('/api/analyze', data=json.dumps(payload), content_type='application/json')
+    response = client.post('/api/market_status_analysis', data=json.dumps(payload), content_type='application/json')
     assert response.status_code == 400
+
+def test_api_market_status_analysis_invalid_date(client):
+    payload = {
+        "ticker": "AAPL",
+        "analysis_date": "invalid-date"
+    }
+    response = client.post('/api/market_status_analysis', data=json.dumps(payload), content_type='application/json')
+    assert response.status_code == 400
+
+def test_api_custom_analysis_success(client):
+    payload = {
+        "ticker": "AAPL",
+        "analysis_params": {
+            "timeframe": "1d",
+            "prediction_horizons": [1, 5, 10],
+            "basic_config": {},
+            "advanced_config": {}
+        }
+    }
+    response = client.post('/api/custom_analysis', data=json.dumps(payload), content_type='application/json')
+    assert response.status_code == 200
     data = response.get_json()
-    assert "error" in data
-    assert data["error"] == "Ticker symbol is required"
+    assert "custom_analysis_results" in data
 
-def test_analyze_invalid_data_source(client):
+def test_api_custom_analysis_missing_ticker(client):
     payload = {
-        "ticker": "AAPL",
-        "data_source": "invalid_source"
+        "analysis_params": {}
     }
-    response = client.post('/api/analyze', data=json.dumps(payload), content_type='application/json')
-    # The backend returns 400 for invalid data_source, so update assertion accordingly
+    response = client.post('/api/custom_analysis', data=json.dumps(payload), content_type='application/json')
     assert response.status_code == 400
 
-def test_analyze_empty_prediction_horizons(client):
+def test_api_trading_signals_backtesting_success(client):
     payload = {
         "ticker": "AAPL",
-        "prediction_horizons": []
+        "backtest_params": {
+            "timeframe": "1d"
+        }
     }
-    response = client.post('/api/analyze', data=json.dumps(payload), content_type='application/json')
-    # Should handle empty prediction horizons gracefully
-    assert response.status_code == 200 or response.status_code == 500
+    response = client.post('/api/trading_signals_backtesting', data=json.dumps(payload), content_type='application/json')
+    assert response.status_code == 200
+    data = response.get_json()
+    assert "backtest_results" in data
 
+def test_api_trading_signals_backtesting_missing_ticker(client):
+    payload = {
+        "backtest_params": {}
+    }
+    response = client.post('/api/trading_signals_backtesting', data=json.dumps(payload), content_type='application/json')
+    assert response.status_code == 400

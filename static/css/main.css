@@ -1,0 +1,16 @@
+@import url('base.css');
+@import url('header.css');
+@import url('navbar.css');
+@import url('sidebar.css');
+@import url('footer.css');
+@import url('breadcrumb.css');
+@import url('home.css');
+
+@import url('market_status_analysis.css');
+@import url('forecast_analysis.css');
+@import url('indicator_analysis.css');
+@import url('optimization_results.css');
+@import url('comparative_results.css');
+@import url('custom_analysis.css');
+
+/* Additional imports for page-specific CSS files can be added here */

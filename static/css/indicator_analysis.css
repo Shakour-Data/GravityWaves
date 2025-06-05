@@ -1,0 +1,12 @@
+/* Styles for Indicator Analysis page charts */
+.chart-container {
+    width: 100%;
+    max-width: 900px;
+    height: 400px;
+    margin: 20px auto;
+    background-color: #f9f7ff;
+    border: 1px solid #720026;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(114, 0, 38, 0.3);
+    padding: 10px;
+}

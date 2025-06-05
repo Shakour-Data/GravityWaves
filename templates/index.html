@@ -5,30 +5,32 @@
 {% block content %}
 <h1>Welcome to the Stock Market Analysis Platform</h1>
 <p>Select an analysis page to get started:</p>
-<div class="page-boxes-container">
-    <div class="page-box">
-        <h2><span class="page-icon">📊</span><a href="{{ url_for('market_status_analysis') }}">Market Status Analysis</a></h2>
-        <p>Explore the current and historical market conditions with detailed charts and tables. Understand market states, volatility regimes, and forecast trends to make informed trading decisions. This page provides comprehensive visualizations of market behavior over time, including interactive elements that allow users to analyze market dynamics and volatility patterns in depth, helping traders and analysts to develop effective strategies based on robust data insights. The data-driven approach ensures that users can track market fluctuations and adapt their strategies accordingly, making this page an essential tool for market participants seeking to stay ahead.</p>
-    </div>
-    <div class="page-box">
-        <h2><span class="page-icon">🔮</span><a href="{{ url_for('forecast_analysis') }}">Forecast Analysis</a></h2>
-        <p>Configure and view forecasted future market states and price ranges. Use customizable inputs like ticker, analysis date, and prediction horizons to generate forecasts that help anticipate market movements and optimize your trading strategies. This page integrates advanced predictive models and visualization tools to provide users with actionable insights, enabling them to plan investments with greater confidence and adapt to changing market conditions effectively. By leveraging historical data and sophisticated algorithms, users can gain a clearer understanding of potential market trajectories.</p>
-    </div>
-    <div class="page-box">
-        <h2><span class="page-icon">📈</span><a href="{{ url_for('indicator_analysis') }}">Indicator Analysis</a></h2>
-        <p>Dive into technical indicators and their analysis to better understand market signals. This page will provide charts and insights to help you interpret various market indicators and improve your trading decisions. It covers a wide range of indicators, offering detailed explanations and real-time data visualization to support comprehensive market analysis and enhance decision-making processes for traders at all levels. The inclusion of diverse indicators allows users to tailor their analysis to specific market conditions and trading styles.</p>
-    </div>
-    <div class="page-box">
-        <h2><span class="page-icon">⚙️</span><a href="{{ url_for('optimization_results') }}">Optimization Results</a></h2>
-        <p>Review the results of optimization processes applied to trading strategies. Analyze performance metrics and charts to identify the best parameters and improve the effectiveness of your market approaches. This page facilitates a deep dive into algorithmic adjustments, allowing users to fine-tune strategies based on empirical data and comparative performance evaluations, ultimately aiming to maximize returns and minimize risks. The detailed feedback provided helps users understand the impact of each parameter change on overall strategy performance.</p>
-    </div>
-    <div class="page-box">
-        <h2><span class="page-icon">📋</span><a href="{{ url_for('comparative_results') }}">Comparative Model Results</a></h2>
-        <p>Compare different market models and their results side by side. This page offers visual and statistical comparisons to help you evaluate model performance and select the most suitable approach for your analysis. It provides comprehensive tools for assessing accuracy, robustness, and predictive power, supporting informed decision-making in model selection and application. Users can leverage these insights to choose models that best fit their investment goals and risk tolerance.</p>
-    </div>
-    <div class="page-box">
-        <h2><span class="page-icon">🛠️</span><a href="{{ url_for('custom_analysis') }}">Custom Analysis</a></h2>
-        <p>Create and explore custom market analyses tailored to your specific needs. This page allows you to apply unique parameters and methods to gain deeper insights into market behavior and trends. It supports flexible data inputs and advanced analytical techniques, empowering users to conduct personalized investigations and generate meaningful market intelligence. The customizable nature of this page makes it ideal for users seeking to explore niche market scenarios and develop specialized strategies.</p>
+<div id="home-content-container" style="display: flex; gap: 20px;">
+    <div class="page-boxes-container" style="flex-grow: 1;">
+        <div class="page-box">
+            <h2><span class="page-icon">📊</span><a href="{{ url_for('market_status_analysis') }}">Market Status Analysis</a></h2>
+            <p>Explore the current and historical market conditions with detailed charts and tables.</p>
+        </div>
+        <div class="page-box">
+            <h2><span class="page-icon">🔮</span><a href="{{ url_for('forecast_analysis') }}">Forecast Analysis</a></h2>
+            <p>Configure and view forecasted future market states and price ranges.</p>
+        </div>
+        <div class="page-box">
+            <h2><span class="page-icon">📈</span><a href="{{ url_for('indicator_analysis') }}">Indicator Analysis</a></h2>
+            <p>Dive into technical indicators and their analysis to better understand market signals.</p>
+        </div>
+        <div class="page-box">
+            <h2><span class="page-icon">⚙️</span><a href="{{ url_for('optimization_results') }}">Optimization Results</a></h2>
+            <p>Review the results of optimization processes applied to trading strategies.</p>
+        </div>
+        <div class="page-box">
+            <h2><span class="page-icon">📋</span><a href="{{ url_for('comparative_results') }}">Comparative Model Results</a></h2>
+            <p>Compare different market models and their results side by side.</p>
+        </div>
+        <div class="page-box">
+            <h2><span class="page-icon">🛠️</span><a href="{{ url_for('custom_analysis') }}">Custom Analysis</a></h2>
+            <p>Create and explore custom market analyses tailored to your specific needs.</p>
+        </div>
     </div>
 </div>
 {% endblock %}

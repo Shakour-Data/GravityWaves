@@ -1,29 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Forecast Analysis{% endblock %}
+{% block title %}{% if ticker %}{{ ticker }} Forecast Analysis{% else %}Forecast Analysis{% endif %}{% endblock %}
 
 {% block content %}
-    <h1>Forecast Analysis</h1>
+    <h1>{% if ticker %}{{ ticker }} Forecast Analysis{% else %}Forecast Analysis{% endif %}</h1>
     <p>Configure and view forecasted future market states and price ranges.</p>
-    <form id="forecast-form">
-        <label for="ticker">Ticker:</label>
-        <input type="text" id="ticker" name="ticker" required>
-
-        <label for="analysis_date">Analysis Date:</label>
-        <input type="date" id="analysis_date" name="analysis_date" required>
-
-        <label for="timeframe">Timeframe:</label>
-        <select id="timeframe" name="timeframe">
-            <option value="1d">1 Day</option>
-            <option value="1h">1 Hour</option>
-            <option value="5m">5 Minutes</option>
-        </select>
-
-        <label for="prediction_horizons">Prediction Horizons (comma separated):</label>
-        <input type="text" id="prediction_horizons" name="prediction_horizons" value="1,5,10" required>
-
-        <button type="submit">Submit</button>
-    </form>
     <div id="results"></div>
 {% endblock %}
 

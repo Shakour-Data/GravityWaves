@@ -100,10 +100,13 @@ class MarketStateClassifier:
         mean = self.atr_normalized.mean()
         std = self.atr_normalized.std()
 
+        # Define thresholds similar to market state thresholds for 5 states
         thresholds = {
-            "high": mean + std,
-            "medium": mean,
-            "low": mean - std,
+            "extreme_bullish": mean + 2 * std,
+            "bullish": mean + std,
+            "neutral": mean,
+            "bearish": mean - std,
+            "extreme_bearish": mean - 2 * std,
         }
         return thresholds
 
@@ -125,19 +128,22 @@ class MarketStateClassifier:
 
     def classify_volatility_regime(self, atr_value: float) -> str:
         """
-        Classify a single normalized ATR value into a volatility regime.
+        Classify a single normalized ATR value into a volatility regime with the new 5 states:
+        Extreme_high, high, Neutral, low, Extreme_Low.
         """
         if self.volatility_thresholds is None:
             return "UNKNOWN_VOLATILITY"
         t = self.volatility_thresholds
-        if atr_value > t["high"]:
-            return "HIGH_VOLATILITY"
-        elif atr_value > t["medium"]:
-            return "MEDIUM_VOLATILITY"
-        elif atr_value > t["low"]:
-            return "LOW_VOLATILITY"
+        if atr_value > t["extreme_bullish"]:
+            return "Extreme_high"
+        elif atr_value > t["bullish"]:
+            return "high"
+        elif atr_value >= t["bearish"]:
+            return "Neutral"
+        elif atr_value >= t["extreme_bearish"]:
+            return "low"
         else:
-            return "VERY_LOW_VOLATILITY"
+            return "Extreme_Low"
 
 
 class MarketAnalysisSystem:
@@ -487,6 +493,22 @@ class MarketAnalysisSystem:
         self.log_manager.warning("No latest data available for market state forecasting.")
         return "N/A"
 
+    def _forecast_future_volatility_regime(self, model: Pipeline, X_latest: pd.DataFrame) -> str:
+        """
+        Forecasts the future volatility regime using the trained classification model.
+        """
+        self.log_manager.info("Forecasting future volatility regimes.")
+        if not X_latest.empty:
+            # Predict the encoded state
+            predicted_encoded_state = model.predict(X_latest)[0]
+            # Decode the predicted state
+            # For volatility regime, we do not have an encoder mapping, so return as is
+            predicted_state = predicted_encoded_state
+            self.log_manager.info("Volatility regime forecasting complete.")
+            return predicted_state
+        self.log_manager.warning("No latest data available for volatility regime forecasting.")
+        return "N/A"
+
     def _forecast_future_price_range(self, model: Pipeline, X_latest: pd.DataFrame) -> Tuple[float, float]:
         """
         Forecasts the future price range using the trained regression model.
@@ -644,9 +666,26 @@ class MarketAnalysisSystem:
             selected_models_for_horizon = horizon_config.get("models", self.basic_config["selected_models"])
             prediction_type = self.basic_config["prediction_type"] # Use global prediction type for now
 
-            X, y, scaler = self._prepare_data_for_ml(df.copy(), horizon, prediction_type) # Pass a copy of df
+            # Prepare data for market state prediction
+            X_market, y_market, scaler_market = self._prepare_data_for_ml(df.copy(), horizon, prediction_type) # Pass a copy of df
 
-            if X.empty or y.empty:
+            # Prepare data for volatility regime prediction
+            # For volatility regime, create target variable shifted by horizon
+            df_volatility = df.copy()
+            df_volatility['target_volatility_regime'] = df_volatility['volatility_regime'].shift(-horizon)
+            df_volatility.dropna(subset=['target_volatility_regime'], inplace=True)
+            y_volatility = df_volatility['target_volatility_regime']
+            X_volatility = df_volatility.drop(columns=['volatility_regime', 'target_volatility_regime'], errors='ignore')
+            # Drop non-numeric columns
+            X_volatility = X_volatility.select_dtypes(include=np.number)
+            # Drop any columns with all NaN
+            X_volatility.dropna(axis=1, how='all', inplace=True)
+            # Drop rows with NaN in features or target
+            combined_vol = pd.concat([X_volatility, y_volatility], axis=1).dropna()
+            X_volatility = combined_vol.drop(columns=[y_volatility.name])
+            y_volatility = combined_vol[y_volatility.name]
+
+            if X_market.empty or y_market.empty:
                 self.log_manager.warning(f"Skipping ML for horizon {horizon} due to empty data after preparation.")
                 continue
 
@@ -655,29 +694,62 @@ class MarketAnalysisSystem:
             analysis_data["forecasts"][horizon] = {}
 
             # Get the latest features for forecasting
-            X_latest = X.iloc[[-1]] # Take the last row for forecasting
+            X_latest_market = X_market.iloc[[-1]] # Take the last row for forecasting
+            X_latest_volatility = X_volatility.iloc[[-1]] if not X_volatility.empty else pd.DataFrame()
 
             for model_name in selected_models_for_horizon:
                 model_pipeline = self._get_model_pipeline(model_name, prediction_type)
                 if model_pipeline:
                     self.log_manager.info(f"Processing model {model_name} for horizon {horizon}.")
-                    metrics = self._evaluate_model(model_pipeline, X, y, prediction_type)
-                    analysis_data["model_performance"][horizon][model_name] = metrics
 
-                    # Calculate feature importances based on the best model from tuning
-                    if metrics and 'best_model' in metrics:
-                        feature_importances = self._calculate_feature_importances(
-                            metrics['best_model'], X, self.advanced_config.get("feature_selection_method", "permutation_importance")
+                    # Check if y_market has at least two unique classes before training
+                    if prediction_type == 'classification' and y_market.nunique() < 2:
+                        self.log_manager.warning(f"Skipping training for model {model_name} at horizon {horizon} due to insufficient classes in target variable.")
+                        continue
+
+                    # Train and evaluate market state model
+                    metrics_market = self._evaluate_model(model_pipeline, X_market, y_market, prediction_type)
+                    analysis_data["model_performance"][horizon][model_name] = metrics_market
+
+                    # Calculate feature importances for market state
+                    if metrics_market and 'best_model' in metrics_market:
+                        feature_importances_market = self._calculate_feature_importances(
+                            metrics_market['best_model'], X_market, self.advanced_config.get("feature_selection_method", "permutation_importance")
                         )
-                        analysis_data["feature_importances"][horizon][model_name] = feature_importances
+                        analysis_data["feature_importances"][horizon][model_name] = feature_importances_market
 
-                        # Forecast future state/price using the best model and latest data
+                        # Forecast future market state
                         if prediction_type == 'classification':
-                            forecasted_state = self._forecast_future_market_state(metrics['best_model'], X_latest)
+                            forecasted_state = self._forecast_future_market_state(metrics_market['best_model'], X_latest_market)
                             analysis_data["forecasts"][horizon][model_name] = {"predicted_market_state": forecasted_state}
                         elif prediction_type == 'regression':
-                            lower_bound, upper_bound = self._forecast_future_price_range(metrics['best_model'], X_latest)
+                            lower_bound, upper_bound = self._forecast_future_price_range(metrics_market['best_model'], X_latest_market)
                             analysis_data["forecasts"][horizon][model_name] = {"predicted_price_range": (lower_bound, upper_bound)}
+
+                    # Train and evaluate volatility regime model
+                    if not X_volatility.empty and not y_volatility.empty:
+                        # Check if y_volatility has at least two unique classes before training
+                        if prediction_type == 'classification' and y_volatility.nunique() < 2:
+                            self.log_manager.warning(f"Skipping volatility regime model {model_name} at horizon {horizon} due to insufficient classes in target variable.")
+                        else:
+                            metrics_volatility = self._evaluate_model(model_pipeline, X_volatility, y_volatility, prediction_type)
+                            # Store volatility model performance separately
+                            analysis_data["model_performance"][horizon].setdefault('volatility_regime_models', {})
+                            analysis_data["model_performance"][horizon]['volatility_regime_models'][model_name] = metrics_volatility
+
+                            # Calculate feature importances for volatility regime
+                            if metrics_volatility and 'best_model' in metrics_volatility:
+                                feature_importances_volatility = self._calculate_feature_importances(
+                                    metrics_volatility['best_model'], X_volatility, self.advanced_config.get("feature_selection_method", "permutation_importance")
+                                )
+                                analysis_data["feature_importances"][horizon].setdefault('volatility_regime_models', {})
+                                analysis_data["feature_importances"][horizon]['volatility_regime_models'][model_name] = feature_importances_volatility
+
+                                # Forecast future volatility regime
+                                if prediction_type == 'classification':
+                                    forecasted_volatility = self._forecast_future_volatility_regime(metrics_volatility['best_model'], X_latest_volatility)
+                                    analysis_data["forecasts"][horizon].setdefault('volatility_regime_models', {})
+                                    analysis_data["forecasts"][horizon]['volatility_regime_models'][model_name] = {"predicted_volatility_regime": forecasted_volatility}
                 else:
                     self.log_manager.warning(f"Skipping unsupported model: {model_name} for {prediction_type} task.")
 
