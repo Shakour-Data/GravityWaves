@@ -3,6 +3,7 @@ from app.services.market_analysis_system import MarketAnalysisSystem
 from app.services.log_manager import LogManager
 from app.services.optimization_engine import IndicatorOptimizer
 from app.services.market_data_fetcher import load_market_data
+from app.services.chatbot_analysis import analyze_message
 import pandas as pd
 import os
 import re
@@ -51,6 +52,7 @@ def index_alt():
         log_manager.error(f"Error rendering index.html: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
+
 @app.route('/market_status_analysis')
 def market_status_analysis():
     ticker = request.args.get('ticker', None)
@@ -60,6 +62,67 @@ def market_status_analysis():
 def forecast_analysis():
     ticker = request.args.get('ticker', None)
     return render_template('forecast_analysis.html', ticker=ticker)
+
+@app.route('/chatbot')
+def chatbot_ui():
+    try:
+        return render_template('chatbot.html')
+    except Exception as e:
+        log_manager.error(f"Error rendering chatbot.html: {e}")
+        return jsonify({"error": "Internal server error"}), 500
+
+@app.route('/api/chatbot', methods=['POST'])
+def chatbot_api():
+    try:
+        data = request.get_json()
+        message = data.get('message', '')
+        reply = analyze_message(message)
+        return jsonify({'reply': reply})
+    except Exception as e:
+        log_manager.error(f"Error in chatbot_api: {e}\\n{traceback.format_exc()}")
+        return jsonify({"error": "Internal server error"}), 500
+
+@app.route('/candlestick_chart')
+def candlestick_chart():
+    try:
+        return render_template('candlestick_chart.html')
+    except Exception as e:
+        log_manager.error(f"Error rendering candlestick_chart.html: {e}")
+        return jsonify({"error": "Internal server error"}), 500
+
+@app.route('/api/market_data', methods=['POST'])
+def api_market_data():
+    try:
+        data = request.get_json()
+        ticker = data.get('ticker')
+        timeframe = data.get('timeframe', '1d')
+        candle_count = data.get('candle_count', 100)
+
+        if not ticker:
+            return jsonify({"error": "Missing ticker parameter"}), 400
+
+        from app.services.market_data_fetcher import load_market_data
+        df = load_market_data(ticker, 'yahoo', timeframe, candle_count)
+
+        if df.empty:
+            return jsonify([])
+
+        # Convert DataFrame to list of dicts with required fields
+        result = []
+        for idx, row in df.iterrows():
+            result.append({
+                "date": idx.strftime('%Y-%m-%d'),
+                "open": row['open'],
+                "high": row['high'],
+                "low": row['low'],
+                "close": row['close'],
+                "volume": row['volume']
+            })
+
+        return jsonify(result)
+    except Exception as e:
+        log_manager.error(f"Error in api_market_data: {e}\\n{traceback.format_exc()}")
+        return jsonify({"error": "Internal server error"}), 500
 
 @app.route('/api/forecast_analysis', methods=['POST'])
 def api_forecast_analysis():
