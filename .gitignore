@@ -4,3 +4,4 @@ logs/system.log
 __pycache__/
 *.pyc
 .vscode/
+instance/gravitychats.db
