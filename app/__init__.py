@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for, session
 from app.services.market_analysis_system import MarketAnalysisSystem
 from app.services.log_manager import LogManager
 from app.services.optimization_engine import IndicatorOptimizer
@@ -9,13 +9,32 @@ import os
 import re
 from datetime import datetime
 import traceback
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(
     __name__,
     template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'templates'),
     static_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'static')
 )
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'supersecretkey')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gravitychats.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
 log_manager = LogManager()
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password_hash = db.Column(db.String(128), nullable=False)
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
 @app.before_request
 def log_request_info():
@@ -53,6 +72,59 @@ def index_alt():
         return jsonify({"error": "Internal server error"}), 500
 
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        data = request.form
+        username = data.get('username')
+        password = data.get('password')
+        user = User.query.filter((User.username == username) | (User.email == username)).first()
+        if user and user.check_password(password):
+            session['user_id'] = user.id
+            session['username'] = user.username
+            return redirect(url_for('chatbot_ui'))
+        else:
+            return render_template('login.html', error="Invalid username or password")
+    else:
+        return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        data = request.form
+        username = data.get('username')
+        email = data.get('email')
+        password = data.get('password')
+        confirm_password = data.get('confirm_password')
+
+        if not username or not email or not password or not confirm_password:
+            return render_template('register.html', error="Please fill in all fields")
+
+        if password != confirm_password:
+            return render_template('register.html', error="Passwords do not match")
+
+        if User.query.filter_by(username=username).first():
+            return render_template('register.html', error="Username already exists")
+
+        if User.query.filter_by(email=email).first():
+            return render_template('register.html', error="Email already registered")
+
+        user = User(username=username, email=email)
+        user.set_password(password)
+        db.session.add(user)
+        db.session.commit()
+
+        session['user_id'] = user.id
+        session['username'] = user.username
+        return redirect(url_for('index'))
+    else:
+        return render_template('register.html')
+
 @app.route('/market_status_analysis')
 def market_status_analysis():
     ticker = request.args.get('ticker', None)
@@ -69,6 +141,15 @@ def chatbot_ui():
         return render_template('chatbot.html')
     except Exception as e:
         log_manager.error(f"Error rendering chatbot.html: {e}")
+        return jsonify({"error": "Internal server error"}), 500
+
+@app.route('/chatbot_link')
+def chatbot_link():
+    try:
+        # Redirect to chatbot page
+        return redirect('/chatbot')
+    except Exception as e:
+        log_manager.error(f"Error redirecting to chatbot: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
 @app.route('/api/chatbot', methods=['POST'])
@@ -123,6 +204,7 @@ def api_market_data():
     except Exception as e:
         log_manager.error(f"Error in api_market_data: {e}\\n{traceback.format_exc()}")
         return jsonify({"error": "Internal server error"}), 500
+
 
 @app.route('/api/forecast_analysis', methods=['POST'])
 def api_forecast_analysis():
