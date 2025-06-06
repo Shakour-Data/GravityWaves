@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GravityChats - Chatbot</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body class="bg-dark text-warning">
+    <header class="d-flex align-items-center p-3 border-bottom border-warning justify-content-between">
+        <div class="d-flex align-items-center">
+            <img src="/static/images/Logo.jpg" alt="GravityChats Logo" id="logo" class="me-3" style="height: 40px;" />
+            <h1 class="m-0 fw-bold">GravityChats</h1>
+        </div>
+        <div id="date-time" class="text-warning text-end" style="min-width: 250px; font-size: 0.9rem; font-weight: 600;">
+            <div id="gregorian-date"></div>
+            <div id="persian-date"></div>
+            <div id="time"></div>
+            <div id="weekday"></div>
+        </div>
+    </header>
+    <main class="container my-4">
+        <div class="row gx-3">
+            <div id="buttons-container" class="col-md-3 d-flex flex-column gap-3 p-3 rounded border border-warning bg-black">
+                <button id="price-history-button" class="btn btn-warning text-dark fs-5">Price History</button>
+                <button id="state-analysis-button" class="btn btn-warning text-dark fs-5">State Analysis</button>
+                <button id="price-analysis-button" class="btn btn-warning text-dark fs-5">Price Analysis</button>
+                <button id="indicator-analysis-button" class="btn btn-warning text-dark fs-5">Indicator Analysis</button>
+                <button id="comparative-results-button" class="btn btn-warning text-dark fs-5">Comparative Results</button>
+                <button id="custom-analysis-button" class="btn btn-warning text-dark fs-5">Custom Analysis</button>
+                <button id="trading-signals-button" class="btn btn-warning text-dark fs-5">Trading Signals Backtesting</button>
+                <button id="optimization-results-button" class="btn btn-warning text-dark fs-5">Optimization Results</button>
+                <button id="model-analysis-button" class="btn btn-warning text-dark fs-5">Model Analysis</button>
+            </div>
+            <div id="main-chat-area" class="col-md-6 p-3 rounded border border-warning bg-black d-flex flex-column">
+                <div class="row g-3 flex-grow-1" style="min-height: 400px;">
+                    <!-- Panel 1: Chat -->
+                    <div class="col-6 panel p-2 rounded border border-warning bg-dark text-light d-flex flex-column" data-panel="chat">
+                        <div id="chat-log" class="flex-grow-1 overflow-auto mb-2">
+                        </div>
+                        <input type="text" id="chat-input" placeholder="Type your message here..." class="form-control mb-2 bg-dark text-warning border-warning" />
+                        <div>
+                            <button id="send-button" class="btn btn-warning text-dark me-2">Send</button>
+                            <button id="clear-button" class="btn btn-warning text-dark me-2">Clear</button>
+                            <button id="export-excel-button" class="btn btn-warning text-dark">Export Excel</button>
+                        </div>
+                    </div>
+                    <!-- Panel 2: Placeholder for Table -->
+                    <div class="col-6 panel p-2 rounded border border-warning bg-dark text-warning d-flex flex-column" data-panel="table">
+                        <h5>Table / Stats</h5>
+                        <div class="flex-grow-1 overflow-auto">
+                            <p>Placeholder for tables and statistics.</p>
+                        </div>
+                    </div>
+                    <!-- Panel 3: Placeholder for Charts -->
+                    <div class="col-6 panel p-2 rounded border border-warning bg-dark text-warning d-flex flex-column" data-panel="charts">
+                        <h5>Charts</h5>
+                        <div class="flex-grow-1 overflow-auto">
+                            <p>Placeholder for charts and visualizations.</p>
+                        </div>
+                    </div>
+                    <!-- Panel 4: Placeholder for Additional Info -->
+                    <div class="col-6 panel p-2 rounded border border-warning bg-dark text-warning d-flex flex-column" data-panel="info">
+                        <h5>Additional Info</h5>
+                        <div class="flex-grow-1 overflow-auto">
+                            <p>Placeholder for additional information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="settings-container" class="col-md-3 p-3 rounded border border-warning bg-black text-warning">
+                <h3 class="text-center mb-3">General Settings</h3>
+                <label for="num-candles" class="form-label">Number of Candles:</label>
+                <input type="number" id="num-candles" min="1" value="30" class="form-control mb-3 bg-dark text-warning border-warning" />
+                <label for="investment-horizon" class="form-label">Investment Horizon:</label>
+                <input type="text" id="investment-horizon" placeholder="Enter investment horizon" class="form-control mb-3 bg-dark text-warning border-warning" />
+                <label for="data-source" class="form-label">Data Source:</label>
+                <select id="data-source" class="form-select mb-3 bg-dark text-warning border-warning">
+                    <option value="yahoo" class="bg-dark text-warning">Yahoo</option>
+                    <option value="tse" class="bg-dark text-warning">TSE</option>
+                </select>
+                <label for="time-frame" class="form-label">Time Frame:</label>
+                <select id="time-frame" class="form-select bg-dark text-warning border-warning">
+                    <option value="daily" class="bg-dark text-warning">Daily</option>
+                    <option value="weekly" class="bg-dark text-warning">Weekly</option>
+                    <option value="monthly" class="bg-dark text-warning">Monthly</option>
+                </select>
+            </div>
+        </div>
+    </main>
+    <footer class="text-center p-3 border-top border-warning bg-black text-warning fixed-bottom">
+        <p class="mb-0">&copy; 2024 GravityChats. All rights reserved.</p>
+    </footer>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const chatLog = document.getElementById('chat-log');
+        const chatInput = document.getElementById('chat-input');
+        const candleCountInput = document.getElementById('candle-count-input');
+        const sendButton = document.getElementById('send-button');
+        const priceHistoryButton = document.getElementById('price-history-button');
+        const priceAnalysisButton = document.getElementById('price-analysis-button');
+        const indicatorAnalysisButton = document.getElementById('indicator-analysis-button');
+        const comparativeResultsButton = document.getElementById('comparative-results-button');
+        const customAnalysisButton = document.getElementById('custom-analysis-button');
+        const tradingSignalsButton = document.getElementById('trading-signals-button');
+        const optimizationResultsButton = document.getElementById('optimization-results-button');
+
+        function appendMessage(sender, message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('chat-message', sender);
+            messageDiv.textContent = message;
+            chatLog.appendChild(messageDiv);
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        function appendHtmlMessage(sender, htmlContent) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('chat-message', sender);
+            messageDiv.innerHTML = htmlContent;
+            chatLog.appendChild(messageDiv);
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+            appendMessage('user', message);
+            chatInput.value = '';
+            try {
+                const response = await fetch('/api/chatbot', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message })
+                });
+                const data = await response.json();
+                if (data.reply) {
+                    // If reply is an object with reply_html, render HTML
+                    if (typeof data.reply === 'object' && data.reply.reply_html) {
+                        appendHtmlMessage('bot', data.reply.reply_html);
+                    } else {
+                        appendMessage('bot', data.reply);
+                    }
+                } else {
+                    appendMessage('bot', 'Error: No reply from server.');
+                }
+            } catch (error) {
+                appendMessage('bot', 'Error: Could not reach server.');
+            }
+        }
+
+ // ...existing code...
+async function sendPriceHistory() {
+    const ticker = chatInput.value.trim();
+    if (!ticker) {
+        appendMessage('bot', 'Please enter a ticker symbol to get price history.');
+        return;
+    }
+    let candleCount = parseInt(candleCountInput.value);
+    if (isNaN(candleCount) || candleCount <= 0) {
+        candleCount = 30; // default
+    }
+    appendMessage('user', `Price history for ${ticker} (${candleCount} candles)`);
+    try {
+        const response = await fetch('/api/chatbot', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ ticker, candleCount })
+        });
+        const data = await response.json();
+        if (data.reply) {
+            appendMessage('bot', data.reply);
+        } else {
+            appendMessage('bot', 'Error: No reply from server.');
+        }
+    } catch (error) {
+        appendMessage('bot', 'Error: Could not reach server.');
+    }
+}

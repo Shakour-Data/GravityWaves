@@ -1,0 +1,144 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* black background */
+    color: #ffcc00; /* yellow text */
+}
+
+header {
+    background-color: #000000; /* black */
+    color: #ffcc00; /* yellow */
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#logo {
+    height: 40px;
+}
+
+h1 {
+    margin: 0;
+    font-weight: 600;
+    color: #ffcc00; /* yellow */
+}
+
+main {
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #000000; /* black */
+    color: #ffcc00; /* yellow */
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #ffcc00;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #ffcc00; /* yellow */
+    color: #000000; /* black text */
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0.25rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e6b800; /* darker yellow */
+    color: #000000;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: 600;
+    color: #ffcc00; /* yellow */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+    padding: 0.5rem;
+    border: 1px solid #ffcc00;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #000000;
+    color: #ffcc00;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #e6b800;
+    box-shadow: 0 0 5px rgba(230, 184, 0, 0.5);
+    background-color: #000000;
+    color: #ffcc00;
+}
+
+/* Error message */
+.error-message {
+    color: #ff3300; /* bright red for errors */
+    font-weight: 600;
+    margin-top: -0.5rem;
+}
+
+/* Index page */
+#intro {
+    text-align: center;
+}
+
+#intro-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    main {
+        padding: 1rem;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Adjust chat layout for small screens */
+    #multi-panel-container > .row {
+        flex-direction: column;
+    }
+
+    #multi-panel-container #settings-container,
+    #multi-panel-container [data-panel="chat"] {
+        flex: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}

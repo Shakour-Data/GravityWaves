@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GravityChats - Login</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+    <header>
+        <img src="/static/images/Logo.jpg" alt="GravityChats Logo" id="logo" />
+        <h1>Login to GravityChats</h1>
+    </header>
+    <main>
+        {% if error %}
+        <div class="error-message" style="color: red; font-weight: bold; margin-bottom: 1em;">
+            {{ error }}
+        </div>
+        {% endif %}
+        <form id="login-form" method="POST" action="/login">
+            <label for="username">Username or Email:</label>
+            <input type="text" id="username" name="username" required />
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/register">Register here</a>.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 GravityChats. All rights reserved.</p>
+    </footer>
+</body>
+</html>
