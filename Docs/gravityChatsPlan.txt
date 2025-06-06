@@ -1,4 +1,4 @@
-# GravityChats Frontend Implementation Plan
+# GravityChats Frontend and Backend Implementation Plan
 
 This plan follows the activity cycle described in Docs/WorkCycle.md. Each activity is sized to be manageable and executable within a reasonable timeframe.
 
@@ -46,38 +46,55 @@ For each activity listed below, the following process will be followed to ensure
 
 ---
 
-## Activity 1: Backend Code Review
+## Activity 1: Frontend Pages - Index, Login, and Registration
+- Design and implement the index page as the site entry page using the provided image and logo from the images folder
+- Design and implement login and registration pages with necessary UI and backend integration
+- Ensure responsive and user-friendly UI/UX for all pages
+
+## Activity 2: Backend Code Review - Chatbot
 - Analyze existing backend code related to chat functionality
 - Identify dependencies and integration points with frontend
-- Document required backend changes or API needs
+- Document required backend changes or API needs to implement a chatbot with GitHub Copilot-like capabilities using backend financial market data
 
-## Activity 2: Frontend Changes
+## Activity 3: Frontend Changes - Chatbot UI (Done)
 - Review current frontend components impacted by chat UI
 - Design and implement chat UI updates to match GitHub Copilot style
 - Ensure frontend aligns with backend capabilities and APIs
+- Updated chatbot page layout to expand main container width
+- Enlarged chat container and balanced buttons and settings container widths
+- Added "Model Analysis" button to buttons container
+- Removed redundant "Number of candles" input next to Send button
 
-## Activity 3: Backend Changes
-- Implement required backend code changes or enhancements for chat
+## Activity 4: Backend Changes - Chatbot Enhancements and Database
+- Design and implement necessary database schemas and setup for chatbot, user authentication, and other features
+- Integrate database with backend features including chatbot, user login/registration, and caching
+- Implement required backend code changes or enhancements for chatbot to analyze financial market data
 - Develop or modify API endpoints as needed
 - Add error handling, validation, and security measures
 
-## Activity 4: API Development
+## Activity 5: API Development - Chatbot
 - Design API endpoints to support frontend chat requirements
-- Implement and test API endpoints with real data
+- Implement and test API endpoints with real financial data
 - Document API specifications and usage
 
-## Activity 5: Writing and Reviewing Test Code
-- Write test code covering all new and changed chat features
+## Activity 6: Frontend and Backend - Candlestick Chart Page
+- Review existing candlestick chart page frontend and backend (if any)
+- Design and implement an interactive candlestick chart page similar to TradingView
+- Integrate with backend APIs to fetch candlestick data
+- Ensure responsive and performant UI/UX
+
+## Activity 7: Writing and Reviewing Test Code
+- Write test code covering all new and changed chat and candlestick chart features
 - Review test code for completeness and correctness
 
-## Activity 6: Testing with Real Data
-- Prepare comprehensive test cases covering all new and changed chat features
+## Activity 8: Testing with Real Data
+- Prepare comprehensive test cases covering all new and changed chat and candlestick chart features
 - Perform integration testing between frontend and backend
 - Validate UI/UX across devices and browsers
 - Test API endpoints for happy paths, error handling, and edge cases
 - Document test results and any issues found
 
-## Activity 7: Commit and Push
+## Activity 9: Commit and Push
 - Commit all code changes with clear, descriptive messages
 - Push commits to the remote repository
 - Update task status and documentation accordingly
@@ -85,5 +102,3 @@ For each activity listed below, the following process will be followed to ensure
 ---
 
 This detailed cycle will be applied uniformly to all major activities to maintain a professional and efficient development workflow.
-
-Please confirm if this updated plan meets your expectations and if you want me to start with Activity 1.
