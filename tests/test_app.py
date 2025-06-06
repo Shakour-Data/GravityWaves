@@ -17,7 +17,9 @@ def test_api_market_status_analysis_success(client):
         "ticker": "AAPL",
         "analysis_date": "2023-01-01",
         "timeframe": "1d",
-        "candle_count": 500
+        "candle_count": 500,
+        "investment_horizon": 10,
+        "data_source": "yahoo"
     }
     response = client.post('/api/market_status_analysis', data=json.dumps(payload), content_type='application/json')
     assert response.status_code == 200

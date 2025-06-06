@@ -324,7 +324,7 @@ def sitemap():
 @app.route('/robots.txt')
 def robots_txt():
     # Serve a simple robots.txt content
-    return "User-agent: *\\nDisallow:", 200, {'Content-Type': 'text/plain'}
+    return "User-agent: *\nDisallow:", 200, {'Content-Type': 'text/plain'}
 
 @app.route('/favicon.ico')
 def favicon():
@@ -548,6 +548,12 @@ def api_market_status_analysis():
         # Run analysis pipeline with the loaded data and prediction horizons
         prediction_horizons = [investment_horizon]
         analysis_result = analysis_system.run_analysis_pipeline(df, prediction_horizons)
+
+        # Add current_market_state and volatility_regime keys if missing
+        if 'current_market_state' not in analysis_result:
+            analysis_result['current_market_state'] = analysis_result.get('market_state', None)
+        if 'volatility_regime' not in analysis_result:
+            analysis_result['volatility_regime'] = analysis_result.get('volatility_regime_classification', None)
 
         return jsonify(analysis_result), 200
 
