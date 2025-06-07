@@ -5,3 +5,4 @@ __pycache__/
 *.pyc
 .vscode/
 instance/gravitychats.db
+app/__pycache__/__init__.cpython-311.pyc
