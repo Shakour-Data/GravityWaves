@@ -82,7 +82,7 @@ def login():
         if user and user.check_password(password):
             session['user_id'] = user.id
             session['username'] = user.username
-            return redirect(url_for('chatbot_ui'))
+            return redirect(url_for('market_dashboard_ui'))
         else:
             return render_template('login.html', error="Invalid username or password")
     else:
@@ -135,21 +135,21 @@ def forecast_analysis():
     ticker = request.args.get('ticker', None)
     return render_template('forecast_analysis.html', ticker=ticker)
 
-@app.route('/chatbot')
-def chatbot_ui():
+@app.route('/market_dashboard')
+def market_dashboard_ui():
     try:
-        return render_template('chatbot.html')
+        return render_template('market_dashboard.html')
     except Exception as e:
-        log_manager.error(f"Error rendering chatbot.html: {e}")
+        log_manager.error(f"Error rendering market_dashboard.html: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
-@app.route('/chatbot_link')
-def chatbot_link():
+@app.route('/market_dashboard_link')
+def market_dashboard_link():
     try:
-        # Redirect to chatbot page
-        return redirect('/chatbot')
+        # Redirect to market dashboard page
+        return redirect('/market_dashboard')
     except Exception as e:
-        log_manager.error(f"Error redirecting to chatbot: {e}")
+        log_manager.error(f"Error redirecting to market_dashboard: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
 @app.route('/api/chatbot', methods=['POST'])

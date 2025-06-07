@@ -5,6 +5,8 @@ body {
     padding: 0;
     background-color: #000000; /* black background */
     color: #ffcc00; /* yellow text */
+    /* Subtle orange shadow for all yellow text */
+    text-shadow: 0 0 3px rgba(255, 165, 0, 0.2);
 }
 
 header {
@@ -14,6 +16,7 @@ header {
     display: flex;
     align-items: center;
     gap: 1rem;
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
 }
 
 #logo {
@@ -24,6 +27,7 @@ h1 {
     margin: 0;
     font-weight: 600;
     color: #ffcc00; /* yellow */
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
 }
 
 main {
@@ -41,6 +45,7 @@ footer {
     bottom: 0;
     width: 100%;
     border-top: 2px solid #ffcc00;
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
 }
 
 /* Buttons */
@@ -56,6 +61,7 @@ footer {
     text-decoration: none;
     font-weight: 600;
     transition: background-color 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
 }
 
 .btn:hover {
@@ -75,6 +81,7 @@ form {
 label {
     font-weight: 600;
     color: #ffcc00; /* yellow */
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
 }
 
 input[type="text"],
@@ -88,6 +95,7 @@ select {
     font-size: 1rem;
     background-color: #000000;
     color: #ffcc00;
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
 }
 
 input[type="text"]:focus,
@@ -144,3 +152,8 @@ select:focus {
     }
 }
 
+/* Focused button style */
+button.focused {
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 165, 0, 0.4);
+}
