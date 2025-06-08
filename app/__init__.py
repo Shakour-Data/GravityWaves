@@ -24,6 +24,10 @@ db = SQLAlchemy(app)
 
 log_manager = LogManager()
 
+# Create database tables if they do not exist
+with app.app_context():
+    db.create_all()
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
@@ -78,6 +82,8 @@ def login():
         data = request.form
         username = data.get('username')
         password = data.get('password')
+        if not username or not password:
+            return render_template('login.html', error="Username and password are required")
         user = User.query.filter((User.username == username) | (User.email == username)).first()
         if user and user.check_password(password):
             session['user_id'] = user.id

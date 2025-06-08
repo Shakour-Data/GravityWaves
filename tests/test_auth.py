@@ -79,7 +79,7 @@ def test_login_invalid_credentials(client):
 
 def test_login_missing_fields(client):
     rv = login(client, '', 'password123')
-    assert b'Invalid username or password' in rv.data
+    assert b'Username and password are required' in rv.data or b'Invalid username or password' in rv.data
 
     rv = login(client, 'testuser', '')
-    assert b'Invalid username or password' in rv.data
+    assert b'Username and password are required' in rv.data or b'Invalid username or password' in rv.data

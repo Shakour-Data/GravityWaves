@@ -45,9 +45,9 @@
                 </select>
                 <label for="time-frame" class="form-label">Time Frame:</label>
                 <select id="time-frame" class="form-select bg-dark text-warning border-warning">
-                    <option value="daily" class="bg-dark text-warning">Daily</option>
-                    <option value="weekly" class="bg-dark text-warning">Weekly</option>
-                    <option value="monthly" class="bg-dark text-warning">Monthly</option>
+                    <option value="1d" class="bg-dark text-warning">Daily</option>
+                    <option value="1wk" class="bg-dark text-warning">Weekly</option>
+                    <option value="1mo" class="bg-dark text-warning">Monthly</option>
                 </select>
             </div>
             <div id="content-section" class="col-md-8 p-3 rounded border border-warning bg-black d-flex flex-wrap">
@@ -449,24 +449,147 @@
 
                 const avgPriceLast5 = average(last5.map(d => d.close));
                 const avgPricePrev5 = average(prev5.map(d => d.close));
+                const avgPricePrevPrev5 = average(data.slice(-15, -10).map(d => d.close));
                 const avgVolumeLast5 = average(last5.map(d => d.volume));
                 const avgVolumePrev5 = average(prev5.map(d => d.volume));
+                const avgVolumePrevPrev5 = average(data.slice(-15, -10).map(d => d.volume));
 
-                // Build stats HTML
-                const statsHtml = `
-                    <p><strong>Last Price:</strong> ${lastCandle.close.toFixed(2)}</p>
-                    <p><strong>Last Volume:</strong> ${lastCandle.volume.toLocaleString()}</p>
-                    <p><strong>Price Change vs Previous Candle:</strong> ${percentChange(lastCandle.close, prevCandle ? prevCandle.close : null)}</p>
-                    <p><strong>Volume Change vs Previous Candle:</strong> ${percentChange(lastCandle.volume, prevCandle ? prevCandle.volume : null)}</p>
-                    <hr />
-                    <p><strong>5-Day Avg Price:</strong> ${avgPriceLast5.toFixed(2)}</p>
-                    <p><strong>5-Day Avg Price Change vs Previous 5 Days:</strong> ${percentChange(avgPriceLast5, avgPricePrev5)}</p>
-                    <p><strong>5-Day Avg Volume:</strong> ${avgVolumeLast5.toLocaleString()}</p>
-                    <p><strong>5-Day Avg Volume Change vs Previous 5 Days:</strong> ${percentChange(avgVolumeLast5, avgVolumePrev5)}</p>
+                // Build 2x2 matrix HTML for price and volume stats
+                const matrixHtml = `
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem; font-family: Arial, sans-serif; color: #ffc107;">
+                        <div id="price-stats-summary" style="background-color: #222; border-radius: 8px; padding: 1rem; box-shadow: 0 0 10px #ffc107; cursor: pointer;">
+                            <h4 style="text-align: center; margin-bottom: 1rem;">Price Statistics Comparison</h4>
+                            <div style="display: flex; justify-content: space-around; font-size: 1rem;">
+                                <div style="flex: 1; padding: 0 1rem; border-right: 1px solid #444;">
+                                    <h5 style="color: #ff6f61;">Last</h5>
+                                    <p><strong>Price Change:</strong> <span style="color: ${percentChange(lastCandle.close, avgPriceLast5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(lastCandle.close, avgPriceLast5)}</span></p>
+                                    <p><strong>Volume Change:</strong> <span style="color: ${percentChange(lastCandle.volume, avgVolumeLast5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(lastCandle.volume, avgVolumeLast5)}</span></p>
+                                </div>
+                                <div style="flex: 1; padding: 0 1rem;">
+                                    <h5 style="color: #2196f3;">5-Day Avg</h5>
+                                    <p><strong>Price Change:</strong> <span style="color: ${percentChange(avgPriceLast5, avgPricePrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgPriceLast5, avgPricePrev5)}</span></p>
+                                    <p><strong>Volume Change:</strong> <span style="color: ${percentChange(avgVolumeLast5, avgVolumePrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgVolumeLast5, avgVolumePrev5)}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="price-stats-detailed" style="background-color: #222; border-radius: 8px; padding: 1rem; box-shadow: 0 0 10px #ffc107; display: none;">
+                            <h4 style="text-align: center; margin-bottom: 1rem;">Detailed Price Statistics</h4>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; font-size: 0.9rem;">
+                                <div></div>
+                                <div style="font-weight: bold; text-align: center;">Previous Candle</div>
+                                <div style="font-weight: bold; text-align: center;">Previous 5 Day Avg</div>
+
+                                <div style="font-weight: bold;">Last</div>
+                                <div style="background-color: #333; border-radius: 4px; padding: 0.5rem;">
+                                    <p>Price: ${lastCandle.close.toFixed(2)}</p>
+                                    <p>Change: <span style="color: ${percentChange(lastCandle.close, prevCandle ? prevCandle.close : null).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(lastCandle.close, prevCandle ? prevCandle.close : null)}</span></p>
+                                    <p>Volume: ${lastCandle.volume.toLocaleString()}</p>
+                                    <p>Change: <span style="color: ${percentChange(lastCandle.volume, prevCandle ? prevCandle.volume : null).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(lastCandle.volume, prevCandle ? prevCandle.volume : null)}</span></p>
+                                </div>
+                                <div style="background-color: #333; border-radius: 4px; padding: 0.5rem;">
+                                    <p>Price: ${avgPricePrev5.toFixed(2)}</p>
+                                    <p>Change: <span style="color: ${percentChange(avgPricePrev5, avgPriceLast5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgPricePrev5, avgPriceLast5)}</span></p>
+                                    <p>Volume: ${avgVolumePrev5.toLocaleString()}</p>
+                                    <p>Change: <span style="color: ${percentChange(avgVolumePrev5, avgVolumeLast5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgVolumePrev5, avgVolumeLast5)}</span></p>
+                                </div>
+
+                                <div style="font-weight: bold;">5-Day Avg</div>
+                                <div style="background-color: #333; border-radius: 4px; padding: 0.5rem;">
+                                    <p>Price: ${avgPriceLast5.toFixed(2)}</p>
+                                    <p>Change: <span style="color: ${percentChange(avgPriceLast5, avgPricePrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgPriceLast5, avgPricePrev5)}</span></p>
+                                    <p>Volume: ${avgVolumeLast5.toLocaleString()}</p>
+                                    <p>Change: <span style="color: ${percentChange(avgVolumeLast5, avgVolumePrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgVolumeLast5, avgVolumePrev5)}</span></p>
+                                </div>
+                                <div style="background-color: #333; border-radius: 4px; padding: 0.5rem;">
+                                    <p>Price: ${avgPricePrevPrev5.toFixed(2)}</p>
+                                    <p>Change: <span style="color: ${percentChange(avgPricePrev5, avgPricePrevPrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgPricePrev5, avgPricePrevPrev5)}</span></p>
+                                    <p>Volume: ${avgVolumePrevPrev5.toLocaleString()}</p>
+                                    <p>Change: <span style="color: ${percentChange(avgVolumePrev5, avgVolumePrevPrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgVolumePrev5, avgVolumePrevPrev5)}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 `;
 
-                statsContent.innerHTML = statsHtml;
+                statsContent.innerHTML = matrixHtml;
             }
+        });
+
+        // Add click event listener to toggle detailed price stats visibility
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navigation stack to keep track of nested boxes
+            const navigationStack = [];
+
+            // Function to show a box by id and hide others
+            function showBox(boxId) {
+                const allBoxes = document.querySelectorAll('.content-part, .nested-box');
+                allBoxes.forEach(box => {
+                    if (box.id === boxId) {
+                        box.style.display = 'flex';
+                    } else {
+                        box.style.display = 'none';
+                    }
+                });
+            }
+
+            // Function to go inside a box
+            function goInsideBox(box) {
+                navigationStack.push(box.id);
+                const nestedBoxId = box.getAttribute('data-nested-box-id');
+                if (nestedBoxId) {
+                    showBox(nestedBoxId);
+                }
+            }
+
+            // Function to go back to previous box
+            function goBack() {
+                navigationStack.pop();
+                const previousBoxId = navigationStack.length > 0 ? navigationStack[navigationStack.length - 1] : null;
+                if (previousBoxId) {
+                    showBox(previousBoxId);
+                } else {
+                    // Show all main content boxes
+                    const allBoxes = document.querySelectorAll('.content-part');
+                    allBoxes.forEach(box => box.style.display = 'flex');
+                }
+            }
+
+            // Initialize: show all main content boxes
+            const mainBoxes = document.querySelectorAll('.content-part');
+            mainBoxes.forEach(box => {
+                box.style.display = 'flex';
+                box.style.cursor = 'pointer';
+                box.addEventListener('click', () => {
+                    goInsideBox(box);
+                });
+            });
+
+            // Special handling for Price Statistics summary box to go inside on click
+            const priceStatsSummary = document.getElementById('price-stats-summary');
+            if (priceStatsSummary) {
+                priceStatsSummary.style.cursor = 'pointer';
+                priceStatsSummary.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const detailedBox = document.getElementById('price-stats-detailed');
+                    if (detailedBox) {
+                        navigationStack.push('price-stats-summary');
+                        detailedBox.style.display = 'flex';
+                        priceStatsSummary.style.display = 'none';
+                    }
+                });
+            }
+
+            // Add back button dynamically in nested boxes
+            const nestedBoxes = document.querySelectorAll('.nested-box');
+            nestedBoxes.forEach(nestedBox => {
+                const backButton = document.createElement('button');
+                backButton.textContent = 'Back';
+                backButton.className = 'btn btn-warning mb-3';
+                backButton.addEventListener('click', () => {
+                    goBack();
+                });
+                nestedBox.prepend(backButton);
+            });
         });
     </script>
 </body>

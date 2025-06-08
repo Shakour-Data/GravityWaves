@@ -12,11 +12,17 @@
         <h1>Login to GravityChats</h1>
     </header>
     <main>
-        {% if error %}
-        <div class="error-message" style="color: red; font-weight: bold; margin-bottom: 1em;">
+    {% if error %}
+    <div class="error-message" style="color: red; font-weight: bold; margin-bottom: 1em;">
+        {% if error == 'missing_fields' %}
+            Username and password are required
+        {% elif error == 'invalid_credentials' %}
+            Invalid username or password
+        {% else %}
             {{ error }}
-        </div>
         {% endif %}
+    </div>
+    {% endif %}
         <form id="login-form" method="POST" action="/login">
             <label for="username">Username or Email:</label>
             <input type="text" id="username" name="username" required />
