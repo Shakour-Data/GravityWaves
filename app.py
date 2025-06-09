@@ -14,39 +14,39 @@ def market_dashboard_page():
 
 @app.route('/price_history')
 def price_history_page():
-    return render_template('price_history.html')
+    return render_template('market_dashboard.html', analysis_page='Price History')
 
 @app.route('/state_analysis')
 def state_analysis_page():
-    return render_template('state_analysis.html')
+    return render_template('market_dashboard.html', analysis_page='State Analysis')
 
 @app.route('/date_analysis')
 def date_analysis_page():
-    return render_template('date_analysis.html')
+    return render_template('market_dashboard.html', analysis_page='Date Analysis')
 
 @app.route('/price_analysis')
 def price_analysis_page():
-    return render_template('price_analysis.html')
+    return render_template('market_dashboard.html', analysis_page='Price Analysis')
 
 @app.route('/indicator_analysis')
 def indicator_analysis_page():
-    return render_template('indicator_analysis.html')
+    return render_template('market_dashboard.html', analysis_page='Indicator Analysis')
 
 @app.route('/comparative_results')
 def comparative_results_page():
-    return render_template('comparative_results.html')
+    return render_template('market_dashboard.html', analysis_page='Comparative Results')
 
 @app.route('/custom_analysis')
 def custom_analysis_page():
-    return render_template('custom_analysis.html')
+    return render_template('market_dashboard.html', analysis_page='Custom Analysis')
 
 @app.route('/optimization_results')
 def optimization_results_page():
-    return render_template('optimization_results.html')
+    return render_template('market_dashboard.html', analysis_page='Optimization Results')
 
 @app.route('/trend_analysis')
 def trend_analysis_page():
-    return render_template('trend_analysis.html')
+    return render_template('market_dashboard.html', analysis_page='Trend Analysis')
 
 @app.route('/trading_signals')
 def trading_signals_page():

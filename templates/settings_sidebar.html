@@ -1,5 +1,20 @@
-<!-- Placeholder settings sidebar content -->
-<div>
-    <h3>Settings Sidebar</h3>
-    <p>This is a placeholder for settings sidebar content.</p>
+<div class="d-flex flex-column">
+    <h3 class="text-center mb-3">General Settings</h3>
+    <label for="ticker" class="form-label">Ticker:</label>
+    <input type="text" id="ticker" placeholder="Enter ticker symbol" class="form-control mb-3 bg-dark text-warning border-warning" />
+    <label for="num-candles" class="form-label">Number of Candles:</label>
+    <input type="number" id="num-candles" min="1" value="30" class="form-control mb-3 bg-dark text-warning border-warning" />
+    <label for="investment-horizon" class="form-label">Investment Horizon:</label>
+    <input type="text" id="investment-horizon" placeholder="Enter investment horizon" class="form-control mb-3 bg-dark text-warning border-warning" />
+    <label for="data-source" class="form-label">Data Source:</label>
+    <select id="data-source" class="form-select mb-3 bg-dark text-warning border-warning">
+        <option value="yahoo" class="bg-dark text-warning">Yahoo</option>
+        <option value="tse" class="bg-dark text-warning">TSE</option>
+    </select>
+    <label for="time-frame" class="form-label">Time Frame:</label>
+    <select id="time-frame" class="form-select bg-dark text-warning border-warning">
+        <option value="1d" class="bg-dark text-warning">Daily</option>
+        <option value="1wk" class="bg-dark text-warning">Weekly</option>
+        <option value="1mo" class="bg-dark text-warning">Monthly</option>
+    </select>
 </div>

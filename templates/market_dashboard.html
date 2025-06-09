@@ -2,213 +2,35 @@
 
 {% block title %}GravityChats - Market Dashboard{% endblock %}
 
-{% block head %}
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+{% block buttons_sidebar %}
+    {% include "buttons_sidebar.html" %}
 {% endblock %}
 
-{% block content %}
-<header class="d-flex align-items-center p-3 border-bottom border-warning justify-content-between">
-    <div class="d-flex align-items-center">
-        <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="GravityChats Logo" id="logo" class="me-3" style="height: 40px;" />
-        <h1 class="m-0 fw-bold">GravityChats</h1>
-    </div>
-    <div id="date-time" class="text-warning text-end"
-        style="min-width: 250px; font-size: 0.9rem; font-weight: 600;">
-        <div id="gregorian-date"></div>
-        <div id="persian-date"></div>
-        <div id="time"></div>
-        <div id="weekday"></div>
-    </div>
-</header>
-<main class="container-fluid my-4">
-    <div class="row gx-3" style="min-height: calc(100vh - 120px); margin-bottom: 2cm;">
-        <div id="settings-container"
-            class="col-md-2 p-3 rounded border border-warning bg-black text-warning d-flex flex-column">
-            <h3 class="text-center mb-3">General Settings</h3>
-            <label for="ticker" class="form-label">Ticker:</label>
-            <input type="text" id="ticker" placeholder="Enter ticker symbol"
-                class="form-control mb-3 bg-dark text-warning border-warning" />
-            <label for="num-candles" class="form-label">Number of Candles:</label>
-            <input type="number" id="num-candles" min="1" value="30"
-                class="form-control mb-3 bg-dark text-warning border-warning" />
-            <label for="investment-horizon" class="form-label">Investment Horizon:</label>
-            <input type="text" id="investment-horizon" placeholder="Enter investment horizon"
-                class="form-control mb-3 bg-dark text-warning border-warning" />
-            <label for="data-source" class="form-label">Data Source:</label>
-            <select id="data-source" class="form-select mb-3 bg-dark text-warning border-warning">
-                <option value="yahoo" class="bg-dark text-warning">Yahoo</option>
-                <option value="tse" class="bg-dark text-warning">TSE</option>
-            </select>
-            <label for="time-frame" class="form-label">Time Frame:</label>
-            <select id="time-frame" class="form-select bg-dark text-warning border-warning">
-                <option value="1d" class="bg-dark text-warning">Daily</option>
-                <option value="1wk" class="bg-dark text-warning">Weekly</option>
-                <option value="1mo" class="bg-dark text-warning">Monthly</option>
-            </select>
-        </div>
-        <div id="content-section" class="col-md-8 p-3 rounded border border-warning bg-black d-flex flex-wrap">
-            <!-- Six equal parts arranged in 2 rows and 3 columns -->
-            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                style="flex:1 1 33%; min-width:33%; height:50%;">
-                <h5>Content Part 1</h5>
-                <p>Placeholder for content 1.</p>
-            </div>
-            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                style="flex:1 1 33%; min-width:33%; height:50%;">
-                <h5>Content Part 2</h5>
-                <p>Placeholder for content 2.</p>
-            </div>
-            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                style="flex:1 1 33%; min-width:33%; height:50%;">
-                <h5>Content Part 3</h5>
-                <p>Placeholder for content 3.</p>
-            </div>
-            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                style="flex:1 1 33%; min-width:33%; height:50%;">
-                <h5>Content Part 4</h5>
-                <p>Placeholder for content 4.</p>
-            </div>
-            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                style="flex:1 1 33%; min-width:33%; height:50%;">
-                <h5>Content Part 5</h5>
-                <p>Placeholder for content 5.</p>
-            </div>
-            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                style="flex:1 1 33%; min-width:33%; height:50%;">
-                <h5>Content Part 6</h5>
-                <p>Placeholder for content 6.</p>
-            </div>
-        </div>
-        <div id="buttons-container"
-            class="col-md-2 d-flex flex-column gap-3 p-3 rounded border border-warning bg-black">
-                <button id="price-history-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/price_history'">Price History</button>
-                <button id="state-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/state_analysis'">State Analysis</button>
-                <button id="date-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/date_analysis'">Date Analysis</button>
-                <button id="price-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/price_analysis'">Price Analysis</button>
-                <button id="indicator-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/indicator_analysis'">Indicator
-                    Analysis</button>
-                <button id="comparative-results-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/comparative_results'">Comparative
-                    Results</button>
-                <button id="custom-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/custom_analysis'">Custom Analysis</button>
-                <button id="trading-signals-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/trading_signals'">Trading Signals
-                    Backtesting</button>
-                <button id="optimization-results-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/optimization_results'">Optimization
-                    Results</button>
-                <button id="model-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/model_analysis'">Model Analysis</button>
-                <button id="trend-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/trend_analysis'">Trend Analysis</button>
-        </div>
-    </div>
-</main>
-<footer class="text-center p-3 border-top border-warning bg-black text-warning fixed-bottom">
-    <p class="mb-0">&copy; 2024 GravityChats. All rights reserved.</p>
-</footer>
+{% block settings_sidebar %}
+    {% include "settings_sidebar.html" %}
+{% endblock %}
+
+{% block main_content %}
+    {% include "content_boxes.html" %}
 {% endblock %}
 
 {% block scripts %}
-<!-- Bootstrap JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // JavaScript to handle dashboard interactions and content display
+    {{ super() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const analysisPage = "{{ analysis_page|default('Market Dashboard') }}";
+            const contentBoxes = document.querySelectorAll('.content-part');
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const drillDownPath = urlParams.get('drillDownPath') || '';
-
-        const contentSection = document.getElementById('content-section');
-
-        function createBox(id, titleText, contentText) {
-            const box = document.createElement('div');
-            box.className = 'content-part box p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center';
-            box.style.flex = '1 1 33%';
-            box.style.minWidth = '33%';
-            box.style.height = '50%';
-            box.id = id;
-
-            const title = document.createElement('h5');
-            title.textContent = titleText;
-
-            const content = document.createElement('p');
-            content.textContent = contentText;
-
-            box.appendChild(title);
-            box.appendChild(content);
-
-            return box;
-        }
-
-        function renderBoxes(path) {
-            contentSection.innerHTML = '';
-
-            // Add breadcrumb and current box address display
-            const breadcrumb = document.createElement('div');
-            breadcrumb.id = 'breadcrumb';
-            breadcrumb.style.marginBottom = '10px';
-            breadcrumb.style.color = '#ffc107';
-            breadcrumb.style.fontWeight = 'bold';
-            breadcrumb.textContent = `Level ${path ? path.split('-').length + 1 : 1}`;
-            contentSection.appendChild(breadcrumb);
-
-            const currentBoxAddress = document.createElement('div');
-            currentBoxAddress.id = 'currentBoxAddress';
-            currentBoxAddress.style.marginBottom = '10px';
-            currentBoxAddress.style.color = '#ffc107';
-            currentBoxAddress.style.fontWeight = 'bold';
-            currentBoxAddress.textContent = `Current Box: ${path ? path.split('-').join(' > ') : 'Root'}`;
-            contentSection.appendChild(currentBoxAddress);
-
-            // Back button if root
-            if (path) {
-                const backButton = document.createElement('button');
-                backButton.id = 'backButton';
-                backButton.textContent = 'Back';
-                backButton.className = 'btn btn-warning mb-3';
-                backButton.addEventListener('click', () => {
-                    const parts = path.split('-');
-                    parts.pop();
-                    const newPath = parts.join('-');
-                    const url = new URL(window.location);
-                    if (newPath) {
-                        url.searchParams.set('drillDownPath', newPath);
-                    } else {
-                        url.searchParams.delete('drillDownPath');
-                    }
-                    window.location.href = url.toString();
-                });
-                contentSection.appendChild(backButton);
-            }
-
-            // Limit drill-down depth to 6
-            const depth = path ? path.split('-').length : 0;
-            if (depth >= 6) {
-                const message = document.createElement('p');
-                message.textContent = 'Maximum drill-down depth reached.';
-                contentSection.appendChild(message);
-                return;
-            }
-
-            // Render six boxes
-            for (let i = 1; i <= 6; i++) {
-                const newPath = path ? `${path}-${i}` : `${i}`;
-                const box = createBox(`box-${newPath}`, 'Price History', `Content Part ${newPath}`);
+            // Set content box titles based on current analysis page
+            contentBoxes.forEach((box, index) => {
+                box.querySelector('h5').textContent = `${analysisPage} Content Part ${index + 1}`;
+                box.querySelector('p').textContent = `Details for ${analysisPage} content part ${index + 1}.`;
                 box.style.cursor = 'pointer';
-                box.addEventListener('click', () => {
-                    const url = new URL(window.location);
-                    url.searchParams.set('drillDownPath', newPath);
-                    window.location.href = url.toString();
-                });
-                contentSection.appendChild(box);
-            }
-
-            // Set content section styles
-            contentSection.style.display = 'flex';
-            contentSection.style.flexWrap = 'wrap';
-            contentSection.style.height = 'auto';
-        }
-
-        renderBoxes(drillDownPath);
-    });
-</script>
-
+                box.onclick = () => {
+                    // Drill-down or navigation logic can be added here
+                    alert(`Drill down into ${analysisPage} content part ${index + 1}`);
+                };
+            });
+        });
+    </script>
 {% endblock %}
