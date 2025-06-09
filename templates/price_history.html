@@ -1,12 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Price History</title>
-</head>
-<body>
-    <h1>Price History</h1>
-    <p>This is a placeholder template for Price History analysis.</p>
-</body>
-</html>
+{% extends "nested_content_layout.html" %}
+
+{% block content %}
+<div id="breadcrumb" style="margin-bottom: 10px; color: #ffc107; font-weight: bold;"></div>
+<div id="currentBoxAddress" style="margin-bottom: 10px; color: #ffc107; font-weight: bold;"></div>
+<div id="content-section" class="d-flex flex-wrap" style="height: auto;">
+    <div class="content-part box p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center" style="flex:1 1 33%; min-width:33%; height:50%;">
+        <h5>Content 1</h5>
+    </div>
+    <div class="content-part box p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center" style="flex:1 1 33%; min-width:33%; height:50%;">
+        <h5>Content 2</h5>
+    </div>
+    <div class="content-part box p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center" style="flex:1 1 33%; min-width:33%; height:50%;">
+        <h5>Content 3</h5>
+    </div>
+    <div class="content-part box p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center" style="flex:1 1 33%; min-width:33%; height:50%;">
+        <h5>Content 4</h5>
+    </div>
+    <div class="content-part box p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center" style="flex:1 1 33%; min-width:33%; height:50%;">
+        <h5>Content 5</h5>
+    </div>
+    <div class="content-part box p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center" style="flex:1 1 33%; min-width:33%; height:50%;">
+        <h5>Content 6</h5>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.body.setAttribute('data-page-name', 'Price History');
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const drillDownPath = urlParams.get('drillDownPath') || '';
+
+        const contentSection = document.getElementById('content-section');
+        const breadcrumb = document.getElementById('breadcrumb');
+        const currentBoxAddress = document.getElementById('currentBoxAddress');
+
+        function createBox(id, titleText, contentText) {
+            const box = document.createElement('div');
+            box.className = 'content-part box p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center';
+            box.style.flex = '1 1 33%';
+            box.style.minWidth = '33%';
+            box.style.height = '50%';
+            box.id = id;
+
+            const title = document.createElement('h5');
+            title.textContent = titleText;
+
+            const content = document.createElement('p');
+            content.textContent = contentText;
+
+            box.appendChild(title);
+            box.appendChild(content);
+
+            return box;
+        }
+
+        function renderBoxes(path) {
+            contentSection.innerHTML = '';
+
+            // Add breadcrumb and current box address display
+            breadcrumb.textContent = `Level ${path ? path.split('-').length + 1 : 1}`;
+            currentBoxAddress.textContent = `Current Box: ${path ? path.split('-').join(' > ') : 'Root'}`;
+
+            // Back button if not root
+            if (path) {
+                const backButton = document.createElement('button');
+                backButton.id = 'backButton';
+                backButton.textContent = 'Back';
+                backButton.className = 'btn btn-warning mb-3';
+                backButton.addEventListener('click', () => {
+                    const parts = path.split('-');
+                    parts.pop();
+                    const newPath = parts.join('-');
+                    const url = new URL(window.location);
+                    if (newPath) {
+                        url.searchParams.set('drillDownPath', newPath);
+                    } else {
+                        url.searchParams.delete('drillDownPath');
+                    }
+                    window.location.href = url.toString();
+                });
+                contentSection.appendChild(backButton);
+            }
+
+            // Limit drill-down depth to 6
+            const depth = path ? path.split('-').length : 0;
+            if (depth >= 6) {
+                const message = document.createElement('p');
+                message.textContent = 'Maximum drill-down depth reached.';
+                contentSection.appendChild(message);
+                return;
+            }
+
+            // Render six boxes
+            for (let i = 1; i <= 6; i++) {
+                const newPath = path ? `${path}-${i}` : `${i}`;
+                const box = createBox(`box-${newPath}`, 'Price History Content Part ' + i, `Content Part ${newPath}`);
+                box.style.cursor = 'pointer';
+                box.addEventListener('click', () => {
+                    const url = new URL(window.location);
+                    url.searchParams.set('drillDownPath', newPath);
+                    window.location.href = url.toString();
+                });
+                contentSection.appendChild(box);
+            }
+        }
+
+        renderBoxes(drillDownPath);
+    });
+</script>
+{% endblock %}

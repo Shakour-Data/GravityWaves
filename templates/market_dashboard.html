@@ -1,597 +1,214 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GravityChats - Market Dashboard</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/static/css/style.css" />
-</head>
+{% block title %}GravityChats - Market Dashboard{% endblock %}
 
-<body class="bg-dark text-warning">
-    <header class="d-flex align-items-center p-3 border-bottom border-warning justify-content-between">
-        <div class="d-flex align-items-center">
-            <img src="/static/images/Logo.jpg" alt="GravityChats Logo" id="logo" class="me-3" style="height: 40px;" />
-            <h1 class="m-0 fw-bold">GravityChats</h1>
+{% block head %}
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+{% endblock %}
+
+{% block content %}
+<header class="d-flex align-items-center p-3 border-bottom border-warning justify-content-between">
+    <div class="d-flex align-items-center">
+        <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="GravityChats Logo" id="logo" class="me-3" style="height: 40px;" />
+        <h1 class="m-0 fw-bold">GravityChats</h1>
+    </div>
+    <div id="date-time" class="text-warning text-end"
+        style="min-width: 250px; font-size: 0.9rem; font-weight: 600;">
+        <div id="gregorian-date"></div>
+        <div id="persian-date"></div>
+        <div id="time"></div>
+        <div id="weekday"></div>
+    </div>
+</header>
+<main class="container-fluid my-4">
+    <div class="row gx-3" style="min-height: calc(100vh - 120px); margin-bottom: 2cm;">
+        <div id="settings-container"
+            class="col-md-2 p-3 rounded border border-warning bg-black text-warning d-flex flex-column">
+            <h3 class="text-center mb-3">General Settings</h3>
+            <label for="ticker" class="form-label">Ticker:</label>
+            <input type="text" id="ticker" placeholder="Enter ticker symbol"
+                class="form-control mb-3 bg-dark text-warning border-warning" />
+            <label for="num-candles" class="form-label">Number of Candles:</label>
+            <input type="number" id="num-candles" min="1" value="30"
+                class="form-control mb-3 bg-dark text-warning border-warning" />
+            <label for="investment-horizon" class="form-label">Investment Horizon:</label>
+            <input type="text" id="investment-horizon" placeholder="Enter investment horizon"
+                class="form-control mb-3 bg-dark text-warning border-warning" />
+            <label for="data-source" class="form-label">Data Source:</label>
+            <select id="data-source" class="form-select mb-3 bg-dark text-warning border-warning">
+                <option value="yahoo" class="bg-dark text-warning">Yahoo</option>
+                <option value="tse" class="bg-dark text-warning">TSE</option>
+            </select>
+            <label for="time-frame" class="form-label">Time Frame:</label>
+            <select id="time-frame" class="form-select bg-dark text-warning border-warning">
+                <option value="1d" class="bg-dark text-warning">Daily</option>
+                <option value="1wk" class="bg-dark text-warning">Weekly</option>
+                <option value="1mo" class="bg-dark text-warning">Monthly</option>
+            </select>
         </div>
-        <div id="date-time" class="text-warning text-end"
-            style="min-width: 250px; font-size: 0.9rem; font-weight: 600;">
-            <div id="gregorian-date"></div>
-            <div id="persian-date"></div>
-            <div id="time"></div>
-            <div id="weekday"></div>
+        <div id="content-section" class="col-md-8 p-3 rounded border border-warning bg-black d-flex flex-wrap">
+            <!-- Six equal parts arranged in 2 rows and 3 columns -->
+            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
+                style="flex:1 1 33%; min-width:33%; height:50%;">
+                <h5>Content Part 1</h5>
+                <p>Placeholder for content 1.</p>
+            </div>
+            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
+                style="flex:1 1 33%; min-width:33%; height:50%;">
+                <h5>Content Part 2</h5>
+                <p>Placeholder for content 2.</p>
+            </div>
+            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
+                style="flex:1 1 33%; min-width:33%; height:50%;">
+                <h5>Content Part 3</h5>
+                <p>Placeholder for content 3.</p>
+            </div>
+            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
+                style="flex:1 1 33%; min-width:33%; height:50%;">
+                <h5>Content Part 4</h5>
+                <p>Placeholder for content 4.</p>
+            </div>
+            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
+                style="flex:1 1 33%; min-width:33%; height:50%;">
+                <h5>Content Part 5</h5>
+                <p>Placeholder for content 5.</p>
+            </div>
+            <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
+                style="flex:1 1 33%; min-width:33%; height:50%;">
+                <h5>Content Part 6</h5>
+                <p>Placeholder for content 6.</p>
+            </div>
         </div>
-    </header>
-    <main class="container-fluid my-4">
-        <div class="row gx-3" style="min-height: calc(100vh - 120px); margin-bottom: 2cm;">
-            <div id="settings-container"
-                class="col-md-2 p-3 rounded border border-warning bg-black text-warning d-flex flex-column">
-                <h3 class="text-center mb-3">General Settings</h3>
-                <label for="ticker" class="form-label">Ticker:</label>
-                <input type="text" id="ticker" placeholder="Enter ticker symbol"
-                    class="form-control mb-3 bg-dark text-warning border-warning" />
-                <label for="num-candles" class="form-label">Number of Candles:</label>
-                <input type="number" id="num-candles" min="1" value="30"
-                    class="form-control mb-3 bg-dark text-warning border-warning" />
-                <label for="investment-horizon" class="form-label">Investment Horizon:</label>
-                <input type="text" id="investment-horizon" placeholder="Enter investment horizon"
-                    class="form-control mb-3 bg-dark text-warning border-warning" />
-                <label for="data-source" class="form-label">Data Source:</label>
-                <select id="data-source" class="form-select mb-3 bg-dark text-warning border-warning">
-                    <option value="yahoo" class="bg-dark text-warning">Yahoo</option>
-                    <option value="tse" class="bg-dark text-warning">TSE</option>
-                </select>
-                <label for="time-frame" class="form-label">Time Frame:</label>
-                <select id="time-frame" class="form-select bg-dark text-warning border-warning">
-                    <option value="1d" class="bg-dark text-warning">Daily</option>
-                    <option value="1wk" class="bg-dark text-warning">Weekly</option>
-                    <option value="1mo" class="bg-dark text-warning">Monthly</option>
-                </select>
-            </div>
-            <div id="content-section" class="col-md-8 p-3 rounded border border-warning bg-black d-flex flex-wrap">
-                <!-- Six equal parts arranged in 2 rows and 3 columns -->
-                <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                    style="flex: 1 1 33%; min-width: 33%; height: 50%;">
-                    <h5>Content Part 1</h5>
-                    <p>Placeholder for content 1.</p>
-                </div>
-                <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                    style="flex: 1 1 33%; min-width: 33%; height: 50%;">
-                    <h5>Content Part 2</h5>
-                    <p>Placeholder for content 2.</p>
-                </div>
-                <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                    style="flex: 1 1 33%; min-width: 33%; height: 50%;">
-                    <h5>Content Part 3</h5>
-                    <p>Placeholder for content 3.</p>
-                </div>
-                <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                    style="flex: 1 1 33%; min-width: 33%; height: 50%;">
-                    <h5>Content Part 4</h5>
-                    <p>Placeholder for content 4.</p>
-                </div>
-                <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                    style="flex: 1 1 33%; min-width: 33%; height: 50%;">
-                    <h5>Content Part 5</h5>
-                    <p>Placeholder for content 5.</p>
-                </div>
-                <div class="content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center"
-                    style="flex: 1 1 33%; min-width: 33%; height: 50%;">
-                    <h5>Content Part 6</h5>
-                    <p>Placeholder for content 6.</p>
-                </div>
-            </div>
-            <div id="buttons-container"
-                class="col-md-2 d-flex flex-column gap-3 p-3 rounded border border-warning bg-black">
-                <button id="price-history-button" class="btn btn-warning text-dark fs-5">Price History</button>
-                <button id="state-analysis-button" class="btn btn-warning text-dark fs-5">State Analysis</button>
-                <button id="date-analysis-button" class="btn btn-warning text-dark fs-5">Date Analysis</button>
-                <button id="price-analysis-button" class="btn btn-warning text-dark fs-5">Price Analysis</button>
-                <button id="indicator-analysis-button" class="btn btn-warning text-dark fs-5">Indicator
+        <div id="buttons-container"
+            class="col-md-2 d-flex flex-column gap-3 p-3 rounded border border-warning bg-black">
+                <button id="price-history-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/price_history'">Price History</button>
+                <button id="state-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/state_analysis'">State Analysis</button>
+                <button id="date-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/date_analysis'">Date Analysis</button>
+                <button id="price-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/price_analysis'">Price Analysis</button>
+                <button id="indicator-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/indicator_analysis'">Indicator
                     Analysis</button>
-                <button id="comparative-results-button" class="btn btn-warning text-dark fs-5">Comparative
+                <button id="comparative-results-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/comparative_results'">Comparative
                     Results</button>
-                <button id="custom-analysis-button" class="btn btn-warning text-dark fs-5">Custom Analysis</button>
-                <button id="trading-signals-button" class="btn btn-warning text-dark fs-5">Trading Signals
+                <button id="custom-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/custom_analysis'">Custom Analysis</button>
+                <button id="trading-signals-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/trading_signals'">Trading Signals
                     Backtesting</button>
-                <button id="optimization-results-button" class="btn btn-warning text-dark fs-5">Optimization
+                <button id="optimization-results-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/optimization_results'">Optimization
                     Results</button>
-                <button id="model-analysis-button" class="btn btn-warning text-dark fs-5">Model Analysis</button>
-            </div>
+                <button id="model-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/model_analysis'">Model Analysis</button>
+                <button id="trend-analysis-button" class="btn btn-warning text-dark fs-5" onclick="location.href='/trend_analysis'">Trend Analysis</button>
         </div>
-    </main>
-    <footer class="text-center p-3 border-top border-warning bg-black text-warning fixed-bottom">
-        <p class="mb-0">&copy; 2024 GravityChats. All rights reserved.</p>
-    </footer>
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // JavaScript to handle dashboard interactions and content display
+    </div>
+</main>
+<footer class="text-center p-3 border-top border-warning bg-black text-warning fixed-bottom">
+    <p class="mb-0">&copy; 2024 GravityChats. All rights reserved.</p>
+</footer>
+{% endblock %}
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const buttons = Array.from(document.querySelectorAll('#buttons-container button'));
-            let focusedIndex = -1;
+{% block scripts %}
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // JavaScript to handle dashboard interactions and content display
 
-            function updateContentBox(index) {
-                const contentParts = document.querySelectorAll('#content-section .content-part');
-                contentParts.forEach((part, i) => {
-                    part.style.display = i === index ? 'flex' : 'none';
-                });
-            }
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const drillDownPath = urlParams.get('drillDownPath') || '';
 
-            function focusButton(index) {
-                if (focusedIndex >= 0 && focusedIndex < buttons.length) {
-                    buttons[focusedIndex].classList.remove('focused');
-                }
-                focusedIndex = index;
-                if (focusedIndex >= 0 && focusedIndex < buttons.length) {
-                    buttons[focusedIndex].classList.add('focused');
-                    buttons[focusedIndex].focus();
-                }
-            }
+        const contentSection = document.getElementById('content-section');
 
-            // Initialize: hide all content parts
-            updateContentBox(-1);
+        function createBox(id, titleText, contentText) {
+            const box = document.createElement('div');
+            box.className = 'content-part box p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center';
+            box.style.flex = '1 1 33%';
+            box.style.minWidth = '33%';
+            box.style.height = '50%';
+            box.id = id;
 
-            document.addEventListener('keydown', (event) => {
-                const key = event.key;
+            const title = document.createElement('h5');
+            title.textContent = titleText;
 
-                switch (key) {
-                    case 'Enter':
-                        event.preventDefault();
-                        if (focusedIndex >= 0 && focusedIndex < buttons.length) {
-                            buttons[focusedIndex].click();
-                        }
-                        break;
-                    case 'Escape':
-                        event.preventDefault();
-                        // Clear selection and hide all content parts
-                        if (focusedIndex >= 0 && focusedIndex < buttons.length) {
-                            buttons[focusedIndex].classList.remove('focused');
-                        }
-                        focusedIndex = -1;
-                        updateContentBox(-1);
-                        break;
-                    case 'ArrowUp':
-                        event.preventDefault();
-                        if (buttons.length === 0) return;
-                        if (focusedIndex === -1) {
-                            focusButton(buttons.length - 1);
-                        } else {
-                            focusButton((focusedIndex - 1 + buttons.length) % buttons.length);
-                        }
-                        break;
-                    case 'ArrowDown':
-                        event.preventDefault();
-                        if (buttons.length === 0) return;
-                        if (focusedIndex === -1) {
-                            focusButton(0);
-                        } else {
-                            focusButton((focusedIndex + 1) % buttons.length);
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            });
+            const content = document.createElement('p');
+            content.textContent = contentText;
 
-            // Add click event listeners to buttons to update content box
-            buttons.forEach((button, index) => {
-                button.addEventListener('click', () => {
-                    if (button.id === 'price-history-button') {
-                        showPriceHistoryView();
-                    } else {
-                        resetContentLayout();
-                        updateContentBox(index);
-                        focusButton(index);
-                    }
-                });
-            });
+            box.appendChild(title);
+            box.appendChild(content);
 
-            function showPriceHistoryView() {
-                const contentSection = document.getElementById('content-section');
-                const contentParts = contentSection.querySelectorAll('.content-part');
+            return box;
+        }
 
-                // Merge content parts 1, 2, 3 into one container for candlestick chart
-                // Hide content parts 5 and 6
-                // Show content part 4 for stats
+        function renderBoxes(path) {
+            contentSection.innerHTML = '';
 
-                // Clear content section
-                contentSection.innerHTML = '';
+            // Add breadcrumb and current box address display
+            const breadcrumb = document.createElement('div');
+            breadcrumb.id = 'breadcrumb';
+            breadcrumb.style.marginBottom = '10px';
+            breadcrumb.style.color = '#ffc107';
+            breadcrumb.style.fontWeight = 'bold';
+            breadcrumb.textContent = `Level ${path ? path.split('-').length + 1 : 1}`;
+            contentSection.appendChild(breadcrumb);
 
-                // Create merged container for candlestick chart (merged content 1-3)
-                const chartContainer = document.createElement('div');
-                chartContainer.id = 'candlestick-chart-container';
-                chartContainer.style.flex = '2 1 66%';
-                chartContainer.style.minWidth = '66%';
-                chartContainer.style.height = '100%';
-                chartContainer.style.border = '1px solid #ffc107';
-                chartContainer.style.borderRadius = '0.25rem';
-                chartContainer.style.backgroundColor = '#222';
-                chartContainer.style.padding = '10px';
-                chartContainer.style.color = '#fff';
-                chartContainer.style.display = 'flex';
-                chartContainer.style.flexDirection = 'column';
+            const currentBoxAddress = document.createElement('div');
+            currentBoxAddress.id = 'currentBoxAddress';
+            currentBoxAddress.style.marginBottom = '10px';
+            currentBoxAddress.style.color = '#ffc107';
+            currentBoxAddress.style.fontWeight = 'bold';
+            currentBoxAddress.textContent = `Current Box: ${path ? path.split('-').join(' > ') : 'Root'}`;
+            contentSection.appendChild(currentBoxAddress);
 
-                // Add title
-                const chartTitle = document.createElement('h4');
-                chartTitle.textContent = 'Candlestick Chart';
-                chartTitle.style.textAlign = 'center';
-                chartTitle.style.marginBottom = '10px';
-                chartContainer.appendChild(chartTitle);
-
-                // Add canvas for chart
-                const canvas = document.createElement('canvas');
-                canvas.id = 'candlestick-chart';
-                canvas.style.flex = '1 1 auto';
-                chartContainer.appendChild(canvas);
-
-                // Create stats container (content part 4)
-                const statsContainer = document.createElement('div');
-                statsContainer.id = 'price-stats-container';
-                statsContainer.style.flex = '1 1 33%';
-                statsContainer.style.minWidth = '33%';
-                statsContainer.style.height = '100%';
-                statsContainer.style.border = '1px solid #ffc107';
-                statsContainer.style.borderRadius = '0.25rem';
-                statsContainer.style.backgroundColor = '#222';
-                statsContainer.style.padding = '10px';
-                statsContainer.style.color = '#fff';
-                statsContainer.style.display = 'flex';
-                statsContainer.style.flexDirection = 'column';
-
-                // Add title
-                const statsTitle = document.createElement('h4');
-                statsTitle.textContent = 'Price Statistics';
-                statsTitle.style.textAlign = 'center';
-                statsTitle.style.marginBottom = '10px';
-                statsContainer.appendChild(statsTitle);
-
-                // Add stats content placeholder
-                const statsContent = document.createElement('div');
-                statsContent.id = 'stats-content';
-                statsContent.style.flex = '1 1 auto';
-                statsContainer.appendChild(statsContent);
-
-                // Append chart and stats containers to content section
-                contentSection.style.display = 'flex';
-                contentSection.style.flexWrap = 'nowrap';
-                contentSection.style.height = '600px'; // fixed height for chart and stats
-                contentSection.appendChild(chartContainer);
-                contentSection.appendChild(statsContainer);
-
-                // Fetch market data and render chart and stats
-                fetchMarketDataAndRender();
-            }
-
-            function resetContentLayout() {
-                const contentSection = document.getElementById('content-section');
-                contentSection.style.display = 'flex';
-                contentSection.style.flexWrap = 'wrap';
-                contentSection.style.height = 'auto';
-
-                // Clear content section
-                contentSection.innerHTML = '';
-
-                // Recreate original 6 content parts
-                for (let i = 1; i <= 6; i++) {
-                    const part = document.createElement('div');
-                    part.className = 'content-part p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center';
-                    part.style.flex = '1 1 33%';
-                    part.style.minWidth = '33%';
-                    part.style.height = '50%';
-
-                    const h5 = document.createElement('h5');
-                    h5.textContent = `Content Part ${i}`;
-                    part.appendChild(h5);
-
-                    const p = document.createElement('p');
-                    p.textContent = `Placeholder for content ${i}.`;
-                    part.appendChild(p);
-
-                    contentSection.appendChild(part);
-                }
-            }
-
-            async function fetchMarketDataAndRender() {
-                const tickerInput = document.getElementById('ticker');
-                const timeframeSelect = document.getElementById('time-frame');
-                const numCandlesInput = document.getElementById('num-candles');
-
-                const ticker = tickerInput.value.trim();
-                const timeframe = timeframeSelect.value;
-                const candleCount = parseInt(numCandlesInput.value, 10) || 30;
-
-                if (!ticker) {
-                    alert('Please enter a ticker symbol.');
-                    return;
-                }
-
-                try {
-                    const response = await fetch('/api/market_data', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            ticker: ticker,
-                            timeframe: timeframe,
-                            candle_count: candleCount
-                        })
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`API error: ${response.statusText}`);
-                    }
-
-                    const data = await response.json();
-
-                    if (!Array.isArray(data) || data.length === 0) {
-                        alert('No market data available for the given ticker.');
-                        return;
-                    }
-
-                    renderCandlestickChart(data);
-                    renderPriceStats(data);
-                } catch (error) {
-                    alert(`Failed to fetch market data: ${error.message}`);
-                }
-            }
-
-            // Chart.js financial plugin is required for candlestick charts
-            // We will dynamically load Chart.js and the financial plugin if not already loaded
-            async function loadChartJs() {
-                if (window.Chart && window.ChartFinancial) {
-                    return;
-                }
-                await loadScript('https://cdn.jsdelivr.net/npm/chart.js');
-                await loadScript('https://cdn.jsdelivr.net/npm/chartjs-chart-financial');
-            }
-
-            function loadScript(src) {
-                return new Promise((resolve, reject) => {
-                    const script = document.createElement('script');
-                    script.src = src;
-                    script.onload = () => resolve();
-                    script.onerror = () => reject(new Error(`Failed to load script ${src}`));
-                    document.head.appendChild(script);
-                });
-            }
-
-            async function renderCandlestickChart(data) {
-                await loadChartJs();
-
-                const ctx = document.getElementById('candlestick-chart').getContext('2d');
-
-                // Prepare data for Chart.js financial plugin
-                const chartData = data.map(item => ({
-                    x: new Date(item.date),
-                    o: item.open,
-                    h: item.high,
-                    l: item.low,
-                    c: item.close
-                }));
-
-                // Destroy existing chart if any
-                if (window.candlestickChart) {
-                    window.candlestickChart.destroy();
-                }
-
-                window.candlestickChart = new Chart(ctx, {
-                    type: 'candlestick',
-                    data: {
-                        datasets: [{
-                            label: 'Price',
-                            data: chartData,
-                            borderColor: '#ffc107',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        scales: {
-                            x: {
-                                type: 'time',
-                                time: {
-                                    tooltipFormat: 'MMM dd yyyy'
-                                },
-                                ticks: {
-                                    maxRotation: 0
-                                }
-                            },
-                            y: {
-                                beginAtZero: false
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false
-                            },
-                            tooltip: {
-                                enabled: true,
-                                mode: 'index',
-                                intersect: false
-                            }
-                        }
-                    }
-                });
-            }
-
-            function renderPriceStats(data) {
-                const statsContent = document.getElementById('stats-content');
-                statsContent.innerHTML = '';
-
-                if (!data || data.length === 0) {
-                    statsContent.textContent = 'No data available.';
-                    return;
-                }
-
-                // Last candle data
-                const lastCandle = data[data.length - 1];
-                const prevCandle = data.length > 1 ? data[data.length - 2] : null;
-
-                // Calculate percentage change helper
-                function percentChange(current, previous) {
-                    if (previous === 0 || previous === null || previous === undefined) return 'N/A';
-                    return (((current - previous) / previous) * 100).toFixed(2) + '%';
-                }
-
-                // Calculate 5-day averages and % changes
-                function average(arr) {
-                    if (arr.length === 0) return 0;
-                    return arr.reduce((a, b) => a + b, 0) / arr.length;
-                }
-
-                const last5 = data.slice(-5);
-                const prev5 = data.slice(-10, -5);
-
-                const avgPriceLast5 = average(last5.map(d => d.close));
-                const avgPricePrev5 = average(prev5.map(d => d.close));
-                const avgPricePrevPrev5 = average(data.slice(-15, -10).map(d => d.close));
-                const avgVolumeLast5 = average(last5.map(d => d.volume));
-                const avgVolumePrev5 = average(prev5.map(d => d.volume));
-                const avgVolumePrevPrev5 = average(data.slice(-15, -10).map(d => d.volume));
-
-                // Build 2x2 matrix HTML for price and volume stats
-                const matrixHtml = `
-                    <div style="display: flex; flex-direction: column; gap: 1.5rem; font-family: Arial, sans-serif; color: #ffc107;">
-                        <div id="price-stats-summary" style="background-color: #222; border-radius: 8px; padding: 1rem; box-shadow: 0 0 10px #ffc107; cursor: pointer;">
-                            <h4 style="text-align: center; margin-bottom: 1rem;">Price Statistics Comparison</h4>
-                            <div style="display: flex; justify-content: space-around; font-size: 1rem;">
-                                <div style="flex: 1; padding: 0 1rem; border-right: 1px solid #444;">
-                                    <h5 style="color: #ff6f61;">Last</h5>
-                                    <p><strong>Price Change:</strong> <span style="color: ${percentChange(lastCandle.close, avgPriceLast5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(lastCandle.close, avgPriceLast5)}</span></p>
-                                    <p><strong>Volume Change:</strong> <span style="color: ${percentChange(lastCandle.volume, avgVolumeLast5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(lastCandle.volume, avgVolumeLast5)}</span></p>
-                                </div>
-                                <div style="flex: 1; padding: 0 1rem;">
-                                    <h5 style="color: #2196f3;">5-Day Avg</h5>
-                                    <p><strong>Price Change:</strong> <span style="color: ${percentChange(avgPriceLast5, avgPricePrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgPriceLast5, avgPricePrev5)}</span></p>
-                                    <p><strong>Volume Change:</strong> <span style="color: ${percentChange(avgVolumeLast5, avgVolumePrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgVolumeLast5, avgVolumePrev5)}</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="price-stats-detailed" style="background-color: #222; border-radius: 8px; padding: 1rem; box-shadow: 0 0 10px #ffc107; display: none;">
-                            <h4 style="text-align: center; margin-bottom: 1rem;">Detailed Price Statistics</h4>
-                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; font-size: 0.9rem;">
-                                <div></div>
-                                <div style="font-weight: bold; text-align: center;">Previous Candle</div>
-                                <div style="font-weight: bold; text-align: center;">Previous 5 Day Avg</div>
-
-                                <div style="font-weight: bold;">Last</div>
-                                <div style="background-color: #333; border-radius: 4px; padding: 0.5rem;">
-                                    <p>Price: ${lastCandle.close.toFixed(2)}</p>
-                                    <p>Change: <span style="color: ${percentChange(lastCandle.close, prevCandle ? prevCandle.close : null).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(lastCandle.close, prevCandle ? prevCandle.close : null)}</span></p>
-                                    <p>Volume: ${lastCandle.volume.toLocaleString()}</p>
-                                    <p>Change: <span style="color: ${percentChange(lastCandle.volume, prevCandle ? prevCandle.volume : null).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(lastCandle.volume, prevCandle ? prevCandle.volume : null)}</span></p>
-                                </div>
-                                <div style="background-color: #333; border-radius: 4px; padding: 0.5rem;">
-                                    <p>Price: ${avgPricePrev5.toFixed(2)}</p>
-                                    <p>Change: <span style="color: ${percentChange(avgPricePrev5, avgPriceLast5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgPricePrev5, avgPriceLast5)}</span></p>
-                                    <p>Volume: ${avgVolumePrev5.toLocaleString()}</p>
-                                    <p>Change: <span style="color: ${percentChange(avgVolumePrev5, avgVolumeLast5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgVolumePrev5, avgVolumeLast5)}</span></p>
-                                </div>
-
-                                <div style="font-weight: bold;">5-Day Avg</div>
-                                <div style="background-color: #333; border-radius: 4px; padding: 0.5rem;">
-                                    <p>Price: ${avgPriceLast5.toFixed(2)}</p>
-                                    <p>Change: <span style="color: ${percentChange(avgPriceLast5, avgPricePrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgPriceLast5, avgPricePrev5)}</span></p>
-                                    <p>Volume: ${avgVolumeLast5.toLocaleString()}</p>
-                                    <p>Change: <span style="color: ${percentChange(avgVolumeLast5, avgVolumePrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgVolumeLast5, avgVolumePrev5)}</span></p>
-                                </div>
-                                <div style="background-color: #333; border-radius: 4px; padding: 0.5rem;">
-                                    <p>Price: ${avgPricePrevPrev5.toFixed(2)}</p>
-                                    <p>Change: <span style="color: ${percentChange(avgPricePrev5, avgPricePrevPrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgPricePrev5, avgPricePrevPrev5)}</span></p>
-                                    <p>Volume: ${avgVolumePrevPrev5.toLocaleString()}</p>
-                                    <p>Change: <span style="color: ${percentChange(avgVolumePrev5, avgVolumePrevPrev5).startsWith('-') ? '#ff4c4c' : '#4caf50'};">${percentChange(avgVolumePrev5, avgVolumePrevPrev5)}</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
-                statsContent.innerHTML = matrixHtml;
-            }
-        });
-
-        // Add click event listener to toggle detailed price stats visibility
-        document.addEventListener('DOMContentLoaded', () => {
-            // Navigation stack to keep track of nested boxes
-            const navigationStack = [];
-
-            // Function to show a box by id and hide others
-            function showBox(boxId) {
-                const allBoxes = document.querySelectorAll('.content-part, .nested-box');
-                allBoxes.forEach(box => {
-                    if (box.id === boxId) {
-                        box.style.display = 'flex';
-                    } else {
-                        box.style.display = 'none';
-                    }
-                });
-            }
-
-            // Function to go inside a box
-            function goInsideBox(box) {
-                navigationStack.push(box.id);
-                const nestedBoxId = box.getAttribute('data-nested-box-id');
-                if (nestedBoxId) {
-                    showBox(nestedBoxId);
-                }
-            }
-
-            // Function to go back to previous box
-            function goBack() {
-                navigationStack.pop();
-                const previousBoxId = navigationStack.length > 0 ? navigationStack[navigationStack.length - 1] : null;
-                if (previousBoxId) {
-                    showBox(previousBoxId);
-                } else {
-                    // Show all main content boxes
-                    const allBoxes = document.querySelectorAll('.content-part');
-                    allBoxes.forEach(box => box.style.display = 'flex');
-                }
-            }
-
-            // Initialize: show all main content boxes
-            const mainBoxes = document.querySelectorAll('.content-part');
-            mainBoxes.forEach(box => {
-                box.style.display = 'flex';
-                box.style.cursor = 'pointer';
-                box.addEventListener('click', () => {
-                    goInsideBox(box);
-                });
-            });
-
-            // Special handling for Price Statistics summary box to go inside on click
-            const priceStatsSummary = document.getElementById('price-stats-summary');
-            if (priceStatsSummary) {
-                priceStatsSummary.style.cursor = 'pointer';
-                priceStatsSummary.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    const detailedBox = document.getElementById('price-stats-detailed');
-                    if (detailedBox) {
-                        navigationStack.push('price-stats-summary');
-                        detailedBox.style.display = 'flex';
-                        priceStatsSummary.style.display = 'none';
-                    }
-                });
-            }
-
-            // Add back button dynamically in nested boxes
-            const nestedBoxes = document.querySelectorAll('.nested-box');
-            nestedBoxes.forEach(nestedBox => {
+            // Back button if root
+            if (path) {
                 const backButton = document.createElement('button');
+                backButton.id = 'backButton';
                 backButton.textContent = 'Back';
                 backButton.className = 'btn btn-warning mb-3';
                 backButton.addEventListener('click', () => {
-                    goBack();
+                    const parts = path.split('-');
+                    parts.pop();
+                    const newPath = parts.join('-');
+                    const url = new URL(window.location);
+                    if (newPath) {
+                        url.searchParams.set('drillDownPath', newPath);
+                    } else {
+                        url.searchParams.delete('drillDownPath');
+                    }
+                    window.location.href = url.toString();
                 });
-                nestedBox.prepend(backButton);
-            });
-        });
-    </script>
-</body>
+                contentSection.appendChild(backButton);
+            }
 
-</html>
+            // Limit drill-down depth to 6
+            const depth = path ? path.split('-').length : 0;
+            if (depth >= 6) {
+                const message = document.createElement('p');
+                message.textContent = 'Maximum drill-down depth reached.';
+                contentSection.appendChild(message);
+                return;
+            }
+
+            // Render six boxes
+            for (let i = 1; i <= 6; i++) {
+                const newPath = path ? `${path}-${i}` : `${i}`;
+                const box = createBox(`box-${newPath}`, 'Price History', `Content Part ${newPath}`);
+                box.style.cursor = 'pointer';
+                box.addEventListener('click', () => {
+                    const url = new URL(window.location);
+                    url.searchParams.set('drillDownPath', newPath);
+                    window.location.href = url.toString();
+                });
+                contentSection.appendChild(box);
+            }
+
+            // Set content section styles
+            contentSection.style.display = 'flex';
+            contentSection.style.flexWrap = 'wrap';
+            contentSection.style.height = 'auto';
+        }
+
+        renderBoxes(drillDownPath);
+    });
+</script>
+
+{% endblock %}

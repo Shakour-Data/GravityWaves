@@ -1,0 +1,75 @@
+function showPriceHistoryView() {
+    const contentSection = document.getElementById('content-section');
+    const contentParts = contentSection.querySelectorAll('.content-part');
+
+    // Merge content parts 1, 2, 3 into one container for candlestick chart
+    // Hide content parts 5 and 6
+    // Show content part 4 for stats
+
+    // Clear content section
+    contentSection.innerHTML = '';
+
+    // Create merged container for candlestick chart (merged content 1-3)
+    const chartContainer = document.createElement('div');
+    chartContainer.id = 'candlestick-chart-container';
+    chartContainer.style.flex = '2 1 66%';
+    chartContainer.style.minWidth = '66%';
+    chartContainer.style.height = '100%';
+    chartContainer.style.border = '1px solid #ffc107';
+    chartContainer.style.borderRadius = '0.25rem';
+    chartContainer.style.backgroundColor = '#222';
+    chartContainer.style.padding = '10px';
+    chartContainer.style.color = '#fff';
+    chartContainer.style.display = 'flex';
+    chartContainer.style.flexDirection = 'column';
+
+    // Add title
+    const chartTitle = document.createElement('h4');
+    chartTitle.textContent = 'Candlestick Chart';
+    chartTitle.style.textAlign = 'center';
+    chartTitle.style.marginBottom = '10px';
+    chartContainer.appendChild(chartTitle);
+
+    // Add canvas for chart
+    const canvas = document.createElement('canvas');
+    canvas.id = 'candlestick-chart';
+    canvas.style.flex = '1 1 auto';
+    chartContainer.appendChild(canvas);
+
+    // Create stats container (content part 4)
+    const statsContainer = document.createElement('div');
+    statsContainer.id = 'price-stats-container';
+    statsContainer.style.flex = '1 1 33%';
+    statsContainer.style.minWidth = '33%';
+    statsContainer.style.height = '100%';
+    statsContainer.style.border = '1px solid #ffc107';
+    statsContainer.style.borderRadius = '0.25rem';
+    statsContainer.style.backgroundColor = '#222';
+    statsContainer.style.padding = '10px';
+    statsContainer.style.color = '#fff';
+    statsContainer.style.display = 'flex';
+    statsContainer.style.flexDirection = 'column';
+
+    // Add title
+    const statsTitle = document.createElement('h4');
+    statsTitle.textContent = 'Price Statistics';
+    statsTitle.style.textAlign = 'center';
+    statsTitle.style.marginBottom = '10px';
+    statsContainer.appendChild(statsTitle);
+
+    // Add stats content placeholder
+    const statsContent = document.createElement('div');
+    statsContent.id = 'stats-content';
+    statsContent.style.flex = '1 1 auto';
+    statsContainer.appendChild(statsContent);
+
+    // Append chart and stats containers to content section
+    contentSection.style.display = 'flex';
+    contentSection.style.flexWrap = 'nowrap';
+    contentSection.style.height = '600px'; // fixed height for chart and stats
+    contentSection.appendChild(chartContainer);
+    contentSection.appendChild(statsContainer);
+
+    // Fetch market data and render chart and stats
+    fetchMarketDataAndRender();
+}

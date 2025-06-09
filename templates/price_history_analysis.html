@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GravityChats - Price History Analysis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body class="bg-dark text-warning">
+    <header class="d-flex align-items-center p-3 border-bottom border-warning justify-content-between">
+        <div class="d-flex align-items-center">
+            <img src="/static/images/Logo.jpg" alt="GravityChats Logo" id="logo" class="me-3" style="height: 40px;" />
+            <h1 class="m-0 fw-bold">GravityChats - Price History</h1>
+        </div>
+    </header>
+    <main class="container-fluid my-4">
+        <div class="row gx-3" style="min-height: calc(100vh - 120px); margin-bottom: 2cm;">
+            <div id="settings-container"
+                class="col-md-2 p-3 rounded border border-warning bg-black text-warning d-flex flex-column">
+                <h3 class="text-center mb-3">General Settings</h3>
+                <label for="ticker" class="form-label">Ticker:</label>
+                <input type="text" id="ticker" placeholder="Enter ticker symbol"
+                    class="form-control mb-3 bg-dark text-warning border-warning" />
+                <label for="num-candles" class="form-label">Number of Candles:</label>
+                <input type="number" id="num-candles" min="1" value="30"
+                    class="form-control mb-3 bg-dark text-warning border-warning" />
+                <label for="investment-horizon" class="form-label">Investment Horizon:</label>
+                <input type="text" id="investment-horizon" placeholder="Enter investment horizon"
+                    class="form-control mb-3 bg-dark text-warning border-warning" />
+                <label for="data-source" class="form-label">Data Source:</label>
+                <select id="data-source" class="form-select mb-3 bg-dark text-warning border-warning">
+                    <option value="yahoo" class="bg-dark text-warning">Yahoo</option>
+                    <option value="tse" class="bg-dark text-warning">TSE</option>
+                </select>
+                <label for="time-frame" class="form-label">Time Frame:</label>
+                <select id="time-frame" class="form-select bg-dark text-warning border-warning">
+                    <option value="1d" class="bg-dark text-warning">Daily</option>
+                    <option value="1wk" class="bg-dark text-warning">Weekly</option>
+                    <option value="1mo" class="bg-dark text-warning">Monthly</option>
+                </select>
+            </div>
+            <div id="content-section" class="col-md-8 p-3 rounded border border-warning bg-black d-flex flex-wrap">
+                <!-- Content boxes will be rendered here dynamically -->
+            </div>
+            <div id="buttons-container"
+                class="col-md-2 d-flex flex-column gap-3 p-3 rounded border border-warning bg-black">
+                <button id="back-button" class="btn btn-warning text-dark fs-5 mb-3" style="display:none;">Back</button>
+                <!-- Additional buttons can be added here -->
+            </div>
+        </div>
+    </main>
+    <footer class="text-center p-3 border-top border-warning bg-black text-warning fixed-bottom">
+        <p class="mb-0">&copy; 2024 GravityChats. All rights reserved.</p>
+    </footer>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentSection = document.getElementById('content-section');
+            const backButton = document.getElementById('back-button');
+
+            // Parse drillDownPath from URL params
+            function getDrillDownPath() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get('drillDownPath') || '';
+            }
+
+            // Update URL with new drillDownPath
+            function updateDrillDownPath(newPath) {
+                const url = new URL(window.location);
+                if (newPath) {
+                    url.searchParams.set('drillDownPath', newPath);
+                } else {
+                    url.searchParams.delete('drillDownPath');
+                }
+                window.history.pushState({}, '', url);
+            }
+
+
+            // Render breadcrumb and current box address
+            function renderBreadcrumb(path) {
+                let breadcrumb = document.getElementById('breadcrumb');
+                if (!breadcrumb) {
+                    breadcrumb = document.createElement('div');
+                    breadcrumb.id = 'breadcrumb';
+                    breadcrumb.style.marginBottom = '10px';
+                    breadcrumb.style.color = '#ffc107';
+                    breadcrumb.style.fontWeight = 'bold';
+                    breadcrumb.style.position = 'absolute';
+                    breadcrumb.style.top = '10px';
+                    breadcrumb.style.left = '50%';
+                    breadcrumb.style.transform = 'translateX(-50%)';
+                    breadcrumb.style.zIndex = '1000';
+                    breadcrumb.style.backgroundColor = '#000000cc';
+                    breadcrumb.style.padding = '5px 10px';
+                    breadcrumb.style.borderRadius = '5px';
+                    document.body.prepend(breadcrumb);
+                }
+                breadcrumb.textContent = `Level ${path ? path.split('-').length + 1 : 1}`;
+            }
+
+            function renderCurrentBoxAddress(path) {
+                let currentBoxAddress = document.getElementById('currentBoxAddress');
+                if (!currentBoxAddress) {
+                    currentBoxAddress = document.createElement('div');
+                    currentBoxAddress.id = 'currentBoxAddress';
+                    currentBoxAddress.style.marginBottom = '10px';
+                    currentBoxAddress.style.color = '#ffc107';
+                    currentBoxAddress.style.fontWeight = 'bold';
+                    currentBoxAddress.style.position = 'absolute';
+                    currentBoxAddress.style.top = '40px';
+                    currentBoxAddress.style.left = '50%';
+                    currentBoxAddress.style.transform = 'translateX(-50%)';
+                    currentBoxAddress.style.zIndex = '1000';
+                    currentBoxAddress.style.backgroundColor = '#000000cc';
+                    currentBoxAddress.style.padding = '5px 10px';
+                    currentBoxAddress.style.borderRadius = '5px';
+                    document.body.prepend(currentBoxAddress);
+                }
+                currentBoxAddress.textContent = `Current Box: ${path ? path.split('-').join(' > ') : 'Root'}`;
+            }
+
+            // Create a box element
+            function createBox(id, titleText) {
+                const box = document.createElement('div');
+                box.className = 'content-part box p-2 rounded border border-warning bg-dark text-light d-flex flex-column justify-content-center align-items-center';
+                box.style.flex = '1 1 30%';
+                box.style.minWidth = '30%';
+                box.style.height = '45%';
+                box.id = id;
+
+                const title = document.createElement('h5');
+                title.textContent = titleText;
+
+                box.appendChild(title);
+
+                box.addEventListener('click', () => {
+                    const newPath = id ? (getDrillDownPath() ? getDrillDownPath() + '-' + id : id) : '';
+                    updateDrillDownPath(newPath);
+                    renderBoxes(newPath);
+                });
+
+                return box;
+            }
+
+            // Render boxes based on drillDownPath
+            function renderBoxes(path) {
+                contentSection.innerHTML = '';
+                renderBreadcrumb(path);
+                renderCurrentBoxAddress(path);
+
+                if (path) {
+                    backButton.style.display = 'block';
+                } else {
+                    backButton.style.display = 'none';
+                }
+
+                // Limit drill-down depth to 3 for now
+                const depth = path ? path.split('-').length : 0;
+                if (depth >= 3) {
+                    const endMessage = document.createElement('p');
+                    endMessage.textContent = 'Maximum drill-down depth reached.';
+                    endMessage.style.color = '#ffc107';
+                    contentSection.appendChild(endMessage);
+                    return;
+                }
+
+                // Create 6 boxes for next level
+                for (let i = 1; i <= 6; i++) {
+                    const boxId = i.toString();
+                    const box = createBox(boxId, `Box ${boxId}`);
+                    contentSection.appendChild(box);
+                }
+            }
+
+            backButton.addEventListener('click', () => {
+                const path = getDrillDownPath();
+                if (!path) return;
+                const parts = path.split('-');
+                parts.pop();
+                const newPath = parts.join('-');
+                updateDrillDownPath(newPath);
+                renderBoxes(newPath);
+            });
+
+            // Initial render
+            renderBoxes(getDrillDownPath());
+        });
+    </script>
+</body>
+
+</html>

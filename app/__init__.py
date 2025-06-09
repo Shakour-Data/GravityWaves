@@ -134,19 +134,28 @@ def register():
 @app.route('/market_status_analysis')
 def market_status_analysis():
     ticker = request.args.get('ticker', None)
-    return render_template('market_status_analysis.html', ticker=ticker)
+    return render_template('market_status_analysis.html', ticker=ticker, page_name='Market Status Analysis')
 
 @app.route('/forecast_analysis')
 def forecast_analysis():
     ticker = request.args.get('ticker', None)
-    return render_template('forecast_analysis.html', ticker=ticker)
+    return render_template('forecast_analysis.html', ticker=ticker, page_name='Forecast Analysis')
+
 
 @app.route('/market_dashboard')
 def market_dashboard_ui():
     try:
-        return render_template('market_dashboard.html')
+        return render_template('market_dashboard.html', page_name='Market Dashboard')
     except Exception as e:
         log_manager.error(f"Error rendering market_dashboard.html: {e}")
+        return jsonify({"error": "Internal server error"}), 500
+
+@app.route('/price_history_analysis')
+def price_history_analysis_ui():
+    try:
+        return render_template('price_history_analysis.html', page_name='Price History Analysis')
+    except Exception as e:
+        log_manager.error(f"Error rendering price_history_analysis.html: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
 @app.route('/market_dashboard_link')
@@ -172,7 +181,7 @@ def chatbot_api():
 @app.route('/candlestick_chart')
 def candlestick_chart():
     try:
-        return render_template('candlestick_chart.html')
+        return render_template('candlestick_chart.html', page_name='Candlestick Chart')
     except Exception as e:
         log_manager.error(f"Error rendering candlestick_chart.html: {e}")
         return jsonify({"error": "Internal server error"}), 500
@@ -286,7 +295,7 @@ def api_forecast_analysis():
 @app.route('/indicator_analysis')
 def indicator_analysis():
     ticker = request.args.get('ticker', None)
-    return render_template('indicator_analysis.html', ticker=ticker)
+    return render_template('indicator_analysis.html', ticker=ticker, page_name='Indicator Analysis')
 
 @app.route('/api/indicator_analysis', methods=['POST'])
 def api_indicator_analysis():
@@ -330,12 +339,12 @@ def api_indicator_analysis():
 @app.route('/optimization_results')
 def optimization_results():
     ticker = request.args.get('ticker', None)
-    return render_template('optimization_results.html', ticker=ticker)
+    return render_template('optimization_results.html', ticker=ticker, page_name='Optimization Results')
 
 @app.route('/comparative_results')
 def comparative_results():
     ticker = request.args.get('ticker', None)
-    return render_template('comparative_results.html', ticker=ticker)
+    return render_template('comparative_results.html', ticker=ticker, page_name='Comparative Results')
 
 @app.route('/api/comparative_results', methods=['POST'])
 def api_comparative_results():
@@ -385,7 +394,7 @@ def api_comparative_results():
 @app.route('/custom_analysis')
 def custom_analysis():
     ticker = request.args.get('ticker', None)
-    return render_template('custom_analysis.html', ticker=ticker)
+    return render_template('custom_analysis.html', ticker=ticker, page_name='Custom Analysis')
 
 @app.route('/api/custom_analysis', methods=['POST'])
 def api_custom_analysis():

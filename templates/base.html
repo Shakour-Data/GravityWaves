@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}GravityChats{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header class="d-flex align-items-center p-3 border-bottom border-warning justify-content-between bg-dark text-warning">
+        <div class="d-flex align-items-center">
+            <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="Logo" class="logo me-3" style="height: 30px;" />
+            <h1 class="m-0 fw-bold">GravityChats</h1>
+        </div>
+        <div id="date-time" class="text-warning text-end"
+            style="min-width: 250px; font-size: 0.9rem; font-weight: 600;">
+            <div id="gregorian-date"></div>
+            <div id="persian-date"></div>
+            <div id="time"></div>
+            <div id="weekday"></div>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 GravityChats. All rights reserved.</p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

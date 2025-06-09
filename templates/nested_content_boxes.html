@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Nested Content Boxes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                font-family: Arial, sans-serif;
+            }
+            .container {
+                display: grid;
+                grid-template-columns: 200px 1fr 200px;
+                grid-template-rows: 100vh;
+                height: 100vh;
+            }
+            .sidebar-left, .sidebar-right {
+                background-color: #f0f0f0;
+                padding: 10px;
+                overflow-y: auto;
+            }
+            .sidebar-left {
+                border-right: 1px solid #ccc;
+            }
+            .sidebar-right {
+                border-left: 1px solid #ccc;
+            }
+            .main-content {
+                padding: 20px;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+            }
+            .breadcrumb {
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+            .boxes {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 15px;
+                flex-grow: 1;
+            }
+            .box {
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 120px;
+                cursor: pointer;
+                user-select: none;
+                font-size: 1.2em;
+                transition: background-color 0.3s ease;
+                color: white;
+                padding: 10px;
+                text-align: center;
+                white-space: pre-line;
+            }
+            .box:hover {
+                filter: brightness(85%);
+            }
+            .back-button {
+                margin-bottom: 10px;
+                cursor: pointer;
+                color: #3366cc;
+                text-decoration: underline;
+                user-select: none;
+                width: fit-content;
+            }
+            .back-button:hover {
+                color: #224499;
+            }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar-left">
+            <!-- Existing left sidebar content (button box) -->
+            {% include 'buttons_sidebar.html' %}
+        </div>
+        <div class="main-content">
+            <div class="breadcrumb" id="breadcrumb">Level 1</div>
+            <div class="back-button" id="backButton" style="display:none;">&larr; Back</div>
+            <div id="currentBoxAddress" style="margin-bottom: 10px; font-weight: bold;"></div>
+            <div class="boxes" id="boxesContainer">
+                <!-- Boxes will be rendered here dynamically -->
+            </div>
+        </div>
+        <div class="sidebar-right">
+            <!-- Existing right sidebar content (settings box) -->
+            {% include 'settings_sidebar.html' %}
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const maxLevel = 5; // Configurable max level
+            const boxesPerLevel = 6;
+            let currentPath = []; // Stack to track navigation path
+
+            const breadcrumbEl = document.getElementById('breadcrumb');
+            const boxesContainer = document.getElementById('boxesContainer');
+            const backButton = document.getElementById('backButton');
+            const currentBoxAddressEl = document.getElementById('currentBoxAddress');
+
+            function renderBoxes(level) {
+                boxesContainer.innerHTML = '';
+                const colors = ['#4a90e2', '#50e3c2', '#f5a623', '#d0021b', '#9013fe', '#b8e986'];
+                for (let i = 1; i <= boxesPerLevel; i++) {
+                    const box = document.createElement('div');
+                    box.className = 'box';
+                    box.style.backgroundColor = colors[(i - 1) % colors.length];
+                    box.textContent = `Content Part ${currentPath.length > 0 ? currentPath.join('-') + '-' : ''}${i}\nPlaceholder for content ${currentPath.length > 0 ? currentPath.join('-') + '-' : ''}${i}.`;
+                    box.addEventListener('click', () => {
+                        if (level < maxLevel) {
+                            currentPath.push(i);
+                            updateUI();
+                        }
+                    });
+                    boxesContainer.appendChild(box);
+                }
+            }
+
+            function updateBreadcrumb() {
+                if (currentPath.length === 0) {
+                    breadcrumbEl.textContent = 'Level 1';
+                } else {
+                    breadcrumbEl.textContent = 'Level ' + (currentPath.length + 1) + ' - Path: ' + currentPath.join(' > ');
+                }
+            }
+
+            function updateCurrentBoxAddress() {
+                if (currentPath.length === 0) {
+                    currentBoxAddressEl.textContent = 'Current Box: Root';
+                } else {
+                    currentBoxAddressEl.textContent = 'Current Box: ' + currentPath.join(' > ');
+                }
+            }
+
+            function updateBackButton() {
+                backButton.style.display = currentPath.length > 0 ? 'block' : 'none';
+            }
+
+            backButton.addEventListener('click', () => {
+                if (currentPath.length > 0) {
+                    currentPath.pop();
+                    updateUI();
+                }
+            });
+
+            function updateUI() {
+                updateBreadcrumb();
+                updateCurrentBoxAddress();
+                updateBackButton();
+                renderBoxes(currentPath.length + 1);
+            }
+
+            // Initial render
+            updateUI();
+        })();
+    </script>
+</body>
+</html>

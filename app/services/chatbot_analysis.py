@@ -4,12 +4,9 @@ import pandas as pd
 import io
 import base64
 
-def analyze_message(message: str) -> dict:
+def analyze_message_with_price_history_preserved(message: str) -> dict:
     """
-    Analyze the user message and return a chatbot reply.
-    This implementation attempts to parse simple commands related to market data,
-    including price queries and price history with optional export.
-    Returns a dict with keys 'reply' (text) and optionally 'reply_html' or 'file' (base64).
+    Preserved Price History implementation for future use.
     """
     if not message:
         return {"reply": "Please enter a message to analyze."}
@@ -82,3 +79,37 @@ def analyze_message(message: str) -> dict:
             return {"reply": f"Error fetching price history for {ticker}: {str(e)}"}
 
     return {"reply": "Sorry, I can only provide the latest price or price history for a ticker. Try 'Get price for AAPL' or 'Price history for AAPL 30'."}
+
+def analyze_message(message: str) -> dict:
+    """
+    Analyze the user message and return a chatbot reply.
+    This implementation attempts to parse simple commands related to market data,
+    including price queries but excluding price history.
+    Returns a dict with keys 'reply' (text) and optionally 'reply_html' or 'file' (base64).
+    """
+    if not message:
+        return {"reply": "Please enter a message to analyze."}
+
+    message_lower = message.lower()
+
+    # Handle price query: "price for AAPL"
+    match_price = re.search(r'price for (\w+)', message_lower)
+    if match_price:
+        ticker = match_price.group(1).upper()
+        try:
+            df = load_market_data(ticker, 'yahoo', '1d', 1)
+            if df.empty:
+                return {"reply": f"No market data found for ticker {ticker}."}
+            latest_close = df['close'].iloc[-1]
+            return {"reply": f"The latest closing price for {ticker} is ${latest_close:.2f}."}
+        except Exception as e:
+            return {"reply": f"Error fetching market data for {ticker}: {str(e)}"}
+
+    # Removed price history handling here to disable it temporarily
+
+    # If message is just a ticker symbol (e.g., "AAPL"), return a simple reply without price history
+    if re.fullmatch(r'[A-Za-z]{1,5}', message.strip()):
+        ticker = message.strip().upper()
+        return {"reply": f"Please specify your request for {ticker}. For example, 'Get price for {ticker}'."}
+
+    return {"reply": "Sorry, I can only provide the latest price for a ticker. Try 'Get price for AAPL'."}

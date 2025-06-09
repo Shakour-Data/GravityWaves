@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="sidebar-left">
+        <!-- Include existing button box sidebar -->
+        {% include 'buttons_sidebar.html' %}
+    </div>
+    <div class="main-content">
+        <div class="breadcrumb" id="breadcrumb">Level 1</div>
+        <div class="back-button" id="backButton" style="display:none;">&larr; Back</div>
+        <div id="currentBoxAddress" style="margin-bottom: 10px; font-weight: bold;"></div>
+        <div class="boxes" id="boxesContainer">
+            <!-- Boxes will be rendered here dynamically -->
+        </div>
+    </div>
+    <div class="sidebar-right">
+        <!-- Include existing settings box sidebar -->
+        {% include 'settings_sidebar.html' %}
+    </div>
+</div>
+{% endblock %}
+
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: 200px 1fr 200px;
+        grid-template-rows: 100vh;
+        height: 100vh;
+    }
+    .sidebar-left, .sidebar-right {
+        background-color: #f0f0f0;
+        padding: 10px;
+        overflow-y: auto;
+    }
+    .sidebar-left {
+        border-right: 1px solid #ccc;
+    }
+    .sidebar-right {
+        border-left: 1px solid #ccc;
+    }
+    .main-content {
+        padding: 20px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .breadcrumb {
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+    .boxes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+        flex-grow: 1;
+    }
+    .box {
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 120px;
+        cursor: pointer;
+        user-select: none;
+        font-size: 1.2em;
+        transition: background-color 0.3s ease;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        white-space: pre-line;
+    }
+    .box:hover {
+        filter: brightness(85%);
+    }
+    .back-button {
+        margin-bottom: 10px;
+        cursor: pointer;
+        color: #3366cc;
+        text-decoration: underline;
+        user-select: none;
+        width: fit-content;
+    }
+    .back-button:hover {
+        color: #224499;
+    }
+</style>
+
+<script>
+    (function() {
+        const maxLevel = 6; // Increased max level to 6 as requested
+        const boxesPerLevel = 6;
+        let currentPath = []; // Stack to track navigation path
+
+        // Get pageName from a data attribute on the body tag
+        const pageName = document.body.getAttribute('data-page-name') || 'Analysis';
+
+        const breadcrumbEl = document.getElementById('breadcrumb');
+        const boxesContainer = document.getElementById('boxesContainer');
+        const backButton = document.getElementById('backButton');
+        const currentBoxAddressEl = document.getElementById('currentBoxAddress');
+
+        function getBoxText(level, index) {
+            // Customize box text based on pageName and level
+            return `${pageName} - Level ${level} - Box ${index}`;
+        }
+
+        function renderBoxes(level) {
+            boxesContainer.innerHTML = '';
+            const colors = ['#4a90e2', '#50e3c2', '#f5a623', '#d0021b', '#9013fe', '#b8e986'];
+            for (let i = 1; i <= boxesPerLevel; i++) {
+                const box = document.createElement('div');
+                box.className = 'box';
+                box.style.backgroundColor = colors[(i - 1) % colors.length];
+                box.textContent = getBoxText(level, i);
+                box.addEventListener('click', () => {
+                    if (level < maxLevel) {
+                        currentPath.push(i);
+                        updateUI();
+                    }
+                });
+                boxesContainer.appendChild(box);
+            }
+        }
+
+        function updateBreadcrumb() {
+            if (currentPath.length === 0) {
+                breadcrumbEl.textContent = `${pageName} - Level 1`;
+            } else {
+                breadcrumbEl.textContent = `${pageName} - Level ${currentPath.length + 1} - Path: ` + currentPath.join(' > ');
+            }
+        }
+
+        function updateCurrentBoxAddress() {
+            if (currentPath.length === 0) {
+                currentBoxAddressEl.textContent = `Current Box: ${pageName} Root`;
+            } else {
+                currentBoxAddressEl.textContent = `Current Box: ${pageName} ` + currentPath.join(' > ');
+            }
+        }
+
+        function updateBackButton() {
+            backButton.style.display = currentPath.length > 0 ? 'block' : 'none';
+        }
+
+        backButton.addEventListener('click', () => {
+            if (currentPath.length > 0) {
+                currentPath.pop();
+                updateUI();
+            }
+        });
+
+        function updateUI() {
+            updateBreadcrumb();
+            updateCurrentBoxAddress();
+            updateBackButton();
+            renderBoxes(currentPath.length + 1);
+        }
+
+        // Initial render
+        updateUI();
+    })();
+</script>
