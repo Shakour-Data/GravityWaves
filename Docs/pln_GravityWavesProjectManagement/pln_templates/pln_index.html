@@ -1,0 +1,101 @@
+{% extends "pln_base.html" %}
+
+{% block content %}
+<div class="container">
+    <section class="tasks-section">
+        <h2>Tasks</h2>
+        <table id="tasks-table">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Duration (days)</th>
+                    <th>Planned Start</th>
+                    <th>Planned End</th>
+                    <th>Actual Start</th>
+                    <th>Actual End</th>
+                    <th>Status</th>
+                    <th>Assigned Resources</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Tasks will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <button id="add-task-btn">Add Task</button>
+    </section>
+
+    <section class="gantt-section">
+        <h2>Gantt Chart</h2>
+        <div id="gantt"></div>
+    </section>
+
+    <section class="resources-section">
+        <h2>Resources</h2>
+        <table id="resources-table">
+            <thead>
+                <tr>
+                    <th>Resource</th>
+                    <th>Hourly Rate (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Resources will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </section>
+
+    <section class="cost-section">
+        <h2>Cost Estimation</h2>
+        <div id="cost-summary">
+            <!-- Cost summary will be shown here -->
+        </div>
+    </section>
+</div>
+
+<!-- Add Task Modal -->
+<div id="task-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Add / Edit Task</h3>
+        <form id="task-form">
+            <label for="task-name">Task Name:</label>
+            <input type="text" id="task-name" name="name" required />
+
+            <label for="duration-days">Duration (days):</label>
+            <input type="number" id="duration-days" name="duration_days" min="1" required />
+
+            <label for="planned-start">Planned Start Date:</label>
+            <input type="date" id="planned-start" name="planned_start" required />
+
+            <label for="planned-end">Planned End Date:</label>
+            <input type="date" id="planned-end" name="planned_end" required />
+
+            <label for="actual-start">Actual Start Date:</label>
+            <input type="date" id="actual-start" name="actual_start" />
+
+            <label for="actual-end">Actual End Date:</label>
+            <input type="date" id="actual-end" name="actual_end" />
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="To Do">To Do</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Done">Done</option>
+            </select>
+
+            <label for="assigned-resources">Assigned Resources (comma separated):</label>
+            <input type="text" id="assigned-resources" name="assigned_resources" placeholder="e.g. Data Analyst, Python Developer" />
+
+            <button type="submit">Save Task</button>
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/pln_gantt.js') }}"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // JavaScript to fetch tasks and resources, render tables and Gantt chart, handle add task modal, etc.
+    // This will be implemented in pln_gantt.js
+});
+</script>
+{% endblock %}
