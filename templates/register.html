@@ -5,34 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>GravityChats - Register</title>
     <link rel="stylesheet" href="/static/css/style.css" />
+    <style>
+        .login-link {
+            color: #ffc107; /* Yellow accent color */
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .login-link:hover {
+            text-decoration: underline;
+        }
+        .login-text {
+            margin-top: 0.5em;
+        }
+    </style>
 </head>
 <body>
     <header>
         <img src="/static/images/Logo.jpg" alt="GravityChats Logo" id="logo" />
-        <h1>Create a New Account</h1>
+        <h1>Register for GravityChats</h1>
+        <p style="color: #ffc107; font-weight: bold; font-size: 1.1rem; margin-top: 0.3rem;">Decoding Risk, Empowering Vision</p>
     </header>
     <main>
-        {% if error %}
-        <div class="error-message" style="color: red; font-weight: bold; margin-bottom: 1em;">
-            {{ error }}
+        <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: nowrap; height: 90vh;">
+            <form id="register-form" method="POST" action="/register" style="flex: 0 0 35vw; max-width: 35vw; height: 90vh; overflow-y: auto; box-sizing: border-box; padding-right: 1rem;">
+                {% if error %}
+                <div class="error-message" style="color: red; font-weight: bold; margin-bottom: 1em;">
+                    {{ error }}
+                </div>
+                {% endif %}
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required />
+
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required />
+
+                <button type="submit" class="btn">Register</button>
+                <p class="login-text" style="margin-top: 1rem;">Already have an account? <a href="/login" class="login-link">Login here</a>.</p>
+            </form>
+            <div style="flex: 0 0 50vw; max-width: 50vw; height: 90vh; text-align: center; box-sizing: border-box; padding-left: 1rem; display: flex; align-items: center; justify-content: center;">
+                <img src="/static/images/Login.jpg" alt="Login Image" style="max-height: 90vh; max-width: 100%; border-radius: 8px;" />
+            </div>
         </div>
-        {% endif %}
-        <form id="register-form" method="POST" action="/register">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required />
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required />
-
-            <label for="confirm_password">Confirm Password:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required />
-
-            <button type="submit" class="btn">Register</button>
-        </form>
-        <p>Already have an account? <a href="/login">Login here</a>.</p>
     </main>
     <footer>
         <p>&copy; 2024 GravityChats. All rights reserved.</p>

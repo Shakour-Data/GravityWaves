@@ -11,8 +11,11 @@
 <body class="bg-black text-warning">
     <header class="d-flex align-items-center p-3 border-bottom border-warning justify-content-between bg-dark text-warning">
         <div class="d-flex align-items-center">
-            <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="Logo" class="logo me-3" style="height: 40px;" />
-            <h1 class="m-0 fw-bold">GravityChats</h1>
+            <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="Logo" class="logo me-3" style="height: 100px; border: 3px solid #ffc107; border-radius: 10px; box-shadow: 0 0 20px 5px #ffc107aa; animation: glow 2s ease-in-out infinite alternate;" />
+            <div>
+                <h1 class="m-0 fw-bold">Gravity Analysis</h1>
+                <p class="slogan-text" style="font-size: 0.9rem; margin-top: 0.1rem; letter-spacing: 0.05em;">Decoding Risk, Empowering Vision</p>
+            </div>
         </div>
         <div id="date-time" class="text-warning text-end"
             style="min-width: 250px; font-size: 0.9rem; font-weight: 600;">
@@ -22,6 +25,17 @@
             <div id="weekday"></div>
         </div>
     </header>
+
+    <style>
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px 2px #ffc107aa;
+            }
+            to {
+                box-shadow: 0 0 20px 5px #ffc107ff;
+            }
+        }
+    </style>
 
     <main class="container-fluid my-4">
         <div class="row gx-3" style="min-height: calc(100vh - 120px); margin-bottom: 2cm;">

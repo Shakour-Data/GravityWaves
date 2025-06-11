@@ -157,3 +157,10 @@ button.focused {
     outline: none;
     box-shadow: 0 0 8px rgba(255, 165, 0, 0.4);
 }
+
+.slogan-text {
+    font-family: 'Dancing Script', cursive, sans-serif;
+    font-size: 0.9rem;
+    margin-top: 0.1rem;
+    letter-spacing: 0.05em;
+}

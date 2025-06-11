@@ -1,5 +1,34 @@
-{% extends "nested_content_layout.html" %}
+{% extends "base.html" %}
 
-{% block content %}
-<!-- Nested content boxes UI will be rendered by the layout's JavaScript -->
+{% block title %}GravityChats - Comparative Results{% endblock %}
+
+{% block buttons_sidebar %}
+    {% include "buttons_sidebar.html" %}
+{% endblock %}
+
+{% block settings_sidebar %}
+    {% include "settings_sidebar.html" %}
+{% endblock %}
+
+{% block main_content %}
+    {% include "content_boxes.html" %}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const analysisPage = "Comparative Results";
+            const contentBoxes = document.querySelectorAll('.content-part');
+
+            contentBoxes.forEach((box, index) => {
+                box.querySelector('h5').textContent = `${analysisPage} Content Part ${index + 1}`;
+                box.querySelector('p').textContent = `Details for ${analysisPage} content part ${index + 1}.`;
+                box.style.cursor = 'pointer';
+                box.onclick = () => {
+                    alert(`Drill down into ${analysisPage} content part ${index + 1}`);
+                };
+            });
+        });
+    </script>
 {% endblock %}

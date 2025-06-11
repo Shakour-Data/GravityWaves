@@ -18,13 +18,13 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
 import csv
-from typing import Dict, Any, Optional, List, Union, Tuple, Callable # Added Callable import
+from typing import Dict, Any, Optional, List, Union, Tuple, Callable
 from rich.logging import RichHandler
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
-from datetime import datetime as dt_datetime # Renamed to avoid conflict with datetime module
-import traceback # Added import for traceback
-from io import StringIO # Import StringIO for logging DataFrames
+from datetime import datetime as dt_datetime
+import traceback
+from io import StringIO
 
 class LogManager:
     """
@@ -35,19 +35,19 @@ class LogManager:
         self,
         log_file: str = "logs/system.log",
         json_log_file: str = "logs/system.json",
-        report_file: str = "reports/market_analysis_report.txt", # Added report file path
+        report_file: str = "reports/market_analysis_report.txt",
         max_log_size: int = 10 * 1024 * 1024,
         backup_count: int = 5,
         slack_token: Optional[str] = None,
         slack_channel: Optional[str] = None,
         smtp_config: Optional[Dict[str, Any]] = None,
-        enable_console_logging: bool = True, # New parameter for console logging control
-        enable_file_logging: bool = True, # New parameter for file logging control
-        enable_json_logging: bool = False, # New parameter for JSON logging control
-        enable_slack_logging: bool = False, # New parameter for Slack logging control
-        enable_email_logging: bool = False, # New parameter for email logging control
-        log_level: str = "INFO", # Default log level
-        console_log_level: str = "INFO" # Default console log level
+        enable_console_logging: bool = True,
+        enable_file_logging: bool = True,
+        enable_json_logging: bool = False,
+        enable_slack_logging: bool = False,
+        enable_email_logging: bool = False,
+        log_level: str = "INFO",
+        console_log_level: str = "INFO"
     ):
         """
         Initializes the LogManager with various logging configurations.
@@ -85,7 +85,7 @@ class LogManager:
         self.log_level = log_level
         self.console_log_level = console_log_level
 
-        self.console = Console(record=True)  # Initialize Rich Console for rich output
+        self.console = Console(record=True)
         self._setup_logging()
         self.info("LogManager initialized successfully.")
 
@@ -93,16 +93,14 @@ class LogManager:
         """
         Sets up the Python logging system with various handlers.
         """
-        # Create logs directory if it doesn't exist
         os.makedirs(os.path.dirname(self.log_file), exist_ok=True)
         os.makedirs(os.path.dirname(self.json_log_file), exist_ok=True)
-        os.makedirs(os.path.dirname(self.report_file), exist_ok=True) # Ensure reports directory exists
+        os.makedirs(os.path.dirname(self.report_file), exist_ok=True)
 
         self.logger = logging.getLogger("MarketAnalysisLogger")
         self.logger.setLevel(self.log_level)
-        self.logger.propagate = False # Prevent logs from going to root logger
+        self.logger.propagate = False
 
-        # Clear existing handlers to prevent duplicate logs on re-initialization
         if self.logger.handlers:
             for handler in self.logger.handlers[:]:
                 self.logger.removeHandler(handler)
@@ -112,7 +110,6 @@ class LogManager:
             "[%(asctime)s] %(levelname)-8s %(message)s", datefmt="%Y-%m-%d %H:%M:%S"
         )
 
-        # Console Handler (RichHandler)
         if self.enable_console_logging:
             console_handler = RichHandler(
                 console=self.console,
@@ -128,7 +125,6 @@ class LogManager:
             console_handler.setLevel(self.console_log_level)
             self.logger.addHandler(console_handler)
 
-        # File Handler (RotatingFileHandler)
         if self.enable_file_logging:
             file_handler = RotatingFileHandler(
                 self.log_file,
@@ -140,24 +136,21 @@ class LogManager:
             file_handler.setLevel(self.log_level)
             self.logger.addHandler(file_handler)
 
-        # JSON File Handler
         if self.enable_json_logging:
             json_file_handler = logging.FileHandler(self.json_log_file, encoding="utf-8")
             json_file_handler.setFormatter(JsonFormatter())
             json_file_handler.setLevel(self.log_level)
             self.logger.addHandler(json_file_handler)
 
-        # Slack Handler
         if self.enable_slack_logging and self.slack_token and self.slack_channel:
             try:
                 slack_client = WebClient(token=self.slack_token)
                 slack_handler = SlackHandler(slack_client, self.slack_channel)
-                slack_handler.setLevel(logging.ERROR) # Only send ERROR and CRITICAL to Slack
+                slack_handler.setLevel(logging.ERROR)
                 self.logger.addHandler(slack_handler)
             except Exception as e:
                 self.logger.error(f"Failed to set up Slack logger: {e}")
 
-        # Email Handler
         if self.enable_email_logging and self.smtp_config:
             try:
                 smtp_handler = SMTPHandler(
@@ -166,10 +159,10 @@ class LogManager:
                     toaddrs=self.smtp_config["to_addrs"],
                     subject=self.smtp_config["subject"],
                     credentials=(self.smtp_config["username"], self.smtp_config["password"]),
-                    secure=() # Use empty tuple for TLS
+                    secure=()
                 )
                 smtp_handler.setFormatter(formatter)
-                smtp_handler.setLevel(logging.CRITICAL) # Only send CRITICAL to email
+                smtp_handler.setLevel(logging.CRITICAL)
                 self.logger.addHandler(smtp_handler)
             except Exception as e:
                 self.logger.error(f"Failed to set up SMTP logger: {e}")
@@ -195,7 +188,7 @@ class LogManager:
         self.info(f"DataFrame shape: {df.shape}")
         self.info(f"DataFrame columns: {df.columns.tolist()}")
         self.info(f"DataFrame head:\n{df.head().to_string()}")
-        self.info(f"DataFrame info:\n{df.info(buf=StringIO())}") # Capture info to string
+        self.info(f"DataFrame info:\n{df.info(buf=StringIO())}")
 
     def log_json(self, data: Dict[str, Any], message: str = "JSON data"):
         """Logs a dictionary as a JSON string."""
@@ -221,16 +214,14 @@ class JsonFormatter(logging.Formatter):
             log_record["exc_info"] = self.formatException(record.exc_info)
         if record.stack_info:
             log_record["stack_info"] = self.formatStack(record.stack_info)
-        # Add any extra attributes passed to the log record
         for key, value in record.__dict__.items():
             if key not in ['name', 'levelname', 'pathname', 'lineno', 'asctime',
                            'message', 'args', 'exc_info', 'exc_text', 'stack_info',
                            'filename', 'funcName', 'created', 'msecs', 'relativeCreated',
                            'thread', 'threadName', 'processName', 'process', 'module',
-                           '_log_record_fields', 'levelno', 'msg', 'raw_message']: # Exclude standard attrs
-                if not key.startswith('_'): # Exclude internal attributes
+                           '_log_record_fields', 'levelno', 'msg', 'raw_message']:
+                if not key.startswith('_'):
                     try:
-                        # Attempt to serialize complex objects, fall back to string representation
                         json.dumps(value)
                         log_record[key] = value
                     except (TypeError, OverflowError):
@@ -295,7 +286,7 @@ class ConsolePrinter:
         combined_text.append("\n")
         combined_text.append(desc_text)
         combined_text.append("\n")
-        return combined_text.plain # Return plain string for f-string, or return Text object if print can handle it.
+        return combined_text.plain
 
     def _get_table_str(self, title: str, headers: List[str], data: List[List[Any]], title_style: str = "", header_style: str = "") -> str:
         """Returns a formatted table string."""
@@ -304,9 +295,7 @@ class ConsolePrinter:
             table.add_column(Text(header, style=header_style))
         for row in data:
             table.add_row(*[str(item) for item in row])
-        # Again, this returns a Rich Table object, not a plain string.
-        # ReportMaker's _format_table handles plain string conversion.
-        return str(table) # Fallback for this helper
+        return str(table)
 
     def print_table(self, title: str, headers: List[str], data: List[List[Any]], title_style: str = "bold green", header_style: str = "bold yellow"):
         """Prints a formatted table to the console."""
@@ -317,6 +306,6 @@ class ConsolePrinter:
             table.add_row(*[str(item) for item in row])
         self.console.print(table)
 
-    def _get_separator_str(self, length: int = 80, char: str = '-') -> str:
+    def _get_separator_str(self, length: int = 80, char: str = '-'):
         """Returns a formatted separator string."""
         return char * length

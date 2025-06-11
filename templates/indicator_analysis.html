@@ -1,10 +1,34 @@
-{% extends "nested_content_layout.html" %}
+{% extends "base.html" %}
 
-{% block content %}
+{% block title %}GravityChats - Indicator Analysis{% endblock %}
+
+{% block buttons_sidebar %}
+    {% include "buttons_sidebar.html" %}
+{% endblock %}
+
+{% block settings_sidebar %}
+    {% include "settings_sidebar.html" %}
+{% endblock %}
+
+{% block main_content %}
+    {% include "content_boxes.html" %}
 {% endblock %}
 
 {% block scripts %}
-<script>
-    document.body.setAttribute('data-page-name', 'Indicator Analysis');
-</script>
+    {{ super() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const analysisPage = "Indicator Analysis";
+            const contentBoxes = document.querySelectorAll('.content-part');
+
+            contentBoxes.forEach((box, index) => {
+                box.querySelector('h5').textContent = `${analysisPage} Content Part ${index + 1}`;
+                box.querySelector('p').textContent = `Details for ${analysisPage} content part ${index + 1}.`;
+                box.style.cursor = 'pointer';
+                box.onclick = () => {
+                    alert(`Drill down into ${analysisPage} content part ${index + 1}`);
+                };
+            });
+        });
+    </script>
 {% endblock %}

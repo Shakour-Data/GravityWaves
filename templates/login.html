@@ -8,31 +8,47 @@
 </head>
 <body>
     <header>
-        <img src="/static/images/Logo.jpg" alt="GravityChats Logo" id="logo" />
-        <h1>Login to GravityChats</h1>
+        <img src="/static/images/Logo.jpg" alt="Gravity Analysis Logo" id="logo" />
+        <h1>Login to Gravity Analysis</h1>
+        <p class="slogan-text" style="color: #ffc107; font-weight: bold; font-size: 0.9rem; margin-top: 0.1rem;">Decoding Risk, Empowering Vision</p>
     </header>
     <main>
-    {% if error %}
-    <div class="error-message" style="color: red; font-weight: bold; margin-bottom: 1em;">
-        {% if error == 'missing_fields' %}
-            Username and password are required
-        {% elif error == 'invalid_credentials' %}
-            Invalid username or password
-        {% else %}
-            {{ error }}
-        {% endif %}
-    </div>
-    {% endif %}
-        <form id="login-form" method="POST" action="/login">
-            <label for="username">Username or Email:</label>
-            <input type="text" id="username" name="username" required />
+        <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: nowrap; height: 90vh;">
+            <form id="login-form" method="POST" action="/login" style="flex: 0 0 35vw; max-width: 35vw; height: 90vh; overflow-y: auto; box-sizing: border-box; padding-right: 1rem;">
+                {% if error %}
+                <div class="error-message" style="color: red; font-weight: bold; margin-bottom: 1em;">
+                    {% if error == 'missing_fields' %}
+                        Username and password are required
+                    {% elif error == 'invalid_credentials' %}
+                        Invalid username or password
+                    {% else %}
+                        {{ error }}
+                    {% endif %}
+                </div>
+                {% endif %}
+                <label for="username">Username or Email:</label>
+                <input type="text" id="username" name="username" required />
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required />
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required />
 
-            <button type="submit" class="btn">Login</button>
-        </form>
-        <p>Don't have an account? <a href="/register">Register here</a>.</p>
+                <div style="margin-top: 0.5em;">
+                    <input type="checkbox" id="remember_me" name="remember_me" />
+                    <label for="remember_me">Remember Me</label>
+                </div>
+
+                <button type="submit" class="btn" style="margin-top: 1em;">Login</button>
+
+                <p style="margin-top: 0.5em;">
+                    <a href="/password_reset" style="color: #ffc107; font-weight: bold; text-decoration: none;">Forgot Password?</a>
+                </p>
+
+                <p style="margin-top: 0.5em;">Don't have an account? <a href="/register" style="color: #ffc107; font-weight: bold; text-decoration: none;">Register here</a>.</p>
+            </form>
+            <div style="flex: 0 0 50vw; max-width: 50vw; height: 90vh; text-align: center; box-sizing: border-box; padding-left: 1rem; display: flex; align-items: center; justify-content: center;">
+                <img src="/static/images/Login.jpg" alt="Login Image" style="max-height: 90vh; max-width: 100%; border-radius: 8px;" />
+            </div>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 GravityChats. All rights reserved.</p>

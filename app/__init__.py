@@ -3,11 +3,11 @@ from app.services.market_analysis_system import MarketAnalysisSystem
 from app.services.log_manager import LogManager
 from app.services.optimization_engine import IndicatorOptimizer
 from app.services.market_data_fetcher import load_market_data
-from app.services.chatbot_analysis import analyze_message
+from app.services.assistant_analysis import analyze_message
 import pandas as pd
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 import traceback
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -49,10 +49,28 @@ def handle_exception(e):
     log_manager.error(f"Unhandled Exception: {e}\\n{traceback.format_exc()}")
     return jsonify({"error": "Internal server error"}), 500
 
+import json
+
 @app.route('/')
 def index():
     try:
-        return render_template('index.html')
+        analyses = [
+            {
+                "title": "Test Analysis",
+                "short_desc": "Short description for test analysis.",
+                "long_desc": "Long description for test analysis."
+            }
+        ]
+        # Ensure all fields are defined and converted to strings
+        for analysis in analyses:
+            for key in ['title', 'short_desc', 'long_desc']:
+                value = analysis.get(key)
+                if value is None:
+                    analysis[key] = ''
+                else:
+                    analysis[key] = str(value)
+        analyses_json = json.dumps(analyses)
+        return render_template('index.html', analyses=analyses, analyses_json=analyses_json)
     except Exception as e:
         log_manager.error(f"Error rendering index.html: {e}")
         return jsonify({"error": "Internal server error"}), 500
@@ -82,17 +100,48 @@ def login():
         data = request.form
         username = data.get('username')
         password = data.get('password')
+        remember_me = data.get('remember_me') == 'on'
         if not username or not password:
             return render_template('login.html', error="Username and password are required")
         user = User.query.filter((User.username == username) | (User.email == username)).first()
         if user and user.check_password(password):
             session['user_id'] = user.id
             session['username'] = user.username
+            if remember_me:
+                session.permanent = True  # Make the session permanent
+                app.permanent_session_lifetime = timedelta(days=30)  # Set session lifetime
+            else:
+                session.permanent = False
             return redirect(url_for('market_dashboard_ui'))
         else:
             return render_template('login.html', error="Invalid username or password")
     else:
         return render_template('login.html')
+
+@app.route('/password_reset', methods=['GET', 'POST'])
+def password_reset():
+    if request.method == 'POST':
+        data = request.form
+        username = data.get('username')
+        new_password = data.get('new_password')
+        confirm_password = data.get('confirm_password')
+
+        if not username or not new_password or not confirm_password:
+            return render_template('password_reset.html', error="Please fill in all fields")
+
+        if new_password != confirm_password:
+            return render_template('password_reset.html', error="Passwords do not match")
+
+        user = User.query.filter((User.username == username) | (User.email == username)).first()
+        if not user:
+            return render_template('password_reset.html', error="User not found")
+
+        user.set_password(new_password)
+        db.session.commit()
+
+        return render_template('password_reset.html', message="Password reset successful. You can now log in.")
+    else:
+        return render_template('password_reset.html')
 
 @app.route('/logout')
 def logout():
@@ -167,15 +216,15 @@ def market_dashboard_link():
         log_manager.error(f"Error redirecting to market_dashboard: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
-@app.route('/api/chatbot', methods=['POST'])
-def chatbot_api():
+@app.route('/api/assistant', methods=['POST'])
+def assistant_api():
     try:
         data = request.get_json()
         message = data.get('message', '')
         reply = analyze_message(message)
         return jsonify({'reply': reply})
     except Exception as e:
-        log_manager.error(f"Error in chatbot_api: {e}\\n{traceback.format_exc()}")
+        log_manager.error(f"Error in assistant_api: {e}\\n{traceback.format_exc()}")
         return jsonify({"error": "Internal server error"}), 500
 
 @app.route('/candlestick_chart')

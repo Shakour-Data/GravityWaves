@@ -4235,3 +4235,69 @@ Port 5000 is in use by another program. Either identify and stop that program, o
                            'session=eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InRlc3QwMDQi
                            fQ.aEXoSQ.uBR8d8YZflOVV8p-6kbESil65-c'} Body: b''    
 127.0.0.1 - - [09/Jun/2025 00:40:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+06/10/25 12:38:09 INFO     Request: GET http://127.0.0.1:5000/market_dashboard  
+                           Headers: {'Host': '127.0.0.1:5000', 'Connection':    
+                           'keep-alive', 'Sec-Ch-Ua': '"Chromium";v="134",      
+                           "Not:A-Brand";v="24", "Google Chrome";v="134"',      
+                           'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform':      
+                           '"Linux"', 'Upgrade-Insecure-Requests': '1',         
+                           'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)       
+                           AppleWebKit/537.36 (KHTML, like Gecko)               
+                           HeadlessChrome/134.0.0.0 Safari/537.36', 'Accept':   
+                           'text/html,application/xhtml+xml,application/xml;q=0.
+                           9,image/avif,image/webp,image/apng,*/*;q=0.8,applicat
+                           ion/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site':   
+                           'none', 'Sec-Fetch-Mode': 'navigate',                
+                           'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document',
+                           'Accept-Encoding': 'gzip, deflate, br, zstd',        
+                           'Accept-Language': 'en-US,en;q=0.9'} Body: b''       
+127.0.0.1 - - [10/Jun/2025 12:38:09] "GET /market_dashboard HTTP/1.1" 200 -
+                  INFO     Request: GET                                         
+                           http://127.0.0.1:5000/static/css/style.css Headers:  
+                           {'Host': '127.0.0.1:5000', 'Connection':             
+                           'keep-alive', 'Sec-Ch-Ua-Platform': '"Linux"',       
+                           'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)       
+                           AppleWebKit/537.36 (KHTML, like Gecko)               
+                           HeadlessChrome/134.0.0.0 Safari/537.36', 'Sec-Ch-Ua':
+                           '"Chromium";v="134", "Not:A-Brand";v="24", "Google   
+                           Chrome";v="134"', 'Sec-Ch-Ua-Mobile': '?0', 'Accept':
+                           'text/css,*/*;q=0.1', 'Sec-Fetch-Site':              
+                           'same-origin', 'Sec-Fetch-Mode': 'no-cors',          
+                           'Sec-Fetch-Dest': 'style', 'Referer':                
+                           'http://127.0.0.1:5000/market_dashboard',            
+                           'Accept-Encoding': 'gzip, deflate, br, zstd',        
+                           'Accept-Language': 'en-US,en;q=0.9'} Body: b''       
+                  INFO     Request: GET                                         
+                           http://127.0.0.1:5000/static/images/Logo.jpg Headers:
+                           {'Host': '127.0.0.1:5000', 'Connection':             
+                           'keep-alive', 'Sec-Ch-Ua-Platform': '"Linux"',       
+                           'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)       
+                           AppleWebKit/537.36 (KHTML, like Gecko)               
+                           HeadlessChrome/134.0.0.0 Safari/537.36', 'Sec-Ch-Ua':
+                           '"Chromium";v="134", "Not:A-Brand";v="24", "Google   
+                           Chrome";v="134"', 'Sec-Ch-Ua-Mobile': '?0', 'Accept':
+                           'image/avif,image/webp,image/apng,image/svg+xml,image
+                           /*,*/*;q=0.8', 'Sec-Fetch-Site': 'same-origin',      
+                           'Sec-Fetch-Mode': 'no-cors', 'Sec-Fetch-Dest':       
+                           'image', 'Referer':                                  
+                           'http://127.0.0.1:5000/market_dashboard',            
+                           'Accept-Encoding': 'gzip, deflate, br, zstd',        
+                           'Accept-Language': 'en-US,en;q=0.9'} Body: b''       
+127.0.0.1 - - [10/Jun/2025 12:38:10] "GET /static/images/Logo.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jun/2025 12:38:10] "GET /static/css/style.css HTTP/1.1" 200 -
+06/10/25 12:38:10 INFO     Request: GET http://127.0.0.1:5000/favicon.ico       
+                           Headers: {'Host': '127.0.0.1:5000', 'Connection':    
+                           'keep-alive', 'Sec-Ch-Ua-Platform': '"Linux"',       
+                           'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)       
+                           AppleWebKit/537.36 (KHTML, like Gecko)               
+                           HeadlessChrome/134.0.0.0 Safari/537.36', 'Sec-Ch-Ua':
+                           '"Chromium";v="134", "Not:A-Brand";v="24", "Google   
+                           Chrome";v="134"', 'Sec-Ch-Ua-Mobile': '?0', 'Accept':
+                           'image/avif,image/webp,image/apng,image/svg+xml,image
+                           /*,*/*;q=0.8', 'Sec-Fetch-Site': 'same-origin',      
+                           'Sec-Fetch-Mode': 'no-cors', 'Sec-Fetch-Dest':       
+                           'image', 'Referer':                                  
+                           'http://127.0.0.1:5000/market_dashboard',            
+                           'Accept-Encoding': 'gzip, deflate, br, zstd',        
+                           'Accept-Language': 'en-US,en;q=0.9'} Body: b''       
+127.0.0.1 - - [10/Jun/2025 12:38:10] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -

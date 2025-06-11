@@ -4,25 +4,224 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>GravityChats - Home</title>
-    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <style>
+        body {
+            background-color: #000;
+            color: #ffc107;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #222;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #ffc107;
+            flex-direction: column;
+            text-align: center;
+        }
+        header img {
+            height: 140px;
+            margin-bottom: 0.5rem;
+            border: 3px solid #ffc107;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ffc107aa;
+        }
+        header h1 {
+            margin: 0;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+        header p.slogan {
+            color: #ffc107;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 0.3rem;
+        }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .intro-image {
+            display: block;
+            margin: 0 auto 2rem auto;
+            max-height: 60vh;
+            width: auto;
+            object-fit: contain;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+        }
+        .auth-buttons {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .auth-buttons a {
+            background-color: #ffc107;
+            color: #000;
+            padding: 0.5rem 1.2rem;
+            margin: 0 0.5rem;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .auth-buttons a:hover {
+            background-color: #e0a800;
+        }
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .analysis-box {
+            background-color: #111;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 0 10px #ffc107aa;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 220px;
+        }
+        .analysis-box h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .analysis-description {
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            white-space: pre-wrap;
+            max-height: 6.5em; /* approx 50 words */
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .analysis-description.expanded {
+            max-height: 15em; /* approx 250 words */
+            overflow-y: auto;
+        }
+        .more-btn {
+            align-self: flex-start;
+            background-color: #ffc107;
+            color: #000;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        .more-btn:hover {
+            background-color: #e0a800;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            border-top: 2px solid #ffc107;
+            background-color: #111;
+            color: #ffc107;
+            margin-top: 3rem;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <img src="/static/images/Logo.jpg" alt="GravityChats Logo" id="logo" />
-        <h1>Welcome to GravityChats</h1>
+        <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="Gravity Analysis Logo" />
+        <h1>Gravity Analysis</h1>
+        <p class="slogan-text" style="font-size: 0.9rem; margin-top: 0.1rem;">Decoding Risk, Empowering Vision</p>
     </header>
     <main>
-        <section id="intro" class="d-flex flex-column align-items-center">
-            <div class="mb-3">
-                <a href="/login" class="btn me-2 btn-warning text-dark">Login</a>
-                <a href="/register" class="btn btn-warning text-dark">Register</a>
+        <img src="{{ url_for('static', filename='images/Index_page.jpg') }}" alt="Intro Image" class="intro-image" />
+        <div class="auth-buttons">
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+    <div class="analysis-grid">
+        {% for analysis in analyses %}
+        <div class="analysis-box">
+            <h3>{{ analysis.title }}</h3>
+            <div class="analysis-description" id="desc-{{ loop.index }}">
+                {{ analysis.short_desc }}
             </div>
-            <p class="mb-3 text-center">Your gateway to advanced financial market analysis and chat assistance.</p>
-            <img src="/static/images/-5906631792637626071_121.jpg" alt="Intro Image" id="intro-image" style="max-height: 90vh; width: auto; object-fit: contain;" />
-        </section>
+            <button class="more-btn" onclick="toggleMore({{ loop.index }})" id="btn-{{ loop.index }}">More</button>
+        </div>
+        {% endfor %}
+    </div>
+    <script>
+        function toggleMore(index) {
+            const descElem = document.getElementById('desc-' + index);
+            const btnElem = document.getElementById('btn-' + index);
+
+            if (!descElem || !btnElem) {
+                console.error('Element not found for index:', index);
+                return;
+            }
+
+            if (btnElem.textContent.trim() === 'More') {
+                descElem.classList.add('expanded');
+                btnElem.textContent = 'Less';
+            } else {
+                descElem.classList.remove('expanded');
+                btnElem.textContent = 'More';
+            }
+        }
+    </script>
     </main>
     <footer>
-        <p>&copy; 2024 GravityChats. All rights reserved.</p>
+        &copy; 2024 GravityChats. All rights reserved.
     </footer>
+    <script id="analyses-data" type="application/json">
+        {{ analyses_json | safe }}
+    </script>
+    <script>
+        const analyses = JSON.parse(document.getElementById('analyses-data').textContent);
+
+        function truncateWords(text, wordLimit) {
+            if (!text) return '';
+            const words = text.split(/\s+/);
+            if (words.length <= wordLimit) return text;
+            return words.slice(0, wordLimit).join(' ') + '...';
+        }
+
+        function toggleMore(index) {
+            const descElem = document.getElementById('desc-' + index);
+            const btnElem = document.getElementById('btn-' + index);
+
+            if (!analyses || !analyses[index - 1]) {
+                console.error('Analysis data not found for index:', index);
+                return;
+            }
+
+            const analysis = analyses[index - 1];
+
+            if (btnElem.textContent.trim() === 'More') {
+                descElem.textContent = truncateWords(analysis.long_desc || 'No detailed description available.', 250);
+                descElem.classList.add('expanded');
+                btnElem.textContent = 'Less';
+            } else {
+                descElem.textContent = truncateWords(analysis.long_desc || 'No short description available.', 50);
+                descElem.classList.remove('expanded');
+                btnElem.textContent = 'More';
+            }
+        }
+
+        // Initialize descriptions with 50 words truncated long_desc
+        document.addEventListener('DOMContentLoaded', () => {
+            analyses.forEach((analysis, idx) => {
+                const descElem = document.getElementById('desc-' + (idx + 1));
+                if (descElem) {
+                    descElem.textContent = truncateWords(analysis.long_desc || 'No description available.', 50);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

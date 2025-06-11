@@ -1,0 +1,185 @@
+# GravityChats Frontend and Backend Implementation Plan
+
+This plan follows the activity cycle described in Docs/WorkCycle.md. Each activity is sized to be manageable and executable within a reasonable timeframe.
+
+## Activity Cycle for Each Major Activity
+
+For each activity listed below, the following process will be followed to ensure quality and completeness:
+
+1. Backend Code Review
+   - Analyze existing backend code related to the activity
+   - Identify dependencies and integration points with frontend
+   - Document required backend changes or API needs
+
+2. Frontend Changes
+   - Review current frontend components impacted by the activity
+   - Design and implement necessary frontend updates or new features
+   - Ensure frontend aligns with backend capabilities and APIs
+
+3. Backend Changes
+   - Implement required backend code changes or enhancements
+   - Develop new APIs or modify existing ones as needed
+   - Add error handling, validation, and security measures
+
+4. API Development
+   - Design API endpoints to support frontend requirements
+   - Implement and test API endpoints with real data
+   - Document API specifications and usage
+
+5. Writing and Reviewing Test Code
+   - Write test code covering all new and changed features
+   - Review test code for completeness and correctness
+
+6. Testing with Real Data
+   - Prepare comprehensive test cases covering all new and changed features
+   - Perform integration testing between frontend and backend
+   - Validate UI/UX across devices and browsers
+   - Test API endpoints for happy paths, error handling, and edge cases
+   - Document test results and any issues found
+   - Repeat testing, running, and fixing until all tests pass successfully
+   - Note: During the testing cycle, the process of testing, running, and fixing will be repeated until all tests pass successfully.
+
+7. Commit and Push
+   - Commit all code changes with clear, descriptive messages
+   - Push commits to the remote repository
+   - Update task status and documentation accordingly
+
+---
+
+## Activity 1: Frontend Pages - Index, Login, and Registration (Done)
+- Location: templates/index.html, templates/login.html, templates/register.html, static/images/Index_page.jpg, static/images/Login.jpg, static/images/Logo.jpg, static/css/style.css
+
+- Design and implement the index page as the site entry page using the provided image and logo from the images folder
+- Design and implement login and registration pages with necessary UI and backend integration
+- Ensure responsive and user-friendly UI/UX for all pages
+- Integrate all pages with backend APIs to display real data
+
+## Activity 2: Backend Code Review (Done)
+- Location: app/services/assistant_analysis.py, app/services/market_analysis_system.py, app/__init__.py
+
+- Analyze existing backend code related to core functionality
+- Identify dependencies and integration points with frontend
+- Document required backend changes or API needs to implement advanced financial market data analysis capabilities
+
+## Activity 3: Frontend Changes (Done)
+- Location: templates/market_dashboard.html, templates/buttons_sidebar.html, templates/content_boxes.html, static/css/style.css, static/js/main.js
+
+- Review current frontend components impacted by core features
+- Design and implement frontend updates to match project requirements
+- Ensure frontend aligns with backend capabilities and APIs
+- Updated main page layout to expand main container width
+- Enlarged main content container and balanced buttons and settings container widths
+- Added "Model Analysis" button to buttons container
+- Removed redundant inputs next to Send button
+- Replaced chat section with a 6-part content box arranged in 2 rows and 3 columns
+- Adjusted sidebars widths: reduced left and right sidebars by 15% and increased content box width accordingly
+- Added "Ticker" input box to General Settings sidebar
+- Added "Date Analysis" button to buttons container
+- Adjusted layout to ensure sidebars and content box extend close to footer with minimal margin
+- Refactored UI to modular yellow-black themed layout; unified analysis pages with dynamic market dashboard template
+- Refactored multiple templates and backend files for consistent UI layout and functionality as per UI architecture documentation
+- Renamed main.html to market_dashboard.html and rewrote as market data analysis dashboard; updated Flask routes and login redirect accordingly
+- Completed individual page templates and updated tasks file
+- Completed base templates redesign and testing; updated tasks.txt to mark activity 1.7 done
+- Made index (home) page
+- Ensure all frontend pages are integrated with real data from backend APIs
+
+## Activity 4: Backend Changes - Enhancements and Database (Not Started)
+- Location: app/services/assistant_analysis.py, app/services/market_analysis_system.py, app/__init__.py, app/services/cache_manager.py
+- Database setup and schema design planned for the end of the project
+- Backend features including user login/registration and caching to be integrated after database completion
+- Implement required backend code changes or enhancements for advanced financial market data analysis
+- Develop or modify API endpoints as needed
+- Add error handling, validation, and security measures
+- Enhanced core application logic and analysis service
+
+## Activity 5: API Development (In Progress)
+- Location: app/__init__.py, app/services/assistant_analysis.py, app/services/market_analysis_system.py
+- Design API endpoints to support frontend requirements
+- Implement and test API endpoints with real financial data
+- Document API specifications and usage
+- API development testing and improvements ongoing
+
+## Activity 6: Frontend and Backend - Candlestick Chart Page (Not Started)
+- Location: templates/price_history.html, templates/price_history_analysis.html, app/services/market_data_fetcher.py, app/services/market_analysis_system.py
+- Review existing candlestick chart page frontend and backend (if any)
+- Design and implement an interactive candlestick chart page similar to TradingView
+- Integrate with backend APIs to fetch candlestick data
+- Ensure responsive and performant UI/UX
+- Define data requirements for all analysis pages and configure corresponding Python and JavaScript files accordingly
+
+## Activity 7: Writing and Reviewing Test Code (In Progress)
+- Location: tests/test_auth.py, tests/test_chatbot.py, tests/test_chatbot_and_chart_api.py, tests/test_backend_api.py, tests/test_comprehensive.py
+- Write test code covering all new and changed features
+- Review test code for completeness and correctness
+- Added tests for authentication and core functionality
+- Added comprehensive tests for /api/analyze endpoint with large synthetic dataset, input validation, and error handling
+
+## Activity 8: Testing with Real Data (In Progress)
+- Location: tests/test_chatbot.py, tests/test_chatbot_and_chart_api.py, tests/test_backend_api.py, tests/test_comprehensive.py
+- Prepare comprehensive test cases covering all new and changed features
+- Perform integration testing between frontend and backend
+- Validate UI/UX across devices and browsers
+- Test API endpoints for happy paths, error handling, and edge cases
+- Document test results and any issues found
+
+## Activity 9: Commit and Push (In Progress)
+- Location: Git repository root
+- Commit all code changes with clear, descriptive messages
+- Push commits to the remote repository
+- Update task status and documentation accordingly
+- Committed all pending changes as per user request
+
+## Activity 10: Frontend Key Press Handling and Operations (In Progress)
+- Location: templates/market_dashboard.html, static/js/main.js
+- Design and implement key press event handling in the frontend interface
+- Define and implement operations triggered by specific key presses
+- Integrate key press handling with backend APIs if necessary
+- Test key press functionality and related operations for correctness and performance
+- Document the implementation and update project documentation as needed
+
+## Activity 11: Deployment and Release (Not Started)
+- Location: Deployment scripts and server configuration files (not yet created)
+- Prepare deployment environment and infrastructure
+- Deploy application to staging and production servers
+- Perform release testing and validation
+- Monitor deployment and resolve any issues
+
+## Activity 12: User Training and Documentation (Not Started)
+- Location: Docs/ (user manuals and training materials to be created)
+- Prepare user manuals and training materials
+- Conduct user training sessions
+- Collect user feedback and update documentation accordingly
+
+## Activity 13: Maintenance and Support (Not Started)
+- Location: Ongoing support and monitoring systems (to be established)
+- Monitor application performance and usage
+- Address bug reports and user issues
+- Plan and implement regular updates and improvements
+
+## Activity 14: Project Closure and Retrospective (Not Started)
+- Location: Docs/ (final project documentation and retrospective reports)
+- Conduct project retrospective meetings
+- Document lessons learned and best practices
+- Finalize project documentation and handover materials
+
+---
+
+# Testing Summary
+
+The following testing activities have been performed or are planned as part of the project lifecycle:
+
+- Unit and integration tests for authentication and core functionality
+- Comprehensive tests for /api/analyze endpoint including large synthetic datasets, input validation, and error handling
+- Frontend UI testing focused on main UI and market dashboard pages
+- Backend API testing covering core and candlestick chart endpoints
+- Integration testing between frontend and backend components
+- Cross-browser and device compatibility testing for UI components
+- Testing of API endpoints for happy paths, error handling, and edge cases
+- Continuous testing during development with repeated running and fixing of issues
+
+This testing summary will be updated continuously as the project progresses to ensure quality and completeness.
+
+---
+
+This detailed cycle will be applied uniformly to all major activities to maintain a professional and efficient development workflow.

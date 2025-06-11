@@ -1,0 +1,86 @@
+Backend Outputs Summary
+
+This document summarizes the key outputs, API responses, data structures, and file formats produced by the backend code.
+
+1. API Responses
+
+- /api/market_status_analysis (POST)
+  - Input: JSON with ticker, analysis_date, timeframe, candle_count, investment_horizon, data_source
+  - Output: JSON with keys including:
+    - current_market_state (string)
+    - volatility_regime (string)
+    - model_performance (dict)
+    - feature_importances (dict)
+    - forecasts (dict)
+    - data_summary (dict)
+    - market_state_info (dict)
+    - indicator_info (dict, optional)
+
+- /api/custom_analysis (POST)
+  - Input: JSON with ticker and analysis_params
+  - Output: JSON with keys:
+    - ticker (string)
+    - analysis_params (dict)
+    - status (string)
+    - message (string)
+    - custom_analysis_results (dict)
+
+- /api/trading_signals_backtesting (POST)
+  - Input: JSON with ticker and backtest_params
+  - Output: JSON with keys:
+    - ticker (string)
+    - backtest_params (dict)
+    - status (string)
+    - message (string)
+    - backtest_results (dict)
+
+- /api/assistant (POST)
+  - Input: JSON with message (string)
+  - Output: JSON with keys:
+    - reply (string or dict with reply_html)
+    - reply_html (optional, HTML string)
+    - file (optional, base64 encoded file content)
+
+- /api/market_data (POST)
+  - Input: JSON with ticker, timeframe, candle_count
+  - Output: JSON array of objects with keys:
+    - date (string, YYYY-MM-DD)
+    - open (float)
+    - high (float)
+    - low (float)
+    - close (float)
+    - volume (int)
+
+- /api/forecast_analysis (POST)
+  - Input: JSON with ticker, analysis_date, timeframe, prediction_horizons
+  - Output: JSON with detailed analysis results including model performance, forecasts, feature importances
+
+- /api/indicator_analysis (POST)
+  - Input: JSON with ticker and indicators list
+  - Output: JSON with indicator_results dict mapping indicator names to their calculated values
+
+- /api/comparative_results (POST)
+  - Input: JSON with tickers list
+  - Output: JSON with comparative_results dict mapping tickers to their analysis results
+
+- /api/optimization_results (POST)
+  - Input: JSON with ticker and optimization_params
+  - Output: JSON with optimization_results dict
+
+- /api/analyze (POST)
+  - Input: JSON with ticker, data_source, basic_config, advanced_config
+  - Output: JSON with model_performance and forecasts
+
+2. Data Structures and Formats
+
+- Market data is typically returned as JSON arrays of OHLCV data points.
+- Analysis results include nested dictionaries with model metrics, feature importances, and forecasted values.
+- Chatbot replies may include HTML tables and base64 encoded downloadable files (CSV, Excel).
+- User authentication uses session cookies and database-stored hashed passwords.
+
+3. File Formats
+
+- Exported price history files are provided as base64 encoded CSV or Excel files embedded in HTML links.
+- Logs are managed via LogManager and output to console or files depending on configuration.
+
+This document serves as a reference for expected backend outputs for frontend integration and testing.
