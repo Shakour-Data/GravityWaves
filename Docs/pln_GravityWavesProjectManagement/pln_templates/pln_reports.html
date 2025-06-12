@@ -1,0 +1,125 @@
+{% extends "pln_base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Reports</h2>
+    <section class="reports-section">
+        <h3>1. Task Status Summary by Stage</h3>
+        <div id="report-task-status"></div>
+
+        <h3>2. Urgent and Important Tasks</h3>
+        <div id="report-urgent-important"></div>
+
+        <h3>3. Resource Utilization</h3>
+        <div id="report-resource-utilization"></div>
+
+        <h3>4. Cost Estimation Summary</h3>
+        <div id="report-cost-estimation"></div>
+
+        <h3>5. AI-Generated Project Summary</h3>
+        <div id="report-ai-summary"></div>
+    </section>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Task Status Summary by Stage
+    fetch("/api/work_cycle_stages")
+        .then(res => res.json())
+        .then(stages => {
+            const container = document.getElementById("report-task-status");
+            container.innerHTML = "";
+            stages.forEach(stage => {
+                fetch(`/api/tasks`)
+                    .then(res => res.json())
+                    .then(tasks => {
+                        const count = tasks.filter(t => t.current_stage && t.current_stage.id === stage.id).length;
+                        const div = document.createElement("div");
+                        div.textContent = `${stage.name}: ${count} tasks`;
+                        container.appendChild(div);
+                    });
+            });
+        });
+
+    // 2. Urgent and Important Tasks
+    fetch("/api/tasks")
+        .then(res => res.json())
+        .then(tasks => {
+            const container = document.getElementById("report-urgent-important");
+            container.innerHTML = "";
+            const urgent = tasks.filter(t => t.urgency >= 7);
+            const important = tasks.filter(t => t.importance >= 7);
+            const ulUrgent = document.createElement("ul");
+            urgent.forEach(t => {
+                const li = document.createElement("li");
+                li.textContent = `${t.name} (Urgency: ${t.urgency})`;
+                ulUrgent.appendChild(li);
+            });
+            container.appendChild(document.createTextNode("Urgent Tasks:"));
+            container.appendChild(ulUrgent);
+
+            const ulImportant = document.createElement("ul");
+            important.forEach(t => {
+                const li = document.createElement("li");
+                li.textContent = `${t.name} (Importance: ${t.importance})`;
+                ulImportant.appendChild(li);
+            });
+            container.appendChild(document.createTextNode("Important Tasks:"));
+            container.appendChild(ulImportant);
+        });
+
+    // 3. Resource Utilization (simple count of assigned tasks per resource)
+    fetch("/api/resources")
+        .then(res => res.json())
+        .then(resources => {
+            const container = document.getElementById("report-resource-utilization");
+            container.innerHTML = "";
+            fetch("/api/tasks")
+                .then(res => res.json())
+                .then(tasks => {
+                    resources.forEach(resource => {
+                        const count = tasks.filter(t => t.assigned_resources.some(r => r.id === resource.id)).length;
+                        const div = document.createElement("div");
+                        div.textContent = `${resource.name}: assigned to ${count} tasks`;
+                        container.appendChild(div);
+                    });
+                });
+        });
+
+    // 4. Cost Estimation Summary (placeholder)
+    document.getElementById("report-cost-estimation").textContent = "Cost estimation summary will be implemented.";
+
+    // 5. AI-Generated Project Summary (reuse existing API)
+    fetch("/api/reports/ai_summary")
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById("report-ai-summary");
+            let html = "<h4>Stage Summary</h4><ul>";
+            data.stage_summary.forEach(stage => {
+                html += `<li>${stage.stage}: ${stage.task_count} tasks</li>`;
+            });
+            html += "</ul>";
+
+            html += "<h4>Urgent Tasks</h4><ul>";
+            data.urgent_tasks.forEach(task => {
+                html += `<li>${task.name} (Urgency: ${task.urgency})</li>`;
+            });
+            html += "</ul>";
+
+            html += "<h4>Important Tasks</h4><ul>";
+            data.important_tasks.forEach(task => {
+                html += `<li>${task.name} (Importance: ${task.importance})</li>`;
+            });
+            html += "</ul>";
+
+            html += "<h4>Next Recommended Activities</h4><ul>";
+            data.next_recommended_activities.forEach(task => {
+                html += `<li>${task.name} (Score: ${task.score.toFixed(2)})</li>`;
+            });
+            html += "</ul>";
+
+            container.innerHTML = html;
+        });
+});
+</script>
+{% endblock %}
