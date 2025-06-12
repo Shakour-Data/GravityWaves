@@ -8,3 +8,4 @@ __pycache__/
 instance/gravitychats.db
 app/__pycache__/__init__.cpython-311.pyc
 Untitled-1
+*.db
