@@ -2,8 +2,15 @@
 
 {% block content %}
 <div class="container">
-    <h2>Activities (Tasks) Management</h2>
+    <h2>Project and Activities Management</h2>
+
+    <label for="project-select">Select Project / Subproject:</label>
+    <select id="project-select">
+        <!-- Projects will be loaded dynamically -->
+    </select>
+
     <section class="tasks-section">
+        <h3>Tasks</h3>
         <table id="tasks-table">
             <thead>
                 <tr>
@@ -34,6 +41,7 @@
             <span class="close">&times;</span>
             <h3>Add / Edit Task</h3>
             <form id="task-form">
+                <input type="hidden" id="project-id" name="project_id" />
                 <label for="task-name">Task Name:</label>
                 <input type="text" id="task-name" name="name" required />
 
@@ -81,12 +89,32 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+    const projectSelect = document.getElementById("project-select");
     const tasksTableBody = document.querySelector("#tasks-table tbody");
     const taskForm = document.getElementById("task-form");
     const taskModal = document.getElementById("task-modal");
     const addTaskBtn = document.getElementById("add-task-btn");
     const closeModalBtn = taskModal.querySelector(".close");
     const currentStageSelect = document.getElementById("current-stage");
+    const projectIdInput = document.getElementById("project-id");
+
+    function fetchProjects() {
+        fetch("/api/projects")
+            .then(res => res.json())
+            .then(data => {
+                projectSelect.innerHTML = "";
+                data.forEach(project => {
+                    const option = document.createElement("option");
+                    option.value = project.id;
+                    option.textContent = project.name;
+                    projectSelect.appendChild(option);
+                });
+                if (data.length > 0) {
+                    projectSelect.value = data[0].id;
+                    fetchTasks(data[0].id);
+                }
+            });
+    }
 
     function fetchStages() {
         fetch("/api/work_cycle_stages")
@@ -102,12 +130,12 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
-    function fetchTasks() {
+    function fetchTasks(projectId) {
         fetch("/api/tasks")
             .then(res => res.json())
             .then(data => {
                 tasksTableBody.innerHTML = "";
-                data.forEach(task => {
+                data.filter(task => task.project_id == projectId).forEach(task => {
                     const tr = document.createElement("tr");
                     tr.innerHTML = `
                         <td>${task.name}</td>
@@ -130,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     addTaskBtn.addEventListener("click", () => {
         taskModal.style.display = "block";
+        projectIdInput.value = projectSelect.value;
     });
 
     closeModalBtn.addEventListener("click", () => {
@@ -150,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .map(id => parseInt(id.trim()))
             .filter(id => !isNaN(id));
         const payload = {
+            project_id: formData.get("project_id"),
             name: formData.get("name"),
             duration_days: parseInt(formData.get("duration_days")),
             planned_start: formData.get("planned_start"),
@@ -160,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function() {
             importance: parseInt(formData.get("importance")),
             urgency: parseInt(formData.get("urgency")),
             current_stage_id: parseInt(formData.get("current_stage_id")),
-            assigned_resource_ids: assignedResourceIds,
+            assigned_resources: assignedResourceIds,
         };
         fetch("/api/tasks", {
             method: "POST",
@@ -173,13 +203,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("Error: " + data.error);
             } else {
                 taskModal.style.display = "none";
-                fetchTasks();
+                fetchTasks(projectSelect.value);
             }
         });
     });
 
+    projectSelect.addEventListener("change", () => {
+        fetchTasks(projectSelect.value);
+    });
+
+    fetchProjects();
     fetchStages();
-    fetchTasks();
 });
 </script>
 {% endblock %}
