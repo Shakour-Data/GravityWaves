@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Project Initialization and Planning",
+    "duration_days": 7,
+    "planned_start_offset_days": 0,
+    "planned_end_offset_days": 7,
+    "status": "To Do",
+    "importance": 10,
+    "urgency": 9
+  },
+  {
+    "name": "Requirement Gathering and Analysis",
+    "duration_days": 10,
+    "planned_start_offset_days": 8,
+    "planned_end_offset_days": 18,
+    "status": "To Do",
+    "importance": 10,
+    "urgency": 9
+  },
+  {
+    "name": "Data Collection: Historical Stock Market Data",
+    "duration_days": 15,
+    "planned_start_offset_days": 19,
+    "planned_end_offset_days": 34,
+    "status": "To Do",
+    "importance": 10,
+    "urgency": 10
+  },
+  {
+    "name": "Data Cleaning and Preprocessing",
+    "duration_days": 20,
+    "planned_start_offset_days": 35,
+    "planned_end_offset_days": 55,
+    "status": "To Do",
+    "importance": 9,
+    "urgency": 9
+  },
+  {
+    "name": "Feature Engineering and Selection",
+    "duration_days": 15,
+    "planned_start_offset_days": 56,
+    "planned_end_offset_days": 71,
+    "status": "To Do",
+    "importance": 9,
+    "urgency": 8
+  },
+  {
+    "name": "Model Development: Predictive Algorithms",
+    "duration_days": 30,
+    "planned_start_offset_days": 72,
+    "planned_end_offset_days": 102,
+    "status": "To Do",
+    "importance": 10,
+    "urgency": 9
+  },
+  {
+    "name": "Model Validation and Testing",
+    "duration_days": 20,
+    "planned_start_offset_days": 103,
+    "planned_end_offset_days": 123,
+    "status": "To Do",
+    "importance": 10,
+    "urgency": 8
+  },
+  {
+    "name": "System Integration and Deployment",
+    "duration_days": 15,
+    "planned_start_offset_days": 124,
+    "planned_end_offset_days": 139,
+    "status": "To Do",
+    "importance": 9,
+    "urgency": 7
+  },
+  {
+    "name": "Documentation: In-Code and External",
+    "duration_days": 10,
+    "planned_start_offset_days": 140,
+    "planned_end_offset_days": 150,
+    "status": "To Do",
+    "importance": 8,
+    "urgency": 7
+  },
+  {
+    "name": "Final Testing and Quality Assurance",
+    "duration_days": 15,
+    "planned_start_offset_days": 151,
+    "planned_end_offset_days": 166,
+    "status": "To Do",
+    "importance": 10,
+    "urgency": 8
+  },
+  {
+    "name": "Project Review and Closure",
+    "duration_days": 7,
+    "planned_start_offset_days": 167,
+    "planned_end_offset_days": 174,
+    "status": "To Do",
+    "importance": 9,
+    "urgency": 6
+  }
+]
