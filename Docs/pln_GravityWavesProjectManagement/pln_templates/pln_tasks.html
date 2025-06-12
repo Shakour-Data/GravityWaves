@@ -1,0 +1,185 @@
+{% extends "pln_base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Activities (Tasks) Management</h2>
+    <section class="tasks-section">
+        <table id="tasks-table">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Duration (days)</th>
+                    <th>Planned Start</th>
+                    <th>Planned End</th>
+                    <th>Actual Start</th>
+                    <th>Actual End</th>
+                    <th>Status</th>
+                    <th>Importance</th>
+                    <th>Urgency</th>
+                    <th>Score</th>
+                    <th>Current Stage</th>
+                    <th>Assigned Resources</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Tasks will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <button id="add-task-btn">Add Task</button>
+    </section>
+
+    <!-- Add Task Modal -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add / Edit Task</h3>
+            <form id="task-form">
+                <label for="task-name">Task Name:</label>
+                <input type="text" id="task-name" name="name" required />
+
+                <label for="duration-days">Duration (days):</label>
+                <input type="number" id="duration-days" name="duration_days" min="1" required />
+
+                <label for="planned-start">Planned Start Date:</label>
+                <input type="date" id="planned-start" name="planned_start" required />
+
+                <label for="planned-end">Planned End Date:</label>
+                <input type="date" id="planned-end" name="planned_end" required />
+
+                <label for="actual-start">Actual Start Date:</label>
+                <input type="date" id="actual-start" name="actual_start" />
+
+                <label for="actual-end">Actual End Date:</label>
+                <input type="date" id="actual-end" name="actual_end" />
+
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    {% for status in ["To Do", "In Progress", "Code Review", "Documentation - In Code", "Documentation - External", "Testing", "Done"] %}
+                    <option value="{{ status }}">{{ status }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="importance">Importance (1-10):</label>
+                <input type="number" id="importance" name="importance" min="1" max="10" value="1" required />
+
+                <label for="urgency">Urgency (1-10):</label>
+                <input type="number" id="urgency" name="urgency" min="1" max="10" value="1" required />
+
+                <label for="current-stage">Current Stage:</label>
+                <select id="current-stage" name="current_stage_id" required>
+                    <!-- Options will be loaded dynamically -->
+                </select>
+
+                <label for="assigned-resources">Assigned Resources (comma separated IDs):</label>
+                <input type="text" id="assigned-resources" name="assigned_resource_ids" placeholder="e.g. 1,2,3" />
+
+                <button type="submit">Save Task</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tasksTableBody = document.querySelector("#tasks-table tbody");
+    const taskForm = document.getElementById("task-form");
+    const taskModal = document.getElementById("task-modal");
+    const addTaskBtn = document.getElementById("add-task-btn");
+    const closeModalBtn = taskModal.querySelector(".close");
+    const currentStageSelect = document.getElementById("current-stage");
+
+    function fetchStages() {
+        fetch("/api/work_cycle_stages")
+            .then(res => res.json())
+            .then(data => {
+                currentStageSelect.innerHTML = "";
+                data.forEach(stage => {
+                    const option = document.createElement("option");
+                    option.value = stage.id;
+                    option.textContent = stage.name;
+                    currentStageSelect.appendChild(option);
+                });
+            });
+    }
+
+    function fetchTasks() {
+        fetch("/api/tasks")
+            .then(res => res.json())
+            .then(data => {
+                tasksTableBody.innerHTML = "";
+                data.forEach(task => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td>${task.name}</td>
+                        <td>${task.duration_days}</td>
+                        <td>${task.planned_start}</td>
+                        <td>${task.planned_end}</td>
+                        <td>${task.actual_start}</td>
+                        <td>${task.actual_end}</td>
+                        <td>${task.status}</td>
+                        <td>${task.importance}</td>
+                        <td>${task.urgency}</td>
+                        <td>${task.score.toFixed(2)}</td>
+                        <td>${task.current_stage ? task.current_stage.name : ""}</td>
+                        <td>${task.assigned_resources.map(r => r.name).join(", ")}</td>
+                    `;
+                    tasksTableBody.appendChild(tr);
+                });
+            });
+    }
+
+    addTaskBtn.addEventListener("click", () => {
+        taskModal.style.display = "block";
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+        taskModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target == taskModal) {
+            taskModal.style.display = "none";
+        }
+    });
+
+    taskForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(taskForm);
+        const assignedResourceIds = formData.get("assigned_resource_ids")
+            .split(",")
+            .map(id => parseInt(id.trim()))
+            .filter(id => !isNaN(id));
+        const payload = {
+            name: formData.get("name"),
+            duration_days: parseInt(formData.get("duration_days")),
+            planned_start: formData.get("planned_start"),
+            planned_end: formData.get("planned_end"),
+            actual_start: formData.get("actual_start") || null,
+            actual_end: formData.get("actual_end") || null,
+            status: formData.get("status"),
+            importance: parseInt(formData.get("importance")),
+            urgency: parseInt(formData.get("urgency")),
+            current_stage_id: parseInt(formData.get("current_stage_id")),
+            assigned_resource_ids: assignedResourceIds,
+        };
+        fetch("/api/tasks", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) {
+                alert("Error: " + data.error);
+            } else {
+                taskModal.style.display = "none";
+                fetchTasks();
+            }
+        });
+    });
+
+    fetchStages();
+    fetchTasks();
+});
+</script>
+{% endblock %}
