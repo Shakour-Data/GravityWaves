@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__,
             template_folder=os.path.join(os.path.dirname(__file__), "pln_templates"),
-            static_folder=os.path.join(os.path.dirname(__file__), "pln_static"))
+            static_folder=os.path.join(os.path.dirname(os.path.dirname(__file__)), "static"))
 
 # Configuration
 DATABASE_URL = os.getenv("PLN_DATABASE_URL", "sqlite:///pln_project_management.db")
@@ -178,31 +178,10 @@ def api_tasks():
             actual_start = datetime.strptime(data["actual_start"], "%Y-%m-%d").date() if data.get("actual_start") else None
             actual_end = datetime.strptime(data["actual_end"], "%Y-%m-%d").date() if data.get("actual_end") else None
             status = data.get("status", "To Do")
-            importance = int(data.get("importance", 1))
-            urgency = int(data.get("urgency", 1))
-            current_stage_id = data.get("current_stage_id")
-            assigned_resource_ids = data.get("assigned_resource_ids", [])
-
-            task = Task(
-                name=name,
-                duration_days=duration_days,
-                planned_start=planned_start,
-                planned_end=planned_end,
-                actual_start=actual_start,
-                actual_end=actual_end,
-                status=status,
-                importance=importance,
-                urgency=urgency,
-                current_stage_id=current_stage_id
-            )
-            for res_id in assigned_resource_ids:
-                resource = Resource.query.get(res_id)
-                if resource:
-                    task.assigned_resources.append(resource)
-
-            task.score = calculate_task_score(importance, urgency)
-            db.session.add(task)
-            db.session.commit()
+            assigned_resources = data.get("assigned_resources", [])
+            task = Task(id, name, duration_days, planned_start, planned_end,
+                        actual_start, actual_end, status, assigned_resources)
+            tasks.append(task)
             return jsonify({"message": "Task added", "task": task.to_dict()}), 201
         except Exception as e:
             return jsonify({"error": str(e)}), 400
