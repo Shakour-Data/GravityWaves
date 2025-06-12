@@ -16,6 +16,30 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+import click
+from flask.cli import with_appcontext
+
+@app.cli.command("db_init")
+@with_appcontext
+def db_init():
+    """Initialize the database."""
+    from flask_migrate import init
+    init()
+
+@app.cli.command("db_migrate")
+@with_appcontext
+def db_migrate():
+    """Create a new migration."""
+    from flask_migrate import migrate
+    migrate(message="Auto migration")
+
+@app.cli.command("db_upgrade")
+@with_appcontext
+def db_upgrade():
+    """Apply migrations."""
+    from flask_migrate import upgrade
+    upgrade()
+
 # Models
 
 class WorkCycleStage(db.Model):
@@ -48,9 +72,28 @@ class Resource(db.Model):
             "type": self.type,
         }
 
+class Project(db.Model):
+    __tablename__ = 'projects'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    parent_id = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=True)
+    parent = db.relationship('Project', remote_side=[id], backref='subprojects')
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "description": self.description,
+            "parent_id": self.parent_id,
+            "subprojects": [sp.to_dict() for sp in self.subprojects],
+        }
+
 class Task(db.Model):
     __tablename__ = 'tasks'
     id = db.Column(db.Integer, primary_key=True)
+    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=False)
+    project = db.relationship('Project', backref='tasks')
     name = db.Column(db.String(200), nullable=False)
     duration_days = db.Column(db.Integer, nullable=False)
     planned_start = db.Column(db.Date, nullable=False)
@@ -68,6 +111,7 @@ class Task(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
+            "project_id": self.project_id,
             "name": self.name,
             "duration_days": self.duration_days,
             "planned_start": self.planned_start.strftime("%Y-%m-%d"),
@@ -86,6 +130,65 @@ task_resources = db.Table('task_resources',
     db.Column('task_id', db.Integer, db.ForeignKey('tasks.id'), primary_key=True),
     db.Column('resource_id', db.Integer, db.ForeignKey('resources.id'), primary_key=True)
 )
+
+class Activity(db.Model):
+    __tablename__ = 'activities'
+    id = db.Column(db.Integer, primary_key=True)
+    task_id = db.Column(db.Integer, db.ForeignKey('tasks.id'), nullable=False)
+    task = db.relationship('Task', backref='activities')
+    name = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "task_id": self.task_id,
+            "name": self.name,
+            "description": self.description,
+            "statuses": [status.to_dict() for status in self.statuses],
+        }
+
+class Status(db.Model):
+    __tablename__ = 'statuses'
+    id = db.Column(db.Integer, primary_key=True)
+    activity_id = db.Column(db.Integer, db.ForeignKey('activities.id'), nullable=False)
+    activity = db.relationship('Activity', backref='statuses')
+    name = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    order = db.Column(db.Integer, nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "activity_id": self.activity_id,
+            "name": self.name,
+            "description": self.description,
+            "order": self.order,
+            "work_items": [wi.to_dict() for wi in self.work_items],
+        }
+
+class WorkItem(db.Model):
+    __tablename__ = 'work_items'
+    id = db.Column(db.Integer, primary_key=True)
+    status_id = db.Column(db.Integer, db.ForeignKey('statuses.id'), nullable=False)
+    status = db.relationship('Status', backref='work_items')
+    name = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    importance = db.Column(db.Integer, nullable=False, default=1)  # 1-10 scale
+    urgency = db.Column(db.Integer, nullable=False, default=1)     # 1-10 scale
+    assigned_resource_id = db.Column(db.Integer, db.ForeignKey('resources.id'), nullable=False)
+    assigned_resource = db.relationship('Resource')
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "status_id": self.status_id,
+            "name": self.name,
+            "description": self.description,
+            "importance": self.importance,
+            "urgency": self.urgency,
+            "assigned_resource": self.assigned_resource.to_dict() if self.assigned_resource else None,
+        }
 
 class Commit(db.Model):
     __tablename__ = 'commits'
@@ -145,23 +248,23 @@ def index():
 
 @app.route("/tasks")
 def tasks_page():
-    return render_template("tasks.html")
+    return render_template("pln_tasks.html")
 
 @app.route("/resources")
 def resources_page():
-    return render_template("resources.html")
+    return render_template("pln_resources.html")
 
 @app.route("/gantt")
 def gantt_page():
-    return render_template("gantt.html")
+    return render_template("pln_gantt.html")
 
 @app.route("/costs")
 def costs_page():
-    return render_template("costs.html")
+    return render_template("pln_costs.html")
 
 @app.route("/reports")
 def reports_page():
-    return render_template("reports.html")
+    return render_template("pln_reports.html")
 
 @app.route("/api/tasks", methods=["GET", "POST"])
 def api_tasks():
@@ -171,6 +274,7 @@ def api_tasks():
     elif request.method == "POST":
         data = request.json
         try:
+            project_id = data["project_id"]
             name = data["name"]
             duration_days = int(data["duration_days"])
             planned_start = datetime.strptime(data["planned_start"], "%Y-%m-%d").date()
@@ -178,10 +282,31 @@ def api_tasks():
             actual_start = datetime.strptime(data["actual_start"], "%Y-%m-%d").date() if data.get("actual_start") else None
             actual_end = datetime.strptime(data["actual_end"], "%Y-%m-%d").date() if data.get("actual_end") else None
             status = data.get("status", "To Do")
-            assigned_resources = data.get("assigned_resources", [])
-            task = Task(id, name, duration_days, planned_start, planned_end,
-                        actual_start, actual_end, status, assigned_resources)
-            tasks.append(task)
+            importance = int(data.get("importance", 1))
+            urgency = int(data.get("urgency", 1))
+            current_stage_id = data.get("current_stage_id")
+            assigned_resources_ids = data.get("assigned_resources", [])
+
+            task = Task(
+                project_id=project_id,
+                name=name,
+                duration_days=duration_days,
+                planned_start=planned_start,
+                planned_end=planned_end,
+                actual_start=actual_start,
+                actual_end=actual_end,
+                status=status,
+                importance=importance,
+                urgency=urgency,
+                current_stage_id=current_stage_id
+            )
+            for res_id in assigned_resources_ids:
+                resource = Resource.query.get(res_id)
+                if resource:
+                    task.assigned_resources.append(resource)
+
+            db.session.add(task)
+            db.session.commit()
             return jsonify({"message": "Task added", "task": task.to_dict()}), 201
         except Exception as e:
             return jsonify({"error": str(e)}), 400
