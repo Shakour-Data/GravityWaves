@@ -14,6 +14,16 @@
             <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="GravityWaves Logo" />
             <h1>GravityWaves Project Management</h1>
         </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('tasks_page') }}">Activities</a></li>
+                <li><a href="{{ url_for('resources_page') }}">Resources</a></li>
+                <li><a href="{{ url_for('gantt_page') }}">Gantt Chart</a></li>
+                <li><a href="{{ url_for('costs_page') }}">Costs</a></li>
+                <li><a href="{{ url_for('reports_page') }}">Reports</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         {% block content %}{% endblock %}
