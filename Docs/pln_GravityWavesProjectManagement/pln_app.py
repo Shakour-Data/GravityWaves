@@ -143,6 +143,26 @@ def update_all_task_statuses():
 def index():
     return render_template("pln_index.html")
 
+@app.route("/tasks")
+def tasks_page():
+    return render_template("tasks.html")
+
+@app.route("/resources")
+def resources_page():
+    return render_template("resources.html")
+
+@app.route("/gantt")
+def gantt_page():
+    return render_template("gantt.html")
+
+@app.route("/costs")
+def costs_page():
+    return render_template("costs.html")
+
+@app.route("/reports")
+def reports_page():
+    return render_template("reports.html")
+
 @app.route("/api/tasks", methods=["GET", "POST"])
 def api_tasks():
     if request.method == "GET":
