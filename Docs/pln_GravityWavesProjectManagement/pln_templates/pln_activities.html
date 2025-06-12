@@ -1,0 +1,333 @@
+{% extends "pln_base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Activities, Statuses, and Work Items Management</h2>
+
+    <label for="task-select">Select Task:</label>
+    <select id="task-select">
+        <!-- Tasks will be loaded dynamically -->
+    </select>
+
+    <section class="activities-section">
+        <h3>Activities</h3>
+        <ul id="activities-list">
+            <!-- Activities will be listed here -->
+        </ul>
+        <button id="add-activity-btn">Add Activity</button>
+    </section>
+
+    <!-- Add Activity Modal -->
+    <div id="activity-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add / Edit Activity</h3>
+            <form id="activity-form">
+                <input type="hidden" id="activity-task-id" name="task_id" />
+                <label for="activity-name">Activity Name:</label>
+                <input type="text" id="activity-name" name="name" required />
+                <label for="activity-description">Description:</label>
+                <textarea id="activity-description" name="description"></textarea>
+                <button type="submit">Save Activity</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="statuses-section" style="margin-top: 20px;">
+        <h3>Statuses</h3>
+        <ul id="statuses-list">
+            <!-- Statuses will be listed here -->
+        </ul>
+        <button id="add-status-btn" disabled>Add Status</button>
+    </section>
+
+    <!-- Add Status Modal -->
+    <div id="status-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add / Edit Status</h3>
+            <form id="status-form">
+                <input type="hidden" id="status-activity-id" name="activity_id" />
+                <label for="status-name">Status Name:</label>
+                <input type="text" id="status-name" name="name" required />
+                <label for="status-description">Description:</label>
+                <textarea id="status-description" name="description"></textarea>
+                <label for="status-order">Order:</label>
+                <input type="number" id="status-order" name="order" required min="0" />
+                <button type="submit">Save Status</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="work-items-section" style="margin-top: 20px;">
+        <h3>Work Items</h3>
+        <ul id="work-items-list">
+            <!-- Work Items will be listed here -->
+        </ul>
+        <button id="add-work-item-btn" disabled>Add Work Item</button>
+    </section>
+
+    <!-- Add Work Item Modal -->
+    <div id="work-item-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add / Edit Work Item</h3>
+            <form id="work-item-form">
+                <input type="hidden" id="work-item-status-id" name="status_id" />
+                <label for="work-item-name">Work Item Name:</label>
+                <input type="text" id="work-item-name" name="name" required />
+                <label for="work-item-description">Description:</label>
+                <textarea id="work-item-description" name="description"></textarea>
+                <label for="work-item-importance">Importance (1-10):</label>
+                <input type="number" id="work-item-importance" name="importance" min="1" max="10" value="1" required />
+                <label for="work-item-urgency">Urgency (1-10):</label>
+                <input type="number" id="work-item-urgency" name="urgency" min="1" max="10" value="1" required />
+                <label for="work-item-assigned-resource">Assigned Resource:</label>
+                <select id="work-item-assigned-resource" name="assigned_resource_id" required>
+                    <!-- Resources will be loaded dynamically -->
+                </select>
+                <button type="submit">Save Work Item</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const taskSelect = document.getElementById("task-select");
+    const activitiesList = document.getElementById("activities-list");
+    const statusesList = document.getElementById("statuses-list");
+    const workItemsList = document.getElementById("work-items-list");
+
+    const addActivityBtn = document.getElementById("add-activity-btn");
+    const addStatusBtn = document.getElementById("add-status-btn");
+    const addWorkItemBtn = document.getElementById("add-work-item-btn");
+
+    const activityModal = document.getElementById("activity-modal");
+    const statusModal = document.getElementById("status-modal");
+    const workItemModal = document.getElementById("work-item-modal");
+
+    const activityForm = document.getElementById("activity-form");
+    const statusForm = document.getElementById("status-form");
+    const workItemForm = document.getElementById("work-item-form");
+
+    const activityTaskIdInput = document.getElementById("activity-task-id");
+    const statusActivityIdInput = document.getElementById("status-activity-id");
+    const workItemStatusIdInput = document.getElementById("work-item-status-id");
+
+    const workItemAssignedResourceSelect = document.getElementById("work-item-assigned-resource");
+
+    let selectedActivityId = null;
+    let selectedStatusId = null;
+
+    function fetchTasks() {
+        fetch("/api/tasks")
+            .then(res => res.json())
+            .then(data => {
+                taskSelect.innerHTML = "";
+                data.forEach(task => {
+                    const option = document.createElement("option");
+                    option.value = task.id;
+                    option.textContent = task.name;
+                    taskSelect.appendChild(option);
+                });
+                if (data.length > 0) {
+                    taskSelect.value = data[0].id;
+                    fetchActivities(data[0].id);
+                }
+            });
+    }
+
+    function fetchActivities(taskId) {
+        fetch("/api/activities")
+            .then(res => res.json())
+            .then(data => {
+                activitiesList.innerHTML = "";
+                const filtered = data.filter(a => a.task_id == taskId);
+                filtered.forEach(activity => {
+                    const li = document.createElement("li");
+                    li.textContent = activity.name;
+                    li.dataset.id = activity.id;
+                    li.style.cursor = "pointer";
+                    li.addEventListener("click", () => {
+                        selectedActivityId = activity.id;
+                        fetchStatuses(activity.id);
+                        addStatusBtn.disabled = false;
+                        workItemsList.innerHTML = "";
+                        addWorkItemBtn.disabled = true;
+                    });
+                    activitiesList.appendChild(li);
+                });
+            });
+    }
+
+    function fetchStatuses(activityId) {
+        fetch("/api/statuses")
+            .then(res => res.json())
+            .then(data => {
+                statusesList.innerHTML = "";
+                const filtered = data.filter(s => s.activity_id == activityId);
+                filtered.sort((a,b) => a.order - b.order);
+                filtered.forEach(status => {
+                    const li = document.createElement("li");
+                    li.textContent = status.name;
+                    li.dataset.id = status.id;
+                    li.style.cursor = "pointer";
+                    li.addEventListener("click", () => {
+                        selectedStatusId = status.id;
+                        fetchWorkItems(status.id);
+                        addWorkItemBtn.disabled = false;
+                    });
+                    statusesList.appendChild(li);
+                });
+            });
+    }
+
+    function fetchWorkItems(statusId) {
+        fetch("/api/work_items")
+            .then(res => res.json())
+            .then(data => {
+                workItemsList.innerHTML = "";
+                const filtered = data.filter(wi => wi.status_id == statusId);
+                filtered.forEach(wi => {
+                    const li = document.createElement("li");
+                    li.textContent = wi.name + " (Importance: " + wi.importance + ", Urgency: " + wi.urgency + ", Assigned: " + (wi.assigned_resource ? wi.assigned_resource.name : "None") + ")";
+                    workItemsList.appendChild(li);
+                });
+            });
+    }
+
+    function fetchResources() {
+        fetch("/api/resources")
+            .then(res => res.json())
+            .then(data => {
+                workItemAssignedResourceSelect.innerHTML = "";
+                data.forEach(resource => {
+                    const option = document.createElement("option");
+                    option.value = resource.id;
+                    option.textContent = resource.name;
+                    workItemAssignedResourceSelect.appendChild(option);
+                });
+            });
+    }
+
+    addActivityBtn.addEventListener("click", () => {
+        activityModal.style.display = "block";
+        activityTaskIdInput.value = taskSelect.value;
+    });
+
+    addStatusBtn.addEventListener("click", () => {
+        if (!selectedActivityId) return;
+        statusModal.style.display = "block";
+        statusActivityIdInput.value = selectedActivityId;
+    });
+
+    addWorkItemBtn.addEventListener("click", () => {
+        if (!selectedStatusId) return;
+        workItemModal.style.display = "block";
+        workItemStatusIdInput.value = selectedStatusId;
+    });
+
+    // Close modals
+    document.querySelectorAll(".modal .close").forEach(closeBtn => {
+        closeBtn.addEventListener("click", () => {
+            closeBtn.closest(".modal").style.display = "none";
+        });
+    });
+
+    // Close modal on outside click
+    window.addEventListener("click", (event) => {
+        if (event.target.classList.contains("modal")) {
+            event.target.style.display = "none";
+        }
+    });
+
+    activityForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(activityForm);
+        const payload = {
+            task_id: formData.get("task_id"),
+            name: formData.get("name"),
+            description: formData.get("description"),
+        };
+        fetch("/api/activities", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) {
+                alert("Error: " + data.error);
+            } else {
+                activityModal.style.display = "none";
+                fetchActivities(taskSelect.value);
+            }
+        });
+    });
+
+    statusForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(statusForm);
+        const payload = {
+            activity_id: formData.get("activity_id"),
+            name: formData.get("name"),
+            description: formData.get("description"),
+            order: parseInt(formData.get("order")),
+        };
+        fetch("/api/statuses", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) {
+                alert("Error: " + data.error);
+            } else {
+                statusModal.style.display = "none";
+                fetchStatuses(selectedActivityId);
+            }
+        });
+    });
+
+    workItemForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(workItemForm);
+        const payload = {
+            status_id: formData.get("status_id"),
+            name: formData.get("name"),
+            description: formData.get("description"),
+            importance: parseInt(formData.get("importance")),
+            urgency: parseInt(formData.get("urgency")),
+            assigned_resource_id: formData.get("assigned_resource_id"),
+        };
+        fetch("/api/work_items", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) {
+                alert("Error: " + data.error);
+            } else {
+                workItemModal.style.display = "none";
+                fetchWorkItems(selectedStatusId);
+            }
+        });
+    });
+
+    taskSelect.addEventListener("change", () => {
+        fetchActivities(taskSelect.value);
+        statusesList.innerHTML = "";
+        workItemsList.innerHTML = "";
+        addStatusBtn.disabled = true;
+        addWorkItemBtn.disabled = true;
+    });
+
+    fetchTasks();
+    fetchResources();
+});
+</script>
+{% endblock %}
