@@ -1,0 +1,30 @@
+{% extends "pln_base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Gantt Chart Visualization</h2>
+    <div id="gantt"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/pln_gantt.js') }}"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Fetch tasks and render Gantt chart using frappe-gantt
+    fetch("/api/tasks")
+        .then(res => res.json())
+        .then(tasks => {
+            const ganttTasks = tasks.map(task => ({
+                id: task.id.toString(),
+                name: task.name,
+                start: task.planned_start,
+                end: task.planned_end,
+                progress: task.status === "Done" ? 100 : 0,
+            }));
+            const gantt = new Gantt("#gantt", ganttTasks, {
+                view_mode: "Day",
+                language: "en",
+            });
+        });
+});
+</script>
+{% endblock %}
