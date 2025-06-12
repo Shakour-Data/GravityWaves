@@ -88,6 +88,8 @@ def api_tasks():
             actual_start = datetime.strptime(data["actual_start"], "%Y-%m-%d") if data.get("actual_start") else None
             actual_end = datetime.strptime(data["actual_end"], "%Y-%m-%d") if data.get("actual_end") else None
             status = data.get("status", "To Do")
+            if status not in STATUS_OPTIONS:
+                return jsonify({"error": "Invalid status value"}), 400
             assigned_resources = data.get("assigned_resources", [])
             task = Task(id, name, duration_days, planned_start, planned_end,
                         actual_start, actual_end, status, assigned_resources)
