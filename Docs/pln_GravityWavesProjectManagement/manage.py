@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_migrate import Migrate, MigrateCommand
+from flask_migrate import Migrate
 from flask.cli import with_appcontext
 import click
 from pln_app import app, db
