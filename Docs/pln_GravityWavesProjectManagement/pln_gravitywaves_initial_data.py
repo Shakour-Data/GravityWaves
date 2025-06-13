@@ -2,8 +2,6 @@ import json
 from datetime import date, timedelta
 from pln_app import db, Task, Resource, WorkCycleStage
 
-import json
-
 def seed_initial_data():
     # Seed resources
     resources = [
@@ -65,5 +63,6 @@ def seed_initial_data():
             )
 
 if __name__ == "__main__":
-    with db.app.app_context():
+    from pln_app import app
+    with app.app_context():
         seed_initial_data()
