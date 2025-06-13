@@ -1,4 +1,4 @@
-نام گذاریرا import re
+import re
 from app.services.market_data_fetcher import load_market_data
 import pandas as pd
 import io
