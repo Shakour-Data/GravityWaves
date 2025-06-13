@@ -9,7 +9,14 @@ app = Flask(__name__,
             static_folder=os.path.join(os.path.dirname(os.path.dirname(__file__)), "static"))
 
 # Configuration
-DATABASE_URL = os.getenv("PLN_DATABASE_URL", "sqlite:///pln_project_management.db")
+import os
+
+# Ensure the instance folder exists
+instance_path = os.path.join(os.path.dirname(__file__), "instance")
+if not os.path.exists(instance_path):
+    os.makedirs(instance_path)
+
+DATABASE_URL = os.getenv("PLN_DATABASE_URL", f"sqlite:///{os.path.join(instance_path, 'pln_project_management.db')}")
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
