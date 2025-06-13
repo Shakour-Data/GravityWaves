@@ -1,0 +1,9 @@
+# Ignore Python virtual environment
+int_pln_venv/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore reports directory
+reports/
