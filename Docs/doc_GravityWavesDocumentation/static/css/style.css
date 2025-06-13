@@ -71,3 +71,8 @@ footer {
   width: 100%;
   bottom: 0;
 }
+
+.tree-container {
+  height: 400px;
+  overflow: auto;
+}
