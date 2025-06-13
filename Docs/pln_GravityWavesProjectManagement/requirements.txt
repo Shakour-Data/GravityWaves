@@ -1,1 +1,15 @@
-# Add your project-specific Python dependencies here
+flask
+flask-migrate
+flask-sqlalchemy
+alembic
+sqlalchemy
+click
+jinja2
+werkzeug
+itsdangerous
+blinker
+markupsafe
+typing-extensions
+mako
+greenlet
+pytest
