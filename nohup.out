@@ -4301,3 +4301,14 @@ Port 5000 is in use by another program. Either identify and stop that program, o
                            'Accept-Encoding': 'gzip, deflate, br, zstd',        
                            'Accept-Language': 'en-US,en;q=0.9'} Body: b''       
 127.0.0.1 - - [10/Jun/2025 12:38:10] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+ * Serving Flask app 'doc_app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 296-742-229
+127.0.0.1 - - [12/Jun/2025 22:47:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [12/Jun/2025 22:47:37] "GET /doc_architecture/doc_architecture.html HTTP/1.1" 200 -
+127.0.0.1 - - [12/Jun/2025 22:47:37] "GET /css/style.css HTTP/1.1" 200 -
