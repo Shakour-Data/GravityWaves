@@ -214,19 +214,19 @@ def auto_commit_and_push():
                 print(f"Failed to stage files for {group_name} - {category_name}. Skipping commit.")
                 continue
 
-                # Commit with the generated message
-                success, _ = run_git_command(["commit", "-m", commit_message])
-                if not success:
-                    print(f"Failed to commit file {file}. Skipping push.")
-                    continue
+            # Commit with the generated message
+            success, _ = run_git_command(["commit", "-m", commit_message])
+            if not success:
+                print(f"Failed to commit files for {group_name} - {category_name}. Skipping push.")
+                continue
 
-                # Push the commit
-                success, _ = run_git_command(["push"])
-                if not success:
-                    print(f"Failed to push commit for file {file}.")
-                    continue
+            # Push the commit
+            success, _ = run_git_command(["push"])
+            if not success:
+                print(f"Failed to push commit for {group_name} - {category_name}.")
+                continue
 
-                print(f"Committed and pushed changes for file: {file}")
+            print(f"Committed and pushed changes for group: {group_name} - {category_name}")
 
 if __name__ == "__main__":
     auto_commit_and_push()
