@@ -177,76 +177,43 @@ def generate_commit_message(group_name, category_name, files):
     return message
 
 def auto_commit_and_push():
-    """Automate Git commit and push process committing each changed file separately."""
+    """Automate Git commit and push process in groups and categories."""
     changes = get_git_changes()
     if not changes or (len(changes) == 1 and changes[0] == ''):
         print("No changes detected.")
         return
 
-    # Instead of grouping, commit each file individually
-    for change in changes:
-        if not change:
-            continue
-        # Parse status and file path
-        if change.startswith("??"):
-            status = "??"
-            file_path = change[2:].lstrip()
-        else:
-            parts = change.split(None, 1)
-            if len(parts) == 2:
-                status, file_path = parts[0], parts[1].lstrip()
-            else:
-                status = parts[0]
-                file_path = ""
+    grouped_files = group_related_files(changes)
 
-        # For renamed files, file_path contains "old_path -> new_path"
-        if status == "R":
-            parts = file_path.split("->")
-            if len(parts) == 2:
-                old_path = parts[0].strip()
-                new_path = parts[1].strip()
-                file_path = new_path
-            else:
-                file_path = file_path.strip()
+    for group_name, files in grouped_files.items():
+        categories = categorize_files(files)
 
-        # Generate a simple commit message for the single file
-        type_map = {
-            "A": "feat",
-            "M": "fix",
-            "D": "remove",
-            "R": "refactor",
-            "??": "docs",
-        }
-        emoji_map = {
-            "feat": "✨",
-            "fix": "🐛",
-            "remove": "🗑️",
-            "refactor": "♻️",
-            "docs": "📝",
-        }
-        commit_type = type_map.get(status, "chore")
-        emoji = emoji_map.get(commit_type, "")
-        subject = f"{emoji} {commit_type}: {file_path} updated"
+        for category_name, category_files in categories.items():
+            if not category_files:
+                continue
 
-        # Stage the single file
-        success, _ = run_git_command(["add", file_path])
-        if not success:
-            print(f"Failed to stage file {file_path}. Skipping commit.")
-            continue
+            # Use the professional commit message generator
+            commit_message = generate_commit_message(group_name, category_name, category_files)
 
-        # Commit the single file
-        success, _ = run_git_command(["commit", "-m", subject])
-        if not success:
-            print(f"Failed to commit file {file_path}. Skipping push.")
-            continue
+            # Stage only the files in this category
+            success, _ = run_git_command(["add"] + category_files)
+            if not success:
+                print(f"Failed to stage files for {group_name} - {category_name}. Skipping commit.")
+                continue
 
-        # Push the commit
-        success, _ = run_git_command(["push"])
-        if not success:
-            print(f"Failed to push commit for file {file_path}.")
-            continue
+            # Commit with the generated message
+            success, _ = run_git_command(["commit", "-m", commit_message])
+            if not success:
+                print(f"Failed to commit files for {group_name} - {category_name}. Skipping push.")
+                continue
 
-        print(f"Committed and pushed changes for file: {file_path}")
+            # Push the commit
+            success, _ = run_git_command(["push"])
+            if not success:
+                print(f"Failed to push commit for {group_name} - {category_name}.")
+                continue
+
+            print(f"Committed and pushed changes for group: {group_name} - category: {category_name}")
 
 if __name__ == "__main__":
     auto_commit_and_push()
