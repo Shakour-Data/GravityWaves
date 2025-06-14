@@ -85,31 +85,58 @@ def categorize_files(files):
 
     return categories
 
-def generate_commit_message(group_name, categories):
-    """Generate commit message for a specific file group."""
-    message = f"Auto Commit for group: {group_name}\n\n"
-    for category, files in categories.items():
-        if files:
-            # Friendly category names
-            friendly_category = {
-                "A": "Added",
-                "M": "Modified",
-                "D": "Deleted",
-                "R": "Renamed",
-                "??": "Untracked",
-                "Untracked": "Untracked",
-                "Added": "Added",
-                "Modified": "Modified",
-                "Deleted": "Deleted",
-                "Renamed": "Renamed",
-                "Other": "Other",
-            }.get(category, category)
+import subprocess
 
-            message += f"{friendly_category} files:\n"
-            for f in files:
-                message += f"  - {f}\n"
-            message += "\n"
-    return message.strip()
+def get_file_diff_summary(file_path):
+    """Get a short summary of changes for a file."""
+    try:
+        result = subprocess.run(
+            ["git", "diff", "--staged", "--", file_path],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        diff_lines = result.stdout.strip().splitlines()
+        # Return first 5 lines or less as summary
+        summary = "\n    ".join(diff_lines[:5]) if diff_lines else "No diff available."
+        return summary
+    except subprocess.CalledProcessError:
+        return "Could not retrieve diff."
+
+def generate_commit_message(group_name, category_name, files):
+    """Generate commit message for a specific file group and category."""
+    friendly_category = {
+        "Added": "✨ This file was newly added to the project and is now tracked.",
+        "Modified": "🛠️ This file was modified with updates or fixes.",
+        "Deleted": "🗑️ This file was removed from the project.",
+        "Renamed": "🔀 This file was renamed or moved to a different location.",
+        "Copied": "📋 This file was copied from another file.",
+        "Updated but unmerged": "⚠️ This file has merge conflicts that need to be resolved.",
+        "Untracked": "🆕 This file is new and not yet tracked by git.",
+        "Ignored": "🚫 This file is ignored by git.",
+        "Added and Modified": "✨🛠️ This file was added and then modified before committing.",
+        "Deleted and Modified": "🗑️🛠️ This file was deleted and modified before committing.",
+        "Renamed and Modified": "🔀🛠️ This file was renamed and modified before committing.",
+        "Copied and Modified": "📋🛠️ This file was copied and modified before committing.",
+        "Unmerged": "⚠️ This file has unmerged changes.",
+        "Type Changed": "🔄 The file type has changed.",
+        "Unknown": "❓ This file has an unknown change status.",
+        "Other": "⚙️ This file has other types of changes.",
+        "Conflicted": "❗ This file has conflicts that need to be resolved.",
+        "Staged": "📌 This file is staged for commit.",
+        "Unstaged": "✏️ This file has unstaged changes.",
+        "Both Modified": "🛠️ This file was modified in both the index and working tree.",
+    }
+    description = friendly_category.get(category_name, "")
+    message = f"Auto Commit for group: {group_name} - {category_name}\n\n"
+    if description:
+        message += f"Files in this category:\n\n"
+    message += f"Reason for changes: [Please describe the reason or issue addressed by these changes]\n\n"
+    for f in files:
+        message += f"  - {f}: {description}\n"
+        diff_summary = get_file_diff_summary(f)
+        message += f"    Summary of changes:\n    {diff_summary}\n\n"
+    return message
 
 def auto_commit_and_push():
     """Automate Git commit and push process in groups and categories."""
@@ -127,10 +154,21 @@ def auto_commit_and_push():
             if not category_files:
                 continue
 
+            change_descriptions = {
+                "Added": "This file was newly added to the project and is now tracked.",
+                "Modified": "This file was modified with updates or fixes.",
+                "Deleted": "This file was removed from the project.",
+                "Renamed": "This file was renamed or moved to a different location.",
+                "Untracked": "This file is new and not yet tracked by git.",
+                "Other": "This file has other types of changes.",
+            }
+            description = change_descriptions.get(category_name, "")
             commit_message = f"Auto Commit for group: {group_name} - {category_name}\n\n"
-            commit_message += f"{category_name} files:\n"
+            if description:
+                commit_message += f"Files in this category:\n\n"
+            commit_message += "Reason for changes: [Please describe the reason or issue addressed by these changes]\n\n"
             for f in category_files:
-                commit_message += f"  - {f}\n"
+                commit_message += f"  - {f}: {description}\n"
 
             # Stage only the files in this category
             success, _ = run_git_command(["add"] + category_files)
