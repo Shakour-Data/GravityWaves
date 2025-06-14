@@ -128,7 +128,8 @@ def generate_commit_message(group_name, category_name, files):
         "Both Modified": "🛠️ This file was modified in both the index and working tree.",
     }
     description = friendly_category.get(category_name, "")
-    message = f"Auto Commit for group: {group_name} - {category_name}\n\n"
+    # Removed the "Auto Commit for group..." line as per user request
+    message = ""
     if description:
         message += f"Files in this category:\n\n"
     message += f"Reason for changes: [Please describe the reason or issue addressed by these changes]\n\n"
