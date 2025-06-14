@@ -1,0 +1,6 @@
+# Test Cases for Project Management Project
+
+- Test project management dashboard and app functionalities
+- Verify API endpoints and data processing
+- Validate error handling and edge cases
+- Additional test cases to be added as development progresses

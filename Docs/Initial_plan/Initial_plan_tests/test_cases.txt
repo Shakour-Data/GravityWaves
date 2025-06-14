@@ -1,0 +1,6 @@
+# Test Cases for Initial Plan Project
+
+- Test project_management_system.py functions for JSON file creation and loading
+- Verify hierarchical JSON file generation for projects, subprojects, activities, tasks, and main core
+- Validate error handling and edge cases in project management system
+- Additional test cases to be added as development progresses

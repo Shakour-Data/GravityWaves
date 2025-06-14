@@ -1,0 +1,9 @@
+# Requirements for Initial جاد می شود Plan project management scripts
+
+# For JSON handling and datetime (standard library, no install needed)
+
+# Add any additional packages if used in scripts, e.g.:
+# Flask (if web integration is added)
+# pandas (if advanced data processing is needed)
+# numpy (if numerical calculations are needed)
+

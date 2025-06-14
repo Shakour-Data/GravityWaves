@@ -1,0 +1,59 @@
+Task Scoring and Reporting System - Manual Approach
+
+1. Scoring Criteria for Tasks
+
+   Importance Score (1 to 100):
+   - Reflects the intrinsic value and impact of the task.
+   - Criteria to consider:
+     * Business value and strategic alignment
+     * Complexity and required expertise
+     * Stakeholder priority
+     * Potential risk if not done
+   - Assign weights to each criterion to calculate overall importance score.
+
+   Urgency Score (1 to 100):
+   - Reflects the time sensitivity of the task.
+   - Criteria to consider:
+     * Deadline proximity
+     * Dependencies on other tasks or projects
+     * Impact of delay on overall project timeline
+     * External factors (e.g., market events, regulatory deadlines)
+   - Assign weights to each criterion to calculate overall urgency score.
+
+2. Overall Task Score Calculation
+   - Combine Importance and Urgency scores using a weighted formula.
+   - Example formula:
+     Overall Score = (W1 * Importance Score) + (W2 * Urgency Score)
+     where W1 and W2 are weights reflecting the relative importance of each factor.
+   - Weights can be adjusted based on project phase or management preferences.
+
+3. Aggregation of Scores
+   - Calculate average Importance, Urgency, and Overall scores for:
+     * Activities (group of tasks)
+     * Sub-projects (group of activities)
+     * Main project (group of sub-projects)
+   - Use these aggregated scores to prioritize higher-level work items.
+
+4. Dynamic Score Adjustment Over Time
+   - Importance and Urgency scores should be updated as the project progresses.
+   - Consider factors such as:
+     * Task delays or accelerations
+     * Changes in stakeholder priorities
+     * Emerging risks or opportunities
+   - Define rules for score decay or increase based on elapsed time and progress.
+
+5. Reporting
+   - Generate daily reports at 10 PM automatically.
+   - Reports should include:
+     * Current status of tasks with scores and priorities
+     * Summary of activities and project-level scores
+     * Highlight urgent and important tasks
+     * Progress updates and blockers
+   - Reports to be saved as text files for manual review and input into project management system.
+
+6. Manual Process
+   - Initially, scoring and reporting will be done manually using the above criteria.
+   - This will help refine the scoring system and understand project dynamics.
+   - Once stabilized, consider automating scoring and reporting in the project management system.
+
+This manual scoring and reporting system will enable effective prioritization and tracking of tasks and projects, supporting informed decision-making and efficient project management.

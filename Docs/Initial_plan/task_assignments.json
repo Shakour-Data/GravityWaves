@@ -1,0 +1,51 @@
+[
+  {
+    "task_id": 1,
+    "assignments": [
+      {
+        "position_id": 2,
+        "hours": 20
+      }
+    ]
+  },
+  {
+    "task_id": 2,
+    "assignments": [
+      {
+        "position_id": 2,
+        "hours": 40
+      },
+      {
+        "position_id": 7,
+        "hours": 100
+      }
+    ]
+  },
+  {
+    "task_id": 3,
+    "assignments": [
+      {
+        "position_id": 3,
+        "hours": 30
+      }
+    ]
+  },
+  {
+    "task_id": 4,
+    "assignments": [
+      {
+        "position_id": 4,
+        "hours": 50
+      }
+    ]
+  },
+  {
+    "task_id": 5,
+    "assignments": [
+      {
+        "position_id": 5,
+        "hours": 15
+      }
+    ]
+  }
+]
