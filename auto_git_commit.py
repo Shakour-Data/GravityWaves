@@ -29,11 +29,15 @@ def group_related_files(changes):
         # Handle untracked files starting with '??'
         if change.startswith("??"):
             status = "??"
-            file_path = change[3:].strip()
+            file_path = change[2:].lstrip()
         else:
-            # Status is first 2 chars, file path after that
-            status = change[:2].strip()
-            file_path = change[3:].strip()
+            # Split line into status and file path
+            parts = change.split(None, 1)
+            if len(parts) == 2:
+                status, file_path = parts[0], parts[1].lstrip()
+            else:
+                status = parts[0]
+                file_path = ""
 
         # For renamed files, file_path contains "old_path -> new_path"
         if status == "R":
@@ -53,6 +57,9 @@ def group_related_files(changes):
             top_level_dir = parts[0]
         else:
             top_level_dir = "root"
+
+        # Debug print to verify file paths
+        print(f"Status: {status}, File path: '{file_path}'")
 
         groups[top_level_dir].append((status, file_path))
 
@@ -80,10 +87,28 @@ def categorize_files(files):
 
 def generate_commit_message(group_name, categories):
     """Generate commit message for a specific file group."""
-    message = f"Auto Commit for {group_name}:\n"
+    message = f"Auto Commit for group: {group_name}\n\n"
     for category, files in categories.items():
         if files:
-            message += f"{category}: {', '.join(files)}\n"
+            # Friendly category names
+            friendly_category = {
+                "A": "Added",
+                "M": "Modified",
+                "D": "Deleted",
+                "R": "Renamed",
+                "??": "Untracked",
+                "Untracked": "Untracked",
+                "Added": "Added",
+                "Modified": "Modified",
+                "Deleted": "Deleted",
+                "Renamed": "Renamed",
+                "Other": "Other",
+            }.get(category, category)
+
+            message += f"{friendly_category} files:\n"
+            for f in files:
+                message += f"  - {f}\n"
+            message += "\n"
     return message.strip()
 
 def auto_commit_and_push():
@@ -102,8 +127,10 @@ def auto_commit_and_push():
             if not category_files:
                 continue
 
-            commit_message = f"Auto Commit for {group_name} - {category_name}:\n"
-            commit_message += f"{category_name}: {', '.join(category_files)}"
+            commit_message = f"Auto Commit for group: {group_name} - {category_name}\n\n"
+            commit_message += f"{category_name} files:\n"
+            for f in category_files:
+                commit_message += f"  - {f}\n"
 
             # Stage only the files in this category
             success, _ = run_git_command(["add"] + category_files)
