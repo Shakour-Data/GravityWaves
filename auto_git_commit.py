@@ -177,7 +177,7 @@ def generate_commit_message(group_name, category_name, files):
     return message
 
 def auto_commit_and_push():
-    """Automate Git commit and push process in groups and categories."""
+    """Automate Git commit and push process for each changed file separately."""
     changes = get_git_changes()
     if not changes or (len(changes) == 1 and changes[0] == ''):
         print("No changes detected.")
@@ -192,8 +192,21 @@ def auto_commit_and_push():
             if not category_files:
                 continue
 
-            # Use the professional commit message generator
-            commit_message = generate_commit_message(group_name, category_name, category_files)
+            change_descriptions = {
+                "Added": "This file was newly added to the project and is now tracked.",
+                "Modified": "This file was modified with updates or fixes.",
+                "Deleted": "This file was removed from the project.",
+                "Renamed": "This file was renamed or moved to a different location.",
+                "Untracked": "This file is new and not yet tracked by git.",
+                "Other": "This file has other types of changes.",
+            }
+            description = change_descriptions.get(category_name, "")
+            commit_message = f"Auto Commit for group: {group_name} - {category_name}\n\n"
+            if description:
+                commit_message += f"Files in this category:\n\n"
+            commit_message += "Reason for changes: [Please describe the reason or issue addressed by these changes]\n\n"
+            for f in category_files:
+                commit_message += f"  - {f}: {description}\n"
 
             # Stage only the files in this category
             success, _ = run_git_command(["add"] + category_files)
@@ -201,19 +214,19 @@ def auto_commit_and_push():
                 print(f"Failed to stage files for {group_name} - {category_name}. Skipping commit.")
                 continue
 
-            # Commit with the generated message
-            success, _ = run_git_command(["commit", "-m", commit_message])
-            if not success:
-                print(f"Failed to commit files for {group_name} - {category_name}. Skipping push.")
-                continue
+                # Commit with the generated message
+                success, _ = run_git_command(["commit", "-m", commit_message])
+                if not success:
+                    print(f"Failed to commit file {file}. Skipping push.")
+                    continue
 
-            # Push the commit
-            success, _ = run_git_command(["push"])
-            if not success:
-                print(f"Failed to push commit for {group_name} - {category_name}.")
-                continue
+                # Push the commit
+                success, _ = run_git_command(["push"])
+                if not success:
+                    print(f"Failed to push commit for file {file}.")
+                    continue
 
-            print(f"Committed and pushed changes for group: {group_name} - category: {category_name}")
+                print(f"Committed and pushed changes for file: {file}")
 
 if __name__ == "__main__":
     auto_commit_and_push()
