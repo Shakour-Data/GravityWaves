@@ -104,39 +104,76 @@ def get_file_diff_summary(file_path):
         return "Could not retrieve diff."
 
 def generate_commit_message(group_name, category_name, files):
-    """Generate commit message for a specific file group and category."""
-    friendly_category = {
-        "Added": "✨ This file was newly added to the project and is now tracked.",
-        "Modified": "🛠️ This file was modified with updates or fixes.",
-        "Deleted": "🗑️ This file was removed from the project.",
-        "Renamed": "🔀 This file was renamed or moved to a different location.",
-        "Copied": "📋 This file was copied from another file.",
-        "Updated but unmerged": "⚠️ This file has merge conflicts that need to be resolved.",
-        "Untracked": "🆕 This file is new and not yet tracked by git.",
-        "Ignored": "🚫 This file is ignored by git.",
-        "Added and Modified": "✨🛠️ This file was added and then modified before committing.",
-        "Deleted and Modified": "🗑️🛠️ This file was deleted and modified before committing.",
-        "Renamed and Modified": "🔀🛠️ This file was renamed and modified before committing.",
-        "Copied and Modified": "📋🛠️ This file was copied and modified before committing.",
-        "Unmerged": "⚠️ This file has unmerged changes.",
-        "Type Changed": "🔄 The file type has changed.",
-        "Unknown": "❓ This file has an unknown change status.",
-        "Other": "⚙️ This file has other types of changes.",
-        "Conflicted": "❗ This file has conflicts that need to be resolved.",
-        "Staged": "📌 This file is staged for commit.",
-        "Unstaged": "✏️ This file has unstaged changes.",
-        "Both Modified": "🛠️ This file was modified in both the index and working tree.",
+    """Generate a professional conventional commit style message."""
+    type_map = {
+        "Added": "feat",
+        "Modified": "fix",
+        "Deleted": "remove",
+        "Renamed": "refactor",
+        "Copied": "chore",
+        "Updated but unmerged": "conflict",
+        "Untracked": "docs",
+        "Ignored": "chore",
+        "Added and Modified": "feat",
+        "Deleted and Modified": "fix",
+        "Renamed and Modified": "refactor",
+        "Copied and Modified": "chore",
+        "Unmerged": "conflict",
+        "Type Changed": "refactor",
+        "Unknown": "chore",
+        "Other": "chore",
+        "Conflicted": "conflict",
+        "Staged": "chore",
+        "Unstaged": "chore",
+        "Both Modified": "fix",
     }
-    description = friendly_category.get(category_name, "")
-    # Removed the "Auto Commit for group..." line as per user request
-    message = ""
-    if description:
-        message += f"Files in this category:\n\n"
-    message += f"Reason for changes: [Please describe the reason or issue addressed by these changes]\n\n"
+    emoji_map = {
+        "feat": "✨",
+        "fix": "🐛",
+        "remove": "🗑️",
+        "refactor": "♻️",
+        "chore": "🔧",
+        "conflict": "⚠️",
+        "docs": "📝",
+    }
+    commit_type = type_map.get(category_name, "chore")
+    emoji = emoji_map.get(commit_type, "")
+    scope = group_name if group_name != "root" else ""
+    subject = f"{emoji} {commit_type}"
+    if scope:
+        subject += f"({scope})"
+    subject += f": {category_name} files updated"
+
+    body = "Changes included:\n"
     for f in files:
-        message += f"  - {f}: {description}\n"
+        desc = {
+            "Added": "This file was newly added to the project and is now tracked.",
+            "Modified": "This file was modified with updates or fixes.",
+            "Deleted": "This file was removed from the project.",
+            "Renamed": "This file was renamed or moved to a different location.",
+            "Copied": "This file was copied from another file.",
+            "Updated but unmerged": "This file has merge conflicts that need to be resolved.",
+            "Untracked": "This file is new and not yet tracked by git.",
+            "Ignored": "This file is ignored by git.",
+            "Added and Modified": "This file was added and then modified before committing.",
+            "Deleted and Modified": "This file was deleted and modified before committing.",
+            "Renamed and Modified": "This file was renamed and modified before committing.",
+            "Copied and Modified": "This file was copied and modified before committing.",
+            "Unmerged": "This file has unmerged changes.",
+            "Type Changed": "The file type has changed.",
+            "Unknown": "This file has an unknown change status.",
+            "Other": "This file has other types of changes.",
+            "Conflicted": "This file has conflicts that need to be resolved.",
+            "Staged": "This file is staged for commit.",
+            "Unstaged": "This file has unstaged changes.",
+            "Both Modified": "This file was modified in both the index and working tree.",
+        }.get(category_name, "")
         diff_summary = get_file_diff_summary(f)
-        message += f"    Summary of changes:\n    {diff_summary}\n\n"
+        body += f"- {f}: {desc}\n  Summary:\n    {diff_summary}\n"
+
+    footer = "\nPlease describe the reason or issue addressed by these changes."
+
+    message = f"{subject}\n\n{body}\n{footer}"
     return message
 
 def auto_commit_and_push():
