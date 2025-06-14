@@ -1,0 +1,905 @@
+[
+  {
+    "commit_hash": "b71e45ccfd77fdfc7f2ffdcf653e9cfc8734a06c",
+    "author": "GravityMg",
+    "date": "2025-06-14 03:28:32 +0000",
+    "message": "✨📝 Add functionality to update project dashboard",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "54d1f69205125c683cf09af0dd75babcf2ee6d50",
+    "author": "GravityMg",
+    "date": "2025-06-14 03:28:00 +0000",
+    "message": "📝 Refactor: Organize task scoring functions and update task status logic in project_task_scoring.py",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "0f4bba4503baf187113f2c80ab13a2b836a1c4b9",
+    "author": "GravityMg",
+    "date": "2025-06-14 03:27:16 +0000",
+    "message": "✨📝 Added Python script for generating project management reports",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "2184c193b822b4ebc3802067cc32aa291c662a69",
+    "author": "GravityMg",
+    "date": "2025-06-14 03:26:25 +0000",
+    "message": "📝🔧 Added commit hook script to automate updating commits.json and project dashboard after each commit.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "fe732caff8a693d08ce28461a3a4aa7126cc8e05",
+    "author": "GravityMg",
+    "date": "2025-06-14 03:12:14 +0000",
+    "message": "✨📚 Added detailed project plan for GravityWaves project.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "e7bb65cd4d5410a5f37bffd9cb5d75af174ad428",
+    "author": "GravityMg",
+    "date": "2025-06-13 20:51:27 +0000",
+    "message": "📝 Add git commit extraction script",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "b2666e1e3958ad0955fd606db8e30561e7dda68f",
+    "author": "GravityMg",
+    "date": "2025-06-13 20:50:47 +0000",
+    "message": "📝 Added detailed documentation plan for the project with tasks breakdown and automation schedule.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "c6b70239c62e7088ff78d0c19de7c021e9c5069e",
+    "author": "GravityMg",
+    "date": "2025-06-13 20:46:59 +0000",
+    "message": "✨📝 Added detailed deployment and integration plan in docs.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "f48bfcfeb507e4dbd10fdad6dcaeb3a708b7e1f0",
+    "author": "GravityMg",
+    "date": "2025-06-13 20:45:34 +0000",
+    "message": "📝 Added initial project configuration files for documentation in JSON format.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "f181cdf48d2a97aa8376a5d437cea936d2df77d2",
+    "author": "GravityMg",
+    "date": "2025-06-13 20:44:08 +0000",
+    "message": "📝 Added Git ignore for project documentation directory.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "a612a3f2cc705688b569049c4e9795d2bdb9edf7",
+    "author": "GravityMg",
+    "date": "2025-06-13 20:32:12 +0000",
+    "message": "✨📦 Added support for installing requirements in both existing and new virtual environments 🔄🔧",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "77836f4eb9a55df558949fe818ea88fe04904514",
+    "author": "GravityMg",
+    "date": "2025-06-13 20:31:28 +0000",
+    "message": "`Added functionality to install requirements from requirements.txt in create_venvs.py`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "ae9c3869bb2b0ed545046bb56ff418c671fabdfa",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 16:40:41 +0330",
+    "message": "📝 Update: Add file, Add Python source, Add Text doc, Add XML config",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "7a3dc675f60d1b23ef2b6f9cd8e933b71bebf527",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 13:07:08 +0000",
+    "message": "✨ Add script to create virtual environments for project directories 🐍",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "2b47af8df148232b13b021f233599add8c259fac",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 11:23:47 +0000",
+    "message": "📝🔧 Added project management database backup file 🔄",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "e7c3c35db8cbca1cacf9bff94816e7c58364da58",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 11:17:38 +0000",
+    "message": "Merge origin/Documentation01 into Pln_DataBase01: resolved conflict in .gitignore by keeping Pln_DataBase01 changes",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "f7fe74d98a59c9e7114d55ace9dd7caa78357c1e",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 10:38:36 +0000",
+    "message": "✨📝 Added single-database configuration setup for Flask in migrations README.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "14c62ee7adf629deb2ae3e1083e976862930a334",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 10:38:05 +0000",
+    "message": "✨ Add database migration for new tables and relationships 🗃️",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "f43e90aaf592cac11c3ab96c24604e2458b4bae7",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 10:35:43 +0000",
+    "message": "📝 Implemented database migrations configuration for Flask app via Alembic in env.py.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "08e8688aec0b01558134eba75305d25646c98b69",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 10:34:39 +0000",
+    "message": "📘 Docs: Added Alembic configuration and migration script template.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "20761abbfcfbd5545c32e30ca0641e8a5cb62155",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 10:33:45 +0000",
+    "message": "✨📝 Added initial API tests for PLN application including index page, work cycle stages, tasks, resources, commits, and AI summary report with error handling tests for invalid data POST requests.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "0fdd998f753fa3f81439a3e3d0b789f5b55d99df",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 10:32:47 +0000",
+    "message": "📝 Updated project dependencies in requirements.txt 🔄",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "5de2d0031f46f71cce4fdaf6aa16ece04b6c5067",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 10:28:10 +0000",
+    "message": "📝 Refactor seed_initial_data function in gravitywaves_initial_data.py 🌱",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "399526045262b5e3f4ff8596e6b53fe8b030f3e6",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 10:26:35 +0000",
+    "message": "✨📝 Refactor database URL configuration in pln_app.py",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "c045c7e129f9be449e39d65e4e5af91327b6014c",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 10:24:47 +0000",
+    "message": "📝 Removed unnecessary import in manage.py, improving code cleanliness.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "bee65f5869844ea79f6032c59cbd99159f6bbb9f",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 10:23:43 +0000",
+    "message": "`Refactor project configuration and dependencies`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "05c4e8dbfa402dc663b0cf44318de09bd5489be7",
+    "author": "GravityWavesDB",
+    "date": "2025-06-13 10:19:59 +0000",
+    "message": "`Removed migration scripts and updated requirements.txt file`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "1ddb10fdd6804b62b891603f12269bc171062618",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 13:05:33 +0330",
+    "message": "✨ Add CSS styles for documentation website 🎨",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "ffac7a5c31d64643840e7d532c8cd4507c6fe4c4",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 13:04:46 +0330",
+    "message": "📝🌐 Added user documentation section to HTML template",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "ed639afba0958cfe5513c2d8bff609b52412494d",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 13:04:22 +0330",
+    "message": "✨📝 Added testing & quality assurance documentation HTML template 📄",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "ac15716cf52fb559124e533fb435b42fea4e99d4",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 13:00:29 +0330",
+    "message": "✨📝 Added technical documentation HTML template for Gravity Waves documentation",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "bfbae2d9ad3ff6aa1be7889c56d370e9f6200f85",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 12:51:40 +0330",
+    "message": "✨📄 Added HTML template for Management Documentation 📝",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "71d54e3a08cfb1c5a7f365f243588d3ec957bec8",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 12:51:15 +0330",
+    "message": "✨📝 Added maintenance & support documentation HTML template 📄",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "e2b784eeffc91990b0c81b8de62c85cb6e0868e3",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 12:50:50 +0330",
+    "message": "✨📝 Added HTML template for GravityWaves Project Documentation.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "b7cc1af14d1f4a27a956df9ff8664166abfdd5ab",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 12:50:14 +0330",
+    "message": "📝 Update: Update HTML template",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "aecbf42de953d96ef4266db1da50460edb9edef7",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 12:47:47 +0330",
+    "message": "✨📝 Added HTML template for GravityWaves documentation header styling.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "21ddd4e59d9fce785bb8ab4b8a246ac75859d9c0",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 12:06:53 +0330",
+    "message": "✨📝 Added footer to HTML template for GravityWavesDocumentation 🌌👣",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "4f8ed792ce2bbffe42289c5613591f162ab65885",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 11:48:39 +0330",
+    "message": "✨📝 Added HTML template for GravityWaves Design & Modeling Documentation",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "53f02a6d0bf120d417f952b569706449873bdace",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 11:47:31 +0330",
+    "message": "✨ Add HTML template for GravityWaves documentation 📄🌌",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "cee2b5dddc6169bc14c996affe9950524e872c04",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 11:45:31 +0330",
+    "message": "✨📝 Added Flask web app to display Gravity Waves documentation.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "b83c31c6a1c090f9e0eacdb344c1875eb0b99aa0",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 11:44:40 +0330",
+    "message": "✨🔧 Fix binary file : Fix inconsistencies in a binary file.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "a92cc54211a5bae897fe671aea757713e19d6b45",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 11:43:50 +0330",
+    "message": "🩹🔧 Fixed caching issues, updated log messages, and improved market data retrieval process.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "d56f14a58b2844c4f9987aabe36267978aaf0f42",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 11:42:55 +0330",
+    "message": "✨📝 Added logo images to the project for documentation purposes.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "82114863b7eee542e7a38bd217fbfb923e513b65",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 11:11:40 +0330",
+    "message": "🧹 Removed obsolete HTML and CSS files from documentation files.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "bc9b14f8c66d47a9c6d2a1c3d5904df4be94f871",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 11:09:52 +0330",
+    "message": "📝 Update: Update Python source",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "04e3fac4eb1b567c9b0f322c15659f59406aff23",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 11:08:43 +0330",
+    "message": "🛠️ Added specific Git Ignore rules for documentation and project management virtual environments.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "a0e05f6822c83c6f0d068ee7fb4d670589152d53",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-13 11:07:57 +0330",
+    "message": "🔧 Fix: update compiled Python bytecode file",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "41d92ea6c1c189427fb09ef343650a8a52e5cba5",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 19:19:38 +0000",
+    "message": "📝 Update: Update HTML template",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "0a42c6cfc29083f3b5f6a446e538bf1675cd6774",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 19:18:44 +0000",
+    "message": "📝 Update: Add HTML template",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "76bf81bb08a1314b3da51c1ae662e834b9bf7a2a",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 19:17:47 +0000",
+    "message": "📝 Update: Add Python source",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "6ce3a3488197ea50860f3521e8432bd24865a58a",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 19:17:03 +0000",
+    "message": "📝 Update: Update Python source",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "91cab7e9ad50654b9e25f9e1dd1698770f76210e",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 19:15:52 +0000",
+    "message": "📝 Update: Add Python source",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "52722b4b41170dc3b2b62e7e87ab938c86ece7f9",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 17:14:25 +0000",
+    "message": "✨📝 Added JSON configuration for urgency levels 📊",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "d2721c238e16c620bce8a5379f2088e2e8c7e65f",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 17:11:18 +0000",
+    "message": "📝 Added JSON configuration file for project tasks management.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "488fb585a466ba08a588ec977367eab59a8baa3a",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 17:10:42 +0000",
+    "message": "✨📝 Added JSON configuration file for importance levels in project management.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "5662205eba42b3bcdf12d44652e276cff1bcb99a",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 17:09:46 +0000",
+    "message": "📝🐍 Added tables for importance and urgency levels in database migration script.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "56899f4a699d32e85eccac4e38f4f7b0c0f23fcb",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 17:07:21 +0000",
+    "message": "✨📝 Add seed data for importance and urgency levels from JSON files in gravity waves project management.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "98f93b95b60e284db694ce76968e4098cdeb796c",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 17:06:10 +0000",
+    "message": "🔧📝 Update Git ignore to exclude database files",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "fad82aa7021196287c05ed12c824b863f5614fed",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 14:24:28 +0000",
+    "message": "Merge remote-tracking branch 'origin/Documentation01' into Pln_DataBase01",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "735246783712657cfd4715598b6bf24622dd5287",
+    "author": "GravityWavesMl",
+    "date": "2025-06-12 13:02:36 +0000",
+    "message": "✨📝 Added .gitignore file to ignore venv/, __pycache__/ and *.pyc files in GravityWavesDocumentation folder.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "e35aadbbe54f8d20aa24e883a633bdf6e4438045",
+    "author": "GravityWavesMl",
+    "date": "2025-06-12 12:26:29 +0000",
+    "message": "✨📸 Added project logo image for Gravity Waves Project Management in docs folder 🚀",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "6d2a610a493339b1b044079d46aead3393854bb7",
+    "author": "GravityWavesMl",
+    "date": "2025-06-12 12:25:34 +0000",
+    "message": "📝 Refactor static folder path in pln_app.py",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "5e26f578a9a4312306d71ac9e77ab877e58c6dc1",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 10:20:28 +0000",
+    "message": "Merge branch 'Documentation01' of https://github.com/Shakour-Data/GravityWaves into Documentation01",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "df7588af32b6f3f3b55fdd8cac89f152739b07da",
+    "author": "GravityWavesDB",
+    "date": "2025-06-12 10:15:22 +0000",
+    "message": "✨📝 Added Git ignore and requirements.txt for GravityWaves documentation.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "087c474bedfb7fdee7bf5e7171eef250c4d5d8e2",
+    "author": "GravityWavesMl",
+    "date": "2025-06-12 10:10:18 +0000",
+    "message": "📝 Fixed handling of invalid status values in pln_app.py by adding a validation check.",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "63005c6755a8a896bf2f9bd8808c739a0b116c23",
+    "author": "Shakour",
+    "date": "2025-06-12 08:35:09 +0000",
+    "message": "Add .gitignore and setup files for virtual environment and migrations",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "da863b250483958b5ca3c799462585cb9a9608ea",
+    "author": "Shakour",
+    "date": "2025-06-12 08:34:15 +0000",
+    "message": "Add migration environment setup for Alembic",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "0b01ceb6bdf1dc2dfa3bb495e3862fcc7a04c50c",
+    "author": "Shakour",
+    "date": "2025-06-12 08:32:10 +0000",
+    "message": "Add initial migration script for database schema",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "6de792d8861617bb6e7092ec49096b259e73d952",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-12 10:31:26 +0330",
+    "message": "Docs/doc_GravityWavesDocumentation",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "9ee284a4381490ed0b178222c183eded754a81f0",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-12 10:20:27 +0330",
+    "message": "Update assistant_analysis service for improved market data message handling",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "8af9204de57fc498eb9c575f6fa9443423b3730f",
+    "author": "Shakour",
+    "date": "2025-06-12 06:14:28 +0000",
+    "message": "Add wildcard entry for database files to .gitignore",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "1b7db9cc7e0b15d9c1e43bbd9788347602924229",
+    "author": "Shakour",
+    "date": "2025-06-12 06:14:09 +0000",
+    "message": "Add initial data seeding script for GravityWaves project",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "daa3b8cb6c4c8d64416a5e52bbbc34f7cfc27353",
+    "author": "Shakour",
+    "date": "2025-06-12 06:13:50 +0000",
+    "message": "Add routes for tasks, resources, gantt, costs, and reports pages",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "ce378a30f948f080cc569ff71884f530aacbf622",
+    "author": "Shakour",
+    "date": "2025-06-12 06:13:24 +0000",
+    "message": "Remove initial data seeding script for GravityWaves project",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "00417b25d8f224c1b2cfdcb9e20e86f721dac9f3",
+    "author": "Shakour",
+    "date": "2025-06-12 06:12:52 +0000",
+    "message": "Remove unit tests for project management dashboard",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "5d3c4f8537e95bf366cc581fbcf328e0b073d7a0",
+    "author": "Shakour",
+    "date": "2025-06-12 06:12:25 +0000",
+    "message": "Add unit tests for project management dashboard API endpoints",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "98a6a5f8eb717466132852767e731e4ea7627b60",
+    "author": "Shakour",
+    "date": "2025-06-12 06:11:29 +0000",
+    "message": "Add tasks management template with dynamic task fetching and modal for adding/editing tasks",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "ab30d2bb07a833dfacb498084c0421bd79d601e9",
+    "author": "Shakour",
+    "date": "2025-06-12 06:11:06 +0000",
+    "message": "Add resources management template with dynamic resource fetching and modal for adding/editing resources",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "ef9eedfaeb00e45cef64dc53c888ce6193617364",
+    "author": "Shakour",
+    "date": "2025-06-12 06:10:44 +0000",
+    "message": "Add reports template with task status, urgent/important tasks, resource utilization, cost estimation, and AI-generated summary",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "8e08d25b0aafabd3cd25a852969b990c50a2b59a",
+    "author": "Shakour",
+    "date": "2025-06-12 06:10:13 +0000",
+    "message": "Refactor project management dashboard: remove tasks, resources, and cost sections; update project summary to fetch AI summary data from API",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "722327ac8c89744e6f0de530617620141f15f7e9",
+    "author": "Shakour",
+    "date": "2025-06-12 06:09:48 +0000",
+    "message": "Add Gantt chart visualization template with task fetching functionality",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "2fd54ba7c18a3f64392288bcf7614fd452f0b96d",
+    "author": "Shakour",
+    "date": "2025-06-12 06:08:21 +0000",
+    "message": "`Removed initial data seeding and tests for GravityWaves project management dashboard`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "29b4e83ac7b5cff354cf88fd7bcc401253b1d630",
+    "author": "Shakour",
+    "date": "2025-06-12 06:07:47 +0000",
+    "message": "`Removed initial data seeding and tests for GravityWaves project management dashboard, updated project summary report to fetch AI summary data from API, and added routes for tasks, resources, Gantt chart, costs, and reports pages.`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "ed3fc4c51cfd94b3fbf3fd960aafdbc6d9acfa53",
+    "author": "Shakour",
+    "date": "2025-06-12 06:06:54 +0000",
+    "message": "`Refactor project management dashboard: remove unused code, update templates, and modify API endpoints`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "b5550d5898378cadb74269a7b84a718222653e7c",
+    "author": "Shakour",
+    "date": "2025-06-12 06:06:19 +0000",
+    "message": "`Removed initial data seeding and tests, updated project management dashboard to fetch AI summary report from API`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "667f0e303aef65446f658c41170eecb2daa4a111",
+    "author": "Shakour",
+    "date": "2025-06-12 06:02:44 +0000",
+    "message": "`Removed initial data seeding and tests, updated project management dashboard to fetch AI summary report from API`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "6e7592f7c0bb0d9ef2c72e268d92e918dd67828e",
+    "author": "Shakour",
+    "date": "2025-06-12 06:02:22 +0000",
+    "message": "`Removed initial data seeding and project management dashboard functionality`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "f82ae5b37fbb95f97a195418a6f31ea6c8ef0447",
+    "author": "Shakour",
+    "date": "2025-06-12 06:01:56 +0000",
+    "message": "`Removed project management dashboard and related code, including database seeding, API endpoints, and frontend templates.`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "1c720340a0cac21ae0970e7f4015bbb87608dd63",
+    "author": "Shakour",
+    "date": "2025-06-12 05:13:23 +0000",
+    "message": "`Removed project management application code and database files`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "e6e7d13750931e4a16d9a3bd171ef1a77cbc4737",
+    "author": "Shakour",
+    "date": "2025-06-12 05:10:10 +0000",
+    "message": "`Removed project management application code and database`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "919d7f588a4f31b70897111e8351bd2959ef46cb",
+    "author": "Shakour",
+    "date": "2025-06-11 19:49:04 +0000",
+    "message": "Implement project management system with Agile work cycle, task scoring, commit integration, and AI reporting; add detailed GravityWaves project tasks and resources; add comprehensive tests for project management dashboard",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "8a8375a29370c910e4d466db975cc3517eca7adb",
+    "author": "Shakour",
+    "date": "2025-06-11 19:43:03 +0000",
+    "message": "`Refactored project management application with Flask, SQLAlchemy, and Flask-Migrate`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "d87ed9c8dfa711c63602d748efc420976e9c9aef",
+    "author": "Shakour",
+    "date": "2025-06-11 19:42:31 +0000",
+    "message": "`Refactor project management application to use Flask-SQLAlchemy and Flask-Migrate for database management, add models for WorkCycleStage, Resource, Task, and Commit, and implement API endpoints for CRUD operations and reporting.`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "d8fc91b6b31e72fad6dba0684d4d922da2196f4f",
+    "author": "Shakour",
+    "date": "2025-06-11 19:41:00 +0000",
+    "message": "`Refactored project management application with Flask, SQLAlchemy, and Flask-Migrate`",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "48d25c66b169b0abac5a6744dc5cca7b17cc58c4",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-11 19:15:56 +0330",
+    "message": "Building a project management site",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "c34f74240963d7d433209d581d3df70623dccfcc",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-11 18:43:20 +0330",
+    "message": "Preparing to create a document",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "39b634faed65a7486afbcd8104d52e4a9fab622c",
+    "author": "Shakour",
+    "date": "2025-06-11 08:24:34 +0000",
+    "message": ".gitignore",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "32ff83aac7a8c3535a894f95fe35ee8c649a9cfe",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-11 11:18:50 +0330",
+    "message": "Create Docs",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "ee0b38b04353eb195a9c6d98ce8fd5d40eb84a0c",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-09 11:41:09 +0330",
+    "message": "Refactor UI to modular yellow-black themed layout; unify analysis pages with dynamic market dashboard template",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "1e740f54a3769d27e213e6fda45e35e663bb74a3",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-09 10:19:54 +0330",
+    "message": "Refactor multiple templates and backend files for consistent UI layout and functionality as per UI architecture documentation",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "0a8da5f7de3547bd42763c9555ea56f908ed9182",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-08 17:18:36 +0330",
+    "message": "Save unstaged changes before git flow init",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "702483c8406068307b5825014cf640328e4d86ba",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-07 19:54:51 +0330",
+    "message": "Rename chatbot.html to market_dashboard.html and rewrite as market data analysis dashboard; update Flask routes and login redirect accordingly",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "ae98e6ecd033ac053a8c0a4c8a8bfb09e2d0f9ba",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-07 09:24:01 +0330",
+    "message": "Update chatbot.html layout: remove chat, add 6-part content box, adjust sidebars and buttons, add ticker input",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "7bf6558cabbc8dffb04c977d5a92a098a06e6f99",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-07 03:18:39 +0330",
+    "message": "Update .gitignore to reflect project needs",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "a225a6ecc0c20c31e84188859a5f3ef1c5a48e11",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-07 03:18:38 +0330",
+    "message": "Add tests for authentication and chatbot functionality",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "cd691e457c0377fbaea329207822eaa54891db8c",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-07 03:18:38 +0330",
+    "message": "Revamp frontend UI with updated chat layout and styling",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "5f300149ba99a6c1b51196ad20780f5114538540",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-07 03:18:38 +0330",
+    "message": "Enhance core application logic and chatbot analysis service",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "c41394b25d19d64fb2da75b268829b5ed09561a6",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-07 03:18:38 +0330",
+    "message": "Update and add project documentation and progress reports",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "328e1f85a159ec6d3f7d269dd0341832778d4af3",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-06 19:04:50 +0330",
+    "message": "chat bot 01",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "076b6c657e7d4fe30c438b02598004832627f17d",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-06 17:45:59 +0330",
+    "message": "New UI",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "dcd03f836bcfc5a4c1ed995931cbfaba33230d63",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-06 11:50:52 +0330",
+    "message": "Add nohup.out log file for background process monitoring",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "94abd19e10aebf63fbf2ba29bdae9dd25b48a481",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-06 11:43:51 +0330",
+    "message": "Remove deleted and unnecessary cache files and obsolete docs to clean repository",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "8b4cf6e0e0a3a29c0e96306a11bc151317cc39d4",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-06 11:38:15 +0330",
+    "message": "Update documentation files: .blackboxrules, Docs/WorkCycle.md, Docs/tasks.md with latest project workflow and tasks",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "bbfa2424b6cefb3077a1c5b3eadf5fa732b70062",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-05 18:46:30 +0330",
+    "message": "Complete API development testing and improvements",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "4be3ee25c5799c5e232b47a2b229cac594bc086a",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-05 18:33:33 +0330",
+    "message": "Complete backend API testing and improvements",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "bbd009793a33f2cb743eee8a6abd37f9c6088005",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-05 13:46:38 +0330",
+    "message": "Remove logs/system.log from staging to respect .gitignore",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "19dc6a9a898b024b8ae6d6220fda9bf7f4616b69",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-05 13:42:50 +0330",
+    "message": "Complete individual page templates and update tasks file",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "c0339a9a6c9a44116e550e7584595e24bf42782c",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-05 13:19:16 +0330",
+    "message": "Commit all pending changes as per user request",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "08ae87ef2855690d27a0bbfe7a869ef254da167c",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-05 13:16:36 +0330",
+    "message": "Complete base templates redesign and testing; update tasks.txt to mark activity 1.7 done",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "960c2f2261a1509e8cf28e4fb44a2bbae7379601",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-05 09:26:25 +0330",
+    "message": "A set of changes",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "e1e81923d20dae31ab03182e309d1f6a934bb78c",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-03 02:32:46 +0330",
+    "message": "maked index(home) page",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "aca1d2ef53db690f457b9f60b15617e66aa7c0b5",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-01 18:39:15 +0330",
+    "message": "gitignore",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "3be5fa407a8fb90c0c790cf57915c211f7d98ad6",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-01 18:36:59 +0330",
+    "message": "Fix JSON serialization error by removing Pipeline object from API response in MarketAnalysisSystem",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "ffb0facefeb16ec050ec9a191b98b49b168df9ae",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-01 17:51:12 +0330",
+    "message": "Add venv setup instructions file",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "7984e75ea7ec66a53f698688df8b4bd1d37acefd",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-01 17:39:03 +0330",
+    "message": "Fix test_app.py to align with recent test runner and logging changes",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "10be9d8aa2ceac1b064f33562ca96341ad7712a6",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-01 17:35:47 +0330",
+    "message": "Fix run_analysis_pipeline to handle empty and missing columns gracefully in MarketAnalysisSystem",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "40376d101a1de149fc2509f835fe51d71a221cee",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-01 12:34:51 +0330",
+    "message": "General change",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "405616bcc9263d5d270bf08e45329004526c948c",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-01 12:30:47 +0330",
+    "message": "Add comprehensive tests for /api/analyze endpoint with large synthetic dataset, input validation, and error handling",
+    "linked_task_ids": []
+  },
+  {
+    "commit_hash": "c8d96ba0a75b477d84133af2de7dbc66877cea46",
+    "author": "GravityWavesOrg",
+    "date": "2025-06-01 10:27:57 +0330",
+    "message": "first commit",
+    "linked_task_ids": []
+  }
+]
