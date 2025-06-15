@@ -1,0 +1,34 @@
+{
+  "statuses": [
+    {
+      "id": 1,
+      "name": "To Do",
+      "description": "Task is planned but work has not started yet.",
+      "color": "#FF0000"
+    },
+    {
+      "id": 2,
+      "name": "In Progress",
+      "description": "Task is currently being worked on.",
+      "color": "#FFA500"
+    },
+    {
+      "id": 3,
+      "name": "In Review",
+      "description": "Task is completed and under review.",
+      "color": "#0000FF"
+    },
+    {
+      "id": 4,
+      "name": "Blocked",
+      "description": "Task is blocked and cannot proceed.",
+      "color": "#8B0000"
+    },
+    {
+      "id": 5,
+      "name": "Done",
+      "description": "Task has been completed.",
+      "color": "#008000"
+    }
+  ]
+}
