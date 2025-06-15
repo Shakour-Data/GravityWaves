@@ -1,0 +1,22 @@
+# Pseudocode Documentation
+
+## Purpose
+Pseudocode provides a human-readable description of algorithms and logic without strict syntax, facilitating communication between developers and non-technical stakeholders.
+
+## Contents
+- Principles of writing clear and concise pseudocode
+- Conventions and formatting guidelines
+- Examples of pseudocode for critical algorithms in Gravity Waves
+- Tips for translating pseudocode into actual code
+- Best practices for maintaining pseudocode documentation
+
+## Instructions
+- Use structured, language-agnostic statements.
+- Avoid language-specific syntax and focus on logic.
+- Include comments to clarify complex steps.
+- Review pseudocode with development teams.
+- Keep pseudocode updated with algorithm changes.
+
+## References
+- Algorithm design textbooks
+- Pseudocode style guides
