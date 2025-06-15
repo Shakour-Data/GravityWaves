@@ -1,0 +1,45 @@
+# Documentation Types and Instructions for Gravity Waves Project
+
+This file outlines the different types of documentation to be created for the Gravity Waves project, along with instructions for generating each type.
+
+## 1. API Documentation
+- Target: Backend services in `app/services`
+- Purpose: Document the API endpoints, service classes, functions, and data structures.
+- Instructions:
+  - Extract docstrings and comments from Python service files.
+  - Include usage examples and expected inputs/outputs.
+  - Highlight dependencies and integration points.
+  - Format using markdown with clear headings and code blocks.
+
+## 2. User Interface Documentation
+- Target: Frontend templates in `templates`
+- Purpose: Document the UI components, page layouts, and user interaction flows.
+- Instructions:
+  - Describe the purpose of each template file.
+  - Explain key UI elements and their roles.
+  - Include screenshots or references to visual assets if applicable.
+  - Provide usage notes and customization options.
+
+## 3. Design and Architecture Documentation
+- Target: Overall system design and architecture
+- Purpose: Explain the system architecture, design patterns, and data flow.
+- Instructions:
+  - Summarize the high-level architecture.
+  - Describe key modules and their interactions.
+  - Document design decisions and rationale.
+  - Use diagrams or flowcharts where helpful.
+
+## 4. Testing and Usage Guides
+- Target: Testing strategies and usage instructions
+- Purpose: Provide guidance on testing the system and using its features.
+- Instructions:
+  - Document test cases and coverage.
+  - Explain how to run tests and interpret results.
+  - Provide user guides for key features.
+  - Include troubleshooting tips and FAQs.
+
+---
+
+Each documentation type should have a corresponding text file with detailed instructions for generation. The main AI documentation generation instructions should reference these files to guide the documentation process.
+
+This structured approach ensures comprehensive and organized documentation for the Gravity Waves project.
