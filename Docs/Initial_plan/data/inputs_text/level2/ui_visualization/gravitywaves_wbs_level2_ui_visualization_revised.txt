@@ -1,0 +1,13 @@
+1-3. User Interface and Visualization
+   Description: Development of frontend components for data visualization and user interaction.
+
+1-3-1. Market Dashboard Development
+       Description: Design and implement the main market dashboard layout and components.
+
+1-3-2. Analysis Pages Development
+       Description: Develop individual analysis pages such as price history, indicator analysis, and state analysis.
+
+1-3-3. User Authentication and Settings
+       Description: Implement user login, registration, and settings management features.
+
+# Note: Further Level 2 files will be created for other main projects.

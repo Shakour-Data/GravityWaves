@@ -1,0 +1,13 @@
+1-6. Documentation and Training
+   Description: Creation and maintenance of project documentation and user training materials.
+
+1-6-1. Technical Documentation
+       Description: Develop and maintain technical documentation for backend and frontend components.
+
+1-6-2. User Manuals and Guides
+       Description: Create user manuals and guides for application usage.
+
+1-6-3. Training and Support
+       Description: Provide training sessions and ongoing support for users.
+
+# Note: Further Level 2 files will be created for other main projects.

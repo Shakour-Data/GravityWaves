@@ -1,0 +1,28 @@
+1-2-1-1. Market State Classification - Algorithm Development - Algorithm Design
+           Description: Design classification algorithms for market states.
+
+1-2-1-2. Market State Classification - Algorithm Development - Implementation
+           Description: Implement classification algorithms in code.
+
+1-2-1-3. Market State Classification - Algorithm Development - Testing
+           Description: Test classification algorithms for accuracy.
+
+1-2-2-1. Feature Selection - Identify Features
+           Description: Identify relevant features for models.
+
+1-2-2-2. Feature Extraction - Extract Features
+           Description: Extract features from raw data.
+
+1-2-2-3. Feature Transformation - Transform Features
+           Description: Transform features for model input.
+
+1-2-3-1. Model Selection - Evaluate Models
+           Description: Evaluate different machine learning models.
+
+1-2-3-2. Model Training - Train Models
+           Description: Train selected models on data.
+
+1-2-3-3. Model Evaluation and Tuning - Evaluate and Tune
+           Description: Evaluate model performance and tune parameters.
+
+# Note: This file defines Level 5 WBS tasks for all Level 4 branches under Market Data Analysis and Modeling.

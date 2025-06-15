@@ -1,0 +1,13 @@
+1-2. Market Data Analysis and Modeling
+   Description: Analysis of market data, feature engineering, and development of predictive models.
+
+1-2-1. Market State Classification
+       Description: Develop algorithms to classify market states based on historical data.
+
+1-2-2. Feature Engineering
+       Description: Create and select features for machine learning models.
+
+1-2-3. Model Training and Evaluation
+       Description: Train predictive models and evaluate their performance.
+
+# Note: Further Level 2 files will be created for other main projects.
