@@ -1,0 +1,7 @@
+[
+  {"level": 1, "description": "Very Low"},
+  {"level": 2, "description": "Low"},
+  {"level": 3, "description": "Medium"},
+  {"level": 4, "description": "High"},
+  {"level": 5, "description": "Very High"}
+]
