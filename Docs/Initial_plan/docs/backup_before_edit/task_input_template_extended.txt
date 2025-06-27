@@ -1,0 +1,61 @@
+# Task Input Template Extended
+
+This document provides an extended template for task input files used in project management. It includes fields for detailed task descriptions, dependencies, risks, quality criteria, costs, stakeholders, and more.
+
+## Template Fields
+
+- ID: Unique identifier for the task or work package, using hierarchical notation (e.g., 1, 1-1, 1.1.1).
+- Description: Brief description of the task or work package.
+- Level: The hierarchical level of the task (1 to 6).
+- Status: Current status (e.g., Todo, In Progress, Done).
+- Dependencies: List of IDs of tasks that must be completed before this task.
+- Risk Description: Description of potential risks.
+- Risk Impact: Impact level of risks (Low, Medium, High).
+- Risk Mitigation Plan: Actions to mitigate risks.
+- Quality Criteria: Criteria to measure quality.
+- Quality Assurance Activities: Activities to ensure quality.
+- Cost Estimate: Estimated cost.
+- Cost Control Measures: Measures to control costs.
+- Stakeholders: People or groups involved.
+- Communication Plan: How communication will be handled.
+- Procurement Needs: Required procurement items.
+- Constraints: Known constraints.
+- Assumptions: Assumptions made.
+- Priority Level: Priority of the task.
+- Critical Path Indicator: Whether the task is on the critical path.
+- Task Owner: Person responsible.
+- Milestone Dates: Key milestone dates.
+- Deliverables: Expected deliverables.
+
+## Usage Instructions
+
+- The ID field must use hierarchical notation to represent the WBS structure, e.g., 1, 1-1, 1.1.1, etc.
+- Each task must have a Description.
+- The Level field indicates the depth in the WBS hierarchy (1 to 6).
+- Each level in the WBS must have at least three child tasks in the next level.
+- Initially, only the ID and Description fields are mandatory.
+- Other fields such as Status, Dependencies, Risks, Costs, etc., are to be filled after the full WBS is defined.
+- The WBS should be developed from the bottom up, starting with detailed tasks at level 6.
+- After defining all tasks, aggregate durations, costs, and other metrics up the hierarchy.
+- Use consistent formatting and naming conventions for clarity.
+- Update this document as needed to reflect changes in process or requirements.
+
+- When creating the WBS, ensure that each level has at least three child tasks in the next level to maintain a balanced structure.
+- Use hierarchical IDs with separators such as hyphens or dots to clearly indicate task relationships.
+- Focus initially on defining the ID and Description fields for all tasks before adding other details.
+- Develop the WBS starting from the most detailed tasks (level 6) and then aggregate upwards.
+- Maintain clear and consistent naming conventions to facilitate automated processing by AI tools.
+- Regularly review and update the template and instructions to align with project management best practices and AI integration needs.
+
+## Example
+
+1. Project Management
+   Description: Overall project management activities.
+
+1-1. Planning
+     Description: Planning activities including scheduling and resource allocation.
+
+1-1-1. Define Scope
+         Description: Define project scope and objectives.
+
+# End of Template
