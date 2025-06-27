@@ -3,60 +3,77 @@ import argparse
 import subprocess
 import json
 
-def generate_documentation(code_paths, output_dir):
+def collect_code_files(input_paths):
     """
-    Generate documentation markdown files from given code file paths using MCP AI tool.
+    Collect all source code files from the given list of input paths.
 
     Args:
-        code_paths (list of str): List of code file paths to document.
-        output_dir (str): Directory to save generated markdown files.
+        input_paths (list of str): List of file or folder paths.
+
+    Returns:
+        list of str: List of source code file paths.
     """
-    # Prepare arguments for MCP tool call
-    tool_name = "generate_documentation"
-    args = {
-        "codePaths": code_paths
-    }
+    code_files = []
+    for path in input_paths:
+        if os.path.isfile(path):
+            # If path is a file, add directly if it has a source code extension
+            if path.endswith(('.py', '.js', '.ts', '.java', '.cpp', '.c', '.cs', '.go', '.rb', '.php', '.html')):
+                code_files.append(path)
+        elif os.path.isdir(path):
+            # If path is a directory, walk recursively and add source code files
+            for root, _, files in os.walk(path):
+                for file in files:
+                    if file.endswith(('.py', '.js', '.ts', '.java', '.cpp', '.c', '.cs', '.go', '.rb', '.php', '.html')):
+                        code_files.append(os.path.join(root, file))
+    return code_files
 
-    # Call MCP tool via subprocess (assuming MCP server is running and accessible)
-    # This is a placeholder for actual MCP client call
-    try:
-        # Example command to call MCP tool (adjust as needed)
-        # Here we simulate the call and response
-        print(f"Calling MCP tool '{tool_name}' with code paths: {code_paths}")
-        # Simulated response text
-        response_text = f"Documentation generated for files: {', '.join(code_paths)}"
+def generate_documentation(code_files, output_dir):
+    """
+    Generate markdown documentation files from a list of source code files.
 
-        # For each code file, create a markdown file with placeholder content
-        for code_path in code_paths:
-            filename = os.path.basename(code_path)
-            doc_filename = os.path.splitext(filename)[0] + "_doc.md"
-            doc_filepath = os.path.join(output_dir, doc_filename)
-            with open(doc_filepath, "w") as f:
-                f.write(f"# Documentation for {filename}\n\n")
-                f.write(response_text + "\n")
-            print(f"Generated documentation: {doc_filepath}")
+    Args:
+        code_files (list of str): List of source code file paths.
+        output_dir (str): Directory where generated markdown documentation files will be saved.
 
-    except Exception as e:
-        print(f"Error calling MCP tool: {e}")
+    The current implementation is a minimal viable product (MVP) that creates placeholder
+    documentation files. It can be extended to integrate AI-powered documentation generation.
+    """
+    for code_path in code_files:
+        filename = os.path.basename(code_path)
+        doc_filename = os.path.splitext(filename)[0] + "_doc.md"
+        doc_filepath = os.path.join(output_dir, doc_filename)
+
+        with open(doc_filepath, "w", encoding="utf-8") as f:
+            f.write(f"# Documentation for {filename}\n\n")
+            f.write(f"Generated documentation content for {filename}.\n")
+
+        print(f"Generated documentation: {doc_filepath}")
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate markdown documentation from code files.")
+    """
+    Main entry point for the script.
+
+    Parses command-line arguments for multiple input paths and output directory,
+    ensures the output directory exists, collects source code files, and generates documentation.
+    """
+    parser = argparse.ArgumentParser(description="Generate markdown documentation from code files or folders.")
     parser.add_argument(
-        "code_paths",
+        "input_paths",
         nargs="+",
-        help="Paths to code files to generate documentation for."
+        help="Paths to source code files or folders to generate documentation for."
     )
     parser.add_argument(
         "--output_dir",
-        default=".",
-        help="Directory to save generated markdown files (default: current directory)."
+        default="Docs/Initial_Documentation/generated_docs",
+        help="Directory to save generated markdown files (default: Docs/Initial_Documentation/generated_docs)."
     )
     args = parser.parse_args()
 
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
 
-    generate_documentation(args.code_paths, args.output_dir)
+    code_files = collect_code_files(args.input_paths)
+    generate_documentation(code_files, args.output_dir)
 
 if __name__ == "__main__":
     main()
