@@ -1,3 +1,4 @@
+===== File: gravitywaves_wbs_level2_full.txt =====
 1-1. Data Acquisition and Management
    Description: Acquisition, storage, and management of stock market data from multiple sources.
 
@@ -36,7 +37,6 @@
 
 1-4. Testing, Quality Assurance, and Validation
    Description: Testing of backend and frontend components, ensuring quality and performance.
-
 1-4-1. Unit Testing
        Description: Develop and execute unit tests for individual components.
 
