@@ -1,0 +1,24 @@
+# ERD (Entity-Relationship Diagram) Documentation
+
+## Purpose
+ERDs model the data structure of a system by illustrating entities, attributes, and relationships. They are essential for database design and data management.
+
+## Contents
+- Overview of ERD components: Entities, Attributes, Relationships
+- Types of relationships: one-to-one, one-to-many, many-to-many
+- Notations used in ERDs (Chen, Crow’s Foot, UML)
+- Steps to create ERDs for the Gravity Waves database schema
+- Sample ERDs for core data models
+- Tools and software for ERD creation
+- Best practices for ERD maintenance and version control
+
+## Instructions
+- Identify key entities and their attributes.
+- Define relationships with cardinality and optionality.
+- Use consistent notation throughout diagrams.
+- Collaborate with database designers and developers.
+- Update ERDs as database schema evolves.
+
+## References
+- ERD notation standards
+- Database design textbooks and resources

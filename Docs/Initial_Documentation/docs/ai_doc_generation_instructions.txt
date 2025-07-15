@@ -1,0 +1,29 @@
+AI Documentation Generation Instructions
+
+The AI should generate comprehensive markdown documentation for the given code files. The documentation should include:
+
+1. Overview: Brief summary of the code file's purpose and functionality.
+2. Key Components: Description of main classes, functions, and data structures.
+3. Usage: How to use the code, including example usage if applicable.
+4. Dependencies: External libraries or modules required.
+5. Important Details: Any algorithms, design patterns, or special considerations.
+6. Comments: Extract and explain important comments or docstrings.
+7. Formatting: Use markdown headings, lists, and code blocks for clarity.
+8. Clarity: Write clear, concise, and professional documentation.
+9. Isolation: Documentation should be self-contained and not depend on external context.
+10. Updates: After each code change, review and update the documentation accordingly.
+
+The AI should produce documentation that is easy to read and helpful for developers and users alike.
+
+---
+
+# Documentation Types
+
+For the Gravity Waves project, documentation will be organized into the following types, each with its own detailed instructions file:
+
+- API Documentation: See `documentation_types_instructions.txt` for generation guidelines.
+- User Interface Documentation: See `documentation_types_instructions.txt` for generation guidelines.
+- Design and Architecture Documentation: See `documentation_types_instructions.txt` for generation guidelines.
+- Testing and Usage Guides: See `documentation_types_instructions.txt` for generation guidelines.
+
+Refer to these files to guide the documentation generation process for each type.

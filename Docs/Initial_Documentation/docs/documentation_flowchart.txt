@@ -1,0 +1,22 @@
+# Flowchart Documentation
+
+## Purpose
+Flowcharts visually represent algorithms, workflows, or processes using standardized symbols. They aid in understanding logic and decision points.
+
+## Contents
+- Introduction to flowchart symbols and conventions
+- Guidelines for creating flowcharts for system processes and algorithms
+- Examples of flowcharts for key functionalities in Gravity Waves
+- Tools and software recommendations for flowchart creation
+- Best practices for clear and maintainable flowcharts
+
+## Instructions
+- Define the start and end points clearly.
+- Use standard symbols for processes, decisions, inputs/outputs, and connectors.
+- Keep flowcharts simple and focused on a single process.
+- Validate flowcharts with developers and stakeholders.
+- Update flowcharts to reflect changes in logic or process.
+
+## References
+- Flowcharting standards and tutorials
+- Examples from software engineering literature

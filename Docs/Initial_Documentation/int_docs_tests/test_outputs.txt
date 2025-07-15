@@ -1,0 +1,8 @@
+Test Outputs for doc_generator.py
+
+1. test_doc_generator_runs_and_creates_docs
+   - Output:
+     Ran 1 test in 0.039s
+     OK
+   - Description:
+     The test executed the doc_generator.py script with a sample code file and verified that the documentation markdown file was created successfully with the expected content.

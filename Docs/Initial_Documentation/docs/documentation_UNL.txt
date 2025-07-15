@@ -1,0 +1,23 @@
+# UNL (Universal Networking Language) Diagrams Documentation
+
+## Purpose
+UNL diagrams are used to represent knowledge and semantic relationships in a language-independent format. They are useful for capturing complex domain knowledge and facilitating communication between diverse systems and stakeholders.
+
+## Contents
+- Introduction to UNL and its significance
+- Components of UNL diagrams: Universal Words, Relations, Attributes
+- Guidelines for creating UNL diagrams
+- Examples of UNL diagrams relevant to the Gravity Waves project
+- Tools and software recommendations for UNL diagram creation
+- Best practices for maintaining and updating UNL diagrams
+
+## Instructions
+- Identify key domain concepts and their relationships.
+- Use standardized UNL notation for clarity and consistency.
+- Validate diagrams with domain experts.
+- Integrate UNL diagrams with other documentation types where applicable.
+- Keep diagrams updated as domain knowledge evolves.
+
+## References
+- UNL official website and resources
+- Research papers and tutorials on UNL
