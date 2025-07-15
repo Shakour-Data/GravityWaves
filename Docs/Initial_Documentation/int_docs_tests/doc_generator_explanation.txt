@@ -1,0 +1,26 @@
+Explanation of Docs/Initial_Documentation/doc_generator.py
+
+This Python script is a minimal viable product (MVP) for generating markdown documentation files from a given folder containing source code files. It is designed to automate the creation of documentation by processing all relevant code files within a specified directory.
+
+Key Features:
+- Accepts a single input argument: the path to the main source code folder.
+- Recursively scans the folder to find source code files with common programming language extensions (e.g., .py, .js, .ts, .java, .cpp, .c, .cs, .go, .rb, .php).
+- For each code file found, generates a corresponding markdown documentation file with a placeholder header and content.
+- Saves all generated markdown files into a specified output directory, creating it if it does not exist.
+- Provides command-line interface with arguments for input folder and output directory.
+
+Code Structure:
+- `generate_documentation(code_folder, output_dir)`: Main function that scans the input folder, collects code files, and generates markdown documentation files with placeholder content.
+- `main()`: Parses command-line arguments, ensures output directory exists, and calls the documentation generation function.
+
+Usage:
+Run the script from the command line, providing the path to the source code folder and optionally the output directory for documentation files.
+
+Example:
+```
+python3 doc_generator.py /path/to/source/code --output_dir Docs/Initial_Documentation/generated_docs
+```
+
+This script serves as a foundation for integrating AI-powered documentation generation in the future by replacing the placeholder content generation with calls to AI models or MCP tools.
+
+The code is structured for clarity and ease of extension, with comprehensive docstrings and comments to facilitate maintenance and enhancement.

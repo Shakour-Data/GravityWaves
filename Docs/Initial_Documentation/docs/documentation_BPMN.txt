@@ -1,0 +1,23 @@
+# BPMN (Business Process Model and Notation) Diagrams Documentation
+
+## Purpose
+BPMN diagrams model business processes in a standardized graphical notation, enabling clear communication of workflows and process logic among stakeholders.
+
+## Contents
+- Overview of BPMN and its importance in process modeling
+- BPMN elements: Events, Activities, Gateways, Flows, Pools, and Lanes
+- Steps to create BPMN diagrams for the Gravity Waves project
+- Sample BPMN diagrams illustrating key business processes
+- Tools and software recommendations for BPMN diagramming
+- Best practices for BPMN diagram maintenance and versioning
+
+## Instructions
+- Map out business processes with clear start and end points.
+- Use appropriate BPMN elements to represent process flow.
+- Collaborate with business analysts and stakeholders for accuracy.
+- Review and validate BPMN diagrams regularly.
+- Link BPMN diagrams to related documentation such as requirements and design.
+
+## References
+- BPMN specification documents
+- Tutorials and case studies on BPMN usage

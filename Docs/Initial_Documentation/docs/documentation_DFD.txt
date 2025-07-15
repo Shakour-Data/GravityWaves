@@ -1,0 +1,23 @@
+# DFD (Data Flow Diagram) Documentation
+
+## Purpose
+DFDs illustrate how data moves through a system, showing sources, destinations, storage, and processes. They help in understanding system functionality and data handling.
+
+## Contents
+- Introduction to DFD concepts and symbols
+- Levels of DFDs: Context, Level 1, Level 2, etc.
+- Guidelines for creating DFDs for the Gravity Waves system
+- Examples of DFDs depicting data flow in key modules
+- Recommended tools for DFD creation
+- Best practices for DFD documentation and updates
+
+## Instructions
+- Identify external entities, processes, data stores, and data flows.
+- Start with a high-level context diagram, then decompose into detailed levels.
+- Ensure data flows are labeled clearly and consistently.
+- Validate diagrams with system architects and developers.
+- Keep DFDs synchronized with system changes.
+
+## References
+- Standard DFD notation guides
+- Case studies on effective DFD usage
