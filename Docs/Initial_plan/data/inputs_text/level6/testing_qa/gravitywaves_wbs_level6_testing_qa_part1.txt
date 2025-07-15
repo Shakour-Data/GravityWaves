@@ -1,0 +1,31 @@
+1-4-1-1-1. Test Case Design - Backend Modules - Identify Test Scenarios
+           Description: Identify test scenarios for backend modules.
+
+1-4-1-1-2. Test Case Design - Backend Modules - Write Test Cases
+           Description: Write detailed test cases for backend modules.
+
+1-4-1-1-3. Test Case Design - Backend Modules - Review Test Cases
+           Description: Review test cases with development team.
+
+1-4-1-2-1. Test Implementation - Backend Modules - Develop Unit Tests
+           Description: Develop unit tests for backend modules.
+
+1-4-1-2-2. Test Implementation - Backend Modules - Integrate Tests into CI
+           Description: Integrate unit tests into continuous integration pipeline.
+
+1-4-1-2-3. Test Implementation - Backend Modules - Test Execution
+           Description: Execute unit tests and analyze results.
+
+1-4-1-3-1. Test Case Design - Frontend Modules - Identify Test Scenarios
+           Description: Identify test scenarios for frontend modules.
+
+1-4-1-3-2. Test Case Design - Frontend Modules - Write Test Cases
+           Description: Write detailed test cases for frontend modules.
+
+1-4-1-3-3. Test Case Design - Frontend Modules - Review Test Cases
+           Description: Review test cases with UI/UX team.
+
+1-4-1-4-1. Test Implementation - Frontend Modules - Develop Unit Tests
+           Description: Develop unit tests for frontend modules.
+
+# Note: This file contains the first part of Level 6 WBS tasks for Testing, Quality Assurance, and Validation branch.

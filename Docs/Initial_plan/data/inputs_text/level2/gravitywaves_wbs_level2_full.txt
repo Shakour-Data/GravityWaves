@@ -1,0 +1,109 @@
+===== File: gravitywaves_wbs_level2_full.txt =====
+1-1. Data Acquisition and Management
+   Description: Acquisition, storage, and management of stock market data from multiple sources.
+
+1-1-1. Market Data Source Integration
+       Description: Integrate with various market data sources such as Yahoo Finance and Tehran Stock Exchange APIs.
+
+1-1-2. Data Storage and Database Management
+       Description: Design and implement databases for storing market data efficiently.
+
+1-1-3. Data Caching and Performance Optimization
+       Description: Implement caching mechanisms to improve data retrieval performance.
+
+1-2. Market Data Analysis and Modeling
+   Description: Analysis of market data, feature engineering, and development of predictive models.
+
+1-2-1. Market State Classification
+       Description: Develop algorithms to classify market states based on historical data.
+
+1-2-2. Feature Engineering
+       Description: Create and select features for machine learning models.
+
+1-2-3. Model Training and Evaluation
+       Description: Train predictive models and evaluate their performance.
+
+1-3. User Interface and Visualization
+   Description: Development of frontend components for data visualization and user interaction.
+
+1-3-1. Market Dashboard Development
+       Description: Design and implement the main market dashboard layout and components.
+
+1-3-2. Analysis Pages Development
+       Description: Develop individual analysis pages such as price history, indicator analysis, and state analysis.
+
+1-3-3. User Authentication and Settings
+       Description: Implement user login, registration, and settings management features.
+
+1-4. Testing, Quality Assurance, and Validation
+   Description: Testing of backend and frontend components, ensuring quality and performance.
+1-4-1. Unit Testing
+       Description: Develop and execute unit tests for individual components.
+
+1-4-2. Integration Testing
+       Description: Test integration points between modules and systems.
+
+1-4-3. Performance and Security Testing
+       Description: Conduct performance benchmarking and security assessments.
+
+1-5. Deployment, Maintenance, and Project Management
+   Description: Deployment of applications, ongoing maintenance, and overall project management activities.
+
+1-5-1. Application Deployment
+       Description: Deploy backend and frontend applications to production environments.
+
+1-5-2. System Maintenance and Monitoring
+       Description: Monitor system health and perform maintenance tasks.
+
+1-5-3. Project Management and Reporting
+       Description: Manage project tasks, track progress, and generate reports.
+
+1-6. Documentation and Training
+   Description: Creation and maintenance of project documentation and user training materials.
+
+1-6-1. Technical Documentation
+       Description: Develop and maintain technical documentation for backend and frontend components.
+
+1-6-2. User Manuals and Guides
+       Description: Create user manuals and guides for application usage.
+
+1-6-3. Training and Support
+       Description: Provide training sessions and ongoing support for users.
+
+1-7. Security and Compliance
+   Description: Implementation of security measures and compliance with relevant regulations.
+
+1-7-1. Security Policy Development
+       Description: Develop security policies and procedures.
+
+1-7-2. Compliance Auditing
+       Description: Conduct audits to ensure regulatory compliance.
+
+1-7-3. Security Testing
+       Description: Perform security testing and vulnerability assessments.
+
+1-8. Performance Optimization
+   Description: Optimization of system performance across backend and frontend components.
+
+1-8-1. Backend Performance Tuning
+       Description: Optimize backend services for scalability and speed.
+
+1-8-2. Frontend Performance Optimization
+       Description: Improve frontend load times and responsiveness.
+
+1-8-3. Monitoring and Alerting
+       Description: Implement monitoring tools and alert systems for performance issues.
+
+1-9. User Support and Feedback
+   Description: Providing user support and collecting feedback for continuous improvement.
+
+1-9-1. Helpdesk and Support Services
+       Description: Establish helpdesk for user support.
+
+1-9-2. Feedback Collection and Analysis
+       Description: Collect and analyze user feedback for improvements.
+
+1-9-3. Continuous Improvement Planning
+       Description: Plan and implement improvements based on feedback.
+
+# Note: This file defines a comprehensive Level 2 WBS with at least three child tasks for each Level 1 project.

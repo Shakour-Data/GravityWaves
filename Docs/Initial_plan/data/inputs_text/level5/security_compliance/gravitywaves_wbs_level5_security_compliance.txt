@@ -1,0 +1,37 @@
+1-7-1-1. Security Policy Development - Policy Creation - Draft Policies
+           Description: Draft security policies and procedures.
+
+1-7-1-2. Security Policy Development - Policy Creation - Policy Review
+           Description: Review and revise security policies.
+
+1-7-1-3. Security Policy Development - Policy Creation - Policy Approval
+           Description: Obtain approval for security policies.
+
+1-7-1-4. Security Policy Development - Policy Review - Periodic Review
+           Description: Conduct periodic reviews of security policies.
+
+1-7-1-5. Security Policy Development - Policy Review - Update Policies
+           Description: Update policies based on review findings.
+
+1-7-2-1. Compliance Auditing - Regulatory Compliance - Compliance Assessment
+           Description: Assess compliance with relevant regulations.
+
+1-7-2-2. Compliance Auditing - Regulatory Compliance - Compliance Reporting
+           Description: Prepare compliance reports.
+
+1-7-2-3. Compliance Auditing - Audit Reporting - Audit Planning
+           Description: Plan security audits.
+
+1-7-2-4. Compliance Auditing - Audit Reporting - Audit Execution
+           Description: Conduct security audits.
+
+1-7-2-5. Security Testing - Vulnerability Scanning - Scan Planning
+           Description: Plan vulnerability scans.
+
+1-7-2-6. Security Testing - Vulnerability Scanning - Scan Execution
+           Description: Perform vulnerability scans.
+
+1-7-2-7. Security Testing - Vulnerability Scanning - Penetration Testing
+           Description: Conduct penetration testing.
+
+# Note: This file defines Level 5 WBS tasks for all Level 4 branches under Security and Compliance.

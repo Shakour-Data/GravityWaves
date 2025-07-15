@@ -1,0 +1,28 @@
+1-1-1-1. Yahoo Finance API - Authentication Setup
+         Description: Implement authentication mechanisms for Yahoo Finance API access.
+
+1-1-1-2. Yahoo Finance API - Data Retrieval
+         Description: Develop functions to retrieve market data from Yahoo Finance.
+
+1-1-1-3. Yahoo Finance API - Error Handling
+         Description: Implement error handling and retry logic for API calls.
+
+1-1-2-1. Tehran Stock Exchange API - Authentication Setup
+         Description: Implement authentication mechanisms for Tehran Stock Exchange API.
+
+1-1-2-2. Tehran Stock Exchange API - Data Retrieval
+         Description: Develop functions to retrieve market data from Tehran Stock Exchange.
+
+1-1-2-3. Tehran Stock Exchange API - Error Handling
+         Description: Implement error handling and retry logic for API calls.
+
+1-1-3-1. Other Data Providers - Integration Planning
+         Description: Identify and plan integration with additional data providers.
+
+1-1-3-2. Other Data Providers - Implementation
+         Description: Develop integration modules for other data providers.
+
+1-1-3-3. Other Data Providers - Testing and Validation
+         Description: Test and validate data from other providers.
+
+# Note: This file defines a detailed Level 4 WBS for selected Level 3 tasks. Further Level 4 tasks will be created for other Level 3 tasks.

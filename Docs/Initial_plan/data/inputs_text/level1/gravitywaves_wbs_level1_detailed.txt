@@ -1,0 +1,19 @@
+1. Gravity Stock Analysis
+   Description: Comprehensive stock market analysis project including backend data processing, machine learning, and frontend visualization.
+
+1-1. Data Acquisition and Management
+     Description: Acquisition, storage, and management of stock market data from multiple sources.
+
+1-2. Market Data Analysis and Modeling
+     Description: Analysis of market data, feature engineering, and development of predictive models.
+
+1-3. User Interface and Visualization
+     Description: Development of frontend components for data visualization and user interaction.
+
+1-4. Testing, Quality Assurance, and Validation
+     Description: Testing of backend and frontend components, ensuring quality and performance.
+
+1-5. Deployment, Maintenance, and Project Management
+     Description: Deployment of applications, ongoing maintenance, and overall project management activities.
+
+# Note: This file defines a detailed Level 1 WBS with five main projects under Gravity Stock Analysis, reflecting the project's scope and software engineering best practices.

@@ -1,30 +1,41 @@
 Deployment and Integration - Detailed Activities and Tasks
 
 1. Infrastructure Setup
-   - Choose hosting platform (cloud or on-premises)
-   - Configure servers, databases, and networking
-   - Set up security groups and firewalls
-   - Configure load balancers and DNS
+   - Choose hosting platform (cloud or on-premises).
+   - Configure servers, databases, and networking.
+   - Set up security groups and firewalls.
+   - Configure load balancers and DNS.
 
 2. CI/CD Pipeline
-   - Implement automated build pipelines
-   - Set up automated testing pipelines
-   - Configure deployment pipelines for staging and production
-   - Integrate code quality and security checks
+   - Implement automated build pipelines.
+   - Set up automated testing pipelines.
+   - Configure deployment pipelines for staging and production.
+   - Integrate code quality and security checks.
 
 3. Application Deployment
-   - Deploy project management app
-   - Deploy main project application
-   - Configure secure communication between applications
-   - Set up authentication and authorization mechanisms
+   - Deploy project management app.
+   - Deploy main project application.
+   - Configure secure communication between applications.
+   - Set up authentication and authorization mechanisms.
 
 4. Monitoring and Maintenance
-   - Set up monitoring tools for uptime and performance
-   - Configure alerting and logging
-   - Plan backup and disaster recovery strategies
-   - Schedule regular maintenance windows
+   - Set up monitoring tools for uptime and performance.
+   - Configure alerting and logging.
+   - Plan backup and disaster recovery strategies.
+   - Schedule regular maintenance windows.
 
-5. Testing
-   - Validate deployment with real data and full work cycle
-   - Monitor logs and performance metrics post-deployment
-   - Conduct security and penetration testing
+5. Work Breakdown Structure (WBS) Generation
+   - The system allows users to provide folder paths where program code resides.
+   - An AI MCP tool generates the WBS up to 6 levels based on the code structure.
+   - Users can also write work scenarios describing the tasks they want to perform.
+   - The AI MCP interprets these scenarios and generates a detailed WBS up to 6 levels.
+   - This functionality supports dynamic and flexible project planning based on real code and user input.
+
+6. Testing
+   - Validate deployment with real data and full work cycle.
+   - Monitor logs and performance metrics post-deployment.
+   - Conduct security and penetration testing.
+
+---
+
+This document outlines the key activities and tasks involved in deploying and integrating the GravityWaves project components. Each step ensures a robust, secure, and maintainable deployment environment.

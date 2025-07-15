@@ -1,0 +1,13 @@
+1-5. Deployment, Maintenance, and Project Management
+   Description: Deployment of applications, ongoing maintenance, and overall project management activities.
+
+1-5-1. Application Deployment
+       Description: Deploy backend and frontend applications to production environments.
+
+1-5-2. System Maintenance and Monitoring
+       Description: Monitor system health and perform maintenance tasks.
+
+1-5-3. Project Management and Reporting
+       Description: Manage project tasks, track progress, and generate reports.
+
+# Note: Further Level 2 files will be created for other main projects.

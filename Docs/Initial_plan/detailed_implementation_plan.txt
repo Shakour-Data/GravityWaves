@@ -1,0 +1,159 @@
+# Detailed Implementation Plan for GravityWaves Project
+
+## Overview
+This document provides a comprehensive and precise plan for the implementation of the GravityWaves project, including all pages, algorithms, classes, and functions. It covers both implemented and pending components, ensuring a complete understanding of the project structure and development roadmap.
+
+---
+
+## Pages and Corresponding Backend Components
+
+### 1. Index Page (`/`)
+- Template: `index.html`
+- Backend: `app.py` - `index_page()` function
+- Description: Entry page listing available analyses.
+- Related Services: None directly, serves as navigation.
+
+### 2. Market Dashboard (`/market_dashboard`)
+- Template: `market_dashboard.html`
+- Backend: `app.py` - `market_dashboard_page()`
+- Related Services:
+  - `app/services/market_analysis_system.py`
+    - Classes: `MarketStateClassifier`, `MarketAnalysisSystem`
+    - Functions: `run_analysis_pipeline()`, `_calculate_market_state_thresholds()`, `_calculate_volatility_thresholds()`, `_classify_market_state()`, `_classify_volatility_regime()`, `_feature_engineering()`, `_forecast_future_market_state()`, `_forecast_future_volatility_regime()`, `_forecast_future_price_range()`
+  - `app/services/indicator_calculator.py`
+    - Class: `IndicatorCalculator`
+    - Functions: `calculate_indicators_for_dataframe()`, `_calculate_single_indicator()`
+  - `app/services/market_data_fetcher.py`
+    - Classes: `MarketDataFetcher`, `YahooFinanceDataSource`, `TSEDataSource`
+    - Functions: `fetch_data()`, `load_market_data()`
+  - `app/services/cache_manager.py`
+    - Class: `CacheManager`
+    - Functions: `get()`, `set()`
+
+### 3. Price History (`/price_history`)
+- Template: `price_history.html`
+- Backend: `app.py` - `price_history_page()`
+- Related Services:
+  - `app/services/assistant_analysis.py`
+    - Functions: `analyze_message()`, `analyze_message_with_price_history_preserved()`
+  - `app/services/market_data_fetcher.py`
+  - `app/services/cache_manager.py`
+
+### 4. State Analysis (`/state_analysis`)
+- Template: `state_analysis.html`
+- Backend: `app.py` - `state_analysis_page()`
+- Related Services:
+  - `app/services/market_analysis_system.py`
+  - `app/services/indicator_calculator.py`
+
+### 5. Date Analysis (`/date_analysis`)
+- Template: `date_analysis.html`
+- Backend: `app.py` - `date_analysis_page()`
+- Related Services:
+  - To be determined (likely market data and analysis services)
+
+### 6. Price Analysis (`/price_analysis`)
+- Template: `price_analysis.html`
+- Backend: `app.py` - `price_analysis_page()`
+- Related Services:
+  - `app/services/indicator_calculator.py`
+  - `app/services/market_data_fetcher.py`
+
+### 7. Indicator Analysis (`/indicator_analysis`)
+- Template: `indicator_analysis.html`
+- Backend: `app.py` - `indicator_analysis_page()`
+- Related Services:
+  - `app/services/indicator_calculator.py`
+
+### 8. Comparative Results (`/comparative_results`)
+- Template: `comparative_results.html`
+- Backend: `app.py` - `comparative_results_page()`
+- Related Services:
+  - `app/services/project_scoring.py`
+    - Functions: `calculate_importance()`, `calculate_urgency()`, `calculate_delay()`, `calculate_progress()`, `generate_report()`
+
+### 9. Custom Analysis (`/custom_analysis`)
+- Template: `custom_analysis.html`
+- Backend: `app.py` - `custom_analysis_page()`
+- Related Services:
+  - Custom user-defined analyses, possibly involving multiple services.
+
+### 10. Optimization Results (`/optimization_results`)
+- Template: `optimization_results.html`
+- Backend: `app.py` - `optimization_results_page()`
+- Related Services:
+  - `app/services/optimization_engine.py`
+    - Class: `IndicatorOptimizer`
+    - Functions: `optimize()`, `_run_genetic_algorithm()`, `_run_bayesian_optimization()`, `_custom_mutate()`, `_objective_function()`, `_create_search_space()`, `_map_skopt_params_to_specs()`
+
+### 11. Trend Analysis (`/trend_analysis`)
+- Template: `trend_analysis.html`
+- Backend: `app.py` - `trend_analysis_page()`
+- Related Services:
+  - `app/services/market_analysis_system.py`
+  - `app/services/indicator_calculator.py`
+
+### 12. Trading Signals (`/trading_signals`)
+- No template yet (placeholder)
+- Backend: `app.py` - `trading_signals_page()`
+- Related Services:
+  - `app/services/trading_signals.py`
+    - Class: `TradingSignalsBacktester`
+    - Functions: `run_backtest()`
+
+---
+
+## Backend Classes and Functions Summary
+
+- `app/services/assistant_analysis.py`
+  - `analyze_message()`
+  - `analyze_message_with_price_history_preserved()`
+
+- `app/services/cache_manager.py`
+  - `CacheManager` class with `get()`, `set()` methods
+
+- `app/services/indicator_calculator.py`
+  - `IndicatorCalculator` class with indicator calculation methods
+
+- `app/services/log_manager.py`
+  - `LogManager` and related logging classes and methods
+
+- `app/services/market_analysis_system.py`
+  - `MarketStateClassifier`, `MarketAnalysisSystem` classes
+  - Various analysis and forecasting methods
+
+- `app/services/market_data_fetcher.py`
+  - `MarketDataFetcher`, `YahooFinanceDataSource`, `TSEDataSource` classes
+  - Data fetching methods
+
+- `app/services/optimization_engine.py`
+  - `IndicatorOptimizer` class with optimization algorithms
+
+- `app/services/project_scoring.py`
+  - Functions for scoring and reporting
+
+- `app/services/trading_signals.py`
+  - `TradingSignalsBacktester` class with backtesting methods
+
+---
+
+## Pending and Suggested Functions to Implement
+
+- Complete frontend integration for trading signals page
+- Implement missing analysis pages backend logic (e.g., date_analysis)
+- Add error handling and validation in API endpoints
+- Expand user authentication and settings management
+- Enhance logging and monitoring features
+- Add unit and integration tests for all new and existing functions
+
+---
+
+## Notes
+
+- The project is more than half completed; many core backend services and frontend pages are implemented.
+- This plan includes all known classes and functions; any new features should be added following this structure.
+- The detailed function list is based on current codebase analysis and may be updated as development progresses.
+
+---
+
+This detailed implementation plan serves as a comprehensive guide for developers to understand the project structure, existing components, and remaining work.

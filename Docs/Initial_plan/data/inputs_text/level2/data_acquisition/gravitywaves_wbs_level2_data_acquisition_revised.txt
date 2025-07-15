@@ -1,0 +1,13 @@
+1-1. Data Acquisition and Management
+   Description: Acquisition, storage, and management of stock market data from multiple sources.
+
+1-1-1. Market Data Source Integration
+       Description: Integrate with various market data sources such as Yahoo Finance and Tehran Stock Exchange APIs.
+
+1-1-2. Data Storage and Database Management
+       Description: Design and implement databases for storing market data efficiently.
+
+1-1-3. Data Caching and Performance Optimization
+       Description: Implement caching mechanisms to improve data retrieval performance.
+
+# Note: Further Level 2 files will be created for other main projects.

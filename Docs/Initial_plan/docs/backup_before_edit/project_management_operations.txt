@@ -1,0 +1,70 @@
+Project Management Operations - Instructions and Standards
+
+1. JSON File Hierarchy and Storage Paths
+
+- Project Level:
+  * Each ProjectID corresponds to a JSON file saved in:
+    Docs/Initial_plan/data/projects/{ProjectID}.json
+
+- SubProject Level 1 (SubProjectID_L1):
+  * Each SubProjectID_L1 is saved in:
+    Docs/Initial_plan/data/subprojects_l1/{SubProjectID_L1}.json
+
+- SubProject Level 2 (SubProjectID_L2):
+  * Each SubProjectID_L2 is saved in:
+    Docs/Initial_plan/data/subprojects_l2/{SubProjectID_L2}.json
+
+- Activity Level 1 (ActivityID_L1):
+  * Each ActivityID_L1 is saved in:
+    Docs/Initial_plan/data/activities_l1/{ActivityID_L1}.json
+
+- Activity Level 2 (ActivityID_L2):
+  * Each ActivityID_L2 is saved in:
+    Docs/Initial_plan/data/activities_l2/{ActivityID_L2}.json
+
+- Task Level (taskID):
+  * Each taskID is saved in:
+    Docs/Initial_plan/data/tasks/{taskID}.json
+
+- Main Core File:
+  * A consolidated main_core.json file is saved in:
+    Docs/Initial_plan/data/main_core.json
+
+2. JSON File Standards
+
+- All JSON files must be UTF-8 encoded.
+- Each JSON file must include the following standard fields:
+  * id: Unique identifier (ProjectID, SubProjectID, ActivityID, taskID)
+  * name: Descriptive name of the item
+  * parent_id: Identifier of the parent item (if applicable)
+  * description: Text description of the item
+  * status: Current status (e.g., To Do, In Progress, Done)
+  * assigned_to: Resource or user assigned (optional)
+  * start_date and end_date: Planned dates (optional)
+  * additional metadata as needed per item type
+
+- The structure must be consistent across all files to ensure compatibility with the Python processing scripts.
+
+3. User Guidance for File Placement
+
+- When running the system, users must place JSON files in the appropriate directories as per the hierarchy above.
+- The system will read these files to build the project structure and update task statuses and scores.
+- Users should ensure file names match the corresponding IDs exactly.
+- Any missing or malformed files may cause processing errors.
+
+4. Processing Workflow
+
+- The system will:
+  * Read all JSON files from the specified directories.
+  * Validate JSON structure against the standards.
+  * Build the hierarchical project model.
+  * Aggregate scores and statuses from tasks up to projects.
+  * Generate reports and dashboards accordingly.
+
+5. Error Handling and Validation
+
+- The system will log errors for missing or invalid files.
+- Users should review logs and correct any issues before rerunning.
+- Validation rules are documented in the code comments and user manual.
+
+This document will be updated as the system evolves. Users should refer to it for correct file management and system operation.

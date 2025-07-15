@@ -1,0 +1,40 @@
+1. Gravity Stock Analysis
+   Description: Comprehensive stock market analysis project including backend data processing, machine learning, and frontend visualization.
+
+1-1. Project Initiation and Planning
+     Description: Initial phase to define project scope, gather requirements, and plan activities.
+
+1-1-1. Requirements Gathering
+         Description: Collect and analyze functional and non-functional requirements.
+
+1-1-2. Stakeholder Engagement
+         Description: Conduct interviews and workshops with stakeholders.
+
+1-1-3. Project Charter Development
+         Description: Create project charter and obtain approvals.
+
+1-2. Backend Development
+     Description: Development of backend services for data fetching, analysis, and machine learning.
+
+1-2-1. Market Data Fetching Module
+         Description: Implement modules to fetch market data from various sources and manage caching.
+
+1-2-2. Market Analysis System
+         Description: Develop system for market state classification, feature engineering, and forecasting.
+
+1-2-3. Indicator Calculator
+         Description: Implement technical indicator calculations for market data.
+
+1-3. Frontend Development
+     Description: Development of user interface for data visualization and interaction.
+
+1-3-1. Market Dashboard
+         Description: Develop main dashboard layout and components.
+
+1-3-2. Analysis Pages
+         Description: Develop individual analysis pages such as price history and indicator analysis.
+
+1-3-3. User Authentication and Settings
+         Description: Implement user login, registration, and settings management.
+
+# Note: Further levels and tasks will be created in subsequent drafts following your instructions and the extended task input template.

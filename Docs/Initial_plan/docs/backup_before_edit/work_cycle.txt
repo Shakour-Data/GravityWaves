@@ -1,0 +1,35 @@
+Work Cycle for Activities - Manual Project Management Process
+
+1. Activity Initiation
+   - Define activity objectives and scope
+   - Identify required resources and stakeholders
+   - Create initial tasks and assign owners
+
+2. Planning
+   - Break down activity into detailed tasks
+   - Estimate durations and dependencies
+   - Schedule tasks within sprints or work cycles
+   - Assign resources and set priorities
+
+3. Execution
+   - Perform tasks according to schedule
+   - Track progress and update statuses in project management system
+   - Communicate issues and risks promptly
+   - Adjust plans as needed based on feedback
+
+4. Monitoring and Controlling
+   - Review task and activity progress regularly
+   - Conduct quality assurance and testing
+   - Manage risks and implement mitigation actions
+   - Update documentation and reports
+
+5. Completion
+   - Verify all tasks and deliverables are complete
+   - Obtain stakeholder approval
+   - Document lessons learned and best practices
+   - Close activity in project management system
+
+6. Review and Improvement
+   - Conduct retrospectives to identify improvements
+   - Update processes and workflows accordingly
+   - Plan next activities based on outcomes and priorities
